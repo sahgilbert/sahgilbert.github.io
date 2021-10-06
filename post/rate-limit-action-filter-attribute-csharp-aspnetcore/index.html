@@ -1,0 +1,227 @@
+<!DOCTYPE HTML>
+
+<html lang='en'>
+	<head>
+		<title>Rate Limiting RESTful Api Requests using Action Filter Attributes - C# ASP.Net Core Web Api &middot; Simon Gilbert</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		
+		
+		
+		<link rel="stylesheet" href="/assets/css/main.min.css">
+		
+		
+		<link rel="shortcut icon" href="/favicon.ico">
+		
+		
+		<noscript><link rel="stylesheet" href='/assets/css/noscript.css' /></noscript>
+
+		
+    		
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-136163864-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  		
+	</head>
+
+	<body lang='en' class="is-preload">
+
+		
+			<div id="wrapper">
+
+                
+<header id="header">
+    <a href='/' class="logo">Simon Gilbert</a>
+</header>
+
+                
+
+<nav id="nav">
+    <ul class="links">
+        <li class="active"><a href='/'>Home</a></li>
+        
+        
+    </ul>
+    
+    <ul class="icons">
+        
+        
+        
+        
+        
+        <li><a href="https://github.com/sahgilbert" class="icon fa-github"><span class="label">GitHub</span></a></li>
+        
+        
+        
+        
+        
+    </ul>
+    
+</nav>
+
+
+				
+					<div id="main">
+
+						
+                        <section class="post">
+                            <header class="major">
+                                
+                                <span class="date">May 2, 2019</span>
+                                
+                                <h1>Rate Limiting RESTful Api Requests using Action Filter Attributes - C# ASP.Net Core Web Api</h1>
+                                <p></p>
+                            </header>
+                            
+                            <div class="image main"><img src="/images/2019/05/simon-gilbert-dev-cto-blog-25.png" alt="" /></div>
+                            
+                            <blockquote>
+<p>&ldquo;In computer networks, rate limiting is used to control the rate of traffic sent or received by a network interface controller and is used to prevent DDoS attacks.&rdquo;</p>
+</blockquote>
+<p>&hellip;We&rsquo;re not going to be looking at preventing DDoS attacks today, but we are going to look at a simple method for limiting the number of times your users can request a particular endpoint within your C# ASP.Net Core Web Api.</p>
+<figure><img src="/images/2019/05/simon-gilbert-dev-cto-rate-limit-1.png"
+         alt="Action Filter Attribute Rate Limiting - C# ASP.Net Core Web Api"/><figcaption>
+            <p>Action Filter Attribute Rate Limiting - C# ASP.Net Core Web Api</p>
+        </figcaption>
+</figure>
+
+<h3 id="enter-aspnet-core-action-filter-attributes">Enter &ldquo;ASP.Net Core Action Filter Attributes&rdquo;&hellip;</h3>
+<p>The <strong>C#</strong>  <strong>ASP.Net MVC</strong>  <strong>Core</strong> framework supports four different types of filters:</p>
+<ol>
+<li>Authorization filters – Implements the <code>IAuthorizationFilter</code> attribute.</li>
+<li>Action filters – Implements the <code>IActionFilter</code> attribute.</li>
+<li>Result filters – Implements the <code>IResultFilter</code> attribute.</li>
+<li>Exception filters – Implements the <code>IExceptionFilter</code> attribute.</li>
+</ol>
+<p>Today we&rsquo;re going to look at using an action filter, which is an attribute. You can apply most action filters to either an individual controller action or an entire controller.</p>
+<blockquote>
+<p>&ldquo;Action filters are used to implement the logic that get executed before or after a controller action executes.&rdquo;</p>
+</blockquote>
+<h3 id="lets-code">Let&rsquo;s Code&hellip;</h3>
+<p>To begin with, we need a class that inherits from ActionFilterAttribute.</p>
+<figure><img src="/images/2019/05/simon-gilbert-dev-cto-rate-limit-2.png"
+         alt="Action Filter Attribute Rate Limiting - C# ASP.Net Core Web Api"/><figcaption>
+            <p>Action Filter Attribute Rate Limiting - C# ASP.Net Core Web Api</p>
+        </figcaption>
+</figure>
+
+<p>Our <strong>action filter attribute</strong> contains a few properties - A name for uniqueness, an integer to store the <strong>number of seconds</strong> we&rsquo;re basing our <strong>rate limiting</strong> on, and a cache for managing our rate limiting.</p>
+<p>Next, we need to override the virtual <strong>OnActionExecuting</strong> method from our inherited class. Within this method we are doing the following -</p>
+<ol>
+<li>
+<p>Obtaining the users <strong>ip address</strong>.</p>
+</li>
+<li>
+<p>Storing the <strong>ip address</strong> in our memory cache, with a timeout based on the <strong>number of seconds</strong> we have assigned to our rate limiting action filter attribute.</p>
+</li>
+<li>
+<p>Returning an <strong>error message</strong> and a relevant status code <strong>(HTTP 429)</strong>, in the event that the user hits our rate limit for the Api.</p>
+</li>
+</ol>
+<figure><img src="/images/2019/05/simon-gilbert-dev-cto-rate-limit-3.png"
+         alt="Action Filter Attribute Rate Limiting - C# ASP.Net Core Web Api"/><figcaption>
+            <p>Action Filter Attribute Rate Limiting - C# ASP.Net Core Web Api</p>
+        </figcaption>
+</figure>
+
+<p>Now to apply our action filter attribute to our desired controller action. I&rsquo;ve added a simple <strong>Api endpoint</strong> for this example, and applied the <strong>attribute</strong> to the method, stating that we want to rate limit to <strong>1 request, every 5 seconds</strong>.</p>
+<figure><img src="/images/2019/05/simon-gilbert-dev-cto-rate-limit-4.png"
+         alt="Action Filter Attribute Rate Limiting - C# ASP.Net Core Web Api"/><figcaption>
+            <p>Action Filter Attribute Rate Limiting - C# ASP.Net Core Web Api</p>
+        </figcaption>
+</figure>
+
+<p>Let&rsquo;s now submit multiple requests to our endpoint and see what happens -</p>
+<figure><img src="/images/2019/05/simon-gilbert-dev-cto-rate-limit-5.png"
+         alt="Action Filter Attribute Rate Limiting - C# ASP.Net Core Web Api"/><figcaption>
+            <p>Action Filter Attribute Rate Limiting - C# ASP.Net Core Web Api</p>
+        </figcaption>
+</figure>
+
+<p>&hellip;As expected, our action filter attribute returned an error message, along with an <strong>HTTP 429</strong> &ldquo;Too Many Requests&rdquo; status code. Enjoy!</p>
+<h2 id="download-github-code-sample">Download Github Code Sample</h2>
+<p>Feel free to <strong><a href="https://github.com/sahgilbert/rate-limit-action-filter-attribute-aspnetcore">DOWNLOAD</a></strong> the sample code of the aforementioned implementation from my Github account.</p>
+
+
+                            
+                            
+                            
+                            
+                            
+                        </section>
+
+					</div>
+
+                    
+
+<footer id="footer">
+    
+    <section class="split contact">
+        
+        
+        
+        
+        <section>
+            <h3>Social</h3>
+            <ul class="icons alt">
+                
+                
+                
+                
+                
+                <li><a href="https://github.com/sahgilbert" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+                
+                
+                
+                
+                
+            </ul>
+        </section>
+        
+    </section>
+</footer>
+
+                    
+<div id="copyright">
+    <ul><li>&copy; Simon Gilbert</li><li><a href="https://www.github.com/sahgilbert">Github</a></li><li><a href="https://simongilbert.net">Blog Home Page</a></li></ul>
+</div>
+
+
+            </div>
+            
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-136163864-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+            
+
+
+
+
+
+
+
+
+
+
+<script src='/assets/js/bundle.js'></script>
+
+
+	</body>
+</html>

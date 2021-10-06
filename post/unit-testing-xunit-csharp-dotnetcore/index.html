@@ -1,0 +1,254 @@
+<!DOCTYPE HTML>
+
+<html lang='en'>
+	<head>
+		<title>Basic Unit Testing with xUnit and C# .Net Core in Visual Studio for Mac &middot; Simon Gilbert</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		
+		
+		
+		<link rel="stylesheet" href="/assets/css/main.min.css">
+		
+		
+		<link rel="shortcut icon" href="/favicon.ico">
+		
+		
+		<noscript><link rel="stylesheet" href='/assets/css/noscript.css' /></noscript>
+
+		
+    		
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-136163864-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  		
+	</head>
+
+	<body lang='en' class="is-preload">
+
+		
+			<div id="wrapper">
+
+                
+<header id="header">
+    <a href='/' class="logo">Simon Gilbert</a>
+</header>
+
+                
+
+<nav id="nav">
+    <ul class="links">
+        <li class="active"><a href='/'>Home</a></li>
+        
+        
+    </ul>
+    
+    <ul class="icons">
+        
+        
+        
+        
+        
+        <li><a href="https://github.com/sahgilbert" class="icon fa-github"><span class="label">GitHub</span></a></li>
+        
+        
+        
+        
+        
+    </ul>
+    
+</nav>
+
+
+				
+					<div id="main">
+
+						
+                        <section class="post">
+                            <header class="major">
+                                
+                                <span class="date">February 22, 2019</span>
+                                
+                                <h1>Basic Unit Testing with xUnit and C# .Net Core in Visual Studio for Mac</h1>
+                                <p></p>
+                            </header>
+                            
+                            <div class="image main"><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-five.png" alt="" /></div>
+                            
+                            <h3 id="do-you-drive-a-car">&ldquo;Do you drive a car?&rdquo;</h3>
+<figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-unit-testing-analogy.png"
+         alt="Unit Testing Analogy"/><figcaption>
+            <p>Unit Testing Analogy</p>
+        </figcaption>
+</figure>
+
+<h3 id="the-problem-at-hand">The Problem At Hand</h3>
+<p>The need for software features to be developed at pace has become rife, and understandably so - Your stakeholders are driving a business against multiple competitors, and that latest software feature you code might just be the piece that sways a customer in the direction of your product, versus the competition.</p>
+<p>&hellip;The problem with this, however, is that the assumption becomes:</p>
+<blockquote>
+<p>&ldquo;once it&rsquo;s coded, it&rsquo;s ready to be merged to production.&rdquo;</p>
+</blockquote>
+<p>&hellip;it really isn&rsquo;t. Especially not if you have zero proof that your code actually works.</p>
+<h3 id="unit-testing-proving-your-code-works">Unit Testing: Proving Your Code Works</h3>
+<p>Unit testing involves separating components of your software into individual &ldquo;units&rdquo;, and validating that each &ldquo;unit&rdquo; performs and operates as designed. The main goal of unit testing is to isolate each part of the program and show that the individual parts are correctly implemented.</p>
+<p>It&rsquo;s worth noting that unit tests will not catch every possible error within your software, unless the software itself is particularly trivial. Unit testing only measures the functionality of the unit itself, so it will not catch integration errors or performance issues.</p>
+<h3 id="what-are-we-going-to-test">What Are We Going To Test?</h3>
+<p>For this example, I&rsquo;ve put together a simple DateTime extension method for rounding up (or down) to the nearest hour. Given the use of &ldquo;ticks&rdquo; in order to determine the appropriate result, this adds enough complexity to make this unit of code perfect for being tested.</p>
+<figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-datetime-extension.png"
+         alt="DateTime Extension Method"/><figcaption>
+            <p>DateTime Extension Method</p>
+        </figcaption>
+</figure>
+
+<h3 id="configuring-visual-studio-for-testing">Configuring Visual Studio For Testing</h3>
+<p>We&rsquo;re going to use the xUnit Framework to test this extension method. Fortunately, Visual Studio for Mac comes with an xUnit Test Project class library template built in, which we can add using the normal method for adding class libraries to an existing project -</p>
+<figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-xunit-class-library.png"
+         alt="xUnit Test Project in Visual Studio for Mac"/><figcaption>
+            <p>xUnit Test Project in Visual Studio for Mac</p>
+        </figcaption>
+</figure>
+
+<p>Once you&rsquo;ve got your test project added to your solution, you&rsquo;ll notice that by default the Nuget dependencies include both xUnit and the xUnit runner, along with the Microsoft Test SDK -</p>
+<figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-xunit-test-project.png"
+         alt="xUnit Test Project Dependencies"/><figcaption>
+            <p>xUnit Test Project Dependencies</p>
+        </figcaption>
+</figure>
+
+<h3 id="writing-an-xunit-test">Writing An xUnit Test</h3>
+<p>Before we get started, I&rsquo;ll explain how xUnit tests are written in their most basic form. First you define a normal public class definition, followed by a series of methods that contain the content for each of your unit tests.</p>
+<p><em>The key thing to note here is that each method must be decorated with the <strong>[FACT]</strong> attribute (part of the xUnit Framework), in order to indicate that it is a fact and declare the test itself to the test runner console. Each test result is then validated using xUnit&rsquo;s Assert class methods.</em></p>
+<figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-unit-test-example.png"/>
+</figure>
+
+<h3 id="unit-test-permutations">Unit Test Permutations</h3>
+<p>Ok, it&rsquo;s time to start writing the tests. This is of course, the most important part of the process as it involves you analysing the various permutations through the method itself, and the range of possible results that can be output from this particular unit of work.</p>
+<p>In this example, the potential outcomes are -</p>
+<ol>
+<li>
+<p>Round (down) to the nearest hour on the same day.</p>
+</li>
+<li>
+<p>Round (up) to the nearest hour on the same day.</p>
+</li>
+<li>
+<p>Round (up) to the nearest on the next day (midnight).</p>
+</li>
+</ol>
+<figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-xunit-unit-tests.png"
+         alt="xUnit Test Permutations"/><figcaption>
+            <p>xUnit Test Permutations</p>
+        </figcaption>
+</figure>
+
+<p><em>As mentioned, you&rsquo;ll note that each test result is verified as being correct using xUnit&rsquo;s Assert class methods, which are designed to cover a wide range of validation approaches including both null and empty checks.</em></p>
+<h3 id="running-our-unit-tests">Running Our Unit Tests</h3>
+<p>Our unit tests are written and are ready to be run! The next step is to open the unit tests pad from the view menu <strong>(VIEW &gt; PADS &gt; UNIT TESTS)</strong>, and click &ldquo;Run All&rdquo;. At this point you can see that all the tests are showing as passing successfully&hellip;</p>
+<figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-visual-studio-unit-test-pad.png"
+         alt="Visual Studio for Mac Unit Test Pad"/><figcaption>
+            <p>Visual Studio for Mac Unit Test Pad</p>
+        </figcaption>
+</figure>
+
+<h3 id="detailed-unit-test-results-pad">Detailed Unit Test Results Pad</h3>
+<p>For a more detailed view of the test results, we can open the dedicated test results pad <strong>(VIEW &gt; PADS &gt; TEST RESULTS)</strong>.</p>
+<figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-visual-studio-unit-test-pad-full.png"/>
+</figure>
+
+<p>The great thing about this particular pad is that it uses dedicated tabs to separate the unit tests into different categories, so lets take a look at the benefit of that feature next&hellip;</p>
+<h3 id="failed-tests">Failed Tests</h3>
+<p>Throughout your time developing a piece of software you will see your tests fail, perhaps based on a recent feature amend or code refactor, and that&rsquo;s exactly the point of unit testing - It helps you as a developer to hold down the fort whilst the software development lifecycle is picking up the pace under the pressure of the business requirements.</p>
+<p>As an example, I&rsquo;ve changed our first unit test to assert that the result equals the wrong year. Take a look at the feedback given to us now by the Visual Studio unit test runner -</p>
+<figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-unit-test-failed.png"
+         alt="Visual Studio for Mac Unit Test Failed Result"/><figcaption>
+            <p>Visual Studio for Mac Unit Test Failed Result</p>
+        </figcaption>
+</figure>
+
+<p><em>Not only does it highlight the expected results vs. the actual result&hellip;It even prints out the Stack Trace too!</em></p>
+<h2 id="download-github-code-sample">Download Github Code Sample</h2>
+<p>Feel free to <strong><a href="https://github.com/sahgilbert/unit-testing-xunit-csharp-dotnetcore">DOWNLOAD</a></strong> the sample code of the aforementioned implementation from my Github account.</p>
+
+
+                            
+                            
+                            
+                            
+                            
+                        </section>
+
+					</div>
+
+                    
+
+<footer id="footer">
+    
+    <section class="split contact">
+        
+        
+        
+        
+        <section>
+            <h3>Social</h3>
+            <ul class="icons alt">
+                
+                
+                
+                
+                
+                <li><a href="https://github.com/sahgilbert" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+                
+                
+                
+                
+                
+            </ul>
+        </section>
+        
+    </section>
+</footer>
+
+                    
+<div id="copyright">
+    <ul><li>&copy; Simon Gilbert</li><li><a href="https://www.github.com/sahgilbert">Github</a></li><li><a href="https://simongilbert.net">Blog Home Page</a></li></ul>
+</div>
+
+
+            </div>
+            
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-136163864-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+            
+
+
+
+
+
+
+
+
+
+
+<script src='/assets/js/bundle.js'></script>
+
+
+	</body>
+</html>

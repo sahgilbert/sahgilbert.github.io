@@ -1,0 +1,268 @@
+<!DOCTYPE HTML>
+
+<html lang='en'>
+	<head>
+		<title>Continuous Integration (CI/CD) for a Typescript Serverless Lambda API using CircleCI &middot; Simon Gilbert</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		
+		
+		
+		<link rel="stylesheet" href="/assets/css/main.min.css">
+		
+		
+		<link rel="shortcut icon" href="/favicon.ico">
+		
+		
+		<noscript><link rel="stylesheet" href='/assets/css/noscript.css' /></noscript>
+
+		
+    		
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-136163864-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  		
+	</head>
+
+	<body lang='en' class="is-preload">
+
+		
+			<div id="wrapper">
+
+                
+<header id="header">
+    <a href='/' class="logo">Simon Gilbert</a>
+</header>
+
+                
+
+<nav id="nav">
+    <ul class="links">
+        <li class="active"><a href='/'>Home</a></li>
+        
+        
+    </ul>
+    
+    <ul class="icons">
+        
+        
+        
+        
+        
+        <li><a href="https://github.com/sahgilbert" class="icon fa-github"><span class="label">GitHub</span></a></li>
+        
+        
+        
+        
+        
+    </ul>
+    
+</nav>
+
+
+				
+					<div id="main">
+
+						
+                        <section class="post">
+                            <header class="major">
+                                
+                                <span class="date">July 18, 2020</span>
+                                
+                                <h1>Continuous Integration (CI/CD) for a Typescript Serverless Lambda API using CircleCI</h1>
+                                <p></p>
+                            </header>
+                            
+                            <div class="image main"><img src="/images/2020/08/Screenshot-2020-08-14-at-12.57.13-1.png" alt="" /></div>
+                            
+                            <p>Serverless is an amazing piece of technology, but are you getting tired of manually deploying your source code to AWS after eac code change? Today we&rsquo;re going to discuss how to implement Continuous Integration for Serverless Lambda, to automate our deployments using a CI/CD pipeline, based on the Git branch we push the commit to!</p>
+<p>You&rsquo;ll remember in one of the previous blogs, we built a Serverless Lambda API that determined the type of phone number that it received, which we unit tested the algorithm for adequately. Today we&rsquo;ll fork a copy of that repository, and add the necessary configuration to deploy our existing codebase to AWS in an automated pipeline. Firstly, let&rsquo;s discuss what Continuous Integration is and how it is useful to your development lifecycle.</p>
+<h3 id="continuous-integration-explained">Continuous Integration Explained</h3>
+<p>Continuous Integration (CI) is a development practice whereby developers integrate code into a shared code repository frequently throughout the day. Each integration can then be verified by an automated build and automated tests, before being deployed to a server. One of the key benefits of integrating regularly is that you can detect errors quickly and locate them more easily. As each change introduced is typically small, pinpointing the specific change that introduced a defect can be done quickly.</p>
+<figure><img src="/images/2020/08/Screenshot-2020-08-14-at-10.51.10.png"/>
+</figure>
+
+<p>There are a few different terms to be aware of, namely Continuous Integration and Continuous Deployment/Delivery. Continuous Integration is the practice of integrating changes from different developers into the code repository. This makes sure the code individual developers work on doesn’t divert too much. Continuous Deployment/Delivery refers to keeping your application deployable at any point (and even deploying to an environment if the latest version passes all automated tests).</p>
+<h3 id="circleci">CircleCI</h3>
+<p>CircleCI is a Continuous Integration and Continuous Delivery (CI/CD) platform which runs as a PAAS. CircleCI allows your development team to automate your development process with CI hosted in the cloud or on a private server, which is pretty amazing! With CircleCI, teams get faster builds, shorter feedback cycles, and simplified pipeline maintenance. I personally am a fan of the fully hosted cloud service version of CircleCI, whereby they oversee the setup, security, and maintenance of your continuous integration instance(s). The long story short - This is a fantastic piece of kit for automating your Serverless deployments to AWS in a slick and easy manner.</p>
+<figure><img src="/images/2020/08/Screenshot-2020-08-14-at-10.52.51.png"/>
+</figure>
+
+<h3 id="sign-up-to-circleci">Sign Up to CircleCI</h3>
+<p>First of all, you need a CircleCI account which is free. You can log in using your Github or Bitbucket account, and it will display all of your code repositories.</p>
+<h3 id="circleci-setup">CircleCI Setup</h3>
+<p>Now that you&rsquo;re logged in to CircleCI, choose the repository that you want to use as part of your continuous integration pipeline, and click &ldquo;Set Up Project&rdquo;.</p>
+<figure><img src="/images/2020/08/Screenshot-2020-08-14-at-11.02.02.png"/>
+</figure>
+
+<p>Following this click &ldquo;Use Existing Config&rdquo; (we will add this later).</p>
+<figure><img src="/images/2020/08/Screenshot-2020-08-14-at-11.04.24.png"/>
+</figure>
+
+<p>The next step is to choose &ldquo;Start Building&rdquo; (you can ignore that we haven&rsquo;t added the required config.yml file yet, we simply want to get CircleCI to run a build on our repository, in order to configure the initial setup that is required to make the builds trigger automatically when we push git commits to our source code repository).</p>
+<figure><img src="/images/2020/08/Screenshot-2020-08-14-at-11.04.43.png"/>
+</figure>
+
+<p>This build will fail, as expected (due to not having a config.yml file), but then we can add the required configuration for CircleCI.</p>
+<figure><img src="/images/2020/08/Screenshot-2020-08-14-at-11.09.28.png"/>
+</figure>
+
+<h3 id="context-and-environment-variables">Context and Environment Variables</h3>
+<p>Following this, select &ldquo;Organization Settings&rdquo; from the side menu.</p>
+<figure><img src="/images/2020/08/Screenshot-2020-08-14-at-11.10.41.png"/>
+</figure>
+
+<p>You can now choose &ldquo;Create Context&rdquo;, which will allow us to add some shared Environment Variables to be used within our organisation (namely our AWS credentials for deploying our cloud services).</p>
+<figure><img src="/images/2020/08/Screenshot-2020-08-14-at-11.11.51.png"/>
+</figure>
+
+<p>Let&rsquo;s give our context a relevant and unique name&hellip;</p>
+<figure><img src="/images/2020/08/Screenshot-2020-08-14-at-11.22.13-2.png"/>
+</figure>
+
+<p>We can then choose our newly created context, and &ldquo;add Environment Variables&rdquo; for our AWS credentials (I&rsquo;ll assume you already have these setup). IMPORTANT - Ensure you name the environment variables exactly as they are in AWS, i.e. AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY, otherwise CircleCI will not be able to parse them later on.</p>
+<figure><img src="/images/2020/08/Screenshot-2020-08-14-at-11.22.54.png"/>
+</figure>
+
+<p>Our AWS credentials are now setup as Environment Variables in our CircleCI Organisation Context, so let&rsquo;s continue.</p>
+<figure><img src="/images/2020/08/Screenshot-2020-08-14-at-11.26.04.png"/>
+</figure>
+
+<h3 id="lets-get-coding">Let&rsquo;s Get Coding&hellip;</h3>
+<p>Open a new Terminal within the root folder of your source code repository, and create a new hidden directory called &ldquo;.circleci&rdquo;, followed by changing into this newly created directory and creating a file called &ldquo;config.yml&rdquo; and another file called &ldquo;deploy.sh&rdquo;.</p>
+<figure><img src="/images/2020/08/Screenshot-2020-08-14-at-11.36.07.png"/>
+</figure>
+
+<p>We now need to make a modification to our newly created &ldquo;deploy.sh&rdquo; file, to ensure that CircleCI can read and execute the file. We will be using the command &ldquo;chmod 755 deploy.sh&rdquo;, which we will run in the Terminal against the bash script file. When you perform the &ldquo;chmod 755 filename&rdquo; command you allow everyone to read and execute the file, and the owner is allowed to write to the file as well.</p>
+<figure><img src="/images/2020/08/Screenshot-2020-08-14-at-11.39.47.png"/>
+</figure>
+
+<p>The next step is to add the relevant code to our bash script, which will have two main parts. The first part will run the &ldquo;sls config&rdquo; command to setup our AWS credentials from our Environment Variables, within Serverless itself. The second part will run a switch statement, to specifically deploy to a certain environment (be in DEV, UAT or PROD), depending on the Git branch that we pushed to.</p>
+<figure><img src="/images/2020/08/Screenshot-2020-08-14-at-11.43.21.png"/>
+</figure>
+
+<p>Now that our bash script is setup, the next step is to configure our config.yml file, to allow CircleCI to deploy our Serverless Lambda API project. There are two parts to this file as well. The first part creates a Docker image to containerise our deployment, install Serverless and our dependencies, run our unit tests, and then execute our newly created bash script (deploy.sh). Here is the first part of the config.yml file, as described.</p>
+<figure><img src="/images/2020/08/Screenshot-2020-08-14-at-11.50.28.png"/>
+</figure>
+
+<p>The second part of the config.yml file allows us to apply our CircleCI Organisation Context (which contains our Environment Variables for our AWS credentials), followed by ensuring that the build only happens on our master, uat and develop Git branches in our source code repository. Ensure you add the correct name of your CircleCI Organisation Context to this section of the config.yml file.</p>
+<figure><img src="/images/2020/08/Screenshot-2020-08-14-at-11.50.51.png"/>
+</figure>
+
+<h3 id="git-commit-push-and-production-environment-deploy">Git Commit, Push and Production Environment Deploy</h3>
+<p>Now let&rsquo;s push these changes to our Git repository master branch, and we will see that CircleCI kicks off a new build specifically for the master branch.</p>
+<figure><img src="/images/2020/08/Screenshot-2020-08-14-at-11.56.28-1.png"/>
+</figure>
+
+<p>The build has finished, so let&rsquo;s review the results.</p>
+<figure><img src="/images/2020/08/Screenshot-2020-08-14-at-11.59.02.png"/>
+</figure>
+
+<p>As you can see, all the build and deploy steps were successful, so let&rsquo;s take a look at the final deploy step and see the details.</p>
+<figure><img src="/images/2020/08/Screenshot-2020-08-14-at-12.02.52-2.png"/>
+</figure>
+
+<p>The deployment step shows that CircleCI has successfully deployed our Serverless Lambda API to our AWS Production environment, so let&rsquo;s take a look at our CloudFormation Stacks within AWS and confirm this.</p>
+<figure><img src="/images/2020/08/Screenshot-2020-08-14-at-12.03.16.png"/>
+</figure>
+
+<p>As you can see, CircleCI has created our &ldquo;phone-number-api-prod&rdquo; CloudFormation Stack, so let&rsquo;s head to PostMan and test the newly deployed production Serverless Lambda API.</p>
+<figure><img src="/images/2020/08/Screenshot-2020-08-14-at-12.04.00.png"/>
+</figure>
+
+<h3 id="development-environment-deployment-test">Development Environment Deployment Test</h3>
+<p>PostMan returns a successful result, which is fantastic. Let&rsquo;s try one more thing and test the development environment deployment also. Head back to your repository, create a new branch called &ldquo;develop&rdquo;, push the changes to Git, and then wait for CircleCI to build and deploy the repository to AWS. Once this has finished, head to the AWS management console and view the CloudFormation Stacks page again, and let&rsquo;s see the results.</p>
+<figure><img src="/images/2020/08/Screenshot-2020-08-14-at-12.12.03.png"/>
+</figure>
+
+<p>As you can see, our Continuous Integration pipeline using CircleCI has deployed our &ldquo;develop&rdquo; branch in Git to our DEV environment on AWS, which is brilliant! Here is the final outcome in our CircleCI pipelines user interface.</p>
+<figure><img src="/images/2020/08/Screenshot-2020-08-14-at-12.16.14.png"/>
+</figure>
+
+<p>You can see here that both our <strong>MASTER</strong> and <strong>DEVELOP</strong> branches have successfully deployed to <strong>AWS</strong>! Enjoy!</p>
+<h2 id="download-github-code-sample">Download Github Code Sample</h2>
+<p>Feel free to <strong><a href="https://github.com/sahgilbert/portfolio-continuous-integration-typescript-lambda-circleci">DOWNLOAD</a></strong> the sample code of the aforementioned implementation from my Github account.</p>
+
+
+                            
+                            
+                            
+                            
+                            
+                        </section>
+
+					</div>
+
+                    
+
+<footer id="footer">
+    
+    <section class="split contact">
+        
+        
+        
+        
+        <section>
+            <h3>Social</h3>
+            <ul class="icons alt">
+                
+                
+                
+                
+                
+                <li><a href="https://github.com/sahgilbert" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+                
+                
+                
+                
+                
+            </ul>
+        </section>
+        
+    </section>
+</footer>
+
+                    
+<div id="copyright">
+    <ul><li>&copy; Simon Gilbert</li><li><a href="https://www.github.com/sahgilbert">Github</a></li><li><a href="https://simongilbert.net">Blog Home Page</a></li></ul>
+</div>
+
+
+            </div>
+            
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-136163864-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+            
+
+
+
+
+
+
+
+
+
+
+<script src='/assets/js/bundle.js'></script>
+
+
+	</body>
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE HTML>
+
+<html lang='en'>
+	<head>
+		<title>FizzBuzz Performance Comparison - C# .Net Core vs .Net Framework &middot; Simon Gilbert</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		
+		
+		
+		<link rel="stylesheet" href="/assets/css/main.min.css">
+		
+		
+		<link rel="shortcut icon" href="/favicon.ico">
+		
+		
+		<noscript><link rel="stylesheet" href='/assets/css/noscript.css' /></noscript>
+
+		
+    		
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-136163864-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  		
+	</head>
+
+	<body lang='en' class="is-preload">
+
+		
+			<div id="wrapper">
+
+                
+<header id="header">
+    <a href='/' class="logo">Simon Gilbert</a>
+</header>
+
+                
+
+<nav id="nav">
+    <ul class="links">
+        <li class="active"><a href='/'>Home</a></li>
+        
+        
+    </ul>
+    
+    <ul class="icons">
+        
+        
+        
+        
+        
+        <li><a href="https://github.com/sahgilbert" class="icon fa-github"><span class="label">GitHub</span></a></li>
+        
+        
+        
+        
+        
+    </ul>
+    
+</nav>
+
+
+				
+					<div id="main">
+
+						
+                        <section class="post">
+                            <header class="major">
+                                
+                                <span class="date">October 6, 2018</span>
+                                
+                                <h1>FizzBuzz Performance Comparison - C# .Net Core vs .Net Framework</h1>
+                                <p></p>
+                            </header>
+                            
+                            <div class="image main"><img src="/images/2019/03/simon-gilbert-cto-tech-blog-post-two.png" alt="" /></div>
+                            
+                            <h3 id="as-jeff-atwood-once-said">As Jeff Atwood Once Said…</h3>
+<blockquote>
+<p>“199 out of 200 applicants for every programming job can&rsquo;t write code at all.”</p>
+</blockquote>
+<p>&hellip;I certainly don’t disagree with this statement, but let’s ignore that for the minute and discuss the idea of carrying out a performance comparison for various FizzBuzz implementations in C# .Net Core vs .Net Framework.</p>
+<h3 id="whats-fizzbuzz">What’s “FizzBuzz”?</h3>
+<p>The requirements for FizzBuzz are to write a program that prints the numbers from 1 to 100. But for multiples of three print &ldquo;Fizz&rdquo; instead of the number and for the multiples of five print &ldquo;Buzz&rdquo;. For numbers which are multiples of both three and five print &ldquo;FizzBuzz&rdquo;.</p>
+<h3 id="fizzbuzz-comparisons">FizzBuzz Comparisons</h3>
+<p>Today we’re going to compare three versions of FizzBuzz in .Net Core 2.2, vs. the equivalent three implementations using .Net Framework 4.7.2.</p>
+<h3 id="fizzbuzz-method-one---super-simple">FizzBuzz Method One - Super Simple</h3>
+<p>Our first implementation of FizzBuzz is super simple and provides nothing clever from a software development perspective, other than ensuring some very minor use of the Don&rsquo;t Repeat Yourself (DRY) rule. By using a For loop with a conditional statement, this implementation provides us with the correct results and is nice and easy to read.</p>
+<figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-fizzbuzz-one.png"
+         alt="FizzBuzz Version 1 in C# .Net Core"/><figcaption>
+            <p>FizzBuzz Version 1 in C# .Net Core</p>
+        </figcaption>
+</figure>
+
+<h3 id="fizzbuzz-method-two---tuples--linq">FizzBuzz Method Two - Tuples &amp; LINQ</h3>
+<p>In version two of our FizzBuzz implementation, we use tuples to associate the number 3 to the word &ldquo;fizz&rdquo;, and the number 5 to the word &ldquo;buzz&rdquo;. We then use LINQ to determine what to print for the current iteration, and whether a combination of Fizz &amp; Buzz is required.</p>
+<figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-fizzbuzz-two.png"
+         alt="FizzBuzz Version 2 in C# .Net Core"/><figcaption>
+            <p>FizzBuzz Version 2 in C# .Net Core</p>
+        </figcaption>
+</figure>
+
+<h3 id="fizzbuzz-method-three---single-line-linq-statement">FizzBuzz Method Three - Single Line LINQ Statement</h3>
+<p>In our third and final FizzBuzz implementation, we use a single line LINQ statement to create the desired output. If you&rsquo;re used to coding LINQ it&rsquo;s fairly readable, and is different enough in design to our previous two versions which will give greater perspective on code execution time.</p>
+<figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-fizzbuzz-three.png"
+         alt="FizzBuzz Version 3 in C# .Net Core"/><figcaption>
+            <p>FizzBuzz Version 3 in C# .Net Core</p>
+        </figcaption>
+</figure>
+
+<h3 id="the-hardware-stack">The Hardware Stack</h3>
+<p>I&rsquo;m running each implementation on a MacBook Pro (Retina, 15-inch, Mid 2015) with MacOS Mojave, dual-booted with Microsoft Windows 8.1 using VMWare Fusion 7.1.3.</p>
+<p>We will be running both versions on Microsoft Windows 8.1 only for a fair comparison.</p>
+<h3 id="net-framework-results">.Net Framework Results</h3>
+<p>The results are in&hellip;Version 1 took approximately 62 milliseconds, Version 2 took substantially longer with 241 milliseconds, and Version 3 was close in second place with 65 milliseconds.</p>
+<p><em><strong>Version 1, the super simple algorithm provided the fastest code execution for our C# .Net Framework implementation.</strong></em></p>
+<figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-fizzbuzz-dotnetframework-result.png"
+         alt="FizzBuzz .Net Framework Results"/><figcaption>
+            <p>FizzBuzz .Net Framework Results</p>
+        </figcaption>
+</figure>
+
+<h3 id="net-core-results">.Net Core Results</h3>
+<p>Our .Net Core results differ substantially to our .Net Framework results.</p>
+<p>Version 1 took approximately 43 milliseconds, with Version 2 managing to execute in a total of 73 milliseconds, and finally Version 3 produced the fastest code execution with a super speedy 17 milliseconds!</p>
+<figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-fizzbuzz-dotnetcore-resultt.png"
+         alt="FizzBuzz .Net Core Results"/><figcaption>
+            <p>FizzBuzz .Net Core Results</p>
+        </figcaption>
+</figure>
+
+<h3 id="framework-vs-core-result-comparison">Framework vs. Core Result Comparison</h3>
+<p>The first thing to note here is the huge reduction in milliseconds for each of the three versions, when migrating from using the .Net Framework to .Net Core.</p>
+<ul>
+<li>Version 1 was 19 milliseconds faster.</li>
+<li>Version 2 was 168 milliseconds faster.</li>
+<li>Version 3 was 48 milliseconds faster.</li>
+</ul>
+<p>The next thing that stands out is that Version 2 is always the slowest, regardless of whether we&rsquo;re running it as a .Net Framework or .Net Core implementation.</p>
+<p>Now here&rsquo;s the interesting part - Version 1 and Version 3 swapped positions when we migrated to .Net Core, and this is particularly surprising given that Version 3 is a one line code statement written in LINQ, which (when used incorrectly) is known for underperforming&hellip;<strong><em>or is it?</em></strong></p>
+<h3 id="c-net-core-linq-performance">C# .Net Core LINQ Performance</h3>
+<p>So, as part of the .Net Core release, some major improvements were made to the Base Class Library, which of course covers LINQ (Language Integrated Query).</p>
+<p>LINQ operators are lazy and therefore nothing happens until the result enumeration occurs. Along with other operators in LINQ, the <strong>SELECT</strong> statement has been performance optimised in .Net Core. Given that <strong>SELECT</strong> produces a sequence which has the same number of items that the source sequence does, .Net Core can therefore take advantage of this. The .NET Framework implementation however, performs a rather naive enumeration of the sequence produced by the <strong>SELECT</strong> operator, which of course takes much longer than the optimised version.</p>
+<h3 id="conclusion">Conclusion</h3>
+<p>As you can see from the results - The performance improvements that are gained from using .Net Core are substantial, and every optimisation that&rsquo;s been released is capable of consistently shaving off milliseconds, even in scenarios where you may not expect this to happen!</p>
+<h3 id="download-both-github-code-samples">Download Both Github Code Samples</h3>
+<p>Feel free to download the sample code for both the <strong><a href="https://github.com/sahgilbert/fizzbuzz-performance-dotnetcore">.Net Core Version</a></strong> and the <strong><a href="https://github.com/sahgilbert/fizzbuzz-performance-dotnetframework">.Net Framework Version</a></strong> of the aforementioned implementation from my Github account.</p>
+
+
+                            
+                            
+                            
+                            
+                            
+                        </section>
+
+					</div>
+
+                    
+
+<footer id="footer">
+    
+    <section class="split contact">
+        
+        
+        
+        
+        <section>
+            <h3>Social</h3>
+            <ul class="icons alt">
+                
+                
+                
+                
+                
+                <li><a href="https://github.com/sahgilbert" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+                
+                
+                
+                
+                
+            </ul>
+        </section>
+        
+    </section>
+</footer>
+
+                    
+<div id="copyright">
+    <ul><li>&copy; Simon Gilbert</li><li><a href="https://www.github.com/sahgilbert">Github</a></li><li><a href="https://simongilbert.net">Blog Home Page</a></li></ul>
+</div>
+
+
+            </div>
+            
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-136163864-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+            
+
+
+
+
+
+
+
+
+
+
+<script src='/assets/js/bundle.js'></script>
+
+
+	</body>
+</html>

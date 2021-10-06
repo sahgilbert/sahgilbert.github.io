@@ -1,0 +1,192 @@
+<!DOCTYPE HTML>
+
+<html lang='en'>
+	<head>
+		<title>Unified MVC &amp; Web Api Controllers - C# ASP.Net Core &middot; Simon Gilbert</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		
+		
+		
+		<link rel="stylesheet" href="/assets/css/main.min.css">
+		
+		
+		<link rel="shortcut icon" href="/favicon.ico">
+		
+		
+		<noscript><link rel="stylesheet" href='/assets/css/noscript.css' /></noscript>
+
+		
+    		
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-136163864-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  		
+	</head>
+
+	<body lang='en' class="is-preload">
+
+		
+			<div id="wrapper">
+
+                
+<header id="header">
+    <a href='/' class="logo">Simon Gilbert</a>
+</header>
+
+                
+
+<nav id="nav">
+    <ul class="links">
+        <li class="active"><a href='/'>Home</a></li>
+        
+        
+    </ul>
+    
+    <ul class="icons">
+        
+        
+        
+        
+        
+        <li><a href="https://github.com/sahgilbert" class="icon fa-github"><span class="label">GitHub</span></a></li>
+        
+        
+        
+        
+        
+    </ul>
+    
+</nav>
+
+
+				
+					<div id="main">
+
+						
+                        <section class="post">
+                            <header class="major">
+                                
+                                <span class="date">May 9, 2019</span>
+                                
+                                <h1>Unified MVC &amp; Web Api Controllers - C# ASP.Net Core</h1>
+                                <p></p>
+                            </header>
+                            
+                            <div class="image main"><img src="/images/2019/06/simon-gilbert-dev-cto-blog-27.png" alt="" /></div>
+                            
+                            <h3 id="aspnet-mvc-4-controllers">ASP.Net MVC 4 Controllers</h3>
+<p>Recently I worked on a project that was written in <strong>ASP.Net MVC 4</strong>. The tech stack itself was split between <strong>Web Api</strong> and <strong>MVC</strong> itself, in separate projects with different code bases. The lack of unified controllers compared to what <strong>ASP.Net Core</strong> now offers felt like going back in time&hellip;</p>
+<p>&hellip;So given that, let&rsquo;s take a very brief look at unified MVC &amp; Web Api controllers in C# ASP.Net Core!</p>
+<h3 id="prior-to-unification">Prior To Unification</h3>
+<p>Before <strong>ASP.Net Core</strong> we essentially had two separate underlying <strong>assemblies</strong> at the core of our web stack (<strong>MVC</strong> vs. <strong>Web Api</strong>), since both implementations were based on the MVC model and therefore required the use of a <strong>Controller</strong> class. <strong>MVC</strong> was based on <strong>System.Web.Mvc</strong> and would produce one type of controller, specifically for the standard ASP.Net MVC design which involved returning <strong>cshtml</strong> views. Whereas <strong>Web Api</strong> was based on <strong>System.Web.Http</strong> and would produce an <strong>ApiController</strong> which allowed the return of <strong>JSON</strong> in a <strong>RESTful</strong> manner.</p>
+<p>To add some context, here&rsquo;s a simple example of using both <strong>MVC</strong> and <strong>Web Api</strong> when implementing your code base using <strong>MVC4</strong>. Starting with <strong>MVC</strong>&hellip;</p>
+<figure><img src="/images/2019/03/simon-gilbert-cto-tech-blog-mvc-controller.png"
+         alt="C# ASP.Net MVC 4 - MVC View Controller Action"/><figcaption>
+            <p>C# ASP.Net MVC 4 - MVC View Controller Action</p>
+        </figcaption>
+</figure>
+
+<p>&hellip;and then <strong>Web Api</strong>, of course separately.</p>
+<figure><img src="/images/2019/03/simon-gilbert-cto-tech-blog-web-api-controller.png"
+         alt="C# ASP.Net MVC 4 - Web Api Endpoint Controller Action"/><figcaption>
+            <p>C# ASP.Net MVC 4 - Web Api Endpoint Controller Action</p>
+        </figcaption>
+</figure>
+
+<p>There were numerous issues with this design including the copious amounts of configuration required to get simple routing setup, not least the fact that it prevented easy grouping of related actions.</p>
+<h3 id="enter-aspnet-core-2">Enter “ASP.Net Core 2”…</h3>
+<p>With the advent of <strong>ASP.Net Core</strong> both <strong>MVC</strong> and <strong>Web Api</strong> controller implementations now inherit from the same <strong>Controller</strong> base class, which is part of the <strong>Microsoft.AspNetCore.Mvc</strong> assembly. The unification doesn’t stop here either - The actions have been combined too, along with many other components such as the routing and filters that we are used to taking advantage of.</p>
+<p>Here is a glorious <strong>ASP.Net Core 2</strong> unified controller -</p>
+<figure><img src="/images/2019/06/simon-gilbert-dev-cto-unified-1.png"
+         alt="C# ASP.Net Core - Unified MVC &amp;amp; Web Api Controller"/><figcaption>
+            <p>C# ASP.Net Core - Unified MVC &amp; Web Api Controller</p>
+        </figcaption>
+</figure>
+
+<h2 id="download-github-code-sample">Download Github Code Sample</h2>
+<p>Feel free to <strong><a href="https://gist.github.com/sahgilbert/e006d66c9f466180f3dc4e3a0ce91420">DOWNLOAD</a></strong> the sample code of the aforementioned implementation from my Github account.</p>
+
+
+                            
+                            
+                            
+                            
+                            
+                        </section>
+
+					</div>
+
+                    
+
+<footer id="footer">
+    
+    <section class="split contact">
+        
+        
+        
+        
+        <section>
+            <h3>Social</h3>
+            <ul class="icons alt">
+                
+                
+                
+                
+                
+                <li><a href="https://github.com/sahgilbert" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+                
+                
+                
+                
+                
+            </ul>
+        </section>
+        
+    </section>
+</footer>
+
+                    
+<div id="copyright">
+    <ul><li>&copy; Simon Gilbert</li><li><a href="https://www.github.com/sahgilbert">Github</a></li><li><a href="https://simongilbert.net">Blog Home Page</a></li></ul>
+</div>
+
+
+            </div>
+            
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-136163864-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+            
+
+
+
+
+
+
+
+
+
+
+<script src='/assets/js/bundle.js'></script>
+
+
+	</body>
+</html>

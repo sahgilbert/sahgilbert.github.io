@@ -1,0 +1,240 @@
+<!DOCTYPE HTML>
+
+<html lang='en'>
+	<head>
+		<title>Binding Fluent Validation to an HTML View - C# ASP.Net MVC Core &middot; Simon Gilbert</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		
+		
+		
+		<link rel="stylesheet" href="/assets/css/main.min.css">
+		
+		
+		<link rel="shortcut icon" href="/favicon.ico">
+		
+		
+		<noscript><link rel="stylesheet" href='/assets/css/noscript.css' /></noscript>
+
+		
+    		
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-136163864-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  		
+	</head>
+
+	<body lang='en' class="is-preload">
+
+		
+			<div id="wrapper">
+
+                
+<header id="header">
+    <a href='/' class="logo">Simon Gilbert</a>
+</header>
+
+                
+
+<nav id="nav">
+    <ul class="links">
+        <li class="active"><a href='/'>Home</a></li>
+        
+        
+    </ul>
+    
+    <ul class="icons">
+        
+        
+        
+        
+        
+        <li><a href="https://github.com/sahgilbert" class="icon fa-github"><span class="label">GitHub</span></a></li>
+        
+        
+        
+        
+        
+    </ul>
+    
+</nav>
+
+
+				
+					<div id="main">
+
+						
+                        <section class="post">
+                            <header class="major">
+                                
+                                <span class="date">March 23, 2019</span>
+                                
+                                <h1>Binding Fluent Validation to an HTML View - C# ASP.Net MVC Core</h1>
+                                <p></p>
+                            </header>
+                            
+                            <div class="image main"><img src="/images/2019/03/simon-gilbert-cto-tech-blog-post-eleven.png" alt="" /></div>
+                            
+                            <h3 id="strongly-typed-data-model-validation">Strongly-Typed Data Model Validation</h3>
+<p><a href="/validation-rules-fluentvalidation-csharp-dotnetcore/">Previously I discussed</a> using the <a href="https://fluentvalidation.net/">FluentValidation</a> library to implement strongly-typed data model validation in C# .Net Core. Today we&rsquo;re going to look at injecting that validation to an HTML view in C# ASP.Net MVC Core, making use of the standard <strong>ModelState</strong> syntax in MVC.</p>
+<h3 id="nuget-packages">Nuget Packages</h3>
+<p>You’ll need to pull in a copy of <strong>FluentValidation</strong> and <strong>FluentValidation.AspNetCore</strong> from Nuget.</p>
+<h3 id="lets-code">Let’s Code&hellip;</h3>
+<p>First of all we need a basic view model with some fields to validate.</p>
+<figure><img src="/images/2019/03/simon-gilbert-cto-tech-blog-fluentvalidation-data-model-1.png"
+         alt="C# ASP.Net MVC Core - Fluent Validation Data Model"/><figcaption>
+            <p>C# ASP.Net MVC Core - Fluent Validation Data Model</p>
+        </figcaption>
+</figure>
+
+<h3 id="abstract-validator-inheritance">Abstract Validator Inheritance</h3>
+<p>Now that we have a data model, we can create a validation class which inherits from AbstractValidator. In this case I’ve separated the FirstName field from the technical data about our new user for cleanliness.</p>
+<figure><img src="/images/2019/03/simon-gilbert-cto-tech-blog-fluentvalidation-view-model-validator.png"
+         alt="C# ASP.Net MVC Core - Fluent Validation Abstract Validator"/><figcaption>
+            <p>C# ASP.Net MVC Core - Fluent Validation Abstract Validator</p>
+        </figcaption>
+</figure>
+
+<figure><img src="/images/2019/03/simon-gilbert-cto-tech-blog-fluentvalidation-inherit-abstract-validator.png"
+         alt="C# ASP.Net MVC Core - Fluent Validation View Model Validator"/><figcaption>
+            <p>C# ASP.Net MVC Core - Fluent Validation View Model Validator</p>
+        </figcaption>
+</figure>
+
+<h3 id="startup-configuration">Startup Configuration</h3>
+<p>Next we need to inject the validator class into our platform at startup.</p>
+<figure><img src="/images/2019/03/simon-gilbert-cto-tech-blog-fluentvalidation-configure-services.png"
+         alt="C# ASP.Net MVC Core - Fluent Validation Configure Services"/><figcaption>
+            <p>C# ASP.Net MVC Core - Fluent Validation Configure Services</p>
+        </figcaption>
+</figure>
+
+<h3 id="html-view">HTML View</h3>
+<p>Let’s put together a simple form with a post back for our data model.</p>
+<figure><img src="/images/2019/03/simon-gilbert-cto-tech-blog-fluentvalidation-html-aspdotnetmvccore.png"
+         alt="C# ASP.Net MVC Core - Fluent Validation HTML View"/><figcaption>
+            <p>C# ASP.Net MVC Core - Fluent Validation HTML View</p>
+        </figcaption>
+</figure>
+
+<figure><img src="/images/2019/03/simon-gilbert-cto-tech-blog-fluentvalidation-aspdotnetmvccore-1.png"
+         alt="C# ASP.Net MVC Core - Fluent Validation HTML"/><figcaption>
+            <p>C# ASP.Net MVC Core - Fluent Validation HTML</p>
+        </figcaption>
+</figure>
+
+<p>Now let&rsquo;s submit a blank version of our page data to the controller.</p>
+<figure><img src="/images/2019/03/simon-gilbert-cto-tech-blog-fluentvalidation-aspdotnetmvccore-2.png"
+         alt="C# ASP.Net MVC Core - Fluent Validation HTML Errors"/><figcaption>
+            <p>C# ASP.Net MVC Core - Fluent Validation HTML Errors</p>
+        </figcaption>
+</figure>
+
+<p>As you can see, our fluent validation has kicked in with very little else required in terms of implementation. Let’s amend the data slightly and see how our validation errors change.</p>
+<figure><img src="/images/2019/03/simon-gilbert-cto-tech-blog-fluentvalidation-aspdotnetmvccore-3.png"
+         alt="C# ASP.Net MVC Core - Fluent Validation HTML Different Errors"/><figcaption>
+            <p>C# ASP.Net MVC Core - Fluent Validation HTML Different Errors</p>
+        </figcaption>
+</figure>
+
+<p>Finally, let’s submit a fully valid post back</p>
+<figure><img src="/images/2019/03/simon-gilbert-cto-tech-blog-fluentvalidation-aspdotnetmvccore-4.png"
+         alt="C# ASP.Net MVC Core - Fluent Validation HTML Valid"/><figcaption>
+            <p>C# ASP.Net MVC Core - Fluent Validation HTML Valid</p>
+        </figcaption>
+</figure>
+
+<p>&hellip;and see how our fluent validation responds?</p>
+<figure><img src="/images/2019/03/simon-gilbert-cto-tech-blog-fluentvalidation-aspdotnetmvccore-5.png"
+         alt="C# ASP.Net MVC Core - Fluent Validation HTML Successful Validation"/><figcaption>
+            <p>C# ASP.Net MVC Core - Fluent Validation HTML Successful Validation</p>
+        </figcaption>
+</figure>
+
+<p>&hellip;<strong>Success</strong>! As mentioned before, <strong>FluentValidation</strong> provides a much cleaner method of carrying out strongly typed data model validation than the traditional <strong>DataAnnotations</strong> namespace. Enjoy!</p>
+<h2 id="download-github-code-sample">Download Github Code Sample</h2>
+<p>Feel free to <strong><a href="https://github.com/sahgilbert/view-model-fluentvalidation-aspdotnetmvccore">DOWNLOAD</a></strong> the sample code of the aforementioned implementation from my Github account.</p>
+
+
+                            
+                            
+                            
+                            
+                            
+                        </section>
+
+					</div>
+
+                    
+
+<footer id="footer">
+    
+    <section class="split contact">
+        
+        
+        
+        
+        <section>
+            <h3>Social</h3>
+            <ul class="icons alt">
+                
+                
+                
+                
+                
+                <li><a href="https://github.com/sahgilbert" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+                
+                
+                
+                
+                
+            </ul>
+        </section>
+        
+    </section>
+</footer>
+
+                    
+<div id="copyright">
+    <ul><li>&copy; Simon Gilbert</li><li><a href="https://www.github.com/sahgilbert">Github</a></li><li><a href="https://simongilbert.net">Blog Home Page</a></li></ul>
+</div>
+
+
+            </div>
+            
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-136163864-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+            
+
+
+
+
+
+
+
+
+
+
+<script src='/assets/js/bundle.js'></script>
+
+
+	</body>
+</html>

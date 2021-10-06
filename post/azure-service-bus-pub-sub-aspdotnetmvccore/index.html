@@ -1,0 +1,324 @@
+<!DOCTYPE HTML>
+
+<html lang='en'>
+	<head>
+		<title>Microsoft Azure Service Bus - Distributed Message Queue (Publish-Subscribe) using C# ASP.Net MVC Core &middot; Simon Gilbert</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		
+		
+		
+		<link rel="stylesheet" href="/assets/css/main.min.css">
+		
+		
+		<link rel="shortcut icon" href="/favicon.ico">
+		
+		
+		<noscript><link rel="stylesheet" href='/assets/css/noscript.css' /></noscript>
+
+		
+    		
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-136163864-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  		
+	</head>
+
+	<body lang='en' class="is-preload">
+
+		
+			<div id="wrapper">
+
+                
+<header id="header">
+    <a href='/' class="logo">Simon Gilbert</a>
+</header>
+
+                
+
+<nav id="nav">
+    <ul class="links">
+        <li class="active"><a href='/'>Home</a></li>
+        
+        
+    </ul>
+    
+    <ul class="icons">
+        
+        
+        
+        
+        
+        <li><a href="https://github.com/sahgilbert" class="icon fa-github"><span class="label">GitHub</span></a></li>
+        
+        
+        
+        
+        
+    </ul>
+    
+</nav>
+
+
+				
+					<div id="main">
+
+						
+                        <section class="post">
+                            <header class="major">
+                                
+                                <span class="date">April 1, 2019</span>
+                                
+                                <h1>Microsoft Azure Service Bus - Distributed Message Queue (Publish-Subscribe) using C# ASP.Net MVC Core</h1>
+                                <p></p>
+                            </header>
+                            
+                            <div class="image main"><img src="/images/2019/04/simon-gilbert-cto-tech-blog-17.png" alt="" /></div>
+                            
+                            <h3 id="distributed-throughput-management">Distributed Throughput Management</h3>
+<p>Let&rsquo;s imagine that you&rsquo;re in a situation where multiple components within your platform need to process messages at different rates. It&rsquo;s not uncommon for this use case to arrive in a modern day distributed system, so let&rsquo;s discuss &ldquo;load leveling&rdquo; using <strong>Microsoft Azure Service Bus</strong>.</p>
+<figure><img src="/images/2019/03/simon-gilbert-cto-azure-service-bus.png"
+         alt="Microsoft Azure Service Bus"/><figcaption>
+            <p>Microsoft Azure Service Bus</p>
+        </figcaption>
+</figure>
+
+<h3 id="enter-azure-service-bus">Enter &ldquo;Azure Service Bus&rdquo;&hellip;</h3>
+<p>Essentially this is cloud <strong>messaging as a service (MaaS)</strong>. At the core it&rsquo;s a cloud hosted <strong>message broker</strong> for application <strong>decoupling</strong> which can be used to help you manage throughput and intermittent spikes in traffic, but also to <strong>scale out</strong> and distribute your messages to multiple receiving components (i.e. the <strong>publish-subscribe pattern</strong>). By using a queue, this ensures that the consumer only has to be provisioned to handle an average load instead of peak load on a constant basis.</p>
+<h3 id="simple-message-queue-breakdown">Simple Message Queue Breakdown</h3>
+<p>The most basic implementation of the <strong>Azure Service Bus</strong> messaging queue is made up of two components - A namespace and a queue. The queue is held within a particular namespace, which affectively acts as a container.</p>
+<p>The queue includes a sender and a receiver and is used to allow messages to be sent to, and received from on an <strong>endpoint-to-endpoint</strong> basis. The queue does work on a first in, first out <strong>(FIFO)</strong> basis, and it will retain the messages until the receiving endpoint is capable of&hellip;receiving the messages. This implementation provides a <strong>temporal decoupling</strong> mechanism between your components, since the messages are stored in the queue until processed.</p>
+<figure><img src="/images/2019/03/simon-gilbert-cto-azure-service-bus-queue.png"
+         alt="Microsoft Azure Service Bus - Message Queue"/><figcaption>
+            <p>Microsoft Azure Service Bus - Message Queue</p>
+        </figcaption>
+</figure>
+
+<h3 id="publish-subscribe-pattern-breakdown">Publish-Subscribe Pattern Breakdown</h3>
+<p>I&rsquo;m sure you&rsquo;re familiar with messaging patterns, with the most well known of these being the <strong>publish-subscribe pattern</strong> which allows a one-to-many consumption of messages. The <strong>Azure Service Bus</strong> component for implementing this pattern makes use of what they refer to as <strong>Topics and Subscriptions</strong>.</p>
+<figure><img src="/images/2019/03/simon-gilbert-cto-azure-service-bus-topic.png"
+         alt="Microsoft Azure Service Bus - Publish Subscribe Pattern"/><figcaption>
+            <p>Microsoft Azure Service Bus - Publish Subscribe Pattern</p>
+        </figcaption>
+</figure>
+
+<p>Today we&rsquo;re going to focus on the <strong>publish-subscribe pattern</strong> implementation, with the example being the publication of food orders for restaurants to a queue that is processing the data it receives.</p>
+<h3 id="lets-configure-azure">Let&rsquo;s Configure Azure&hellip;</h3>
+<p>Head to <strong>Microsoft Azure and</strong> choose the <strong>Service Bus</strong> option from the main menu.</p>
+<figure><img src="/images/2019/04/simon-gilbert-cto-dev-azure-service-bus-1.png"
+         alt="Microsoft Azure Service Bus - Menu"/><figcaption>
+            <p>Microsoft Azure Service Bus - Menu</p>
+        </figcaption>
+</figure>
+
+<p>&hellip;We&rsquo;re going to create a namespace to act as a container, so choose &ldquo;Create Service Bus Namespace&rdquo; next.</p>
+<figure><img src="/images/2019/04/simon-gilbert-cto-dev-azure-service-bus-2.png"
+         alt="Microsoft Azure Service Bus - Create Namespace"/><figcaption>
+            <p>Microsoft Azure Service Bus - Create Namespace</p>
+        </figcaption>
+</figure>
+
+<p>For this implementation you&rsquo;ll need the &ldquo;Standard&rdquo; pricing tier at least, since the &ldquo;<strong>Basic</strong>&rdquo; tier doesn&rsquo;t support Topics (which we&rsquo;re dependent on for the <strong>publish-subscribe pattern</strong>). I live in London, so I&rsquo;ve purposely chosen UK South as the location for the service bus hosting.</p>
+<figure><img src="/images/2019/04/simon-gilbert-cto-dev-azure-service-bus-3.png"
+         alt="Microsoft Azure Service Bus - Create Namespace &amp;amp; Pricing"/><figcaption>
+            <p>Microsoft Azure Service Bus - Create Namespace &amp; Pricing</p>
+        </figcaption>
+</figure>
+
+<p><strong>Azure</strong> will now work its magic to get your service bus (namespace) choice deployed, and we can begin to configure it.</p>
+<figure><img src="/images/2019/04/simon-gilbert-cto-dev-azure-service-bus-4.png"
+         alt="Microsoft Azure Service Bus - Namespace Deployed"/><figcaption>
+            <p>Microsoft Azure Service Bus - Namespace Deployed</p>
+        </figcaption>
+</figure>
+
+<p>The next option you want to choose is &ldquo;<strong>Topics</strong>&rdquo; from the <strong>Azure Service Bus</strong> menu.</p>
+<figure><img src="/images/2019/04/simon-gilbert-cto-dev-azure-service-bus-5.png"
+         alt="Microsoft Azure Service Bus - Topics"/><figcaption>
+            <p>Microsoft Azure Service Bus - Topics</p>
+        </figcaption>
+</figure>
+
+<p>&hellip;Let&rsquo;s give our topic a relevant name which aligns to the data we&rsquo;re going to be submitting to our service bus queue as a &ldquo;<strong>publisher</strong>&rdquo;.</p>
+<figure><img src="/images/2019/04/simon-gilbert-cto-dev-azure-service-bus-6.png"
+         alt="Microsoft Azure Service Bus - Create Topic"/><figcaption>
+            <p>Microsoft Azure Service Bus - Create Topic</p>
+        </figcaption>
+</figure>
+
+<p>Now that we have a &ldquo;<strong>topic</strong>&rdquo;, we need to create a &ldquo;<strong>subscription</strong>&rdquo; for our consumers to use when hooking into our <strong>queue</strong>.</p>
+<figure><img src="/images/2019/04/simon-gilbert-cto-dev-azure-service-bus-7.png"
+         alt="Microsoft Azure Service Bus - Create Subscription"/><figcaption>
+            <p>Microsoft Azure Service Bus - Create Subscription</p>
+        </figcaption>
+</figure>
+
+<p>Again let&rsquo;s give it a relevant name. As you can see &ldquo;process-orders&rdquo; will subscribe to the &ldquo;restaurant-orders&rdquo; topic&quot;.</p>
+<figure><img src="/images/2019/04/simon-gilbert-cto-dev-azure-service-bus-8.png"
+         alt="Microsoft Azure Service Bus - Configure Subscription"/><figcaption>
+            <p>Microsoft Azure Service Bus - Configure Subscription</p>
+        </figcaption>
+</figure>
+
+<h3 id="lets-code-our-publisher">Let&rsquo;s Code&hellip; (Our Publisher)</h3>
+<p>We&rsquo;ll begin by building our publisher within a C# ASP.Net MVC Core application. Pull in a copy of <strong>Microsoft.Azure.ServiceBus</strong> from <strong>Nuget</strong>.</p>
+<figure><img src="/images/2019/04/simon-gilbert-cto-dev-azure-service-bus-9.png"
+         alt="Microsoft Azure Service Bus - Nuget Package"/><figcaption>
+            <p>Microsoft Azure Service Bus - Nuget Package</p>
+        </figcaption>
+</figure>
+
+<p>Our PublisherService is a wrapper around the <strong>TopicClient</strong> class from the aforementioned package. The client accepts messages asynchronously, which must contain a byte array as the message body. We&rsquo;re going to pass a class implementation as opposed to just a simple string, so we&rsquo;ll need to serialize the data first before converting it to a <strong>UTF8</strong> byte array.</p>
+<figure><img src="/images/2019/04/simon-gilbert-cto-dev-azure-service-bus-10.png"
+         alt="Microsoft Azure Service Bus"/><figcaption>
+            <p>Microsoft Azure Service Bus</p>
+        </figcaption>
+</figure>
+
+<p>Head back to <strong>Microsoft Azure</strong> and choose the <strong>Shared Access Policies</strong> option from the <strong>Service Bus</strong> menu. From here you can obtain the <strong>Primary Connection String</strong> value.</p>
+<figure><img src="/images/2019/04/simon-gilbert-cto-dev-sharedaccesspolicies.png"
+         alt="Microsoft Azure Service Bus - Shared Access Policies"/><figcaption>
+            <p>Microsoft Azure Service Bus - Shared Access Policies</p>
+        </figcaption>
+</figure>
+
+<p>Next we&rsquo;re going to invoke the <strong>SendAsync</strong> method on our <strong>TopicClient</strong> instance and pass our Message to the queue, specifically for our chosen topic name.</p>
+<figure><img src="/images/2019/04/simon-gilbert-cto-dev-publisher.png"
+         alt="Microsoft Azure Service Bus - Pub-Sub Pattern"/><figcaption>
+            <p>Microsoft Azure Service Bus - Pub-Sub Pattern</p>
+        </figcaption>
+</figure>
+
+<h3 id="subscriber-implementation">Subscriber Implementation</h3>
+<p>Now that we are able to publish messages to our queue, we need to implement a service to consume this data. For simplicity, we&rsquo;ll be coding this as a C# .Net Core console application. Our &ldquo;subscription&rdquo; depends on the <strong>Azure Service Bus Nuget</strong> package <strong>SubscriptionClient</strong> class.</p>
+<p>The first thing we need to do is register our message handler and pass in some options to configure how we would like it to behave. We&rsquo;ll start with some basic exception handling to print out any exceptions that we receive on the message pump to the console.</p>
+<figure><img src="/images/2019/04/simon-gilbert-cto-dev-azure-service-bus-12.png"
+         alt="Microsoft Azure Service Bus - Pub-Sub Pattern"/><figcaption>
+            <p>Microsoft Azure Service Bus - Pub-Sub Pattern</p>
+        </figcaption>
+</figure>
+
+<p>Next we need to process our received messages. There are a few things to note here. Firstly, the cancellation token is passed as a parameter to the callback method in order to determine if our <strong>SubscriptionClient</strong> has already been closed. On receipt of our message, we also need to deserialize it back to the same class definition that was used to submit it to our queue.  For simplicity we&rsquo;re going to print our deserialized data model to the console, to indicate how the pub-sub queue works.</p>
+<figure><img src="/images/2019/04/simon-gilbert-cto-dev-azure-service-bus-13-1.png"
+         alt="Microsoft Azure Service Bus - Pub-Sub Pattern"/><figcaption>
+            <p>Microsoft Azure Service Bus - Pub-Sub Pattern</p>
+        </figcaption>
+</figure>
+
+<p>Following this we need to configure some options. There are two main properties to assign values to at this stage - <strong>MaxConcurrentCalls</strong> which defines how many messages we want our consumer to process in parallel (I&rsquo;ve kept this to 1 for now, for simplicity), and secondly the <strong>AutoComplete</strong> property which determines whether we want the message pump to complete the messages themselves after each one is received (which I&rsquo;ve set to false in order to indicate that our messaging processing callback method should handle the message completion stage itself). We also need to inject our exception handling method into the constructor of our <strong>MessageHandlerOptions</strong> instance. Once this is done, we can invoke the <strong>RegisterMessageHandler</strong> method on the <strong>SubscriptionClient</strong> and pass in both our <strong>MessageHandlerOptions</strong> alongside our <strong>ProcessReceivedMessages</strong> callback method.</p>
+<figure><img src="/images/2019/04/simon-gilbert-cto-dev-azure-service-bus-14.png"
+         alt="Microsoft Azure Service Bus - Pub-Sub Pattern"/><figcaption>
+            <p>Microsoft Azure Service Bus - Pub-Sub Pattern</p>
+        </figcaption>
+</figure>
+
+<p>Finally we can configure our SubscriptionService wrapper to run in our <strong>C# .Net Core</strong> console application. You&rsquo;ll need to pass in both the topic name and the subscription name to your <strong>SubscriptionClient</strong> instance, alongside the same <strong>Primary Connection String</strong> that we used for our <strong>TopicClient PublisherService</strong> from the <strong>Azure Shared Access Policies</strong> section.</p>
+<figure><img src="/images/2019/04/simon-gilbert-cto-dev-azure-service-bus-subscription.png"
+         alt="Microsoft Azure Service Bus - Pub-Sub Pattern"/><figcaption>
+            <p>Microsoft Azure Service Bus - Pub-Sub Pattern</p>
+        </figcaption>
+</figure>
+
+<h3 id="testing-our-azure-pub-sub-implementation">Testing Our Azure Pub-Sub Implementation</h3>
+<p>Time to test our distributed message broker. I&rsquo;ve injected the publisher into a controller and added a basic HTML view to post back some data to an action.</p>
+<figure><img src="/images/2019/04/simon-gilbert-cto-dev-azure-service-bus-result-1.png"
+         alt="Microsoft Azure Service Bus - Pub-Sub Pattern"/><figcaption>
+            <p>Microsoft Azure Service Bus - Pub-Sub Pattern</p>
+        </figcaption>
+</figure>
+
+<p>Let&rsquo;s see the result&hellip;</p>
+<figure><img src="/images/2019/04/simon-gilbert-cto-dev-azure-service-bus-result-2.png"
+         alt="Microsoft Azure Service Bus - Pub-Sub Pattern"/><figcaption>
+            <p>Microsoft Azure Service Bus - Pub-Sub Pattern</p>
+        </figcaption>
+</figure>
+
+<p>&hellip;Pretty cool isn&rsquo;t it? The pub-sub pattern will therefore allow you to spin up multiple subscribers to handle your throughput in a loosely coupled manner. Now ideally to host our subscription endpoints we&rsquo;d use something more long term such as a <strong>Windows Service</strong>, amongst other options. The <strong>Microsoft Azure Service Bus</strong> is also highly configurable, so next time we&rsquo;ll cover partitioned queues and the rest. Enjoy!</p>
+<h2 id="download-both-github-code-samples">Download Both Github Code Samples</h2>
+<p>Feel free to download the sample code for both the <a href="https://github.com/sahgilbert/azure-service-bus-aspdotnetmvccore-publisher"><strong>C# ASP.Net MVC Core Publisher</strong></a> and the <a href="https://github.com/sahgilbert/azure-service-bus-dotnetcore-subscriber"><strong>C#.Net Core Console App Subscriber</strong></a> for the aforementioned implementation from my Github account.</p>
+<h3 id="heading"></h3>
+
+
+                            
+                            
+                            
+                            
+                            
+                        </section>
+
+					</div>
+
+                    
+
+<footer id="footer">
+    
+    <section class="split contact">
+        
+        
+        
+        
+        <section>
+            <h3>Social</h3>
+            <ul class="icons alt">
+                
+                
+                
+                
+                
+                <li><a href="https://github.com/sahgilbert" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+                
+                
+                
+                
+                
+            </ul>
+        </section>
+        
+    </section>
+</footer>
+
+                    
+<div id="copyright">
+    <ul><li>&copy; Simon Gilbert</li><li><a href="https://www.github.com/sahgilbert">Github</a></li><li><a href="https://simongilbert.net">Blog Home Page</a></li></ul>
+</div>
+
+
+            </div>
+            
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-136163864-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+            
+
+
+
+
+
+
+
+
+
+
+<script src='/assets/js/bundle.js'></script>
+
+
+	</body>
+</html>

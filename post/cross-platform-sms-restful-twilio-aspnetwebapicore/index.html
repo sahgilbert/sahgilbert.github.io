@@ -1,0 +1,273 @@
+<!DOCTYPE HTML>
+
+<html lang='en'>
+	<head>
+		<title>Cross-Platform SMS RESTful Api using Twilio - C# ASP.Net Core Web Api &middot; Simon Gilbert</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		
+		
+		
+		<link rel="stylesheet" href="/assets/css/main.min.css">
+		
+		
+		<link rel="shortcut icon" href="/favicon.ico">
+		
+		
+		<noscript><link rel="stylesheet" href='/assets/css/noscript.css' /></noscript>
+
+		
+    		
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-136163864-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  		
+	</head>
+
+	<body lang='en' class="is-preload">
+
+		
+			<div id="wrapper">
+
+                
+<header id="header">
+    <a href='/' class="logo">Simon Gilbert</a>
+</header>
+
+                
+
+<nav id="nav">
+    <ul class="links">
+        <li class="active"><a href='/'>Home</a></li>
+        
+        
+    </ul>
+    
+    <ul class="icons">
+        
+        
+        
+        
+        
+        <li><a href="https://github.com/sahgilbert" class="icon fa-github"><span class="label">GitHub</span></a></li>
+        
+        
+        
+        
+        
+    </ul>
+    
+</nav>
+
+
+				
+					<div id="main">
+
+						
+                        <section class="post">
+                            <header class="major">
+                                
+                                <span class="date">March 12, 2019</span>
+                                
+                                <h1>Cross-Platform SMS RESTful Api using Twilio - C# ASP.Net Core Web Api</h1>
+                                <p></p>
+                            </header>
+                            
+                            <div class="image main"><img src="/images/2019/03/simon-gilbert-cto-tech-blog-post-eight-2.png" alt="" /></div>
+                            
+                            <h3 id="short-message-service-sms">Short Message Service (SMS)</h3>
+<p>Originating from the radio telegraphy used in pagers, modern day SMS still adheres to the standards of the <strong>Global System for Mobile Communications (GSM)</strong>.</p>
+<p>&hellip;The part that always perplexes people is the mechanism which allows you to hook your intermediary language into a telecommunications protocol.</p>
+<h3 id="enter-twilio">Enter&hellip; ”Twilio”</h3>
+<blockquote>
+<p>“Take your ideas from localhost to the world”</p>
+</blockquote>
+<p>&hellip;And that’s exactly what we’re going to do, using the <strong>Twilio SMS Api</strong>&hellip;but in this implementation we’re going to code on the assumption of needing cross-platform scalability in future&hellip;</p>
+<h3 id="distributed-system-integration">Distributed System Integration</h3>
+<p>When it comes to scalability, the design of a platform is correlated to the separation of features which are likely to undergo the largest amount of throughput. The beauty of this is that you can handle the scale of a particular features server in a different manner to the less in demand parts of the platform.</p>
+<p>&hellip;By combining our Twilio integration with a <strong>RESTful</strong> service wrapper written in <strong>ASP.Net Core Web Api</strong> (Microsoft’s cross-platform framework), we can separate our concerns and allow a layer of business logic to sit over the top of our SMS protocol (whilst ultimately not binding ourselves to a specific operating system).</p>
+<h3 id="code-time">Code Time</h3>
+<p>Let’s start with our underlying data model. I’ve gone with some fairly obvious fields here to allow for flexibility in our Api wrapper and the tone we want to convey to each receiver of an SMS message. Remember, flexibility is key to help preempt future unnecessary rewrites.</p>
+<figure><img src="/images/2019/03/simon-gilbert-cto-tech-blog-post-sms-message-model.png"
+         alt="ASP.Net Core Web Api SMS Message Model"/><figcaption>
+            <p>ASP.Net Core Web Api SMS Message Model</p>
+        </figcaption>
+</figure>
+
+<p>Before we put the service together, we’ll need a generic response model for returning a different response from the endpoint, dependent on what happened when an attempt to send an SMS occurred.</p>
+<figure><img src="/images/2019/03/simon-gilbert-cto-tech-blog-post-generic-api-response-model.png"
+         alt="ASP.Net Core Web Api Generic API Response Model"/><figcaption>
+            <p>ASP.Net Core Web Api Generic API Response Model</p>
+        </figcaption>
+</figure>
+
+<p>Pull in a copy of the Twilio.AspNet.Core Nuget package to your Web Api project and create an interface based class with an async method for sending SMS via Twilio.</p>
+<figure><img src="/images/2019/03/simon-gilbert-cto-tech-blog-post-twilio-sms-service.png"
+         alt="ASP.Net Core Web Api Twilio SMS Service"/><figcaption>
+            <p>ASP.Net Core Web Api Twilio SMS Service</p>
+        </figcaption>
+</figure>
+
+<p>Great. Now that we’ve got that sorted, it’s time to add some validation to our business layer. Remember the <strong>System.ComponentModel.DataAnnotations</strong> namespace and the ever faithful <strong>[Required]</strong> attribute? &hellip;Yes, that isn’t the most appropriate solution unless we want to bolt out model validation to our underlying contract.</p>
+<p>Head over to <strong>Nuget</strong> again and pull in a copy of the <strong>FluentValidation</strong> package. We’re going to code a validation service layer that adheres to the single object responsibility principle&hellip;thus keeping things, separate? As a side note, if your class or components responsibility includes the word “and”, you’re breaking the principle&hellip;</p>
+<p>I&rsquo;m specifically coding this under the assumption that it’s UK to UK SMS messaging only&hellip;so, a few key things here - UK mobile phone numbers are 13 characters including the country code. Also, Twilio won’t send SMS to a number without a country code, and the other fields are required for constructing an accurate message body.</p>
+<figure><img src="/images/2019/03/simon-gilbert-cto-tech-blog-post-fluentvalidation.png"
+         alt="ASP.Net Core Web Api SMS FluentValidation"/><figcaption>
+            <p>ASP.Net Core Web Api SMS FluentValidation</p>
+        </figcaption>
+</figure>
+
+<p>Ok now that the key underlying aspects of the implementation have been coded, it’s time to plug them into our controller and expose the service as a cross-platform RESTful Api component. I’ll refrain from explaining the obvious here and skip to covering the attributes on the controllers action.</p>
+<p>When a request contains input parameters, the number of potential return types increases. Following the release of ASP.NET Core 2.1, the return type <strong>ActionResult<!-- raw HTML omitted --></strong> was introduced for Web API controller actions. This enables us to return a type deriving from ActionResult, or, return a specific type.</p>
+<p>Given this, we can make use of the <strong>[ProductResponseType]</strong> attribute. This indicates the known types and HTTP status codes to be returned by the action itself. It’s very clean!</p>
+<figure><img src="/images/2019/03/simon-gilbert-cto-tech-blog-post-aspnetcorewebapi-controller-action.png"
+         alt="ASP.Net Core Web Api SMS Controller Action"/><figcaption>
+            <p>ASP.Net Core Web Api SMS Controller Action</p>
+        </figcaption>
+</figure>
+
+<h3 id="lets-hook-into-twilio-now">Let’s hook into Twilio Now&hellip;</h3>
+<p>Head to their website and sign up for an account. There are three things we need next -</p>
+<ol>
+<li>
+<p>A mobile phone number to send SMS from.</p>
+</li>
+<li>
+<p>An account SID.</p>
+</li>
+<li>
+<p>An authentication token.</p>
+</li>
+</ol>
+<p>Twilio will allow you to generate a free trial UK mobile phone number for sending SMS from&hellip;</p>
+<figure><img src="/images/2019/03/simon-gilbert-cto-tech-blog-post-twilio-free-trial-number.png"
+         alt="Twilio SMS Platform Free Trial Mobile Phone Number"/><figcaption>
+            <p>Twilio SMS Platform Free Trial Mobile Phone Number</p>
+        </figcaption>
+</figure>
+
+<p>&hellip;as well as obtaining the required connection strings for hooking into the telecommunications protocol.</p>
+<figure><img src="/images/2019/03/simon-gilbert-cto-tech-blog-post-twilio-dashboard.png"
+         alt="Twilio SMS Platform Dashboard Connection Strings"/><figcaption>
+            <p>Twilio SMS Platform Dashboard Connection Strings</p>
+        </figcaption>
+</figure>
+
+<p>Next, let’s embed the SID and auth token from Twilio into our API appsettings file&hellip;</p>
+<figure><img src="/images/2019/03/simon-gilbery-cto-tech-blog-post-twilio-connecion-strings-appsettings-1.png"
+         alt="ASP.Net Core Web Api appsettings Twilio Connection Strings"/><figcaption>
+            <p>ASP.Net Core Web Api appsettings Twilio Connection Strings</p>
+        </figcaption>
+</figure>
+
+<p>&hellip;and now configure it at startup -</p>
+<figure><img src="/images/2019/03/simon-gilbert-cto-tech-blog-post-aspnetcorewebapi-twilio-init-configure.png"
+         alt="ASP.Net Core Web Api Twilio Init Startup Configure"/><figcaption>
+            <p>ASP.Net Core Web Api Twilio Init Startup Configure</p>
+        </figcaption>
+</figure>
+
+<h3 id="my-good-friend-postman">My Good Friend, Postman</h3>
+<p>So our Twilio SMS REST Api wrapper is ready to test. Let’s launch postman, and submit an HTTP Post to our endpoint. The first attempt will involve incorrect data to provoke a reaction from our validation service.</p>
+<figure><img src="/images/2019/03/simon-gilbert-cto-tech-blog-post-aspnetcorewebapi-postman-bad-request.png"/>
+</figure>
+
+<p>As you can see, the response is indicative of the occurring validation errors which are embedded in our generic response. Next let’s try a valid <strong>HTTP POST</strong> submission.</p>
+<figure><img src="/images/2019/03/simon-gilbert-cto-tech-blog-post-aspnetcorewebapi-postman-success.png"/>
+</figure>
+
+<p>Note the <strong>HTTP 200</strong> response&hellip;were specifically returning the Twilio platform response from our API endpoint, in scenarios where no validation errors occur and the message is submitted.</p>
+<h3 id="and-heres-the-result">And here’s the result&hellip;</h3>
+<figure><img src="/images/2019/03/simon-gilbert-cto-tech-blog-post-aspnetcorewebapi-twilio-sms-received.png"
+         alt="Twilio SMS Received"/><figcaption>
+            <p>Twilio SMS Received</p>
+        </figcaption>
+</figure>
+
+<p>Congratulations, you&rsquo;re now running a cross-platform API for sending SMS via code using Twilio!</p>
+<h2 id="download-github-code-sample">Download Github Code Sample</h2>
+<p>Feel free to <strong><a href="https://github.com/sahgilbert/sms-restful-twilio-aspnetwebapicore">DOWNLOAD</a></strong> the sample code of the aforementioned implementation from my Github account.</p>
+
+
+                            
+                            
+                            
+                            
+                            
+                        </section>
+
+					</div>
+
+                    
+
+<footer id="footer">
+    
+    <section class="split contact">
+        
+        
+        
+        
+        <section>
+            <h3>Social</h3>
+            <ul class="icons alt">
+                
+                
+                
+                
+                
+                <li><a href="https://github.com/sahgilbert" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+                
+                
+                
+                
+                
+            </ul>
+        </section>
+        
+    </section>
+</footer>
+
+                    
+<div id="copyright">
+    <ul><li>&copy; Simon Gilbert</li><li><a href="https://www.github.com/sahgilbert">Github</a></li><li><a href="https://simongilbert.net">Blog Home Page</a></li></ul>
+</div>
+
+
+            </div>
+            
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-136163864-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+            
+
+
+
+
+
+
+
+
+
+
+<script src='/assets/js/bundle.js'></script>
+
+
+	</body>
+</html>

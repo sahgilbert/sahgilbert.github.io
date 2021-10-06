@@ -1,0 +1,256 @@
+<!DOCTYPE HTML>
+
+<html lang='en'>
+	<head>
+		<title>Test Driven Development (TDD) Typescript Lambda API using Mocha and Chai &middot; Simon Gilbert</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		
+		
+		
+		<link rel="stylesheet" href="/assets/css/main.min.css">
+		
+		
+		<link rel="shortcut icon" href="/favicon.ico">
+		
+		
+		<noscript><link rel="stylesheet" href='/assets/css/noscript.css' /></noscript>
+
+		
+    		
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-136163864-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  		
+	</head>
+
+	<body lang='en' class="is-preload">
+
+		
+			<div id="wrapper">
+
+                
+<header id="header">
+    <a href='/' class="logo">Simon Gilbert</a>
+</header>
+
+                
+
+<nav id="nav">
+    <ul class="links">
+        <li class="active"><a href='/'>Home</a></li>
+        
+        
+    </ul>
+    
+    <ul class="icons">
+        
+        
+        
+        
+        
+        <li><a href="https://github.com/sahgilbert" class="icon fa-github"><span class="label">GitHub</span></a></li>
+        
+        
+        
+        
+        
+    </ul>
+    
+</nav>
+
+
+				
+					<div id="main">
+
+						
+                        <section class="post">
+                            <header class="major">
+                                
+                                <span class="date">July 16, 2020</span>
+                                
+                                <h1>Test Driven Development (TDD) Typescript Lambda API using Mocha and Chai</h1>
+                                <p></p>
+                            </header>
+                            
+                            <div class="image main"><img src="/images/2020/08/Screenshot-2020-08-13-at-16.08.56.png" alt="" /></div>
+                            
+                            <p>Test Driven Development (TDD) has many benefits, including allowing us to focus on our requirements with a &ldquo;unit test first approach&rdquo; to ensure that we&rsquo;re only deploying code where the unit tests pass. Today we&rsquo;re going to cover using <strong>Mocha</strong> and Chai to test our Typescript Lambda algorithms!For the purpose of this example, I&rsquo;ve built a Serverless Lambda API that is designed to accept phone numbers, and determine what type of phone number it is - be it a UK mobile phone number, a UK landline number, or an invalid phone number. Our unit tests will focus solely on validating that the encapsulated service which performs this logic, is producing valid and correct results.</p>
+<h3 id="test-driven-development-tdd">Test Driven Development (TDD)</h3>
+<p>The cycle in the Test Driven Development (TDD) process is very simple, yet repetitive. First of all, you write a unit test which will fail because you haven&rsquo;t written any code to make the test pass. You then proceed to write code until the unit test passes. Once the unit test passes, you then refactor your code to make it more clean and scalable. You then apply this methodology to all parts of the system that you intend to unit test, ensuring that you write the unit test first, and then write the code to make the unit test pass, followed by the refactoring process. The cycle looks like this -</p>
+<figure><img src="/images/2020/08/Screenshot-2020-08-13-at-13.21.13.png"/>
+</figure>
+
+<p>With this in mind, let&rsquo;s talk about Mocha and Chai. Mocha is a JavaScript testing framework running on NodeJS. Mocha allows asynchronous testing, test coverage reports, and use of any assertion library. Chai is a TDD/BDD assertion library for NodeJS that can be paired with any javascript testing framework. So essentially, Mocha is a testing framework and chai is an assertion library.Mocha uses hooks to organize the structure of its unit tests. They are as follows, and we&rsquo;ll cover a few of these in today&rsquo;s blog -</p>
+<ul>
+<li>describe(): Used to group and describe the test case.</li>
+<li>it(): Used to state the test case itself.</li>
+<li>before(): A hook to run before the first it() or describe().</li>
+<li>beforeEach(): A hook to run before each it() or describe().</li>
+<li>after(): A hook to run after it() or describe().</li>
+<li>afterEach(): A hook to run after each it() or describe().</li>
+</ul>
+<h3 id="installing-development-dependencies">Installing Development Dependencies</h3>
+<p>Ok let&rsquo;s get started. Head to your source code project and run the following command using NPM, to install ts-node, mocha, chai and their equivalent types. These additional packages are type definitions for mocha and chai, and ts-node is a TypeScript execution environment for node. The command is (npm install chai mocha ts-node @types/chai @types/mocha &ndash;save-dev).</p>
+<figure><img src="/images/2020/08/Screenshot-2020-08-13-at-14.08.39.png"/>
+</figure>
+
+<h3 id="writing-our-first-unit-test">Writing Our First Unit Test</h3>
+<p>We&rsquo;ll start with a simple &ldquo;Hello world!&rdquo; unit test. Create a new file called &ldquo;HelloWorldService.spec.ts&rdquo; (since we intend to build a HelloWorldService, and the &ldquo;.spec.ts&rdquo; suffix is indicative of a unit test file). Within your HelloWorldService.spec.ts file, at the top you&rsquo;ll want to import mocha and chai as follows, and then make use of the Mocha hooks (describe and it), to define a simple test whereby we expect to receive a string of &ldquo;Hello world!&rdquo; back from our HelloWorldService. I&rsquo;m using the &ldquo;describe&rdquo; hook to define that this is a Hello world string function unit test, and the &ldquo;it&rdquo; hook to state what the expected result of the test is.</p>
+<figure><img src="/images/2020/08/Screenshot-2020-08-13-at-14.09.16.png"/>
+</figure>
+
+<p>Now that we&rsquo;ve defined our unit test file and our simple &ldquo;Hello world!&rdquo; unit test, we&rsquo;ll need to create our HelloWorldService (in it&rsquo;s most basic form, without any sort of logic). This is simply to enable the unit test to run&hellip;and fail, in order to demonstrate the first steps of TDD. Here is a simple example -</p>
+<figure><img src="/images/2020/08/Screenshot-2020-08-13-at-14.13.56.png"/>
+</figure>
+
+<p>The next step is to create an NPM script in our package.json file, that calls mocha with the path as a parameter. However, instead of letting node run mocha, we’re going to register ts-node to run mocha instead. This will allow us to run our unit tests from the terminal, and the script looks as follows (you&rsquo;ll notice how the .spec filepath has been made use of, as stated previously).</p>
+<figure><img src="/images/2020/08/Screenshot-2020-08-13-at-14.16.25.png"/>
+</figure>
+
+<p>We can now run the &ldquo;npm test&rdquo; script command from the Terminal -</p>
+<figure><img src="/images/2020/08/Screenshot-2020-08-13-at-14.21.01.png"/>
+</figure>
+
+<p>Here is our output result, and as expected, our unit test failed.</p>
+<figure><img src="/images/2020/08/Screenshot-2020-08-13-at-14.22.26.png"/>
+</figure>
+
+<p>Let&rsquo;s fix our HelloWorldService function to return the correct result.</p>
+<figure><img src="/images/2020/08/Screenshot-2020-08-13-at-14.23.33.png"/>
+</figure>
+
+<p>Now let&rsquo;s re-run the unit test script.</p>
+<figure><img src="/images/2020/08/Screenshot-2020-08-13-at-14.24.57.png"/>
+</figure>
+
+<p>Our unit test is now passing, and we&rsquo;ve completed our first cycle of Test Driven Development (TDD)!!</p>
+<h3 id="unit-testing-our-phone-number-service-algorithm">Unit Testing Our Phone Number Service Algorithm</h3>
+<p>Now that our Typescript Lambda project is configured for TDD using Mocha and Chai, we can begin building our phone number service algorithm to determine what type a phone number is defined as. For the purpose of brevity, this will be summarised. Let&rsquo;s concentrate on the part of the PhoneNumberService algorithm, that is designed to determine whether a phone number is a UK mobile phone number. The first thing we&rsquo;re going to do is define our unit test <em>(and you&rsquo;ll notice that in order to make the code compile and the unit test fail in the first instance, I&rsquo;ve created a PhoneNumberService class and the relevant method/function stubs for us to define our unit test against).</em></p>
+<figure><img src="/images/2020/08/Screenshot-2020-08-13-at-14.41.40.png"/>
+</figure>
+
+<p>In this unit test, we have used the &ldquo;describe&rdquo; hook to define that this unit test is to determine what the phone number type is, and then we&rsquo;ve used the &ldquo;it&rdquo; hook to state that this unit test should return a result of &ldquo;UK_MOBILE_PHONE_NUMBER&rdquo; (which is defined on an enumerated type). Now let&rsquo;s run our unit tests and see if the code compiles, and produces a failing test (as expected in the first instance).</p>
+<figure><img src="/images/2020/08/Screenshot-2020-08-13-at-14.50.30.png"/>
+</figure>
+
+<p>As expected, our test is failing, and we can now write our PhoneNumberService algorithm to pass the unit test, and validate our input UK mobile phone numbers. For the purpose of this example, I&rsquo;ve decided to use a Regular Expression (RegEx), in order to validate whether the input value is a UK mobile phone number. You&rsquo;ll note from the code below that we first declared a constant variable which defines the parameters for our Regular Expression, followed by creating a new instance of our RegEx, and then passing the input phone number into the &ldquo;test&rdquo; function of the RegEx instance.</p>
+<figure><img src="/images/2020/08/Screenshot-2020-08-13-at-15.00.41.png"/>
+</figure>
+
+<p>Now that we have defined our PhoneNumberService algorithm using a RegEx, we can re-run our unit tests!</p>
+<figure><img src="/images/2020/08/Screenshot-2020-08-13-at-15.02.48.png"/>
+</figure>
+
+<p>As you can see, our unit test is now passing, and the PhoneNumberService Regex is determining correctly that the input phone numbers are indeed, valid UK mobile phone numbers. The next step is to add more unit tests for our algorithm, and then check to see if they pass or fail.</p>
+<figure><img src="/images/2020/08/Screenshot-2020-08-13-at-15.15.03.png"/>
+</figure>
+
+<p>The new unit tests are failing as expected, and we can now refactor our PhoneNumberService to be more validating with the data, at the point where it is first passed into the algorithm, and then expand it to handle UK landline numbers also as follows.</p>
+<figure><img src="/images/2020/08/Screenshot-2020-08-13-at-15.17.07.png"/>
+</figure>
+
+<p>Now that we have refactored our PhoneNumberService to handle both UK mobile and landline phone numbers, and also validate that an input phone number is of a valid phone number format, we can re-run our unit tests again.</p>
+<figure><img src="/images/2020/08/Screenshot-2020-08-13-at-15.19.15.png"/>
+</figure>
+
+<p>Success! All of our unit tests are now passing with our refactored PhoneNumberService algorithm code!Next, let&rsquo;s take a look at our Serverless Lambda code to observe the construction and use of the various services to validate and respond to API requests.</p>
+<figure><img src="/images/2020/08/Screenshot-2020-08-13-at-15.19.52.png"/>
+</figure>
+
+<p>As you can see I&rsquo;ve built a ValidationService also, which validates that the income values via the Lambda API Gateway are parsable, followed by some objects to handle the request and response, including an Http Response and Status Code.</p>
+<p>Now let&rsquo;s run &ldquo;sls deploy&rdquo; and deploy our Serverless Lambda API to AWS.</p>
+<figure><img src="/images/2020/08/Screenshot-2020-08-13-at-15.24.27.png"/>
+</figure>
+
+<p>Our Serverless API has successfully deployed to AWS, so let&rsquo;s use Postman to hit the endpoint and test our PhoneNumberService algorithm.</p>
+<figure><img src="/images/2020/08/Screenshot-2020-08-13-at-15.26.51.png"/>
+</figure>
+
+<p>As you can see, we&rsquo;re receiving successful responses from the postback as expected (thanks to our TDD approach, which ensured that all of our unit tests passed before we deployed our code). Enjoy!</p>
+<h2 id="download-github-code-sample">Download Github Code Sample</h2>
+<p>Feel free to <strong><a href="https://github.com/sahgilbert/portfolio-typescript-lambda-api-tdd-mocha-chai">DOWNLOAD</a></strong> the sample code of the aforementioned implementation from my Github account.</p>
+
+
+                            
+                            
+                            
+                            
+                            
+                        </section>
+
+					</div>
+
+                    
+
+<footer id="footer">
+    
+    <section class="split contact">
+        
+        
+        
+        
+        <section>
+            <h3>Social</h3>
+            <ul class="icons alt">
+                
+                
+                
+                
+                
+                <li><a href="https://github.com/sahgilbert" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+                
+                
+                
+                
+                
+            </ul>
+        </section>
+        
+    </section>
+</footer>
+
+                    
+<div id="copyright">
+    <ul><li>&copy; Simon Gilbert</li><li><a href="https://www.github.com/sahgilbert">Github</a></li><li><a href="https://simongilbert.net">Blog Home Page</a></li></ul>
+</div>
+
+
+            </div>
+            
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-136163864-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+            
+
+
+
+
+
+
+
+
+
+
+<script src='/assets/js/bundle.js'></script>
+
+
+	</body>
+</html>

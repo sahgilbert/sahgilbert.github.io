@@ -1,0 +1,232 @@
+<!DOCTYPE HTML>
+
+<html lang='en'>
+	<head>
+		<title>Hashing Passwords Using The MD5 Hash Algorithm vs. BCrypt vs. PBKDF2 - C# .Net Core &middot; Simon Gilbert</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		
+		
+		
+		<link rel="stylesheet" href="/assets/css/main.min.css">
+		
+		
+		<link rel="shortcut icon" href="/favicon.ico">
+		
+		
+		<noscript><link rel="stylesheet" href='/assets/css/noscript.css' /></noscript>
+
+		
+    		
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-136163864-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  		
+	</head>
+
+	<body lang='en' class="is-preload">
+
+		
+			<div id="wrapper">
+
+                
+<header id="header">
+    <a href='/' class="logo">Simon Gilbert</a>
+</header>
+
+                
+
+<nav id="nav">
+    <ul class="links">
+        <li class="active"><a href='/'>Home</a></li>
+        
+        
+    </ul>
+    
+    <ul class="icons">
+        
+        
+        
+        
+        
+        <li><a href="https://github.com/sahgilbert" class="icon fa-github"><span class="label">GitHub</span></a></li>
+        
+        
+        
+        
+        
+    </ul>
+    
+</nav>
+
+
+				
+					<div id="main">
+
+						
+                        <section class="post">
+                            <header class="major">
+                                
+                                <span class="date">March 21, 2019</span>
+                                
+                                <h1>Hashing Passwords Using The MD5 Hash Algorithm vs. BCrypt vs. PBKDF2 - C# .Net Core</h1>
+                                <p></p>
+                            </header>
+                            
+                            <div class="image main"><img src="/images/2019/03/simon-gilbert-cto-tech-blog-post-ten.png" alt="" /></div>
+                            
+                            <h3 id="please-enter-your-password">&ldquo;Please Enter Your Password&rdquo;</h3>
+<p>&hellip;You&rsquo;ve just signed up to a new website and as per usual, they require you to create an account using your email address and a password. This is all well and good&hellip;assuming the password isn&rsquo;t stored in plain text for anyone with database access to read/borrow/use/compromise&hellip;hack? Cryptography exists for a reason, although it isn&rsquo;t always implemented using the best approach&hellip;</p>
+<h3 id="encryption-vs-hashing">Encryption vs. Hashing</h3>
+<p>Encryption is a 1:1 mapping and is always reversible through decrypting. Hashing is one-way and cannot be reversed. If you encrypt plain text with a key, you will get the exact plain text back when you decrypt it. If you hash plain text with a key, you cannot get the same plain text value back if you attempt to reverse it, hence &ldquo;one-way&rdquo;.</p>
+<h3 id="cryptographic-hash-functions">Cryptographic Hash Functions</h3>
+<p>&hellip;To solve the plaintext password problem, <strong>one-way hashing algorithms</strong> are used to generate a different output for the password. These are called <strong>&ldquo;cryptographic hash functions&rdquo;</strong>, and their purpose is to map the password to a bit string of a fixed size (known as the <strong>hash</strong>).</p>
+<p>The output of this mathematical algorithm is called the <strong>hash digest</strong>, and this is what is stored in a database instead of storing your password in plaintext. In future when you are asked to log in, the password you enter is re-hashed using the same algorithm, and the hash digest that is produced is compared with the existing stored hash digest. If they match, you&rsquo;re logged in successfully.</p>
+<h3 id="password-hashing---process-flow-summary">Password Hashing - Process Flow Summary</h3>
+<ol>
+<li>
+<p>Sign up to <a href="http://www.somewebsite.com">www.somewebsite.com</a> using a password.</p>
+</li>
+<li>
+<p><a href="http://www.somewebsite.com">www.somewebsite.com</a> hashes your password using a hash function, and stores the hash digest.</p>
+</li>
+<li>
+<p>Log in to <a href="http://www.somewebsite.com">www.somewebsite.com</a> by entering said password, which is hashed again upon entering it, using the same hash function as used at sign up, and the hash digests are compared.</p>
+</li>
+<li>
+<p>Assuming the hash digests match, you&rsquo;re logged in successfully&hellip;</p>
+</li>
+</ol>
+<h3 id="hash-collision-attacks">Hash Collision (Attacks)</h3>
+<p>Due to the design of a hash function (infinite input length, predefined output length), there is indeed the potential that two different inputs produce the same hash output. This is known as a hash collision, and can be exploited by hackers in scenarios where an application compares two hashes together and performs a task following a successful match&hellip;such as logging a user into their personal account on a website.</p>
+<p>A commonly used addition to the hashing process is to <strong>&ldquo;salt&rdquo;</strong> the passwords, whereby a known random string is appended to the original string before it is injected into the hashing function.</p>
+<h3 id="md5-password-hashing">MD5 Password Hashing</h3>
+<p>One of the most popular cryptographic hash functions is called &ldquo;<strong>MD5</strong>&rdquo;, which tends to be used because people think they should use it, are used to using it&hellip;and people don&rsquo;t like change&hellip;the problem is, it&rsquo;s weak, and I&rsquo;m not necessarily talking cryptographically here&hellip;</p>
+<figure><img src="/images/2019/03/simon-gilbert-cto-tech-blog-md5-cryptography-hash-function.png"
+         alt="MD5 Password Hash Algorithm - C# .Net Core"/><figcaption>
+            <p>MD5 Password Hash Algorithm - C# .Net Core</p>
+        </figcaption>
+</figure>
+
+<h3 id="rainbow-tables">Rainbow Tables</h3>
+<p>A rainbow table is used to reverse cryptographic hash functions. It&rsquo;s quite literally a look up table that contains all the variations of characters that have been hashed, using a specific hashing algorithm, such as <strong>MD5</strong>. It wouldn&rsquo;t take long to brute force a series of <strong>MD5</strong> passwords using a rainbow table&hellip;</p>
+<p>&hellip;So, how to avoid this problem? &hellip;You can &ldquo;<strong>salt</strong>&rdquo; your passwords as mentioned earlier, although that in itself doesn&rsquo;t necessarily answer the question&hellip;</p>
+<h3 id="salted-md5-passwords-vs-brute-force-attack">Salted MD5 Passwords vs. Brute Force Attack</h3>
+<p>Ignoring the cryptographic weaknesses of <strong>MD5</strong> for a minute, let&rsquo;s talk about speed. By choosing to use a fast hash construction, you are consequently allowing a hacker to fire millions of &ldquo;candidate&rdquo; passwords per second in an attempt to obtain a match, and all they need is a single GPU to do it&hellip;Modern computational power has increased so much over the years and is readily available. Your biggest enemy when it comes to password hashing is <strong>TIME!</strong></p>
+<p><a href="https://www.theregister.co.uk/2019/02/11/620_million_hacked_accounts_dark_web/">.<em>..Here&rsquo;s a list fo RECENT MD5 breaches</em></a></p>
+<h3 id="thinking-of-migrating-to-sha-1-or-sha-2">Thinking of Migrating to SHA-1 or SHA-2?</h3>
+<p>So <strong>MD5</strong> isn&rsquo;t ideal&hellip;but of course you don&rsquo;t have to use MD5&hellip;<strong>SHA</strong>-<strong>1</strong> (Secure Hash Algorithm <strong>1</strong>) produces a 160-bit (20-byte) hash value, typically rendered as a hexadecimal number, 40 digits long.</p>
+<p>Even better&hellip;<strong>SHA-2</strong> was designed by the National Security Agency (NSA)&hellip;They are built using the Merkle–Damgård structure, from a one-way compression function which itself is built using the Davies–Meyer structure from a (classified) specialised block cipher!</p>
+<p>Sounds great right? &hellip;Rainbow tables apply almost equally to all unsalted hashes. Therefore migrating to <strong>SHA-1</strong> or SHA-2 would do almost nothing.</p>
+<h3 id="the-correct-approach">The Correct Approach</h3>
+<p>When it comes to hashing passwords, the correct approach is to choose a deliberately slow cryptographic hashing function combined with a salt. Time is of the essence&hellip;and the more time it takes, the less implied a hacker will be to monotonously brute force your log in functionality - A process which is easier than it seems if your&rsquo;re using <strong>MD5</strong>, <strong>SHA-1</strong> or <strong>SHA-2</strong>&hellip;</p>
+<h3 id="blowfish-to-the-rescue">Blowfish To The Rescue?</h3>
+<p>In 1999, the <strong>BCrypt</strong> hashing function was designed and is based on the Blowfish cipher. To cut a long story short, it incorporates a salt and is an adaptive function, meaning it can be slowed down over time to help prevent against brute force attacks. It&rsquo;s interesting to think that the designers purposely put performance control into this hash function in order to circumvent potential attacks&hellip;But before you get started with the migration from <strong>MD5</strong>&hellip;let&rsquo;s talk about a monumental hack involving <strong>BCrypt</strong>&hellip;</p>
+<h3 id="the-ashley-madison-bcrypt-hack">The Ashley Madison BCrypt Hack</h3>
+<p>Remember that website which hit the papers in 2015? It was known for helping to enable extramarital affairs happen (grim), and was called &ldquo;Ashley Madison&rdquo;. Well, their users passwords were all stored using <strong>BCrypt</strong>, and in some cases due to a major design error they were stored using <strong>BOTH</strong> MD5 (originally, pre 2012) and then BCrypt (from 2012 onwards, after their developers made a design amend but fundamentally made a few mistakes involving the generation of the $loginkey).</p>
+<p>What&rsquo;s more is that the developers at Ashley Madison used a cost factor of 12 for their implementation of <strong>BCrypt</strong>, which ultimately meant that each &ldquo;candidate&rdquo; password that an hacker wanted to test in a brute force attack would need to go through 4,096 rounds of hashing. This decision ensured that each password guess was in fact potentially thousands of times slower to perform than an <strong>MD5</strong> brute force attack&hellip;</p>
+<p>&hellip;and still it got breached, monumentally, to the point where the most common passwords used were in fact &ldquo;123456&rdquo; and &ldquo;password&rdquo;. The total exploited password count was 36 MILLION!! Realistically the design change was to blame, as was the blunder from the dev team, but it made an interesting headline too!</p>
+<h3 id="enter-pbkdf2">Enter &ldquo;PBKDF2&rdquo;&hellip;</h3>
+<p><strong>PBKDF2</strong>, known as Password-Based Key Derivation Function 2 uses a pseudorandom function and a configurable number of iterations to derive a cryptographic key from a password.  Key derivation functions are ideally suited for password hashing use cases, and similarly to <strong>BCrypt</strong> it uses a large random &ldquo;salt&rdquo; value to ensure that each password is hashed uniquely. Due to it&rsquo;s design it is cryptographically slow to compute on purpose and as mentioned before, time is the enemy in a brute force attack. <strong>PBKDF2</strong> prevents password cracking tools from making optimal use of graphics processing units (GPUs) and massively increases the required guess rates that a hacker would have to make.</p>
+<figure><img src="/images/2019/03/simon-gilbert-cto-tech-blog-pbkdf2-cryptography-hash-function.png"
+         alt="PBKDF2 Password Hash Algorithm - C# .Net Core"/><figcaption>
+            <p>PBKDF2 Password Hash Algorithm - C# .Net Core</p>
+        </figcaption>
+</figure>
+
+<h3 id="aspnet-identity-framework-cryptography">ASP.Net Identity Framework Cryptography</h3>
+<p>&hellip;What&rsquo;s the chance that you&rsquo;re a C# .Net developer? Perhaps you&rsquo;ve used <strong>ASP.Net Identity Framework</strong> for authentication and password hashing? Fortunately for you, Microsoft chose to use <strong>Rfc2898DeriveBytes</strong> for ASP.Net and this class implements <strong>PBKDF2</strong> . To be honest it should have been named <strong>PBKDF2DeriveBytes</strong>&hellip;</p>
+<figure><img src="/images/2019/03/simon-gilbert-cto-tech-blog-password-hash-outputs.png"
+         alt="MD5 Hash vs. PBKDF2 Hash - C# .Net Core"/><figcaption>
+            <p>MD5 Hash vs. PBKDF2 Hash - C# .Net Core</p>
+        </figcaption>
+</figure>
+
+<h3 id="in-summary">In Summary&hellip;</h3>
+<p>Avoid MD5&hellip;<strong>PBKDF2</strong> is supported in .Net out of the box and cryptography isn&rsquo;t something to be taken lightly, especially at enterprise level. Troy Hunts infamous <strong><a href="https://haveibeenpwned.com/">HaveIBeenPwned</a></strong> is worth signing up to, if you haven&rsquo;t already&hellip;</p>
+<h2 id="download-github-code-sample">Download Github Code Sample</h2>
+<p>Feel free to <strong><a href="https://github.com/sahgilbert/hashing-passwords-md5-bcrypt-pbkdf2-csharp-dotnetcore">DOWNLOAD</a></strong> the sample code of the aforementioned implementation from my Github account.</p>
+
+
+                            
+                            
+                            
+                            
+                            
+                        </section>
+
+					</div>
+
+                    
+
+<footer id="footer">
+    
+    <section class="split contact">
+        
+        
+        
+        
+        <section>
+            <h3>Social</h3>
+            <ul class="icons alt">
+                
+                
+                
+                
+                
+                <li><a href="https://github.com/sahgilbert" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+                
+                
+                
+                
+                
+            </ul>
+        </section>
+        
+    </section>
+</footer>
+
+                    
+<div id="copyright">
+    <ul><li>&copy; Simon Gilbert</li><li><a href="https://www.github.com/sahgilbert">Github</a></li><li><a href="https://simongilbert.net">Blog Home Page</a></li></ul>
+</div>
+
+
+            </div>
+            
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-136163864-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+            
+
+
+
+
+
+
+
+
+
+
+<script src='/assets/js/bundle.js'></script>
+
+
+	</body>
+</html>

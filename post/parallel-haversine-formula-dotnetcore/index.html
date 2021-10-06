@@ -1,0 +1,207 @@
+<!DOCTYPE HTML>
+
+<html lang='en'>
+	<head>
+		<title>Parallel Computations of The Haversine Formula - C# .Net Core &middot; Simon Gilbert</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		
+		
+		
+		<link rel="stylesheet" href="/assets/css/main.min.css">
+		
+		
+		<link rel="shortcut icon" href="/favicon.ico">
+		
+		
+		<noscript><link rel="stylesheet" href='/assets/css/noscript.css' /></noscript>
+
+		
+    		
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-136163864-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  		
+	</head>
+
+	<body lang='en' class="is-preload">
+
+		
+			<div id="wrapper">
+
+                
+<header id="header">
+    <a href='/' class="logo">Simon Gilbert</a>
+</header>
+
+                
+
+<nav id="nav">
+    <ul class="links">
+        <li class="active"><a href='/'>Home</a></li>
+        
+        
+    </ul>
+    
+    <ul class="icons">
+        
+        
+        
+        
+        
+        <li><a href="https://github.com/sahgilbert" class="icon fa-github"><span class="label">GitHub</span></a></li>
+        
+        
+        
+        
+        
+    </ul>
+    
+</nav>
+
+
+				
+					<div id="main">
+
+						
+                        <section class="post">
+                            <header class="major">
+                                
+                                <span class="date">February 15, 2019</span>
+                                
+                                <h1>Parallel Computations of The Haversine Formula - C# .Net Core</h1>
+                                <p></p>
+                            </header>
+                            
+                            <div class="image main"><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-three.png" alt="" /></div>
+                            
+                            <h3 id="the-spherical-distance-between-us">The Spherical Distance Between Us</h3>
+<p>A common feature for modern applications is the need to supply the user with an accurate navigational distance between themselves and another endpoint, especially when providing an ETA for an item they have purchased using said piece of software.</p>
+<h3 id="the-law-of-haversines">The Law of Haversines</h3>
+<p>Navigation is driven heavily by the law of haversines - a specific branch of spherical trigonometry which focuses on the relationships between sides and angles, particularly when it comes to polygons.</p>
+<h3 id="the-haversine-formula">The Haversine Formula</h3>
+<figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-haversine-formula-equation.png"
+         alt="The Haversine Formula"/><figcaption>
+            <p>The Haversine Formula</p>
+        </figcaption>
+</figure>
+
+<p>The haversine formula is the calculation of the great-circle distance, specifically using the latitude and longitude of two endpoints.</p>
+<p>The great-circle distance (also known as the orthodromic distance) is the shortest distance between two points on the surface of a sphere. The key thing to note is that this distance is measured along the surface of the sphere (as opposed to a straight line directly through the sphere&rsquo;s interior).</p>
+<h3 id="haversine-formula-implementation">Haversine Formula Implementation</h3>
+<p>I&rsquo;ll refrain from delving into too much detail on the mathematical side of the Haversine formula. The following image shows the implementation we are going to use when running this calculation in C# .Net Core.</p>
+<figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-haversine-formula.png"
+         alt="The Haversine Formula in C# .Net Core"/><figcaption>
+            <p>The Haversine Formula in C# .Net Core</p>
+        </figcaption>
+</figure>
+
+<h3 id="parallel-mathematical-computation">Parallel Mathematical Computation</h3>
+<p>With the current hardware available in the market, we are able to utilise multi-core processors to ensure we maximise throughput and response times. Since version 4.0 of the .Net Framework, this has been made more accessible using the parallel extensions component of .Net which includes the Task Parallel Library (TPL), particularly when it involves loops as a method of execution.</p>
+<p>The Parallel.For loop uses a ThreadPool to execute the work by invoking a delegate once per each iteration of the loop.</p>
+<h3 id="thread-synchronization-costs">Thread Synchronization Costs</h3>
+<p>It&rsquo;s worth highlighting that when we choose to use parallel loops, we incur a number of overhead costs -</p>
+<ul>
+<li>The cost of partitioning the source collection.</li>
+<li>The cost of  synchronizing the worker threads.</li>
+</ul>
+<h3 id="our-workload-dataset">Our Workload Dataset</h3>
+<p>For this example, I&rsquo;ve produced a list of latitudes and longitudes that span various cities. Let&rsquo;s see how the dataset is handled across a variety of different parallel computation methods!</p>
+<h3 id="parallelism-always-beats-sequential-execution">&ldquo;Parallelism Always Beats Sequential Execution&rdquo;</h3>
+<p>&hellip;.and here are the results:</p>
+<figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-haversine-results.png"
+         alt="C# .Net Core Haversine Formula Results"/><figcaption>
+            <p>C# .Net Core Haversine Formula Results</p>
+        </figcaption>
+</figure>
+
+<p>The simple sequential execution method of a basic ForEach loop beats all the parallel implementations we put together, by a large number of milliseconds!</p>
+<p>&hellip;So, are you still convinced that parallelism is always faster than sequential execution?</p>
+<h3 id="when-to-use-parallelism">When To Use Parallelism</h3>
+<p>It&rsquo;s important to note that performing parallel execution is not always faster than standard serial execution, and before deciding to performance optimise through concurrency, it is necessary to estimate the workload per iteration. If the actual work being performed by the loop is small (relative to the thread synchronisation cost), then it will be more performant to use serial execution&hellip;otherwise you&rsquo;re just adding unnecessary overhead.</p>
+<h2 id="download-github-code-sample">Download Github Code Sample</h2>
+<p>Feel free to <strong><a href="https://github.com/sahgilbert/parallel-haversine-formula-dotnetcore">DOWNLOAD</a></strong> the sample code of the aforementioned implementation from my Github account.</p>
+
+
+                            
+                            
+                            
+                            
+                            
+                        </section>
+
+					</div>
+
+                    
+
+<footer id="footer">
+    
+    <section class="split contact">
+        
+        
+        
+        
+        <section>
+            <h3>Social</h3>
+            <ul class="icons alt">
+                
+                
+                
+                
+                
+                <li><a href="https://github.com/sahgilbert" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+                
+                
+                
+                
+                
+            </ul>
+        </section>
+        
+    </section>
+</footer>
+
+                    
+<div id="copyright">
+    <ul><li>&copy; Simon Gilbert</li><li><a href="https://www.github.com/sahgilbert">Github</a></li><li><a href="https://simongilbert.net">Blog Home Page</a></li></ul>
+</div>
+
+
+            </div>
+            
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-136163864-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+            
+
+
+
+
+
+
+
+
+
+
+<script src='/assets/js/bundle.js'></script>
+
+
+	</body>
+</html>

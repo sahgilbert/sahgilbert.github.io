@@ -1,0 +1,253 @@
+<!DOCTYPE HTML>
+
+<html lang='en'>
+	<head>
+		<title>[Full Stack Web] Show &amp; Hide Password Form Submit - ReactJS &#43; Redux &#43; C# ASP.Net Core &middot; Simon Gilbert</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		
+		
+		
+		<link rel="stylesheet" href="/assets/css/main.min.css">
+		
+		
+		<link rel="shortcut icon" href="/favicon.ico">
+		
+		
+		<noscript><link rel="stylesheet" href='/assets/css/noscript.css' /></noscript>
+
+		
+    		
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-136163864-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  		
+	</head>
+
+	<body lang='en' class="is-preload">
+
+		
+			<div id="wrapper">
+
+                
+<header id="header">
+    <a href='/' class="logo">Simon Gilbert</a>
+</header>
+
+                
+
+<nav id="nav">
+    <ul class="links">
+        <li class="active"><a href='/'>Home</a></li>
+        
+        
+    </ul>
+    
+    <ul class="icons">
+        
+        
+        
+        
+        
+        <li><a href="https://github.com/sahgilbert" class="icon fa-github"><span class="label">GitHub</span></a></li>
+        
+        
+        
+        
+        
+    </ul>
+    
+</nav>
+
+
+				
+					<div id="main">
+
+						
+                        <section class="post">
+                            <header class="major">
+                                
+                                <span class="date">June 3, 2020</span>
+                                
+                                <h1>[Full Stack Web] Show &amp; Hide Password Form Submit - ReactJS &#43; Redux &#43; C# ASP.Net Core</h1>
+                                <p></p>
+                            </header>
+                            
+                            <div class="image main"><img src="/images/2019/07/simon-gilbert-dev-cto-blog-30.png" alt="" /></div>
+                            
+                            <h3 id="password-required">Password Required</h3>
+<p>How often do you type a <strong>password</strong> into an <strong>HTML</strong> form? Fairly regularly? &hellip;unless you&rsquo;re using a <strong>password manager</strong> (you should, but we&rsquo;ll cover that another day). So what if you&rsquo;ve typed your <strong>password</strong> but you can&rsquo;t be certain that it&rsquo;s correct, and want to see it <strong>before you click submit</strong>?</p>
+<h3 id="enter-reactjs">Enter &ldquo;ReactJS&rdquo;&hellip;</h3>
+<p>I&rsquo;ve been using <strong>ReactJS</strong> and <strong>Redux</strong> a fair bit recently, so I figured why not create a fresh <strong>ReactJS</strong>  <strong>component</strong> to encapsulate the logic for showing and hiding a users password in an <strong>input field</strong>?</p>
+<h3 id="lets-code">Let&rsquo;s Code&hellip;</h3>
+<p>This implementation will be covered as a summary and uses some of the <strong>ReactJS</strong>  <strong>components</strong> that I coded and <a href="/reactjs-redux-csharp-aspnetcore-client-side-validation/">demonstrated on previous blogs</a>. Let&rsquo;s begin with a basic data model written in C# on the server-side.</p>
+<figure><img src="/images/2019/07/simon-gilbert-dev-cto-reactjs-password-1.png"
+         alt="Show &amp;amp; Hide Password Form Submit - ReactJS &#43; Redux &#43; C# ASP.Net Core"/><figcaption>
+            <p>Show &amp; Hide Password Form Submit - ReactJS + Redux + C# ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<p>Next we need a basic C# ASP.Net Web Api controller and action, to allow our html form to postback to.</p>
+<figure><img src="/images/2019/07/simon-gilbert-dev-cto-reactjs-password-2.png"
+         alt="Show &amp;amp; Hide Password Form Submit - ReactJS &#43; Redux &#43; C# ASP.Net Core"/><figcaption>
+            <p>Show &amp; Hide Password Form Submit - ReactJS + Redux + C# ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<p>Now let&rsquo;s code the <strong>client-side implementation</strong>, specifically our dedicated component for our password field and it&rsquo;s required functionality, beginning with some imports of the previously written input field components that I mentioned earlier.</p>
+<figure><img src="/images/2019/07/simon-gilbert-dev-cto-reactjs-password-3.png"
+         alt="Show &amp;amp; Hide Password Form Submit - ReactJS &#43; Redux &#43; C# ASP.Net Core"/><figcaption>
+            <p>Show &amp; Hide Password Form Submit - ReactJS + Redux + C# ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<p>Next is our constructor.</p>
+<figure><img src="/images/2019/07/simon-gilbert-dev-cto-reactjs-password-4.png"
+         alt="Show &amp;amp; Hide Password Form Submit - ReactJS &#43; Redux &#43; C# ASP.Net Core"/><figcaption>
+            <p>Show &amp; Hide Password Form Submit - ReactJS + Redux + C# ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<p>Now we need to code a function to toggle the state of our input field.</p>
+<figure><img src="/images/2019/07/simon-gilbert-dev-cto-reactjs-password-5.png"
+         alt="Show &amp;amp; Hide Password Form Submit - ReactJS &#43; Redux &#43; C# ASP.Net Core"/><figcaption>
+            <p>Show &amp; Hide Password Form Submit - ReactJS + Redux + C# ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<p>Now we need to bind this function inside our components constructor.</p>
+<figure><img src="/images/2019/07/simon-gilbert-dev-cto-reactjs-password-6.png"
+         alt="Show &amp;amp; Hide Password Form Submit - ReactJS &#43; Redux &#43; C# ASP.Net Core"/><figcaption>
+            <p>Show &amp; Hide Password Form Submit - ReactJS + Redux + C# ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<p>Following this let&rsquo;s code our component&rsquo;s render function, specifically making use of the additional components which we imported previously. You&rsquo;ll note that for this implementation we&rsquo;re making use of <strong>Bootstrap 4&rsquo;s</strong> input-group functionality to bolt a button onto the end of our input field for showing and hiding the password.</p>
+<figure><img src="/images/2019/07/simon-gilbert-dev-cto-reactjs-password-7.png"
+         alt="Show &amp;amp; Hide Password Form Submit - ReactJS &#43; Redux &#43; C# ASP.Net Core"/><figcaption>
+            <p>Show &amp; Hide Password Form Submit - ReactJS + Redux + C# ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<p>Finally, let&rsquo;s make use of the component inside our HTML form.</p>
+<figure><img src="/images/2019/07/simon-gilbert-dev-cto-reactjs-password-8.png"
+         alt="Show &amp;amp; Hide Password Form Submit - ReactJS &#43; Redux &#43; C# ASP.Net Core"/><figcaption>
+            <p>Show &amp; Hide Password Form Submit - ReactJS + Redux + C# ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<p>Now to run our <strong>full stack application</strong> and test our newly coded component.</p>
+<figure><img src="/images/2019/07/simon-gilbert-dev-cto-reactjs-password-9.png"
+         alt="Show &amp;amp; Hide Password Form Submit - ReactJS &#43; Redux &#43; C# ASP.Net Core"/><figcaption>
+            <p>Show &amp; Hide Password Form Submit - ReactJS + Redux + C# ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<p>As you can see, our password input field looks slightly different to the email address input field, since it makes additional use of the input-group appending functionality.</p>
+<figure><img src="/images/2019/07/simon-gilbert-dev-cto-reactjs-password-10.png"
+         alt="Show &amp;amp; Hide Password Form Submit - ReactJS &#43; Redux &#43; C# ASP.Net Core"/><figcaption>
+            <p>Show &amp; Hide Password Form Submit - ReactJS + Redux + C# ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<p>Now that we&rsquo;ve typed a password which is hidden as normal, let&rsquo;s see what happens when we click the show/hide password button.</p>
+<figure><img src="/images/2019/07/simon-gilbert-dev-cto-reactjs-password-11.png"
+         alt="Show &amp;amp; Hide Password Form Submit - ReactJS &#43; Redux &#43; C# ASP.Net Core"/><figcaption>
+            <p>Show &amp; Hide Password Form Submit - ReactJS + Redux + C# ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<p>BOOM! There it is, so now let&rsquo;s post our form back to the server.</p>
+<figure><img src="/images/2019/07/simon-gilbert-dev-cto-reactjs-password-12.png"
+         alt="Show &amp;amp; Hide Password Form Submit - ReactJS &#43; Redux &#43; C# ASP.Net Core"/><figcaption>
+            <p>Show &amp; Hide Password Form Submit - ReactJS + Redux + C# ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<p>Enjoy!</p>
+<h2 id="download-github-code-sample">Download Github Code Sample</h2>
+<p>Feel free to <strong><a href="https://github.com/sahgilbert/reactjs-redux-aspnetcore-show-password-form">DOWNLOAD</a></strong> the sample code of the aforementioned implementation from my Github account.</p>
+
+
+                            
+                            
+                            
+                            
+                            
+                        </section>
+
+					</div>
+
+                    
+
+<footer id="footer">
+    
+    <section class="split contact">
+        
+        
+        
+        
+        <section>
+            <h3>Social</h3>
+            <ul class="icons alt">
+                
+                
+                
+                
+                
+                <li><a href="https://github.com/sahgilbert" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+                
+                
+                
+                
+                
+            </ul>
+        </section>
+        
+    </section>
+</footer>
+
+                    
+<div id="copyright">
+    <ul><li>&copy; Simon Gilbert</li><li><a href="https://www.github.com/sahgilbert">Github</a></li><li><a href="https://simongilbert.net">Blog Home Page</a></li></ul>
+</div>
+
+
+            </div>
+            
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-136163864-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+            
+
+
+
+
+
+
+
+
+
+
+<script src='/assets/js/bundle.js'></script>
+
+
+	</body>
+</html>

@@ -1,0 +1,458 @@
+<!DOCTYPE HTML>
+
+<html lang='en'>
+	<head>
+		<title>Decoupling - Dependency Injection in C# ASP.Net MVC for Microsoft Azure Table Storage using Autofac &middot; Simon Gilbert</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		
+		
+		
+		<link rel="stylesheet" href="/assets/css/main.min.css">
+		
+		
+		<link rel="shortcut icon" href="/favicon.ico">
+		
+		
+		<noscript><link rel="stylesheet" href='/assets/css/noscript.css' /></noscript>
+
+		
+    		
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-136163864-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  		
+	</head>
+
+	<body lang='en' class="is-preload">
+
+		
+			<div id="wrapper">
+
+                
+<header id="header">
+    <a href='/' class="logo">Simon Gilbert</a>
+</header>
+
+                
+
+<nav id="nav">
+    <ul class="links">
+        <li class="active"><a href='/'>Home</a></li>
+        
+        
+    </ul>
+    
+    <ul class="icons">
+        
+        
+        
+        
+        
+        <li><a href="https://github.com/sahgilbert" class="icon fa-github"><span class="label">GitHub</span></a></li>
+        
+        
+        
+        
+        
+    </ul>
+    
+</nav>
+
+
+				
+					<div id="main">
+
+						
+                        <section class="post">
+                            <header class="major">
+                                
+                                <span class="date">September 1, 2018</span>
+                                
+                                <h1>Decoupling - Dependency Injection in C# ASP.Net MVC for Microsoft Azure Table Storage using Autofac</h1>
+                                <p></p>
+                            </header>
+                            
+                            <div class="image main"><img src="/images/2018/12/simon-gilbert-cto-tech-blog-post-one.png" alt="" /></div>
+                            
+                            <h2 id="so-youre-all-coupled-up"><strong>So, you’re all coupled up&hellip;</strong></h2>
+<p>&hellip;time to change that! Enter, &ldquo;dependency injection&rdquo; - a SOLID principle for executing the art of  &ldquo;decoupling&rdquo;, as an implementation of the inversion of control (IoC) design pattern.</p>
+<p>Specifically we’re going to look at using Autofac in C# to inject Azure Table Storage into Asp.Net MVC…yes, you’re about to see how much easier it is to manage your dependency coupling using the correct frameworks, in just a few lines of code.</p>
+<h2 id="whats-inversion-of-control"><strong>What’s Inversion of Control?</strong></h2>
+<p>Inversion of control is a design pattern for decoupling systems. It&rsquo;s an abstract principle, defining that the execution flow is controlled by an external provider. Dependency injection is an implementation of this pattern, although the terms are often used interchangeably.</p>
+<p>By virtue of the fact that a component is written using an interface, it gives up its control of how the underlying code is implemented. The control of the implementation itself is therefore inverted (moved) from the component to an external host of said component&hellip;hence &ldquo;inversion of control&rdquo;.</p>
+<h2 id="lets-get-some-definitions-out-of-the-way">Let&rsquo;s get some definitions out of the way&hellip;</h2>
+<p>&ldquo;Dependency Inversion&rdquo; is the &ldquo;D&rdquo; within the SOLID principle definition. This is to say that &ldquo;it is key to depend upon abstractions, not concrete implementations.&rdquo;</p>
+<p>A dependency is an &ldquo;object&rdquo; that can be used, whilst an injection is the &ldquo;passing&rdquo; of that dependency, to a dependent object…in a scenario where that dependent object would use the dependency.</p>
+<p>&hellip;I know, sounds complicated right…?</p>
+<h2 id="interestingbut-how-does-one-inject-ones-abstract-dependencies">Interesting&hellip;But how does one inject ones abstract dependencies?</h2>
+<p>The key approach to getting the result you want is to use an inversion of control (IoC) container such as Autofac.</p>
+<p>Assuming you’re unfamiliar with this idea, and to some degree this particular SOLID principle - Autofac allows you to easily manage dependencies between classes in .Net, by treating these classes as components.</p>
+<p>Given this, it ensures you can centralise the logic for dependency management, meaning amends to your application level code become easier to handle as they increase in complexity over time.</p>
+<h2 id="why-autofac">Why Autofac?</h2>
+<p>The beautiful thing about Autofac is that unlike similar technologies, it sticks to being as close to raw C# code as possible, thus retaining the object oriented design (OOD) approach. You’ll note that various libraries which are available for the .Net stack can have a tendency to lean towards functional programming design, and there’s nothing wrong with that, but let stick to our guns and focus on OOD for the time being&hellip;</p>
+<h2 id="before-we-get-started">Before We Get Started&hellip;</h2>
+<p><em>You need the following installed locally -</em></p>
+<ul>
+<li>Microsoft Windows.</li>
+<li>Microsoft Visual Studio 2017.</li>
+<li>.Net Framework 4.7</li>
+<li>Microsoft Azure Storage Exporer.</li>
+</ul>
+<h2 id="some-assumptions">Some Assumptions&hellip;</h2>
+<p>I&rsquo;m going to assume that you already know how to build a CRUD layer on top of Azure Table Storage, and are therefore familiar with NoSQL database concepts, specifically when it comes to the use of partition keys and row keys as and when necessary&hellip;</p>
+<p>&hellip;I&rsquo;m also assuming you know your way around C# Asp.Net MVC&hellip;</p>
+<h2 id="ok-ok-okgimme-gimme">Ok ok ok&hellip;Gimme gimme!!</h2>
+<p>First, you&rsquo;ll need to create a fresh Asp.Net MVC project using Microsoft Visual Studio, and then we can get started&hellip;</p>
+<p>Lets create a new class library for our contracts, pull in the &ldquo;WindowsAzure.Storage&rdquo; package from Nuget, and define a simple class to represent our underlying data model. You’ll note that we inherit from the Microsoft Azure Storage &ldquo;TableEntity&rdquo; class, which is of course necessary in order to store our data model in our NoSQL table as each row requires a PartitionKey and RowKey before it can be saved.</p>
+<pre tabindex="0"><code>using Microsoft.WindowsAzure.Storage.Table;
+
+namespace SimonGilbert.Blog.Contracts
+{
+    public class UserAccount : TableEntity
+    {
+        public string FirstName { get; set; }
+
+        public string Surname { get; set; }
+
+        public string City { get; set; }
+
+        public int AgeYears { get; set; }
+    }
+}
+</code></pre><h2 id="database-repository">Database Repository</h2>
+<p>The next step is our database repository, so in the interest of retaining our existing separation of concerns design, lets create a new class library for our repository, pull in the &ldquo;WindowsAzure.Storage&rdquo; package from Nuget again for this library also, and start implementing our repository code.</p>
+<p>You’ll need an instance based class which inherits from an underlying interface, because after all, the design pattern itself is based on us depending on abstractions, not concretions! Once your interface class is in place, pull in an instance of the Windows Azure Storage &ldquo;CloudTable&rdquo; class, and pass it into the constructor (you’ll see why in a minute). Following this we can define a simple &ldquo;Create&rdquo; method as the initial part of our CRUD database layer.</p>
+<pre tabindex="0"><code>using SimonGilbert.Blog.Contracts;
+using SimonGilbert.Blog.Repositories.Interfaces;
+using Microsoft.WindowsAzure.Storage.Table;
+
+namespace SimonGilbert.Blog.Repositories
+{
+    public class UserAccountRepository : IUserAccountRepository
+    {
+        private readonly CloudTable _table;
+
+        public UserAccountRepository(CloudTable table)
+        {
+            this._table = table;
+        }
+
+        public TableResult Create(UserAccount model)
+        {
+            var result = _table.Execute(TableOperation.Insert(model));
+
+            return result;
+        }
+    }
+}
+</code></pre><h2 id="service-layer">Service Layer</h2>
+<p>Now that we have our data model contract and our database repository, we need to implement our service layer in a dedicated class library for our services. The service class is also an interface driven instance based class, which pulls in a reference to our repository class, injected into the constructor.</p>
+<p>You’ll note that we also need to pull in the “WindowsAzure.Storage” package from Nuget again for this library too, as we’ll be passing in our data model contract to the service “Create” method, before submitting it to our underlying database repository class.</p>
+<pre tabindex="0"><code>using SimonGilbert.Blog.Contracts;
+using SimonGilbert.Blog.Repositories.Interfaces;
+using SimonGilbert.Blog.Services.Interfaces;
+using Microsoft.WindowsAzure.Storage.Table;
+using System;
+
+namespace SimonGilbert.Blog.Services
+{
+    public class UserAccountService : IUserAccountService
+    {
+        private readonly IUserAccountRepository _repository;
+
+        public UserAccountService(IUserAccountRepository repository)
+        {
+            this._repository = repository;
+        }
+
+        public TableResult Create(UserAccount model)
+        {
+            //Set Azure Keys...
+            model.PartitionKey = Guid.NewGuid().ToString();
+            model.RowKey = Guid.NewGuid().ToString();
+
+            var result = _repository.Create(model);
+
+            return result;
+        }
+    }
+}
+</code></pre><p>Now before we proceed, lets take a quick look again at our &ldquo;Create&rdquo; method in our service class. As you can see, I’m specifically setting the &ldquo;PartitionKey&rdquo; and &ldquo;RowKey&rdquo; properties on the UserAccount contract, before I submit it to the database layer. This is a fundamental requirement for every row in a Microsoft Windows Azure Table, as the database itself is cloud hosted, and runs on partitions i.e. If you were storing booking data for users, and you wanted to store all the bookings for a particular user named &ldquo;Charlotte123&rdquo;, then you could happily assign the PartitionKey for all of Charlotte&rsquo;s bookings to be &ldquo;Charlotte123&rdquo;, and this would in turn mean that all of her data was stored in the same hard drive partition in the database.</p>
+<p>&hellip;Over time you’ll see the performance gains from this choice - Something to bear in mind when you set out to use this technology. The RowKey itself is just the unique Id for accessing that particular line of data from the table, so feel free to make that something which is truly unique, such as a GUID.</p>
+<h2 id="now-lets-hook-azure-into-our-webconfig-file">Now lets hook Azure into our Web.config file</h2>
+<p>Now for the slightly more complex part using Autofac. Head to your main projects &ldquo;Web.config&rdquo; file, and we’ll hook into our local Azure Table Storage Explorer. Within the Web.config file, just above the <!-- raw HTML omitted --> tag, create yourself a fresh <!-- raw HTML omitted --> tag (assuming you don&rsquo;t already have any), and add a new item specifically for the Azure development connection string as follows -</p>
+<pre tabindex="0"><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;configuration&gt;
+  &lt;connectionStrings&gt;
+    &lt;add name=&quot;AzureTableStorageDebug&quot; connectionString=&quot;UseDevelopmentStorage=true&quot; /&gt;
+  &lt;/connectionStrings&gt;
+  &lt;appSettings&gt;
+    &lt;add key=&quot;webpages:Version&quot; value=&quot;3.0.0.0&quot; /&gt;
+    &lt;add key=&quot;webpages:Enabled&quot; value=&quot;false&quot; /&gt;
+    &lt;add key=&quot;ClientValidationEnabled&quot; value=&quot;true&quot; /&gt;
+    &lt;add key=&quot;UnobtrusiveJavaScriptEnabled&quot; value=&quot;true&quot; /&gt;
+  &lt;/appSettings&gt;
+</code></pre><h2 id="just-a-few-more-nuget-packages">Just a few more Nuget packages&hellip;</h2>
+<p>At this point you&rsquo;ll need to pull in the following packages from Nuget, into your main project -</p>
+<ul>
+<li>Autofac.</li>
+<li>Autofac.Mvc5.</li>
+<li>WindowsAzure.Storage.</li>
+<li>Microsoft.Owin.Security.OAuth.</li>
+<li>Microsoft.Owin.Host.SystemWeb.</li>
+</ul>
+<h2 id="configuring-autofac-for-aspnet-mvc">Configuring Autofac for Asp.Net MVC</h2>
+<p>Next, create yourself a new static config class called &ldquo;AutofacConfig&rdquo; within the &ldquo;App_Start&rdquo; folder, alongside the other config classes. Add in references to all the service and repository class libraries we just created, followed by the references to the additional packages I just mentioned.</p>
+<pre tabindex="0"><code>using Autofac;
+using Autofac.Integration.Mvc;
+using SimonGilbert.Blog.Repositories;
+using SimonGilbert.Blog.Services;
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Table;
+using Owin;
+using System;
+using System.Configuration;
+using System.Web.Mvc;
+
+namespace SimonGilbert.Blog
+{
+    public static class AutofacConfig
+    {
+    
+    }
+}
+</code></pre><p>We will start with configuring the Azure Storage Account to interact with the Autofac container. Create a method that passes in an instance of the Autofac ContainerBuilder class, and registers the connection string which we obtained for Azure, from our Web.config file.</p>
+<pre tabindex="0"><code>public static class AutofacConfig
+{
+    private static void ConfigureStorageAccount(ContainerBuilder builder)
+    {
+        var connection = ConfigurationManager
+                            .ConnectionStrings[&quot;AzureTableStorageDebug&quot;]
+                            .ConnectionString;
+        builder.Register(c =&gt; CreateStorageAccount(connection));
+    }
+
+    private static CloudStorageAccount CreateStorageAccount(string connection)
+    {
+        if (String.IsNullOrEmpty(connection))
+        {
+            throw new Exception(&quot;AzureTableStorageDebug connection string is null!&quot;);
+        }
+            return CloudStorageAccount.Parse(connection);
+    }
+}
+</code></pre><p>Following this, we register our service class with our Autofac ContainerBuilder, as an InstancePerLifetimeScope.</p>
+<pre tabindex="0"><code>private static void ConfigureServices(ContainerBuilder builder)
+{
+    builder.RegisterType&lt;UserAccountService&gt;().AsImplementedInterfaces().InstancePerLifetimeScope();
+}
+</code></pre><p>Next is the Azure Cloud Tables registration with our ContainerBuilder. Note the line about &ldquo;CreateIfNotExists&rdquo; - This is key to ensure the table is created locally when you first compile and run the project.</p>
+<pre tabindex="0"><code>private const string UserAccountTableName = &quot;UserAccounts&quot;;
+
+private static void ConfigureAzureCloudTables(ContainerBuilder builder)
+        {
+            builder.Register(c =&gt; c.Resolve&lt;CloudStorageAccount&gt;().CreateCloudTableClient());
+
+            builder.Register(c =&gt; GetTable(c, UserAccountTableName))
+                .Named&lt;CloudTable&gt;(UserAccountTableName);
+        }
+
+        private static CloudTable GetTable(IComponentContext context, string tableName)
+        {
+            var table = context.Resolve&lt;CloudTableClient&gt;().GetTableReference(tableName);
+            table.CreateIfNotExists();
+            return table;
+        }
+</code></pre><p>Now we have the table configured and registered, we can assign this to the database repository using the same table name. You&rsquo;ll note that I&rsquo;ve purposely added a const string for the table name, as we re-use this name throughout our AutofacConfig class.</p>
+<pre tabindex="0"><code>private static void ConfigureRepositories(ContainerBuilder builder)
+        {
+            builder.RegisterType&lt;UserAccountRepository&gt;()
+                   .WithParameter(
+                       (pi, c) =&gt; pi.ParameterType == (typeof(CloudTable)),
+                       (pi, c) =&gt; c.ResolveNamed&lt;CloudTable&gt;(UserAccountTableName))
+                       .AsImplementedInterfaces();
+        }
+</code></pre><p>Before we register the container itself, we need to register the MVC controllers with the ContainerBuilder, and set the AutofacDependencyResolver.</p>
+<pre tabindex="0"><code>private static void ConfigureMVCControllers(ContainerBuilder builder)
+{
+    builder.RegisterControllers(typeof(MvcApplication).Assembly);
+}
+        
+/// &lt;summary&gt;
+/// Note that the mechanism for setting the dependency resolver
+/// for Web API and MVC is different. 
+/// Web API uses GlobalConfiguration.Configuration.DependencyResolver, 
+/// and MVC uses DependencyResolver.SetResolver.
+/// &lt;/summary&gt;
+private static void SetMVCDependencyResolver(IContainer container)
+{
+    //Set the dependency resolver for MVC.
+    var mvcResolver = new AutofacDependencyResolver(container);
+    DependencyResolver.SetResolver(mvcResolver);
+}
+</code></pre><p>Finally, we can add our Register method into our AutofacConfig class, and call all of the methods we just implemented to piece together our end-to-end flow of the service layer, hooking into the database repository and binding to our Azure Storage table.</p>
+<pre tabindex="0"><code>public static IContainer Register(IAppBuilder app)
+{
+    var builder = new ContainerBuilder();
+
+    //Autofac
+    ConfigureMVCControllers(builder);
+    ConfigureStorageAccount(builder);
+    ConfigureServices(builder);
+    ConfigureAzureCloudTables(builder);
+    ConfigureRepositories(builder);
+
+    var container = builder.Build();
+    DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
+    
+    SetMVCDependencyResolver(container);
+
+    return container;
+}
+</code></pre><h2 id="registering-our-autofacconfig-container-at-runtime">Registering our AutofacConfig Container at Runtime</h2>
+<p>Now, you’re probably wondering why we needed those additional Owin packages earlier, and I’ll explain why now. The static config file you have just created isn’t to be called from the Global.asax file, and instead needs to be called from a Startup.cs file which runs as part of Owin, and is only picked up by the compiler if you install the aforementioned packages&hellip;</p>
+<p>…So let&rsquo;s create a Startup.cs file in our main project, and call our AutofacConfig.Register method from there!</p>
+<pre tabindex="0"><code>using Microsoft.Owin;
+using Owin;
+
+[assembly: OwinStartup(typeof(SimonGilbert.Blog.Startup))]
+namespace SimonGilbert.Blog
+{
+    public partial class Startup
+    {
+        public void Configuration(IAppBuilder app)
+        {
+            AutofacConfig.Register(app);
+        }
+    }
+}
+</code></pre><h2 id="injecting-our-autofac-service-into-our-mvc-controller">Injecting our Autofac Service into our MVC Controller</h2>
+<p>All our components are now configured as a module and are ready to be injected into our desired MVC Controller, to be utilised in a &ldquo;plug and play&rdquo; fashion as and when necessary.</p>
+<p>The final step is simply to inject the top-level service into our controllers constructor, and then setup some action methods to call the various methods on our service interface -</p>
+<pre tabindex="0"><code>using SimonGilbert.Blog.Contracts;
+using SimonGilbert.Blog.Services.Interfaces;
+using System.Web.Mvc;
+
+namespace SimonGilbert.Blog.Controllers
+{
+    public class HomeController : Controller
+    {
+        private readonly IUserAccountService _userAccountService;
+
+        public HomeController(IUserAccountService userAccountService)
+        {
+            this._userAccountService = userAccountService;
+        }
+
+        [HttpGet]
+        public ActionResult Index()
+        {
+            var userAccounts = _userAccountService.GetAll();
+
+            return View(userAccounts);
+        }
+
+        [HttpGet]
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(UserAccount model)
+        {
+            var result = _userAccountService.Create(model);
+
+            return RedirectToAction(&quot;Index&quot;, &quot;Home&quot;);
+        }
+    }
+}
+</code></pre><h2 id="voilà">Voilà!</h2>
+<p>You&rsquo;re now injecting your Microsoft Azure Table Storage CRUD layer dependencies into your client as a reusable plug-and-play component!</p>
+<h2 id="download-github-code-sample">Download Github Code Sample</h2>
+<p>Feel free to <strong><a href="https://github.com/sahgilbert/dependency-injection-aspnet-mvc-azure-storage-autofac">DOWNLOAD</a></strong> the sample code of the aforementioned implementation from my Github account.</p>
+
+
+                            
+                            
+                            
+                            
+                            
+                        </section>
+
+					</div>
+
+                    
+
+<footer id="footer">
+    
+    <section class="split contact">
+        
+        
+        
+        
+        <section>
+            <h3>Social</h3>
+            <ul class="icons alt">
+                
+                
+                
+                
+                
+                <li><a href="https://github.com/sahgilbert" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+                
+                
+                
+                
+                
+            </ul>
+        </section>
+        
+    </section>
+</footer>
+
+                    
+<div id="copyright">
+    <ul><li>&copy; Simon Gilbert</li><li><a href="https://www.github.com/sahgilbert">Github</a></li><li><a href="https://simongilbert.net">Blog Home Page</a></li></ul>
+</div>
+
+
+            </div>
+            
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-136163864-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+            
+
+
+
+
+
+
+
+
+
+
+<script src='/assets/js/bundle.js'></script>
+
+
+	</body>
+</html>

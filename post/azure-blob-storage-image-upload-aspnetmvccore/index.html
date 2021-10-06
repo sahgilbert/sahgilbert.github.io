@@ -1,0 +1,346 @@
+<!DOCTYPE HTML>
+
+<html lang='en'>
+	<head>
+		<title>Microsoft Azure Cloud Blob Storage Image Upload - C# ASP.Net MVC Core &middot; Simon Gilbert</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		
+		
+		
+		<link rel="stylesheet" href="/assets/css/main.min.css">
+		
+		
+		<link rel="shortcut icon" href="/favicon.ico">
+		
+		
+		<noscript><link rel="stylesheet" href='/assets/css/noscript.css' /></noscript>
+
+		
+    		
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-136163864-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  		
+	</head>
+
+	<body lang='en' class="is-preload">
+
+		
+			<div id="wrapper">
+
+                
+<header id="header">
+    <a href='/' class="logo">Simon Gilbert</a>
+</header>
+
+                
+
+<nav id="nav">
+    <ul class="links">
+        <li class="active"><a href='/'>Home</a></li>
+        
+        
+    </ul>
+    
+    <ul class="icons">
+        
+        
+        
+        
+        
+        <li><a href="https://github.com/sahgilbert" class="icon fa-github"><span class="label">GitHub</span></a></li>
+        
+        
+        
+        
+        
+    </ul>
+    
+</nav>
+
+
+				
+					<div id="main">
+
+						
+                        <section class="post">
+                            <header class="major">
+                                
+                                <span class="date">February 25, 2019</span>
+                                
+                                <h1>Microsoft Azure Cloud Blob Storage Image Upload - C# ASP.Net MVC Core</h1>
+                                <p></p>
+                            </header>
+                            
+                            <div class="image main"><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-six.png" alt="" /></div>
+                            
+                            <h3 id="azure-cloud-hosted-image-upload">Azure Cloud Hosted Image Upload</h3>
+<p>In the web development world, users often need to upload multiple images to the platform you&rsquo;re building (and hosting).</p>
+<p>Storing and manipulating images can be expensive&hellip;thus, enter <strong>Microsoft Azure Blob Storage</strong>, deemed as massively scalable object storage for unstructured data.</p>
+<blockquote>
+<p>&ldquo;Another day, another server, another rack? Not anymore. Blob storage can handle all your unstructured data, scaling up or down as your needs change. You no longer manage it, you only pay for what you use and save money compared to on-premises storage options.&rdquo;</p>
+</blockquote>
+<h3 id="whats-a-blob">What&rsquo;s a &ldquo;Blob&rdquo;?</h3>
+<p>A Binary Large OBject (<strong>BLOB</strong>) is a collection of binary data stored as a single entity in a database management system. <strong>Blobs</strong> are typically images, audio or other multimedia objects****.****</p>
+<p>For clarity, <strong>Blob Storage</strong> is used to store unstructured data such as text or binary data that can be accessed using HTTP or HTTPS from anywhere in the world.</p>
+<h3 id="to-the-microsoft-azure-portal-we-go">To The Microsoft Azure Portal We Go!</h3>
+<p>Whilst you can develop your codebase against <strong>Azure Storage</strong> locally, I decided to show you the full stack real-world implementation using an actual <strong>Microsoft Azure</strong> account.</p>
+<p><em>(If you don&rsquo;t already have one, it&rsquo;s well worth signing up for before we get started).</em></p>
+<h3 id="deploying-azure-storage">Deploying Azure Storage</h3>
+<p>Now that we&rsquo;re logged into the <a href="https://portal.azure.com">Microsoft Azure Portal</a>, head to the main menu and choose <strong>CREATE A RESOURCE &gt; STORAGE ACCOUNT</strong>.</p>
+<figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-create-azure-storage.png"
+         alt="Create Microsoft Azure Storage Account"/><figcaption>
+            <p>Create Microsoft Azure Storage Account</p>
+        </figcaption>
+</figure>
+
+<p>Create a new resource group, give your storage account a relevant name, choose your server location (I live in London, UK so I&rsquo;ve specifically chosen Azure&rsquo;s UK South server farm). I&rsquo;ll skip the explanation regarding replication and access tiers for the minute, but essentially in this example I&rsquo;ve gone for a &ldquo;hot&rdquo; access tier, specifically for speed purposes. Click &ldquo;Review + Create&rdquo; and your storage will begin deploying to your chosen location.</p>
+<figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-create-azure-storage-deployed.png"
+         alt="Microsoft Azure Storage Deployment Complete"/><figcaption>
+            <p>Microsoft Azure Storage Deployment Complete</p>
+        </figcaption>
+</figure>
+
+<p>&hellip;Now that our Azure Storage deployment is complete, we can begin writing some code.</p>
+<h3 id="azure-blob-image-upload-process">Azure Blob Image Upload Process</h3>
+<p>Uploading images from ASP.Net MVC Core to Azure Blob Storage is a multi-step process. For ease of use later on, I purposely store the key image details in Azure Table Storage, in parallel with uploading the image to Azure Blob Storage. The end-to-end steps are as follows -</p>
+<ol>
+<li>Convert image to a byte array.</li>
+<li>Upload image byte array to Azure Blob Storage.</li>
+<li>Map the image details (name, url, content type) to an Azure TableEntity model.</li>
+<li>Create a new row in Azure Table Storage for the image model TableEntity, for ease of accessing the image data when required later on.</li>
+</ol>
+<p>We want to allow for multiple images to be uploaded, so we&rsquo;ll make use of the IFormFileCollection interface  which represents the collection of files sent with the HttpRequest.</p>
+<figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-create-azure-storage-blob-upload.png"
+         alt="ASP.Net MVC Core Azure Blob Image Upload"/><figcaption>
+            <p>ASP.Net MVC Core Azure Blob Image Upload</p>
+        </figcaption>
+</figure>
+
+<p>As we iterate through each image, we can begin the upload process, starting with converting the image to a byte array -</p>
+<figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-create-azure-storage-blob-convert-byte-array.png"
+         alt="ASP.Net MVC Core Azure Blob Image Byte Array Conversion"/><figcaption>
+            <p>ASP.Net MVC Core Azure Blob Image Byte Array Conversion</p>
+        </figcaption>
+</figure>
+
+<p>Following this we can upload our image byte array to Azure Storage as a Blob. You&rsquo;ll note that we&rsquo;re making use of the Azure CloudBlockBlob class and it&rsquo;s built in method for uploading an image byte array asynchronously to our storage account.</p>
+<figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-create-azure-storage-blob-upload-byte-array.png"
+         alt="ASP.Net MVC Core Azure Blob Image Byte Array Upload"/><figcaption>
+            <p>ASP.Net MVC Core Azure Blob Image Byte Array Upload</p>
+        </figcaption>
+</figure>
+
+<p>Finally, we can map the relevant image details to an Azure TableEntity class, and create a row in Azure Table Storage for easy access to our image data as and when necessary -</p>
+<figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-create-azure-table-storage-row-create.png"
+         alt="ASP.Net MVC Core Azure Table Storage TableEntity Create"/><figcaption>
+            <p>ASP.Net MVC Core Azure Table Storage TableEntity Create</p>
+        </figcaption>
+</figure>
+
+<h3 id="what-happened-to-httppostedfilebase-in-net-core">What Happened To &ldquo;HTTPPostedFileBase&rdquo; in .Net Core?</h3>
+<p>You might be wondering what <strong>IFormFileCollection</strong> is, and what happened to <strong>HTTPPostedFileBase</strong> in <strong>.Net Core</strong>&hellip;</p>
+<p>&hellip;Long story short, <strong>HTTPPostedFilebase</strong> was an abstract class that came as part of System.Web for the .Net Framework, which isn&rsquo;t available in .Net Core unfortunately. So instead, we can use <strong>IFormFile</strong> and <strong>IFormFileCollection</strong>.</p>
+<h3 id="azure-storage-access-keys">Azure Storage Access Keys</h3>
+<p>Head back to the Microsoft Azure Portal, head to your newly created storage resource and grab a copy of the connection string -</p>
+<figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-azure-storage-connection-sring.png"
+         alt="Microsoft Azure Storage Access Keys"/><figcaption>
+            <p>Microsoft Azure Storage Access Keys</p>
+        </figcaption>
+</figure>
+
+<p>Next we need to add the connection string to the app settings file in our ASP.Net MVC Core application.</p>
+<figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-visual-studio-appsettings.png"
+         alt="ASP.Net MVC Core appsettings.Development.json File"/><figcaption>
+            <p>ASP.Net MVC Core appsettings.Development.json File</p>
+        </figcaption>
+</figure>
+
+<p>(I&rsquo;ve specifically chosen to use the development version of this file, given this isn&rsquo;t a production release).</p>
+<figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-aspnetmvccore-appsettings.png"
+         alt="ASP.Net MVC Core appsettings Azure Storage Connection String"/><figcaption>
+            <p>ASP.Net MVC Core appsettings Azure Storage Connection String</p>
+        </figcaption>
+</figure>
+
+<h3 id="dependency-injecting-our-service--repository">Dependency Injecting Our Service &amp; Repository</h3>
+<p>Remember your SOLID Principles?…Good, we need to configure our ASP.Net MVC Core website to dependency inject our service and repository, since ultimately, this will allow us to bolt the functionality into any part of the website in a “plug and play” manner&hellip;</p>
+<p>We&rsquo;ll start with the storage account first and pull in our connection string from our appsettings file -</p>
+<figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-autofac-dependency-injection-1.png"
+         alt="Autofac Dependency Injection Azure Storage"/><figcaption>
+            <p>Autofac Dependency Injection Azure Storage</p>
+        </figcaption>
+</figure>
+
+<p>Let&rsquo;s inject our storage tables next&hellip;</p>
+<figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-autofac-dependency-injection-2.png"
+         alt="Autofac Dependency Injection Azure Storage Tables"/><figcaption>
+            <p>Autofac Dependency Injection Azure Storage Tables</p>
+        </figcaption>
+</figure>
+
+<p>Following this, we can inject our blob containers -</p>
+<figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-autofac-dependency-injection-3.png"
+         alt="Autofac Dependency Injection Azure Storage Blob Containers"/><figcaption>
+            <p>Autofac Dependency Injection Azure Storage Blob Containers</p>
+        </figcaption>
+</figure>
+
+<p>Finally we can bind our blob container and cloud table to our service and repository -</p>
+<figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-autofac-dependency-injection-4.png"
+         alt="Autofac Dependency Injection Azure Storage Binding"/><figcaption>
+            <p>Autofac Dependency Injection Azure Storage Binding</p>
+        </figcaption>
+</figure>
+
+<p>…the beauty of the “inversion of control (IOC)” principle!!!</p>
+<h3 id="okto-the-cloud">Ok&hellip;To The Cloud!</h3>
+<p>Let&rsquo;s run our ASP.Net MVC Core application and upload some images to the Microsoft Azure Cloud!</p>
+<figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-azure-blob-image-upload-1.png"
+         alt="ASP.Net MVC Core Azure Cloud Blob Storage Image Upload"/><figcaption>
+            <p>ASP.Net MVC Core Azure Cloud Blob Storage Image Upload</p>
+        </figcaption>
+</figure>
+
+<p>Next we choose some images to upload -</p>
+<figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-azure-blob-image-upload-2.png"
+         alt="ASP.Net MVC Core Azure Cloud Blob Storage Image Upload"/><figcaption>
+            <p>ASP.Net MVC Core Azure Cloud Blob Storage Image Upload</p>
+        </figcaption>
+</figure>
+
+<p>As you can see, our use of IFormFileCollection allows us to upload multiple images simultaneously -</p>
+<figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-azure-blob-image-upload-3.png"
+         alt="ASP.Net MVC Core Azure Cloud Blob Storage Image Upload"/><figcaption>
+            <p>ASP.Net MVC Core Azure Cloud Blob Storage Image Upload</p>
+        </figcaption>
+</figure>
+
+<p>Finally, the result -</p>
+<figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-azure-blob-image-upload-4.png"
+         alt="ASP.Net MVC Core Azure Cloud Blob Storage Image Upload"/><figcaption>
+            <p>ASP.Net MVC Core Azure Cloud Blob Storage Image Upload</p>
+        </figcaption>
+</figure>
+
+<p>As you can see, when we inspect the uploaded images, they do indeed have the relevant <strong>Azure Blob Storage</strong> url -</p>
+<figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-azure-blob-storage-image-url.png"
+         alt="ASP.Net MVC Core Azure Cloud Blob Storage Image URL"/><figcaption>
+            <p>ASP.Net MVC Core Azure Cloud Blob Storage Image URL</p>
+        </figcaption>
+</figure>
+
+<h3 id="microsoft-azure-storage-explorer">Microsoft Azure Storage Explorer</h3>
+<p>When working with <strong>Microsoft Azure Cloud Storage</strong>, it&rsquo;s important to have a local visible copy of your data. Microsoft have indeed created a local cross-platform application that allows you to easily manage your storage anywhere using Windows, macOS and Linux.</p>
+<p>Grab yourself a copy of <strong>Azure Storage Explorer</strong> (it&rsquo;s free), and let&rsquo;s have a quick look at our Azure Storage database table and blob container&hellip;</p>
+<p>As you can see, I&rsquo;ve run my local copy of Storage Explorer, and signed into my Microsoft Azure account, which has pulled my recently created storage account into the explorer application for me to view -</p>
+<figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-create-azure-storage-explorer.png"
+         alt="Microsoft Azure Storage Explorer"/><figcaption>
+            <p>Microsoft Azure Storage Explorer</p>
+        </figcaption>
+</figure>
+
+<p>Let&rsquo;s view our blob container to see our uploaded images -</p>
+<figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-azure-storage-explorer-blob-1.png"
+         alt="Microsoft Azure Storage Explorer Blob Containers"/><figcaption>
+            <p>Microsoft Azure Storage Explorer Blob Containers</p>
+        </figcaption>
+</figure>
+
+<p>Finally, lets view our azure cloud table that contains the relevant uploaded image details&hellip;</p>
+<figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-azure-storage-explorer-table-1.png"
+         alt="Microsoft Azure Storage Explorer Cloud Table"/><figcaption>
+            <p>Microsoft Azure Storage Explorer Cloud Table</p>
+        </figcaption>
+</figure>
+
+<p>Pretty cool right? You&rsquo;re now able to upload multiple images to the Microsoft Azure Cloud from a cross-platform application!</p>
+<p><em>NB - I&rsquo;ve purposely left the access keys in the Github source code example for clarity, albeit having taken the deployed storage offline.</em></p>
+<h2 id="download-github-code-sample">Download Github Code Sample</h2>
+<p>Feel free to <strong><a href="https://github.com/sahgilbert/azure-blob-storage-image-upload-aspnetmvccore">DOWNLOAD</a></strong> the sample code of the aforementioned implementation from my Github account.</p>
+<h3 id="heading"></h3>
+
+
+                            
+                            
+                            
+                            
+                            
+                        </section>
+
+					</div>
+
+                    
+
+<footer id="footer">
+    
+    <section class="split contact">
+        
+        
+        
+        
+        <section>
+            <h3>Social</h3>
+            <ul class="icons alt">
+                
+                
+                
+                
+                
+                <li><a href="https://github.com/sahgilbert" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+                
+                
+                
+                
+                
+            </ul>
+        </section>
+        
+    </section>
+</footer>
+
+                    
+<div id="copyright">
+    <ul><li>&copy; Simon Gilbert</li><li><a href="https://www.github.com/sahgilbert">Github</a></li><li><a href="https://simongilbert.net">Blog Home Page</a></li></ul>
+</div>
+
+
+            </div>
+            
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-136163864-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+            
+
+
+
+
+
+
+
+
+
+
+<script src='/assets/js/bundle.js'></script>
+
+
+	</body>
+</html>

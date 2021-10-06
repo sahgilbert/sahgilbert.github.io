@@ -1,0 +1,237 @@
+<!DOCTYPE HTML>
+
+<html lang='en'>
+	<head>
+		<title>Using AutoMapper with ASP.Net Core MVC 3.0 &middot; Simon Gilbert</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		
+		
+		
+		<link rel="stylesheet" href="/assets/css/main.min.css">
+		
+		
+		<link rel="shortcut icon" href="/favicon.ico">
+		
+		
+		<noscript><link rel="stylesheet" href='/assets/css/noscript.css' /></noscript>
+
+		
+    		
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-136163864-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  		
+	</head>
+
+	<body lang='en' class="is-preload">
+
+		
+			<div id="wrapper">
+
+                
+<header id="header">
+    <a href='/' class="logo">Simon Gilbert</a>
+</header>
+
+                
+
+<nav id="nav">
+    <ul class="links">
+        <li class="active"><a href='/'>Home</a></li>
+        
+        
+    </ul>
+    
+    <ul class="icons">
+        
+        
+        
+        
+        
+        <li><a href="https://github.com/sahgilbert" class="icon fa-github"><span class="label">GitHub</span></a></li>
+        
+        
+        
+        
+        
+    </ul>
+    
+</nav>
+
+
+				
+					<div id="main">
+
+						
+                        <section class="post">
+                            <header class="major">
+                                
+                                <span class="date">December 23, 2019</span>
+                                
+                                <h1>Using AutoMapper with ASP.Net Core MVC 3.0</h1>
+                                <p></p>
+                            </header>
+                            
+                            <div class="image main"><img src="/images/2019/12/Simon_Gilbert_AutoMapper_Aspnetcoremvc.png" alt="" /></div>
+                            
+                            <h3 id="models-vs-view-models">Models vs. View Models</h3>
+<p>Occasionally you will require the ability to separate a model for a view, from the equivalent model for a database. But what happens when you need to transfer the view model data to the database model object?</p>
+<h3 id="enter-automapper">Enter &ldquo;AutoMapper&rdquo;</h3>
+<p>AutoMapper is an object-object mapper, and makes this mapping task fairly straight-forward (albeit, following some configuration).</p>
+<figure><img src="/images/2019/12/Simon_Gilbert_Blog_AutoMapper_Logo.png"
+         alt="AutoMapper"/><figcaption>
+            <p>AutoMapper</p>
+        </figcaption>
+</figure>
+
+<h3 id="implementation-steps">Implementation Steps</h3>
+<ul>
+<li>Install a copy of &ldquo;<strong>AutoMapper.Extensions.Microsoft.DependencyInjection&rdquo;</strong> from <strong>Nuget</strong>.</li>
+</ul>
+<figure><img src="/images/2019/12/Simon_Gilbert_AutoMapper_Aspnetcoremvc_1.png"
+         alt="AutoMapper with ASP.Net Core MVC 3.0"/><figcaption>
+            <p>AutoMapper with ASP.Net Core MVC 3.0</p>
+        </figcaption>
+</figure>
+
+<ul>
+<li>Create a view model.</li>
+</ul>
+<figure><img src="/images/2019/12/Simon_Gilbert_AutoMapper_Aspnetcoremvc_2.png"
+         alt="AutoMapper with ASP.Net Core MVC 3.0"/><figcaption>
+            <p>AutoMapper with ASP.Net Core MVC 3.0</p>
+        </figcaption>
+</figure>
+
+<ul>
+<li>Create a model.</li>
+</ul>
+<figure><img src="/images/2019/12/Simon_Gilbert_AutoMapper_Aspnetcoremvc_3.png"
+         alt="AutoMapper with ASP.Net Core MVC 3.0"/><figcaption>
+            <p>AutoMapper with ASP.Net Core MVC 3.0</p>
+        </figcaption>
+</figure>
+
+<ul>
+<li>Create an AutoMapper <strong>&ldquo;Profile&rdquo;</strong> (class which inherits from the Profile class in AutoMapper), for defining the map between the view model and the model.</li>
+</ul>
+<figure><img src="/images/2019/12/Simon_Gilbert_AutoMapper_Aspnetcoremvc_4.png"
+         alt="AutoMapper with ASP.Net Core MVC 3.0"/><figcaption>
+            <p>AutoMapper with ASP.Net Core MVC 3.0</p>
+        </figcaption>
+</figure>
+
+<ul>
+<li>Configure Services in Startup.cs to add <strong>AutoMapper</strong> to the project.</li>
+</ul>
+<figure><img src="/images/2019/12/Simon_Gilbert_AutoMapper_Aspnetcoremvc_5.png"
+         alt="AutoMapper with ASP.Net Core MVC 3.0"/><figcaption>
+            <p>AutoMapper with ASP.Net Core MVC 3.0</p>
+        </figcaption>
+</figure>
+
+<ul>
+<li>Create a service for executing the model mapping.</li>
+</ul>
+<figure><img src="/images/2019/12/Simon_Gilbert_AutoMapper_Aspnetcoremvc_6.png"
+         alt="AutoMapper with ASP.Net Core MVC 3.0"/><figcaption>
+            <p>AutoMapper with ASP.Net Core MVC 3.0</p>
+        </figcaption>
+</figure>
+
+<ul>
+<li>Configure Services in Startup.cs for your mapping service (as a transient service).</li>
+</ul>
+<figure><img src="/images/2019/12/Simon_Gilbert_AutoMapper_Aspnetcoremvc_7.png"
+         alt="AutoMapper with ASP.Net Core MVC 3.0"/><figcaption>
+            <p>AutoMapper with ASP.Net Core MVC 3.0</p>
+        </figcaption>
+</figure>
+
+<h2 id="download-github-code-sample">Download Github Code Sample</h2>
+<p>Feel free to <strong><a href="https://github.com/sahgilbert/automapper-csharp-aspnetcore-mvc-3-0">DOWNLOAD</a></strong> the sample code of the aforementioned implementation from my Github account.</p>
+
+
+                            
+                            
+                            
+                            
+                            
+                        </section>
+
+					</div>
+
+                    
+
+<footer id="footer">
+    
+    <section class="split contact">
+        
+        
+        
+        
+        <section>
+            <h3>Social</h3>
+            <ul class="icons alt">
+                
+                
+                
+                
+                
+                <li><a href="https://github.com/sahgilbert" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+                
+                
+                
+                
+                
+            </ul>
+        </section>
+        
+    </section>
+</footer>
+
+                    
+<div id="copyright">
+    <ul><li>&copy; Simon Gilbert</li><li><a href="https://www.github.com/sahgilbert">Github</a></li><li><a href="https://simongilbert.net">Blog Home Page</a></li></ul>
+</div>
+
+
+            </div>
+            
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-136163864-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+            
+
+
+
+
+
+
+
+
+
+
+<script src='/assets/js/bundle.js'></script>
+
+
+	</body>
+</html>

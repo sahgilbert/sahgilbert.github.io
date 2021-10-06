@@ -1,0 +1,260 @@
+<!DOCTYPE HTML>
+
+<html lang='en'>
+	<head>
+		<title>Microsoft Azure Cloud Table Storage - Optimistic vs. Pessimistic Concurrency using C# ASP.Net MVC Core &middot; Simon Gilbert</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		
+		
+		
+		<link rel="stylesheet" href="/assets/css/main.min.css">
+		
+		
+		<link rel="shortcut icon" href="/favicon.ico">
+		
+		
+		<noscript><link rel="stylesheet" href='/assets/css/noscript.css' /></noscript>
+
+		
+    		
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-136163864-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  		
+	</head>
+
+	<body lang='en' class="is-preload">
+
+		
+			<div id="wrapper">
+
+                
+<header id="header">
+    <a href='/' class="logo">Simon Gilbert</a>
+</header>
+
+                
+
+<nav id="nav">
+    <ul class="links">
+        <li class="active"><a href='/'>Home</a></li>
+        
+        
+    </ul>
+    
+    <ul class="icons">
+        
+        
+        
+        
+        
+        <li><a href="https://github.com/sahgilbert" class="icon fa-github"><span class="label">GitHub</span></a></li>
+        
+        
+        
+        
+        
+    </ul>
+    
+</nav>
+
+
+				
+					<div id="main">
+
+						
+                        <section class="post">
+                            <header class="major">
+                                
+                                <span class="date">January 22, 2020</span>
+                                
+                                <h1>Microsoft Azure Cloud Table Storage - Optimistic vs. Pessimistic Concurrency using C# ASP.Net MVC Core</h1>
+                                <p></p>
+                            </header>
+                            
+                            <div class="image main"><img src="/images/2019/03/simon-gilbert-cto-tech-blog-post-13.png" alt="" /></div>
+                            
+                            <h3 id="enter-microsoft-azure-table-storage">Enter “Microsoft Azure Table Storage”&hellip;</h3>
+<p>So you&rsquo;ve taken the plunge into using <strong>NoSQL</strong> database storage and are keen to adopt <strong>Microsoft Azure’s</strong> highly scalable (and cheap) <strong>Table Storage</strong> implementation. However, there’s a catch&hellip;it runs optimistic concurrency by default and depending on the data contention aspects of your platform, this can lead to undesired outcomes with your transactions.</p>
+<figure><img src="/images/2019/03/Screenshot-2019-03-28-08.11.47.png"/>
+</figure>
+
+<h3 id="optimistic-concurrency-control-occ">Optimistic Concurrency Control (OCC)</h3>
+<p>The optimistic concurrency model assumes that multiple transactions can frequently complete without interfering with each other. This process involves transactions using resources without acquiring locks on those resources, and just before the transaction commits the change, it checks to see if another transaction has modified the data since the initial transaction began to execute. In the event that a conflict has been detected, the transaction rolls back and can, or rather needs, to be restarted.</p>
+<h3 id="the-downside-of-locking">The Downside Of Locking</h3>
+<p>At this point you’re thinking why would someone choose optimistic concurrency when conflicts are possible. Generally it’s used in scenarios with low data contention where conflicts are rare, but another key justification for using optimistic concurrency is that managing locks is expensive, particularly when a transaction has to wait for another transactions locks to clear which can then impact throughput&hellip;The downside of being pessimistic I guess?</p>
+<h3 id="pessimistic-concurrency-control-pcc">Pessimistic Concurrency Control (PCC)</h3>
+<p>In scenarios where contention is frequent, the performance impact of repeatedly restarting transactions is going to significantly impact your implementations ability to scale and deliver in a reasonable timeframe. The reverse approach is of course to use pessimistic concurrency, which takes its name from its nature of assuming the worst, the worst being two transactions trying to update the same record at the same time. Given this, it prevents that possibility by locking the record, no matter how unlikely the potential of conflicts occurring actually is. The pessimistic locking approach ensures that the record is updated successfully, but the downside of this strategy is that it ensures the record is locked and inaccessible by other processes throughout the time of the transaction.</p>
+<h3 id="scenario">Scenario</h3>
+<p>You&rsquo;re building an ordering system whereby multiple instances of your order service can be accessed by different parts of the system, in parallel, to execute the task of updating the current status of the order. Your underlying database is <strong>Microsoft Azure Table Storage</strong>.</p>
+<h3 id="problem">Problem</h3>
+<p>As mentioned, by default you’re using <strong>Azure Storage&rsquo;s</strong> optimistic concurrency in a scenario with high data contention and the likelihood of updates failing to occur when conflicting transactions take place is probable. <strong>Azure Table Storage</strong> determines conflicts through use of an <strong>ETag</strong> which is updated every time the record itself changes. If the version of the <strong>ETag</strong> that you have does not match the latest version on the existing record, an <strong>HTTP 409 Conflict</strong> status occurs, and the transaction does not proceed.</p>
+<h3 id="solution">Solution</h3>
+<p>In this case, a different result can be achieved by implementing a pessimistic locking strategy into your process. The approach we&rsquo;re going to look at today is to use <strong>Microsoft Azure&rsquo;s Blob Storage</strong> in conjunction with <strong>Table Storage</strong>, to <em>acquire a lease on the blob</em> that is associated with the table row temporarily whilst the updates occur, and thus ensuring a pessimistic locking approach is preventing conflicts. To make this as clean as possible in terms of structure, we&rsquo;re going to <strong>dependency inject</strong> the required parts into a separate service and repository using <strong>Autofac</strong>.</p>
+<h3 id="lets-code">Let&rsquo;s Code&hellip;</h3>
+<p>You&rsquo;ll need to pull in a copy of the <strong>WindowsAzure.Storage</strong> package from Nuget. Let&rsquo;s take a quick look at the <strong>TableEntity</strong> class, which our business logic layers underlying data model will need to inherit from in order to represent a table.</p>
+<figure><img src="/images/2019/03/simon-gilbert-cto-blog-azure-tableentity.png"
+         alt="Microsoft Azure Table Storage - TableEntity"/><figcaption>
+            <p>Microsoft Azure Table Storage - TableEntity</p>
+        </figcaption>
+</figure>
+
+<p>As you can see, upon inheriting this class our data model will represent a table at the application layer with four specific properties, one of which is the previously mentioned <strong>ETag</strong>. We&rsquo;ll add a simple string value to our data model to represent the current &ldquo;status&rdquo; of the order.</p>
+<figure><img src="/images/2019/03/simon-gilbert-cto-blog-azure-entity-inheritance.png"
+         alt="Microsoft Azure Table Storage - TableEntity Inheritance"/><figcaption>
+            <p>Microsoft Azure Table Storage - TableEntity Inheritance</p>
+        </figcaption>
+</figure>
+
+<p>Now to build our <strong>CRUD</strong> layer, consisting of a repository with an <strong>Azure</strong>  <strong>CloudTable</strong> injected into it, followed by a service with the repository and an <strong>Azure</strong>  <strong>BlobContainer</strong> injected into it.</p>
+<h3 id="repository">Repository</h3>
+<p>Our repository stub is as follows, with our <strong>CloudTable</strong> injected.</p>
+<figure><img src="/images/2019/03/simon-gilbert-cto-blog-azure-repository.png"
+         alt="Microsoft Azure Table Storage - Repository With CloudTable"/><figcaption>
+            <p>Microsoft Azure Table Storage - Repository With CloudTable</p>
+        </figcaption>
+</figure>
+
+<h3 id="service">Service</h3>
+<p>Our service stub follows a similar process, in that it injects both our repository instance and our <strong>CloudBlobContainer</strong> for the lease acquisition part of our pessimistic concurrency control.</p>
+<figure><img src="/images/2019/03/simon-gilbert-cto-blog-azure-service.png"
+         alt="Microsoft Azure Table Storage - Service With CloudBlobContainer"/><figcaption>
+            <p>Microsoft Azure Table Storage - Service With CloudBlobContainer</p>
+        </figcaption>
+</figure>
+
+<h3 id="autofac-dependency-injection">Autofac Dependency Injection</h3>
+<p>I won&rsquo;t cover this part in too much detail, but essentially this configuration means we have only the required code statements for performing our concurrent CRUD operations within our service and repository classes.</p>
+<p>Let&rsquo;s start with the <strong>Azure</strong> blob container injection.</p>
+<figure><img src="/images/2019/03/simon-gilbert-cto-blog-azure-blob-dependency-inject.png"
+         alt="Microsoft Azure Table Storage - Autofac Blob Dependency Injection"/><figcaption>
+            <p>Microsoft Azure Table Storage - Autofac Blob Dependency Injection</p>
+        </figcaption>
+</figure>
+
+<p>&hellip;Followed by our repository and table injection.</p>
+<figure><img src="/images/2019/03/simon-gilbert-cto-blog-azure-table-dependency-inject.png"
+         alt="Microsoft Azure Table Storage - Autofac Table Dependency Injection"/><figcaption>
+            <p>Microsoft Azure Table Storage - Autofac Table Dependency Injection</p>
+        </figcaption>
+</figure>
+
+<h3 id="next-steps">Next Steps</h3>
+<p>Now that we have the key parts dependency injected into our service and repository we can get to work on the <strong>CRUD</strong> meets pessimistic concurrency aspect. We&rsquo;ll start with a simple repository to create, update and get our data back from our <strong>Azure Table Storage</strong>.</p>
+<figure><img src="/images/2019/03/simon-gilbert-cto-blog-azure-crud-layer.png"
+         alt="Microsoft Azure Table Storage - CRUD Repository"/><figcaption>
+            <p>Microsoft Azure Table Storage - CRUD Repository</p>
+        </figcaption>
+</figure>
+
+<p>Our service layer will be given a <em>basic</em>  <strong>pessimistic concurrency control</strong> strategy. As mentioned we are going to lock our <strong>Azure Table Storage</strong> row by acquiring a lease on an <strong>Azure Blob Storage</strong> item that has the same underlying unique RowId. Let&rsquo;s implement our mechanism to create new blobs on demand and retrieve them when necessary.</p>
+<figure><img src="/images/2019/03/simon-gilbert-cto-blog-azure-blob-storage-lease.png"
+         alt="Microsoft Azure Table Storage - BLOB Storage Service"/><figcaption>
+            <p>Microsoft Azure Table Storage - BLOB Storage Service</p>
+        </figcaption>
+</figure>
+
+<p>Next is our service layer which will interact with our <strong>Blob Storage</strong> methods. This is a two-step process, in that when we create the record in our database table, we create an associated <strong>Azure Blob</strong> which we can acquire a lease on in future when performing updates, thus creating a &ldquo;pessimistic lock&rdquo; on our record.</p>
+<figure><img src="/images/2019/03/simon-gilbert-cto-blog-azure-blob-lease-create.png"
+         alt="Microsoft Azure Table Storage - Service Create Blob"/><figcaption>
+            <p>Microsoft Azure Table Storage - Service Create Blob</p>
+        </figcaption>
+</figure>
+
+<p>Our update method is where the locking occurs, with our acquisition of the <strong>Blob</strong> lease, followed by the release of the lease condition upon completing our record update.</p>
+<figure><img src="/images/2019/03/simon-gilbert-cto-blog-azure-blob-lease-acquire.png"
+         alt="Microsoft Azure Table Storage - Service Acquire Blob Lease"/><figcaption>
+            <p>Microsoft Azure Table Storage - Service Acquire Blob Lease</p>
+        </figcaption>
+</figure>
+
+<p>Now of course this is a very simple example, but what we&rsquo;re doing here is ensuring that a pessimistic lock exists to help us adhere to the <strong>ACID (Atomicity, Consistency, Isolation, Durability)</strong> properties, meaning our database integrity remains.</p>
+<p>In an ideal and more long term scenario, the implementation of a &ldquo;wait and retry&rdquo; mechanism would be necessary, which would mean that if an existing transaction has already locked the record when a subsequent transaction attempts to make an update, the subsequent transaction would indeed wait for a determined period of time before retrying to apply its update again, in the hope that the pessimistic lock from the previous transaction had been released. The more flexible this implementation is, the more strategic you can be with managing your performance and throughput of database transactions using <strong>Microsoft Azure&rsquo;s Table Storage</strong>.</p>
+<p>&hellip;We can look at implementing that mechanism in a future blog post. Enjoy!</p>
+<h2 id="download-github-code-sample">Download Github Code Sample</h2>
+<p>Feel free to <strong><a href="https://github.com/sahgilbert/pessimistic-concurrency-azure-table-storage-aspdotnetmvccore">DOWNLOAD</a></strong> the sample code of the aforementioned implementation from my Github account.</p>
+
+
+                            
+                            
+                            
+                            
+                            
+                        </section>
+
+					</div>
+
+                    
+
+<footer id="footer">
+    
+    <section class="split contact">
+        
+        
+        
+        
+        <section>
+            <h3>Social</h3>
+            <ul class="icons alt">
+                
+                
+                
+                
+                
+                <li><a href="https://github.com/sahgilbert" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+                
+                
+                
+                
+                
+            </ul>
+        </section>
+        
+    </section>
+</footer>
+
+                    
+<div id="copyright">
+    <ul><li>&copy; Simon Gilbert</li><li><a href="https://www.github.com/sahgilbert">Github</a></li><li><a href="https://simongilbert.net">Blog Home Page</a></li></ul>
+</div>
+
+
+            </div>
+            
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-136163864-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+            
+
+
+
+
+
+
+
+
+
+
+<script src='/assets/js/bundle.js'></script>
+
+
+	</body>
+</html>

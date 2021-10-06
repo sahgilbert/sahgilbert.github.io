@@ -1,0 +1,321 @@
+<!DOCTYPE HTML>
+
+<html lang='en'>
+	<head>
+		<title>[Full Stack] Single Page App (SPA) - ReactJs &#43; Redux &#43; Bootstrap 4 &#43; ASP.Net Core &middot; Simon Gilbert</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		
+		
+		
+		<link rel="stylesheet" href="/assets/css/main.min.css">
+		
+		
+		<link rel="shortcut icon" href="/favicon.ico">
+		
+		
+		<noscript><link rel="stylesheet" href='/assets/css/noscript.css' /></noscript>
+
+		
+    		
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-136163864-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  		
+	</head>
+
+	<body lang='en' class="is-preload">
+
+		
+			<div id="wrapper">
+
+                
+<header id="header">
+    <a href='/' class="logo">Simon Gilbert</a>
+</header>
+
+                
+
+<nav id="nav">
+    <ul class="links">
+        <li class="active"><a href='/'>Home</a></li>
+        
+        
+    </ul>
+    
+    <ul class="icons">
+        
+        
+        
+        
+        
+        <li><a href="https://github.com/sahgilbert" class="icon fa-github"><span class="label">GitHub</span></a></li>
+        
+        
+        
+        
+        
+    </ul>
+    
+</nav>
+
+
+				
+					<div id="main">
+
+						
+                        <section class="post">
+                            <header class="major">
+                                
+                                <span class="date">April 6, 2020</span>
+                                
+                                <h1>[Full Stack] Single Page App (SPA) - ReactJs &#43; Redux &#43; Bootstrap 4 &#43; ASP.Net Core</h1>
+                                <p></p>
+                            </header>
+                            
+                            <div class="image main"><img src="/images/2019/05/simon-gilbert-dev-cto-blog-26.png" alt="" /></div>
+                            
+                            <h3 id="coding-on-performance-trend">Coding On &ldquo;Performance&rdquo; Trend</h3>
+<p>From experience, a key requirement from stakeholders is always <strong><em>&ldquo;performance&rdquo;</em></strong>, and quite rightly so. Over the past 5 years there has been a large industry shift towards making use of <strong>Javascript libraries</strong> for creating powerful and beautiful user interfaces, but what if you need to <strong>maintain state</strong> and go full stack with <strong>ASP.Net Core</strong> on the server-side?</p>
+<p>Today, we&rsquo;re going to look at getting setup with a <strong>full stack single page application (SPA) implementation</strong> of <strong>ReactJS + Redux + Bootstrap 4 + ASP.Net Core</strong>.</p>
+<figure><img src="/images/2019/05/simon-gilbert-dev-cto-reactjs-redux-aspnetcore-1.png"
+         alt="Full Stack Single Page App (SPA) Setup - ReactJs &#43; Redux &#43; Bootstrap 4 &#43; ASP.Net Core"/><figcaption>
+            <p>Full Stack Single Page App (SPA) Setup - ReactJs + Redux + Bootstrap 4 + ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<h3 id="enter-reactjs">Enter &ldquo;ReactJS&rdquo;&hellip;</h3>
+<p><strong>ReactJS</strong> was created by <strong>Jordan Walke</strong>, a software engineer at <strong>Facebook</strong>.</p>
+<blockquote>
+<p>&ldquo;<strong>ReactJS</strong> is a JavaScript library for building user interfaces. It is maintained by <strong>Facebook</strong> and a community of individual developers and companies.&rdquo;</p>
+</blockquote>
+<p><strong>ReactJS</strong> makes heavy use of the Javascript syntax extension <strong>JSX</strong> (Javascript XML), which essentially makes <strong>Javascript</strong> look like <strong>Html</strong> written in a string, and is generally what components in <strong>React</strong> are written in, although they can be written in pure <strong>Javascript</strong> also.</p>
+<p><strong>ReactJS</strong> is component based, so only <strong>each component on a page</strong> needs to be updated. Remember <strong>AJAX</strong>? &hellip;imagine that with a more structured design and you&rsquo;re halfway there.</p>
+<figure><img src="/images/2019/05/simon-gilbert-dev-cto-reactjs-redux-aspnetcore-2.png"
+         alt="Full Stack Single Page App (SPA) Setup - ReactJs &#43; Redux &#43; Bootstrap 4 &#43; ASP.Net Core"/><figcaption>
+            <p>Full Stack Single Page App (SPA) Setup - ReactJs + Redux + Bootstrap 4 + ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<h3 id="enter-redux">Enter &ldquo;Redux&rdquo;&hellip;</h3>
+<p><strong>Redux</strong> is a &ldquo;predictable state container&rdquo; - It shares state across all components within an application. Redux has a store, which holds state for the entire application and the data is supplied as properties (this.props).</p>
+<blockquote>
+<p>&ldquo;<strong>Redux 4</strong> has a much smaller footprint because they removed the lodash dependency (package management).&rdquo;</p>
+</blockquote>
+<p>Redux has three core components - <strong>Actions, Reducers, Store</strong>.</p>
+<p><strong>Actions</strong> - These are the payload of information that is sent from the application to the store. They are merely plain <strong>Javascript</strong> objects with the type defined as a string, and are created by an &ldquo;action creator&rdquo;.</p>
+<p><strong>Reducers</strong> - These specify how the state changes in response to an action. Reducers take the Action payload, and apply it to the store. The state is immutable, so a reducer returns a new state with whatever needs to be added, updated or removed.</p>
+<p><strong>Store</strong> - This holds the state and allows access to the state. The store allows the state to be updated, whilst also registering listeners to keep an eye on the state when it changes in different modules&hellip;</p>
+<p>&hellip;essentially, Redux is quite powerful and extremely useful!</p>
+<figure><img src="/images/2019/05/simon-gilbert-dev-cto-reactjs-redux-aspnetcore-3.png"
+         alt="Full Stack Single Page App (SPA) Setup - ReactJs &#43; Redux &#43; Bootstrap 4 &#43; ASP.Net Core"/><figcaption>
+            <p>Full Stack Single Page App (SPA) Setup - ReactJs + Redux + Bootstrap 4 + ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<h3 id="enter-bootstrap-4">Enter &ldquo;Bootstrap 4&rdquo;&hellip;</h3>
+<p>I&rsquo;m sure you know the <strong>Bootstrap</strong> story already - A <strong>mobile-responsive framework</strong> created by a dedicated team at <strong>Twitter</strong> originally in 2011 in order to maintain consistent implementations during <strong>front-end</strong> development. <strong>Bootstrap 3</strong> was written in <strong>LESS</strong>, however <strong>Bootstrap 4</strong> is written in <strong>SASS</strong> with the grid system based on <strong>REMs</strong>. It&rsquo;s also worth noting that <strong>BS4</strong> has a 64% smaller footprint than <strong>BS3</strong> too. <strong>Bootstrap 4</strong> is what we&rsquo;ll be using today!</p>
+<figure><img src="/images/2019/05/simon-gilbert-dev-cto-reactjs-redux-aspnetcore-4.png"
+         alt="Full Stack Single Page App (SPA) Setup - ReactJs &#43; Redux &#43; Bootstrap 4 &#43; ASP.Net Core"/><figcaption>
+            <p>Full Stack Single Page App (SPA) Setup - ReactJs + Redux + Bootstrap 4 + ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<h3 id="enter-aspnet-core">Enter &ldquo;ASP.Net Core&rdquo;&hellip;</h3>
+<p>Finally, our server-side framework will be running on ASP.Net Core. I&rsquo;ll refrain from explaining this here, other than stating that it&rsquo;s cross-platform and totally awesome!</p>
+<h3 id="lets-code">Let&rsquo;s Code&hellip;</h3>
+<p>First of all, you need to be running the latest version of <strong>Node</strong> on your machine.</p>
+<figure><img src="/images/2019/05/simon-gilbert-dev-cto-reactjs-redux-aspnetcore-5.png"
+         alt="Full Stack Single Page App (SPA) Setup - ReactJs &#43; Redux &#43; Bootstrap 4 &#43; ASP.Net Core"/><figcaption>
+            <p>Full Stack Single Page App (SPA) Setup - ReactJs + Redux + Bootstrap 4 + ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<p>Next we&rsquo;re going to use the relevant <strong>reactredux template</strong> to create our project, which for this example I&rsquo;ve called &ldquo;full-stack-app&rdquo; (and this name must be entirely lowercase, but we can change it later).</p>
+<figure><img src="/images/2019/05/simon-gilbert-dev-cto-reactjs-redux-aspnetcore-6.png"
+         alt="Full Stack Single Page App (SPA) Setup - ReactJs &#43; Redux &#43; Bootstrap 4 &#43; ASP.Net Core"/><figcaption>
+            <p>Full Stack Single Page App (SPA) Setup - ReactJs + Redux + Bootstrap 4 + ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<p>We then need to CD into that directory to see the template files that have been created by our previous terminal statement.</p>
+<figure><img src="/images/2019/05/simon-gilbert-dev-cto-reactjs-redux-aspnetcore-7-1.png"
+         alt="Full Stack Single Page App (SPA) Setup - ReactJs &#43; Redux &#43; Bootstrap 4 &#43; ASP.Net Core"/><figcaption>
+            <p>Full Stack Single Page App (SPA) Setup - ReactJs + Redux + Bootstrap 4 + ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<p>Once in that directory, open the <strong>.csproj</strong> file in <strong>Visual Studio</strong> (this generates a solution file). Save all, and close Visual Studio. You can then rename the <strong>solution</strong> and your <strong>.csproj</strong> file.</p>
+<p>Following this, open the <strong>solution</strong> in <strong>Visual Studio</strong>, clean, rebuild. Then find and replace all of the original name <em>(full-stack-app)</em>, to the new name (in my case <strong>SimonGilbert.Blog</strong>). <em>When doing this, be sure to include both <strong>full-stack-app</strong> and the same name but with underscores i.e. <strong>full_stack_app</strong>.</em></p>
+<p>Ok, now to upgrade some key packages. First, CD into the <strong>ClientApp</strong> subdirectory (this folder houses all the UI source code and packages).</p>
+<figure><img src="/images/2019/05/simon-gilbert-dev-cto-reactjs-redux-aspnetcore-8.png"
+         alt="Full Stack Single Page App (SPA) Setup - ReactJs &#43; Redux &#43; Bootstrap 4 &#43; ASP.Net Core"/><figcaption>
+            <p>Full Stack Single Page App (SPA) Setup - ReactJs + Redux + Bootstrap 4 + ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<p>Let&rsquo;s update the <strong>JQuery</strong> version.</p>
+<figure><img src="/images/2019/05/simon-gilbert-dev-cto-reactjs-redux-aspnetcore-9.png"
+         alt="Full Stack Single Page App (SPA) Setup - ReactJs &#43; Redux &#43; Bootstrap 4 &#43; ASP.Net Core"/><figcaption>
+            <p>Full Stack Single Page App (SPA) Setup - ReactJs + Redux + Bootstrap 4 + ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<p>Now the <strong>prop-types</strong> package also.</p>
+<figure><img src="/images/2019/05/simon-gilbert-dev-cto-reactjs-redux-aspnetcore-10.png"
+         alt="Full Stack Single Page App (SPA) Setup - ReactJs &#43; Redux &#43; Bootstrap 4 &#43; ASP.Net Core"/><figcaption>
+            <p>Full Stack Single Page App (SPA) Setup - ReactJs + Redux + Bootstrap 4 + ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<p>Followed by an upgrade to the latest version of <strong>React</strong>.</p>
+<figure><img src="/images/2019/05/simon-gilbert-dev-cto-reactjs-redux-aspnetcore-11.png"
+         alt="Full Stack Single Page App (SPA) Setup - ReactJs &#43; Redux &#43; Bootstrap 4 &#43; ASP.Net Core"/><figcaption>
+            <p>Full Stack Single Page App (SPA) Setup - ReactJs + Redux + Bootstrap 4 + ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<p>&hellip;including the <strong>React DOM</strong>.</p>
+<figure><img src="/images/2019/05/simon-gilbert-dev-cto-reactjs-redux-aspnetcore-12.png"
+         alt="Full Stack Single Page App (SPA) Setup - ReactJs &#43; Redux &#43; Bootstrap 4 &#43; ASP.Net Core"/><figcaption>
+            <p>Full Stack Single Page App (SPA) Setup - ReactJs + Redux + Bootstrap 4 + ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<p>And then <strong>Reactstrap</strong> (we&rsquo;ll need this for <strong>Bootstrap</strong> usage later).</p>
+<figure><img src="/images/2019/05/simon-gilbert-dev-cto-reactjs-redux-aspnetcore-13.png"
+         alt="Full Stack Single Page App (SPA) Setup - ReactJs &#43; Redux &#43; Bootstrap 4 &#43; ASP.Net Core"/><figcaption>
+            <p>Full Stack Single Page App (SPA) Setup - ReactJs + Redux + Bootstrap 4 + ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<p>Next we need to upgrade <strong>Redux</strong> to the latest version.</p>
+<figure><img src="/images/2019/05/simon-gilbert-dev-cto-reactjs-redux-aspnetcore-14.png"
+         alt="Full Stack Single Page App (SPA) Setup - ReactJs &#43; Redux &#43; Bootstrap 4 &#43; ASP.Net Core"/><figcaption>
+            <p>Full Stack Single Page App (SPA) Setup - ReactJs + Redux + Bootstrap 4 + ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<p>Followed by <strong>Redux Thunk</strong>.</p>
+<figure><img src="/images/2019/05/simon-gilbert-dev-cto-reactjs-redux-aspnetcore-15.png"
+         alt="Full Stack Single Page App (SPA) Setup - ReactJs &#43; Redux &#43; Bootstrap 4 &#43; ASP.Net Core"/><figcaption>
+            <p>Full Stack Single Page App (SPA) Setup - ReactJs + Redux + Bootstrap 4 + ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<p>And finally, <strong>NPM audit fix</strong>&hellip;..to fix any issues that have occurred along the way (although some of the dependency errors can indeed be ignored).</p>
+<figure><img src="/images/2019/05/simon-gilbert-dev-cto-reactjs-redux-aspnetcore-16.png"
+         alt="Full Stack Single Page App (SPA) Setup - ReactJs &#43; Redux &#43; Bootstrap 4 &#43; ASP.Net Core"/><figcaption>
+            <p>Full Stack Single Page App (SPA) Setup - ReactJs + Redux + Bootstrap 4 + ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<h3 id="reviewing-our-changes">Reviewing Our Changes</h3>
+<p>If you now open the <strong>solution</strong> and navigate to the <strong>packages.json</strong> file, you should see something similar to this -</p>
+<figure><img src="/images/2019/05/simon-gilbert-dev-cto-reactjs-redux-aspnetcore-17.png"
+         alt="Full Stack Single Page App (SPA) Setup - ReactJs &#43; Redux &#43; Bootstrap 4 &#43; ASP.Net Core"/><figcaption>
+            <p>Full Stack Single Page App (SPA) Setup - ReactJs + Redux + Bootstrap 4 + ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<h3 id="running-our-application">Running Our Application</h3>
+<p>Run the application as normal from Visual Studio, and you should see something similar to the following -</p>
+<figure><img src="/images/2019/05/simon-gilbert-dev-cto-reactjs-redux-aspnetcore-18.png"
+         alt="Full Stack Single Page App (SPA) Setup - ReactJs &#43; Redux &#43; Bootstrap 4 &#43; ASP.Net Core"/><figcaption>
+            <p>Full Stack Single Page App (SPA) Setup - ReactJs + Redux + Bootstrap 4 + ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<p>&hellip;Result! Now head to the <strong>&ldquo;Fetch data&rdquo;</strong> tab which will load a series of weather forecast data from the <strong>server-side</strong>. If you now navigate o the controllers folder in Visual Studio, you&rsquo;ll see the <strong>ASP.Net Core Web Api</strong> code endpoint that <strong>Redux</strong> is interacting with via <strong>ReactJS</strong>.</p>
+<figure><img src="/images/2019/05/simon-gilbert-dev-cto-reactjs-redux-aspnetcore-19.png"
+         alt="Full Stack Single Page App (SPA) Setup - ReactJs &#43; Redux &#43; Bootstrap 4 &#43; ASP.Net Core"/><figcaption>
+            <p>Full Stack Single Page App (SPA) Setup - ReactJs + Redux + Bootstrap 4 + ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<h2 id="download-github-code-sample">Download Github Code Sample</h2>
+<p>Feel free to <strong><a href="https://github.com/sahgilbert/spa-reactjs-redux-bootstrap4-aspnetcore">DOWNLOAD</a></strong> the sample code of the aforementioned implementation from my Github account.</p>
+
+
+                            
+                            
+                            
+                            
+                            
+                        </section>
+
+					</div>
+
+                    
+
+<footer id="footer">
+    
+    <section class="split contact">
+        
+        
+        
+        
+        <section>
+            <h3>Social</h3>
+            <ul class="icons alt">
+                
+                
+                
+                
+                
+                <li><a href="https://github.com/sahgilbert" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+                
+                
+                
+                
+                
+            </ul>
+        </section>
+        
+    </section>
+</footer>
+
+                    
+<div id="copyright">
+    <ul><li>&copy; Simon Gilbert</li><li><a href="https://www.github.com/sahgilbert">Github</a></li><li><a href="https://simongilbert.net">Blog Home Page</a></li></ul>
+</div>
+
+
+            </div>
+            
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-136163864-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+            
+
+
+
+
+
+
+
+
+
+
+<script src='/assets/js/bundle.js'></script>
+
+
+	</body>
+</html>

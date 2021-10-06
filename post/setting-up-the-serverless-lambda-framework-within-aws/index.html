@@ -1,0 +1,219 @@
+<!DOCTYPE HTML>
+
+<html lang='en'>
+	<head>
+		<title>Setting Up The Serverless Lambda Framework Within AWS &middot; Simon Gilbert</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		
+		
+		
+		<link rel="stylesheet" href="/assets/css/main.min.css">
+		
+		
+		<link rel="shortcut icon" href="/favicon.ico">
+		
+		
+		<noscript><link rel="stylesheet" href='/assets/css/noscript.css' /></noscript>
+
+		
+    		
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-136163864-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  		
+	</head>
+
+	<body lang='en' class="is-preload">
+
+		
+			<div id="wrapper">
+
+                
+<header id="header">
+    <a href='/' class="logo">Simon Gilbert</a>
+</header>
+
+                
+
+<nav id="nav">
+    <ul class="links">
+        <li class="active"><a href='/'>Home</a></li>
+        
+        
+    </ul>
+    
+    <ul class="icons">
+        
+        
+        
+        
+        
+        <li><a href="https://github.com/sahgilbert" class="icon fa-github"><span class="label">GitHub</span></a></li>
+        
+        
+        
+        
+        
+    </ul>
+    
+</nav>
+
+
+				
+					<div id="main">
+
+						
+                        <section class="post">
+                            <header class="major">
+                                
+                                <span class="date">July 7, 2020</span>
+                                
+                                <h1>Setting Up The Serverless Lambda Framework Within AWS</h1>
+                                <p></p>
+                            </header>
+                            
+                            <div class="image main"><img src="/images/2020/08/Screenshot-2020-08-12-at-12.38.06.png" alt="" /></div>
+                            
+                            <p>Serverless Lambda - I&rsquo;m sure you&rsquo;ve heard all about it and are keen to get coding some serverless functions, but before we get started, we need to configure AWS to allow us to create and deploy Serverless projects, so today we&rsquo;re going to cover getting setup with Serverless in AWS!</p>
+<p>Create a new AWS account, and then log in to the AWS Management Console. Once you&rsquo;re in AWS, search for &ldquo;IAM&rdquo; (Identity Access Management) within the services search bar.</p>
+<figure><img src="/images/2020/08/Screenshot-2020-08-11-at-11.52.10.png"/>
+</figure>
+
+<p>Under &ldquo;IAM&rdquo;, select Users.</p>
+<figure><img src="/images/2020/08/Screenshot-2020-08-11-at-11.53.03.png"/>
+</figure>
+
+<p>Within Users, select &ldquo;Add User&rdquo;.</p>
+<figure><img src="/images/2020/08/Screenshot-2020-08-11-at-11.53.34.png"/>
+</figure>
+
+<p>Create a new user by providing a username, and ensuring you select to add &ldquo;Programmatic Access&rdquo; (this allows Serverless to work with AWS via the relevant SDK&rsquo;s and CLI Tools).</p>
+<figure><img src="/images/2020/08/Screenshot-2020-08-11-at-11.58.16.png"/>
+</figure>
+
+<p>Next choose &ldquo;Permissions&rdquo;. Within Permissions, we are going to attach an existing policy directly to our user account. The permission to select in this case is &ldquo;AdministratorAccess&rdquo; (which will allow Serverless to carry out whichever tasks it needs to, includng creating AWS Lambdas, S3 Buckets etc.)</p>
+<figure><img src="/images/2020/08/Screenshot-2020-08-11-at-12.01.00.png"/>
+</figure>
+
+<p>Continue to the &ldquo;Tags&rdquo; page. We don&rsquo;t need to set anything up in here to make Serverless work, so let&rsquo;s continue to the &ldquo;Review&rdquo; page.</p>
+<figure><img src="/images/2020/08/Screenshot-2020-08-11-at-12.01.26.png"/>
+</figure>
+
+<p>On the Review page, you will see that we now have a Serverless IAM user account, that has programmatic access and AdministratorAccess, so let&rsquo;s create our user.</p>
+<figure><img src="/images/2020/08/Screenshot-2020-08-11-at-12.04.05.png"/>
+</figure>
+
+<p>Now that our user has been created, we can see that we have an &ldquo;Access Key ID&rdquo; and a &ldquo;Secret Access Key&rdquo;.</p>
+<figure><img src="/images/2020/08/Screenshot-2020-08-11-at-12.05.30.png"/>
+</figure>
+
+<p>The next step is to copy these values and navigate to a Terminal window. Once inside Terminal, we need to firstly install Serverless using the following command (be sure to use -g, in order to install serverless globally on your system).</p>
+<figure><img src="/images/2020/08/Screenshot-2020-08-11-at-12.09.30.png"/>
+</figure>
+
+<p>Now that Serverless is successfully installed locally, we can setup our credentials, to allow Serverless to work on our AWS account.</p>
+<figure><img src="/images/2020/08/Screenshot-2020-08-11-at-12.11.43.png"/>
+</figure>
+
+<p>Use the following command to apply our AWS credentials to our Serverless installation, which includes the Access Key ID and Secret Access Key from the newly created IAM User in AWS. You will also note that we add a &ldquo;profile&rdquo; configuration to the command, which allows us to apply a descriptive name to our Serverless Profile.</p>
+<figure><img src="/images/2020/08/Screenshot-2020-08-11-at-12.19.44.png"/>
+</figure>
+
+<p>Serverless is applying our AWS credentials&hellip;</p>
+<figure><img src="/images/2020/08/Screenshot-2020-08-11-at-12.27.00.png"/>
+</figure>
+
+<p>Now that Serverless is setup with our AWS credentials, we can use template commands to generate code and begin building Serverless software. A template that I commonly use is &ldquo;serverless create &ndash;template aws-nodejs-typescript&rdquo;.</p>
+<figure><img src="/images/2020/08/Screenshot-2020-08-11-at-12.33.14.png"/>
+</figure>
+
+<p>You can also define a path in your command, to create your serverless service within a dedicated folder as follows &ldquo;serverless create &ndash;template aws-nodejs-typescript &ndash;path MyServerlessService&rdquo;.</p>
+<figure><img src="/images/2020/08/Screenshot-2020-08-11-at-12.34.48.png"/>
+</figure>
+
+<p>Enjoy!</p>
+
+
+                            
+                            
+                            
+                            
+                            
+                        </section>
+
+					</div>
+
+                    
+
+<footer id="footer">
+    
+    <section class="split contact">
+        
+        
+        
+        
+        <section>
+            <h3>Social</h3>
+            <ul class="icons alt">
+                
+                
+                
+                
+                
+                <li><a href="https://github.com/sahgilbert" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+                
+                
+                
+                
+                
+            </ul>
+        </section>
+        
+    </section>
+</footer>
+
+                    
+<div id="copyright">
+    <ul><li>&copy; Simon Gilbert</li><li><a href="https://www.github.com/sahgilbert">Github</a></li><li><a href="https://simongilbert.net">Blog Home Page</a></li></ul>
+</div>
+
+
+            </div>
+            
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-136163864-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+            
+
+
+
+
+
+
+
+
+
+
+<script src='/assets/js/bundle.js'></script>
+
+
+	</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE HTML>
+
+<html lang='en'>
+	<head>
+		<title>Configuring DynamoDb using Serverless YAML &middot; Simon Gilbert</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		
+		
+		
+		<link rel="stylesheet" href="/assets/css/main.min.css">
+		
+		
+		<link rel="shortcut icon" href="/favicon.ico">
+		
+		
+		<noscript><link rel="stylesheet" href='/assets/css/noscript.css' /></noscript>
+
+		
+    		
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-136163864-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  		
+	</head>
+
+	<body lang='en' class="is-preload">
+
+		
+			<div id="wrapper">
+
+                
+<header id="header">
+    <a href='/' class="logo">Simon Gilbert</a>
+</header>
+
+                
+
+<nav id="nav">
+    <ul class="links">
+        <li class="active"><a href='/'>Home</a></li>
+        
+        
+    </ul>
+    
+    <ul class="icons">
+        
+        
+        
+        
+        
+        <li><a href="https://github.com/sahgilbert" class="icon fa-github"><span class="label">GitHub</span></a></li>
+        
+        
+        
+        
+        
+    </ul>
+    
+</nav>
+
+
+				
+					<div id="main">
+
+						
+                        <section class="post">
+                            <header class="major">
+                                
+                                <span class="date">July 11, 2020</span>
+                                
+                                <h1>Configuring DynamoDb using Serverless YAML</h1>
+                                <p></p>
+                            </header>
+                            
+                            <div class="image main"><img src="/images/2020/08/Screenshot-2020-08-16-at-19.23.50.png" alt="" /></div>
+                            
+                            <p>DynamoDb is a brilliant NoSQL database from AWS. It integrates directly with the Serverless Framework, so today we&rsquo;re going to configure Serverless to work with DynamoDb.</p>
+<p>First of all, let&rsquo;s add a stage of &ldquo;dev&rdquo; and a region of &ldquo;us-east-1&rdquo;, followed by our Serverless profile name to our Serverless.yml file.</p>
+<figure><img src="/images/2020/08/Screenshot-2020-08-16-at-19.31.55.png"/>
+</figure>
+
+<p>Next let&rsquo;s add an environment variable to hold our DynamoDb table name, which is designed in a way to be based on the service name, the current deployment stage, and then the table name itself. This allows us to ensure we create separate DynamoDb tables per deployment environment.</p>
+<figure><img src="/images/2020/08/Screenshot-2020-08-16-at-19.32.08.png"/>
+</figure>
+
+<p>The next step is to define our IAM Role statements, which define the actions that will be available to our Lambda functions. Finally let&rsquo;s restrict our IAM role permissions to this specific table (for the current stage that we are deploying to.)</p>
+<figure><img src="/images/2020/08/Screenshot-2020-08-16-at-19.32.22.png"/>
+</figure>
+
+<p>Next we&rsquo;ll create a resource to generate our DynamoDb table. Things to note here are that we have added a DeletionPolicy of Retain, to prevent us from accidentally deleting our Serverless DynamoDb table resources. Under the properties section you will also see that we&rsquo;ve explicitly stated that we want to use our environment variable for the table name, as previously defined. Below this we&rsquo;ve defined our primary key, and finally our BillingMode to be PAY_PER_REQUEST, since we are just starting out with our DynamoDb implementation.</p>
+<figure><img src="/images/2020/08/Screenshot-2020-08-16-at-19.32.43.png"/>
+</figure>
+
+<p>Finally let&rsquo;s run SLS Deploy, and head to AWS Management Console to review our deployment.</p>
+<figure><img src="/images/2020/08/Screenshot-2020-08-16-at-19.33.58.png"/>
+</figure>
+
+<p>As you can see, Serverless has created our DynamoDb table based on our Serverless.yml configuration. Enjoy!</p>
+<h2 id="download-github-code-sample">Download Github Code Sample</h2>
+<p>Feel free to <strong><a href="https://github.com/sahgilbert/portfolio-dynamodb-serverless-config-yaml">DOWNLOAD</a></strong> the sample code of the aforementioned implementation from my Github account.</p>
+
+
+                            
+                            
+                            
+                            
+                            
+                        </section>
+
+					</div>
+
+                    
+
+<footer id="footer">
+    
+    <section class="split contact">
+        
+        
+        
+        
+        <section>
+            <h3>Social</h3>
+            <ul class="icons alt">
+                
+                
+                
+                
+                
+                <li><a href="https://github.com/sahgilbert" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+                
+                
+                
+                
+                
+            </ul>
+        </section>
+        
+    </section>
+</footer>
+
+                    
+<div id="copyright">
+    <ul><li>&copy; Simon Gilbert</li><li><a href="https://www.github.com/sahgilbert">Github</a></li><li><a href="https://simongilbert.net">Blog Home Page</a></li></ul>
+</div>
+
+
+            </div>
+            
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-136163864-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+            
+
+
+
+
+
+
+
+
+
+
+<script src='/assets/js/bundle.js'></script>
+
+
+	</body>
+</html>

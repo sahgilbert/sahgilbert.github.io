@@ -1,0 +1,262 @@
+<!DOCTYPE HTML>
+
+<html lang='en'>
+	<head>
+		<title>iPhone Geo Location Coordinate Tracking using C# Xamarin.iOS &middot; Simon Gilbert</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		
+		
+		
+		<link rel="stylesheet" href="/assets/css/main.min.css">
+		
+		
+		<link rel="shortcut icon" href="/favicon.ico">
+		
+		
+		<noscript><link rel="stylesheet" href='/assets/css/noscript.css' /></noscript>
+
+		
+    		
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-136163864-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  		
+	</head>
+
+	<body lang='en' class="is-preload">
+
+		
+			<div id="wrapper">
+
+                
+<header id="header">
+    <a href='/' class="logo">Simon Gilbert</a>
+</header>
+
+                
+
+<nav id="nav">
+    <ul class="links">
+        <li class="active"><a href='/'>Home</a></li>
+        
+        
+    </ul>
+    
+    <ul class="icons">
+        
+        
+        
+        
+        
+        <li><a href="https://github.com/sahgilbert" class="icon fa-github"><span class="label">GitHub</span></a></li>
+        
+        
+        
+        
+        
+    </ul>
+    
+</nav>
+
+
+				
+					<div id="main">
+
+						
+                        <section class="post">
+                            <header class="major">
+                                
+                                <span class="date">April 23, 2019</span>
+                                
+                                <h1>iPhone Geo Location Coordinate Tracking using C# Xamarin.iOS</h1>
+                                <p></p>
+                            </header>
+                            
+                            <div class="image main"><img src="/images/2019/05/simon-gilbert-dev-cto-blog-23.png" alt="" /></div>
+                            
+                            <h3 id="one-step-two-step-three-step">One Step, Two Step, Three Step</h3>
+<p>Occasionally you might need to track your customers location coordinates in real-time. You could <strong>build an app</strong>, but given that <strong>iOS</strong> and <strong>Android</strong> are supported by separate programming languages, following that route would mean implementing the code base twice&hellip;however, there is a way around that&hellip;</p>
+<h3 id="enter-xamarin">Enter &ldquo;Xamarin&rdquo;&hellip;</h3>
+<p><strong>Xamarin</strong> (originally termed &ldquo;mono&rdquo;), allows <strong>cross-platform</strong> implementations for <strong>iOS, Android</strong> and <strong>Windows Mobile</strong> using C# .Net.</p>
+<blockquote>
+<p>&ldquo;With a C#-shared codebase, developers can use Xamarin tools to write native Android, iOS, and Windows apps with native user interfaces and share code across multiple platforms, including Windows and macOS.&rdquo;</p>
+</blockquote>
+<figure><img src="/images/2019/05/simon-gilbert-dev-cto-xamarin-1.jpg"
+         alt="iPhone Geo Location - C# Xamarin iOS"/><figcaption>
+            <p>iPhone Geo Location - C# Xamarin iOS</p>
+        </figcaption>
+</figure>
+
+<h3 id="lets-code">Let&rsquo;s Code&hellip;</h3>
+<p>For today&rsquo;s implementation, we&rsquo;re going to focus on <strong>Xamarin.iOS</strong>. Let&rsquo;s begin by creating a class to handle the <strong>geo location events</strong>.</p>
+<figure><img src="/images/2019/05/simon-gilbert-dev-cto-xamarin-6.png"
+         alt="iPhone Geo Location - C# Xamarin iOS"/><figcaption>
+            <p>iPhone Geo Location - C# Xamarin iOS</p>
+        </figcaption>
+</figure>
+
+<p>Next, we need a <strong>LocationManager</strong> class that can handle the <strong>geo location</strong> event updates. Inside our class we need an instance of the <strong>CLLocationManager</strong>, and a delegate to handle the events.</p>
+<figure><img src="/images/2019/05/simon-gilbert-dev-cto-xamarin-2.png"
+         alt="iPhone Geo Location - C# Xamarin iOS"/><figcaption>
+            <p>iPhone Geo Location - C# Xamarin iOS</p>
+        </figcaption>
+</figure>
+
+<p>Next we add a method for starting the location updates and the accuracy configuration.</p>
+<figure><img src="/images/2019/05/simon-gilbert-dev-cto-xamarin-3.png"
+         alt="iPhone Geo Location - C# Xamarin iOS"/><figcaption>
+            <p>iPhone Geo Location - C# Xamarin iOS</p>
+        </figcaption>
+</figure>
+
+<p>We then need to set some initial permissions, which happen to be different for <strong>iOS 8</strong> vs. <strong>iOS 9</strong>&hellip;</p>
+<figure><img src="/images/2019/05/simon-gilbert-dev-cto-xamarin-4.png"
+         alt="iPhone Geo Location - C# Xamarin iOS"/><figcaption>
+            <p>iPhone Geo Location - C# Xamarin iOS</p>
+        </figcaption>
+</figure>
+
+<p>Now to configure everything to run in our <strong>LocationManager&rsquo;s</strong> constructor.</p>
+<figure><img src="/images/2019/05/simon-gilbert-dev-cto-xamarin-5.png"
+         alt="iPhone Geo Location - C# Xamarin iOS"/><figcaption>
+            <p>iPhone Geo Location - C# Xamarin iOS</p>
+        </figcaption>
+</figure>
+
+<p>Now to put our <strong>LocationManager</strong> to use in a <strong>ViewController</strong> with an instance of the class.</p>
+<figure><img src="/images/2019/05/simon-gilbert-dev-cto-xamarin-7.png"
+         alt="iPhone Geo Location - C# Xamarin iOS"/><figcaption>
+            <p>iPhone Geo Location - C# Xamarin iOS</p>
+        </figcaption>
+</figure>
+
+<p>Next, we need a method for <strong>subscribing to he location updates</strong>, and one for <strong>unsubscribing</strong> when the app enters <strong>background mode</strong> also.</p>
+<figure><img src="/images/2019/05/simon-gilbert-dev-cto-xamarin-8.png"
+         alt="iPhone Geo Location - C# Xamarin iOS"/><figcaption>
+            <p>iPhone Geo Location - C# Xamarin iOS</p>
+        </figcaption>
+</figure>
+
+<p>Now in our <strong>ViewController&rsquo;s constructor</strong>, we can execute our method call to start the geo location updates.</p>
+<figure><img src="/images/2019/05/simon-gilbert-dev-cto-xamarin-9.png"
+         alt="iPhone Geo Location - C# Xamarin iOS"/><figcaption>
+            <p>iPhone Geo Location - C# Xamarin iOS</p>
+        </figcaption>
+</figure>
+
+<p>Before we run our implementation, we need to configure the background mode to allow Geo Location updates <strong><em>(via the info.plist)</em></strong>.</p>
+<figure><img src="/images/2019/05/simon-gilbert-dev-cto-xamarin-10.png"
+         alt="iPhone Geo Location - C# Xamarin iOS"/><figcaption>
+            <p>iPhone Geo Location - C# Xamarin iOS</p>
+        </figcaption>
+</figure>
+
+<p>Following this, some <strong>additional privacy requirements</strong> are needed, to ensure we ask our user to allow the geo location updates to occur whilst using the app.</p>
+<figure><img src="/images/2019/05/simon-gilbert-dev-cto-xamarin-11.png"
+         alt="iPhone Geo Location - C# Xamarin iOS"/><figcaption>
+            <p>iPhone Geo Location - C# Xamarin iOS</p>
+        </figcaption>
+</figure>
+
+<p>Finally, let&rsquo;s run our <strong>iOS</strong> app.</p>
+<figure><img src="/images/2019/05/simon-gilbert-dev-cto-xamarin-12.png"
+         alt="iPhone Geo Location - C# Xamarin iOS"/><figcaption>
+            <p>iPhone Geo Location - C# Xamarin iOS</p>
+        </figcaption>
+</figure>
+
+<p>Click to allow the permissions as requested by the app&hellip;</p>
+<figure><img src="/images/2019/05/simon-gilbert-dev-cto-xamarin-13.png"
+         alt="iPhone Geo Location - C# Xamarin iOS"/><figcaption>
+            <p>iPhone Geo Location - C# Xamarin iOS</p>
+        </figcaption>
+</figure>
+
+<p>Enjoy!</p>
+<h2 id="download-github-code-sample">Download Github Code Sample</h2>
+<p>Feel free to <strong><a href="https://github.com/sahgilbert/iphone-geo-location-csharp-xamarin-ios">DOWNLOAD</a></strong> the sample code of the aforementioned implementation from my Github account.</p>
+
+
+                            
+                            
+                            
+                            
+                            
+                        </section>
+
+					</div>
+
+                    
+
+<footer id="footer">
+    
+    <section class="split contact">
+        
+        
+        
+        
+        <section>
+            <h3>Social</h3>
+            <ul class="icons alt">
+                
+                
+                
+                
+                
+                <li><a href="https://github.com/sahgilbert" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+                
+                
+                
+                
+                
+            </ul>
+        </section>
+        
+    </section>
+</footer>
+
+                    
+<div id="copyright">
+    <ul><li>&copy; Simon Gilbert</li><li><a href="https://www.github.com/sahgilbert">Github</a></li><li><a href="https://simongilbert.net">Blog Home Page</a></li></ul>
+</div>
+
+
+            </div>
+            
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-136163864-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+            
+
+
+
+
+
+
+
+
+
+
+<script src='/assets/js/bundle.js'></script>
+
+
+	</body>
+</html>

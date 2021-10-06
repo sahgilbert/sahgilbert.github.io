@@ -1,0 +1,221 @@
+<!DOCTYPE HTML>
+
+<html lang='en'>
+	<head>
+		<title>Mocking &amp; Testing using Moq &amp; xUnit Frameworks for C# ASP.Net MVC Core &middot; Simon Gilbert</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		
+		
+		
+		<link rel="stylesheet" href="/assets/css/main.min.css">
+		
+		
+		<link rel="shortcut icon" href="/favicon.ico">
+		
+		
+		<noscript><link rel="stylesheet" href='/assets/css/noscript.css' /></noscript>
+
+		
+    		
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-136163864-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  		
+	</head>
+
+	<body lang='en' class="is-preload">
+
+		
+			<div id="wrapper">
+
+                
+<header id="header">
+    <a href='/' class="logo">Simon Gilbert</a>
+</header>
+
+                
+
+<nav id="nav">
+    <ul class="links">
+        <li class="active"><a href='/'>Home</a></li>
+        
+        
+    </ul>
+    
+    <ul class="icons">
+        
+        
+        
+        
+        
+        <li><a href="https://github.com/sahgilbert" class="icon fa-github"><span class="label">GitHub</span></a></li>
+        
+        
+        
+        
+        
+    </ul>
+    
+</nav>
+
+
+				
+					<div id="main">
+
+						
+                        <section class="post">
+                            <header class="major">
+                                
+                                <span class="date">March 2, 2019</span>
+                                
+                                <h1>Mocking &amp; Testing using Moq &amp; xUnit Frameworks for C# ASP.Net MVC Core</h1>
+                                <p></p>
+                            </header>
+                            
+                            <div class="image main"><img src="/images/2019/03/simon-gilbert-cto-tech-blog-post-seven.png" alt="" /></div>
+                            
+                            <h3 id="isolation-matters">Isolation Matters</h3>
+<p>With the MVC pattern, controllers play a vital role in producing the behaviour that is expected when the website is running.</p>
+<p>When it comes to unit testing, being able to isolate parts of the code from separate areas of the application can be necessary, particularly if the real version of the implementation itself is too awkward to test - a common issue with controllers.</p>
+<h3 id="mocking-things-out">Mocking Things Out</h3>
+<p>Fortunately, we can create a &ldquo;mock&rdquo; version of an implementation which is able to act like the real thing, specifically for testing purposes.</p>
+<p>Like everything in the tech industry, there are always multiple choices on offer&hellip;</p>
+<h3 id="enter-moq">Enter &ldquo;Moq&rdquo;</h3>
+<p>Pronounced &ldquo;mock&rdquo;, and to quote -</p>
+<blockquote>
+<p>&ldquo;Moq is the most popular and friendly mocking framework for .Net&rdquo;</p>
+</blockquote>
+<p>Moq is designed to allow you the developer to manipulate your units of code and separate out cumbersome dependencies for clear isolated testing&hellip;and it supports .Net Core!</p>
+<h3 id="a-typical-scenario">A Typical Scenario</h3>
+<p>In a typical ASP.Net MVC Core implementation, a controller will have a dependency which has been injected at constructor level, and is being utilized within an action to return a view model of data to the relevant view.</p>
+<h3 id="our-dependency-code">Our Dependency Code</h3>
+<p>Firstly, let&rsquo;s put together a basic service class with an interface -</p>
+<figure><img src="/images/2019/03/simon-gilbert-cto-tech-blog-post-dependency-for-mocking.png"
+         alt="ASP.Net MVC Core Dependency"/><figcaption>
+            <p>ASP.Net MVC Core Dependency</p>
+        </figcaption>
+</figure>
+
+<h3 id="our-controller--action-code">Our Controller &amp; Action Code</h3>
+<p>Next, we can inject our service into the controllers constructor, define our Index action and return the data to the view -</p>
+<figure><img src="/images/2019/03/simon-gilbert-cto-tech-blog-post-controller-for-mocking.png"
+         alt="ASP.Net MVC Core Controller"/><figcaption>
+            <p>ASP.Net MVC Core Controller</p>
+        </figcaption>
+</figure>
+
+<h3 id="mocking--testing-our-controller-action-unit">Mocking &amp; Testing Our Controller Action Unit</h3>
+<p>Based on the aforementioned scenario, our steps for mocking &amp; testing a specific controllers action method would be -</p>
+<ol>
+<li>
+<p>Create a mock version of our dependency.</p>
+</li>
+<li>
+<p>Call the Setup method to explicitly state how the dependency should behave when it&rsquo;s called.</p>
+</li>
+<li>
+<p>Inject our mock dependency into our controller.</p>
+</li>
+<li>
+<p>Act out the action method.</p>
+</li>
+<li>
+<p>Assert that our results are valid.</p>
+</li>
+</ol>
+<figure><img src="/images/2019/03/simon-gilbert-cto-tech-blog-post-moq-xunit-test.png"
+         alt="ASP.Net MVC Core Moq xUnit Test"/><figcaption>
+            <p>ASP.Net MVC Core Moq xUnit Test</p>
+        </figcaption>
+</figure>
+
+<h3 id="analysis">Analysis</h3>
+<p>Our <strong>HomeController</strong>  <strong>Index</strong> action is designed to return all of the user accounts from our <strong>UserAccountService</strong> (a total of 2), map the models to their associated view models, and return the data to the <strong>View</strong>.</p>
+<p>On <strong>Line 22</strong> we define the expected number of user accounts, whilst on <strong>Line 36</strong> we assert that a ViewResult type has been returned upon acting. On <strong>Line 38</strong>, we assert that the data has been mapped to the associated view model, before finally asserting that the expected count is correct on <strong>Line 41</strong>.</p>
+<h2 id="download-github-code-sample">Download Github Code Sample</h2>
+<p>Feel free to <strong><a href="https://github.com/sahgilbert/aspnetmvccore-mocking-testing-moq-xunit">DOWNLOAD</a></strong> the sample code of the aforementioned implementation from my Github account.</p>
+
+
+                            
+                            
+                            
+                            
+                            
+                        </section>
+
+					</div>
+
+                    
+
+<footer id="footer">
+    
+    <section class="split contact">
+        
+        
+        
+        
+        <section>
+            <h3>Social</h3>
+            <ul class="icons alt">
+                
+                
+                
+                
+                
+                <li><a href="https://github.com/sahgilbert" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+                
+                
+                
+                
+                
+            </ul>
+        </section>
+        
+    </section>
+</footer>
+
+                    
+<div id="copyright">
+    <ul><li>&copy; Simon Gilbert</li><li><a href="https://www.github.com/sahgilbert">Github</a></li><li><a href="https://simongilbert.net">Blog Home Page</a></li></ul>
+</div>
+
+
+            </div>
+            
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-136163864-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+            
+
+
+
+
+
+
+
+
+
+
+<script src='/assets/js/bundle.js'></script>
+
+
+	</body>
+</html>

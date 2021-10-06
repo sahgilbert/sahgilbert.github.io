@@ -1,0 +1,308 @@
+<!DOCTYPE HTML>
+
+<html lang='en'>
+	<head>
+		<title>[Full Stack Web] Client-Side Validation Postback - ReactJS &#43; Redux &#43; C# ASP.Net Core &middot; Simon Gilbert</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		
+		
+		
+		<link rel="stylesheet" href="/assets/css/main.min.css">
+		
+		
+		<link rel="shortcut icon" href="/favicon.ico">
+		
+		
+		<noscript><link rel="stylesheet" href='/assets/css/noscript.css' /></noscript>
+
+		
+    		
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-136163864-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  		
+	</head>
+
+	<body lang='en' class="is-preload">
+
+		
+			<div id="wrapper">
+
+                
+<header id="header">
+    <a href='/' class="logo">Simon Gilbert</a>
+</header>
+
+                
+
+<nav id="nav">
+    <ul class="links">
+        <li class="active"><a href='/'>Home</a></li>
+        
+        
+    </ul>
+    
+    <ul class="icons">
+        
+        
+        
+        
+        
+        <li><a href="https://github.com/sahgilbert" class="icon fa-github"><span class="label">GitHub</span></a></li>
+        
+        
+        
+        
+        
+    </ul>
+    
+</nav>
+
+
+				
+					<div id="main">
+
+						
+                        <section class="post">
+                            <header class="major">
+                                
+                                <span class="date">May 14, 2020</span>
+                                
+                                <h1>[Full Stack Web] Client-Side Validation Postback - ReactJS &#43; Redux &#43; C# ASP.Net Core</h1>
+                                <p></p>
+                            </header>
+                            
+                            <div class="image main"><img src="/images/2019/06/simon-gilbert-dev-cto-blog-28.png" alt="" /></div>
+                            
+                            <h3 id="early-validation">Early Validation</h3>
+<p>When it comes to users entering data, it&rsquo;s important to always <strong>validate the integrity</strong> before storing the information. The earlier you can do that the better, so why validate <strong>server-side</strong> when you can validate <strong>client-side</strong> before submitting the postback?</p>
+<h3 id="prerequisites">Prerequisites</h3>
+<p>You&rsquo;ll need to follow <a href="/full-stack-spa-reactjs-redux-bootstrap4-aspnetcore/">the steps I blogged about here</a> to configure your single page app (<strong>SPA</strong>) setup to run with <strong>ReactJS</strong> + <strong>Redux</strong> + <strong>C# ASP.Net Core</strong>.</p>
+<h3 id="lets-code">Let&rsquo;s Code&hellip;.</h3>
+<p>Assuming you&rsquo;ve setup your local repository as per the <a href="/full-stack-spa-reactjs-redux-bootstrap4-aspnetcore/">aforementioned blog</a>, the first thing to code is a <strong>component to hold our dynamic label</strong>. Everything in this example will be based on <strong>Bootstrap 4</strong>. Validation icons are cool, so let&rsquo;s add one of those which can be dynamically change as and when necessary.</p>
+<figure><img src="/images/2019/06/simon-gilbert-dev-cto-reactjs-valid-1.png"
+         alt="Client-Side Validation Postback - ReactJS &#43; Redux &#43; C# ASP.Net Core"/><figcaption>
+            <p>Client-Side Validation Postback - ReactJS + Redux + C# ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<p>Next is the <strong>label component</strong> itself, which will need to import our validation icon to be used as and when necessary.</p>
+<figure><img src="/images/2019/06/simon-gilbert-dev-cto-reactjs-valid-2.png"
+         alt="Client-Side Validation Postback - ReactJS &#43; Redux &#43; C# ASP.Net Core"/><figcaption>
+            <p>Client-Side Validation Postback - ReactJS + Redux + C# ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<p>Now that our label component is coded, let&rsquo;s add a further component to hold our <strong>validation error messages</strong>.</p>
+<figure><img src="/images/2019/06/simon-gilbert-dev-cto-reactjs-valid-3.png"
+         alt="Client-Side Validation Postback - ReactJS &#43; Redux &#43; C# ASP.Net Core"/><figcaption>
+            <p>Client-Side Validation Postback - ReactJS + Redux + C# ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<p>Next we need to construct an <strong>input field component</strong> which imports our label and field error components.</p>
+<figure><img src="/images/2019/06/simon-gilbert-dev-cto-reactjs-valid-4.png"
+         alt="Client-Side Validation Postback - ReactJS &#43; Redux &#43; C# ASP.Net Core"/><figcaption>
+            <p>Client-Side Validation Postback - ReactJS + Redux + C# ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<p>Now that our input field component is constructed, we need a <strong>button component</strong> which will remain disabled until all input components are valid.</p>
+<figure><img src="/images/2019/06/simon-gilbert-dev-cto-reactjs-valid-5.png"
+         alt="Client-Side Validation Postback - ReactJS &#43; Redux &#43; C# ASP.Net Core"/><figcaption>
+            <p>Client-Side Validation Postback - ReactJS + Redux + C# ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<p>We now need a data model for our server-side code, written in <strong>C# .Net Core</strong>.</p>
+<figure><img src="/images/2019/06/simon-gilbert-dev-cto-reactjs-valid-5b.png"
+         alt="Client-Side Validation Postback - ReactJS &#43; Redux &#43; C# ASP.Net Core"/><figcaption>
+            <p>Client-Side Validation Postback - ReactJS + Redux + C# ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<p>Next, some more server-side code (our api controller and a static list to store the data in <strong>C# ASP.Net Core</strong>).</p>
+<figure><img src="/images/2019/06/simon-gilbert-dev-cto-reactjs-valid-6.png"
+         alt="Client-Side Validation Postback - ReactJS &#43; Redux &#43; C# ASP.Net Core"/><figcaption>
+            <p>Client-Side Validation Postback - ReactJS + Redux + C# ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<p>Now for the part where <strong>Redux</strong> comes in to facilitate our connection between the <strong>client-side</strong> and the <strong>server-side</strong>. We&rsquo;ll expose a <em>&ldquo;submitForm&rdquo;</em> function within our action creators, to dispatch and receive our request and response.</p>
+<figure><img src="/images/2019/06/simon-gilbert-dev-cto-reactjs-valid-7.png"
+         alt="Client-Side Validation Postback - ReactJS &#43; Redux &#43; C# ASP.Net Core"/><figcaption>
+            <p>Client-Side Validation Postback - ReactJS + Redux + C# ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<p>&hellip;accompanied by some simple reducer statements.</p>
+<figure><img src="/images/2019/06/simon-gilbert-dev-cto-reactjs-valid-8.png"
+         alt="Client-Side Validation Postback - ReactJS &#43; Redux &#43; C# ASP.Net Core"/><figcaption>
+            <p>Client-Side Validation Postback - ReactJS + Redux + C# ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<p>Next we need to code the client-side validation, starting with some constants in our SignUpForm component -</p>
+<figure><img src="/images/2019/06/simon-gilbert-dev-cto-reactjs-valid-9.png"
+         alt="Client-Side Validation Postback - ReactJS &#43; Redux &#43; C# ASP.Net Core"/><figcaption>
+            <p>Client-Side Validation Postback - ReactJS + Redux + C# ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<p>Following this, we&rsquo;ll need a constructor and some properties to manipulate when the user interacts with the form.</p>
+<figure><img src="/images/2019/06/simon-gilbert-dev-cto-reactjs-valid-10.png"
+         alt="Client-Side Validation Postback - ReactJS &#43; Redux &#43; C# ASP.Net Core"/><figcaption>
+            <p>Client-Side Validation Postback - ReactJS + Redux + C# ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<p>Now we can render our form component, using the input field component we coded at the beginning.</p>
+<figure><img src="/images/2019/06/simon-gilbert-dev-cto-reactjs-valid-11.png"
+         alt="Client-Side Validation Postback - ReactJS &#43; Redux &#43; C# ASP.Net Core"/><figcaption>
+            <p>Client-Side Validation Postback - ReactJS + Redux + C# ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<p>You&rsquo;ll note that each input field has a function attached to its onChange method, specifically for handling user input -</p>
+<figure><img src="/images/2019/06/simon-gilbert-dev-cto-reactjs-valid-12.png"
+         alt="Client-Side Validation Postback - ReactJS &#43; Redux &#43; C# ASP.Net Core"/><figcaption>
+            <p>Client-Side Validation Postback - ReactJS + Redux + C# ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<p>Now to validate the inputs with a glorious switch statement, depending on the field name.</p>
+<figure><img src="/images/2019/06/simon-gilbert-dev-cto-reactjs-valid-13.png"
+         alt="Client-Side Validation Postback - ReactJS &#43; Redux &#43; C# ASP.Net Core"/><figcaption>
+            <p>Client-Side Validation Postback - ReactJS + Redux + C# ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<p>Let&rsquo;s run our build and see what we&rsquo;ve got -</p>
+<figure><img src="/images/2019/06/simon-gilbert-dev-cto-reactjs-valid-14.png"
+         alt="Client-Side Validation Postback - ReactJS &#43; Redux &#43; C# ASP.Net Core"/><figcaption>
+            <p>Client-Side Validation Postback - ReactJS + Redux + C# ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<p>&hellip;and to test the validation as we type in our name -</p>
+<figure><img src="/images/2019/06/simon-gilbert-dev-cto-reactjs-valid-15.png"
+         alt="Client-Side Validation Postback - ReactJS &#43; Redux &#43; C# ASP.Net Core"/><figcaption>
+            <p>Client-Side Validation Postback - ReactJS + Redux + C# ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<p>Followed by our email address, which validates differently based on our switch statement.</p>
+<figure><img src="/images/2019/06/simon-gilbert-dev-cto-reactjs-valid-16.png"
+         alt="Client-Side Validation Postback - ReactJS &#43; Redux &#43; C# ASP.Net Core"/><figcaption>
+            <p>Client-Side Validation Postback - ReactJS + Redux + C# ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<p>Here we can clearly see the valid fields vs. the invalid fields -</p>
+<figure><img src="/images/2019/06/simon-gilbert-dev-cto-reactjs-valid-17.png"
+         alt="Client-Side Validation Postback - ReactJS &#43; Redux &#43; C# ASP.Net Core"/><figcaption>
+            <p>Client-Side Validation Postback - ReactJS + Redux + C# ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<p>Eventually our end result enables our form submission button -</p>
+<figure><img src="/images/2019/06/simon-gilbert-dev-cto-reactjs-valid-18.png"
+         alt="Client-Side Validation Postback - ReactJS &#43; Redux &#43; C# ASP.Net Core"/><figcaption>
+            <p>Client-Side Validation Postback - ReactJS + Redux + C# ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<p>Clicking submit now shows us our received response from our <strong>C# ASP.Net Core</strong> api.</p>
+<figure><img src="/images/2019/06/simon-gilbert-dev-cto-reactjs-valid-19.png"
+         alt="Client-Side Validation Postback - ReactJS &#43; Redux &#43; C# ASP.Net Core"/><figcaption>
+            <p>Client-Side Validation Postback - ReactJS + Redux + C# ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<h2 id="download-github-code-sample">Download Github Code Sample</h2>
+<p>Feel free to <strong><a href="https://github.com/sahgilbert/reactjs-redux-csharp-aspnetcore-client-side-validation">DOWNLOAD</a></strong> the sample code of the aforementioned implementation from my Github account.</p>
+
+
+                            
+                            
+                            
+                            
+                            
+                        </section>
+
+					</div>
+
+                    
+
+<footer id="footer">
+    
+    <section class="split contact">
+        
+        
+        
+        
+        <section>
+            <h3>Social</h3>
+            <ul class="icons alt">
+                
+                
+                
+                
+                
+                <li><a href="https://github.com/sahgilbert" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+                
+                
+                
+                
+                
+            </ul>
+        </section>
+        
+    </section>
+</footer>
+
+                    
+<div id="copyright">
+    <ul><li>&copy; Simon Gilbert</li><li><a href="https://www.github.com/sahgilbert">Github</a></li><li><a href="https://simongilbert.net">Blog Home Page</a></li></ul>
+</div>
+
+
+            </div>
+            
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-136163864-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+            
+
+
+
+
+
+
+
+
+
+
+<script src='/assets/js/bundle.js'></script>
+
+
+	</body>
+</html>

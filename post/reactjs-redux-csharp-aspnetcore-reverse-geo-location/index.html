@@ -1,0 +1,269 @@
+<!DOCTYPE HTML>
+
+<html lang='en'>
+	<head>
+		<title>[Full Stack Web] Reverse Geo Location Lookup - ReactJS &#43; Redux &#43; C# ASP.Net Core &middot; Simon Gilbert</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		
+		
+		
+		<link rel="stylesheet" href="/assets/css/main.min.css">
+		
+		
+		<link rel="shortcut icon" href="/favicon.ico">
+		
+		
+		<noscript><link rel="stylesheet" href='/assets/css/noscript.css' /></noscript>
+
+		
+    		
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-136163864-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  		
+	</head>
+
+	<body lang='en' class="is-preload">
+
+		
+			<div id="wrapper">
+
+                
+<header id="header">
+    <a href='/' class="logo">Simon Gilbert</a>
+</header>
+
+                
+
+<nav id="nav">
+    <ul class="links">
+        <li class="active"><a href='/'>Home</a></li>
+        
+        
+    </ul>
+    
+    <ul class="icons">
+        
+        
+        
+        
+        
+        <li><a href="https://github.com/sahgilbert" class="icon fa-github"><span class="label">GitHub</span></a></li>
+        
+        
+        
+        
+        
+    </ul>
+    
+</nav>
+
+
+				
+					<div id="main">
+
+						
+                        <section class="post">
+                            <header class="major">
+                                
+                                <span class="date">May 23, 2020</span>
+                                
+                                <h1>[Full Stack Web] Reverse Geo Location Lookup - ReactJS &#43; Redux &#43; C# ASP.Net Core</h1>
+                                <p></p>
+                            </header>
+                            
+                            <div class="image main"><img src="/images/2019/07/simon-gilbert-dev-cto-blog-29-1.png" alt="" /></div>
+                            
+                            <h3 id="geo-location">Geo Location</h3>
+<p>I blogged recently about <a href="/iphone-geo-location-csharp-xamarin-ios/">tracking a users geo location</a> from their <strong>iPhone</strong>, but what if all you have is a postcode, yet still require coordinate data?</p>
+<h3 id="enter-wwwpostcodesio">Enter &ldquo;<a href="http://www.postcodes.io">www.postcodes.io</a>&rdquo;&hellip;</h3>
+<p>I discovered <a href="https://postcodes.io">this third party api</a> not long ago and it&rsquo;s been very useful. Typically the most common downside with these api&rsquo;s is that <a href="/rate-limit-action-filter-attribute-csharp-aspnetcore/">they&rsquo;re rate limited</a>, so today we&rsquo;re going to code a full stack single page app (<strong>SPA</strong>)&hellip;with a <strong>built in memory cache</strong>, thus reducing how often we&rsquo;re hitting the endpoint for the same postcode.</p>
+<h3 id="prerequisites">Prerequisites</h3>
+<p>You&rsquo;ll need to follow <a href="/full-stack-spa-reactjs-redux-bootstrap4-aspnetcore/">the steps I blogged about here</a> to configure your single page app (<strong>SPA</strong>) setup to run with <strong>ReactJS</strong> + <strong>Redux</strong> + <strong>C# ASP.Net Core</strong>.</p>
+<h3 id="lets-code">Let&rsquo;s Code&hellip;</h3>
+<p>Firstly we need a data model to interact with <a href="http://www.postcodes.io">www.postcodes.io</a> -</p>
+<figure><img src="/images/2019/06/simon-gilbert-dev-cto-reactjs-geo-1.png"
+         alt="Revere Geo Location Lookup - ReactJS &#43; Redux &#43; C# ASP.Net Core"/><figcaption>
+            <p>Revere Geo Location Lookup - ReactJS + Redux + C# ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<p>Next, a web client service to ping the endpoint.</p>
+<figure><img src="/images/2019/06/simon-gilbert-dev-cto-reactjs-geo-2.png"
+         alt="Revere Geo Location Lookup - ReactJS &#43; Redux &#43; C# ASP.Net Core"/><figcaption>
+            <p>Revere Geo Location Lookup - ReactJS + Redux + C# ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<p>Now we need a dedicated service to handle the requests we pass in, and the output we receive back.</p>
+<figure><img src="/images/2019/06/simon-gilbert-dev-cto-reactjs-geo-3.png"
+         alt="Revere Geo Location Lookup - ReactJS &#43; Redux &#43; C# ASP.Net Core"/><figcaption>
+            <p>Revere Geo Location Lookup - ReactJS + Redux + C# ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<p>Now to setup our API controller and memory cache -</p>
+<figure><img src="/images/2019/06/simon-gilbert-dev-cto-reactjs-geo-4.png"
+         alt="Revere Geo Location Lookup - ReactJS &#43; Redux &#43; C# ASP.Net Core"/><figcaption>
+            <p>Revere Geo Location Lookup - ReactJS + Redux + C# ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<p>Followed by our controller action method.</p>
+<figure><img src="/images/2019/06/simon-gilbert-dev-cto-reactjs-geo-5.png"
+         alt="Revere Geo Location Lookup - ReactJS &#43; Redux &#43; C# ASP.Net Core"/><figcaption>
+            <p>Revere Geo Location Lookup - ReactJS + Redux + C# ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<p>Now to code our client-side in <strong>ReactJS</strong>. Let&rsquo;s start with some imports (I&rsquo;ll be using the <strong>InputField</strong>, <strong>Button</strong> and <strong>Table</strong> components that I&rsquo;ve written and published recently in other blog posts). You&rsquo;ll note that I&rsquo;ve also added a massive <strong>regex</strong> to be used when validating the postcodes.</p>
+<figure><img src="/images/2019/07/simon-gilbert-dev-cto-reactjs-geo-6.png"
+         alt="Revere Geo Location Lookup - ReactJS &#43; Redux &#43; C# ASP.Net Core"/><figcaption>
+            <p>Revere Geo Location Lookup - ReactJS + Redux + C# ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<p>Next we&rsquo;ll need a few properties to help with the field validation.</p>
+<figure><img src="/images/2019/07/simon-gilbert-dev-cto-reactjs-geo-7.png"
+         alt="Revere Geo Location Lookup - ReactJS &#43; Redux &#43; C# ASP.Net Core"/><figcaption>
+            <p>Revere Geo Location Lookup - ReactJS + Redux + C# ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<p>Now for a function to handle the user&rsquo;s input.</p>
+<figure><img src="/images/2019/07/simon-gilbert-dev-cto-reactjs-geo-8.png"
+         alt="Revere Geo Location Lookup - ReactJS &#43; Redux &#43; C# ASP.Net Core"/><figcaption>
+            <p>Revere Geo Location Lookup - ReactJS + Redux + C# ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<p>Following this comes the field validation functionality.</p>
+<figure><img src="/images/2019/07/simon-gilbert-dev-cto-reactjs-geo-9.png"
+         alt="Revere Geo Location Lookup - ReactJS &#43; Redux &#43; C# ASP.Net Core"/><figcaption>
+            <p>Revere Geo Location Lookup - ReactJS + Redux + C# ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<p>At this point we can render the form, using the <strong>components</strong> I mentioned previously.</p>
+<figure><img src="/images/2019/07/simon-gilbert-dev-cto-reactjs-geo-10.png"
+         alt="Revere Geo Location Lookup - ReactJS &#43; Redux &#43; C# ASP.Net Core"/><figcaption>
+            <p>Revere Geo Location Lookup - ReactJS + Redux + C# ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<p>Now to plug our <strong>ReactJS</strong> client-side code into our <strong>C# ASP.Net Core</strong> server-side code using <strong>Redux</strong>.</p>
+<figure><img src="/images/2019/07/simon-gilbert-dev-cto-reactjs-geo-11.png"
+         alt="Revere Geo Location Lookup - ReactJS &#43; Redux &#43; C# ASP.Net Core"/><figcaption>
+            <p>Revere Geo Location Lookup - ReactJS + Redux + C# ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<p>Let&rsquo;s run our application and see what happens.</p>
+<figure><img src="/images/2019/07/simon-gilbert-dev-cto-reactjs-geo-12.png"
+         alt="Revere Geo Location Lookup - ReactJS &#43; Redux &#43; C# ASP.Net Core"/><figcaption>
+            <p>Revere Geo Location Lookup - ReactJS + Redux + C# ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<p>Our validation has kicked in and requires a valid postcode before we can submit the form.</p>
+<figure><img src="/images/2019/07/simon-gilbert-dev-cto-reactjs-geo-13.png"
+         alt="Revere Geo Location Lookup - ReactJS &#43; Redux &#43; C# ASP.Net Core"/><figcaption>
+            <p>Revere Geo Location Lookup - ReactJS + Redux + C# ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<p>Once we enter a valid postcode, our submit button becomes enabled and the postcode regex validation has passed.</p>
+<figure><img src="/images/2019/07/simon-gilbert-dev-cto-reactjs-geo-14.png"
+         alt="Revere Geo Location Lookup - ReactJS &#43; Redux &#43; C# ASP.Net Core"/><figcaption>
+            <p>Revere Geo Location Lookup - ReactJS + Redux + C# ASP.Net Core</p>
+        </figcaption>
+</figure>
+
+<p>Finally, we receive the relevant geo location coordinates for the postcode we submitted, indicating the latitude and longitude.</p>
+<h2 id="download-github-code-sample">Download Github Code Sample</h2>
+<p>Feel free to <strong><a href="https://github.com/sahgilbert/reactjs-redux-aspnetcore-postcode-geo-location">DOWNLOAD</a></strong> the sample code of the aforementioned implementation from my Github account.</p>
+
+
+                            
+                            
+                            
+                            
+                            
+                        </section>
+
+					</div>
+
+                    
+
+<footer id="footer">
+    
+    <section class="split contact">
+        
+        
+        
+        
+        <section>
+            <h3>Social</h3>
+            <ul class="icons alt">
+                
+                
+                
+                
+                
+                <li><a href="https://github.com/sahgilbert" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+                
+                
+                
+                
+                
+            </ul>
+        </section>
+        
+    </section>
+</footer>
+
+                    
+<div id="copyright">
+    <ul><li>&copy; Simon Gilbert</li><li><a href="https://www.github.com/sahgilbert">Github</a></li><li><a href="https://simongilbert.net">Blog Home Page</a></li></ul>
+</div>
+
+
+            </div>
+            
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-136163864-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+            
+
+
+
+
+
+
+
+
+
+
+<script src='/assets/js/bundle.js'></script>
+
+
+	</body>
+</html>
