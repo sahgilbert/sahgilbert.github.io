@@ -6,11 +6,11 @@
     <description>Recent content on Simon Gilbert</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Sat, 18 Jul 2020 12:30:00 +0000</lastBuildDate><atom:link href="https://sahgilbert.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 18 Aug 2021 12:30:00 +0000</lastBuildDate><atom:link href="https://sahgilbert.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Continuous Integration (CI/CD) for a Typescript Serverless Lambda API using CircleCI</title>
       <link>https://sahgilbert.github.io/post/continuous-integration-ci-cd-typescript-serverless-lambda-api-circleci/</link>
-      <pubDate>Sat, 18 Jul 2020 12:30:00 +0000</pubDate>
+      <pubDate>Wed, 18 Aug 2021 12:30:00 +0000</pubDate>
       
       <guid>https://sahgilbert.github.io/post/continuous-integration-ci-cd-typescript-serverless-lambda-api-circleci/</guid>
       <description>Are you getting tired of manually deploying your code to AWS after each code change? Today we&amp;rsquo;re going to implement Continuous Integration for Serverless Lambda, to automate our deployments using a CI/CD pipeline, based on the Git branch we push the commit to!</description>
@@ -19,7 +19,7 @@
     <item>
       <title>Test Driven Development (TDD) Typescript Lambda API using Mocha and Chai</title>
       <link>https://sahgilbert.github.io/post/test-driven-development-tdd-typescript-lambda-api-mocha-chai/</link>
-      <pubDate>Thu, 16 Jul 2020 15:41:00 +0000</pubDate>
+      <pubDate>Wed, 16 Jun 2021 15:41:00 +0000</pubDate>
       
       <guid>https://sahgilbert.github.io/post/test-driven-development-tdd-typescript-lambda-api-mocha-chai/</guid>
       <description>Test Driven Development (TDD) has many benefits, including allowing us to focus on our requirements with a &amp;ldquo;unit test first approach&amp;rdquo; to ensure that we&amp;rsquo;re only deploying code where the unit tests pass. Today we&amp;rsquo;re going to cover using Mocha and Chai to test our Typescript Lambda algorithms!</description>
@@ -28,7 +28,7 @@
     <item>
       <title>Integration Testing a Typescript Lambda API using Jest (&amp; Supertest)</title>
       <link>https://sahgilbert.github.io/post/integration-testing-typescript-lambda-api-jest-supertest/</link>
-      <pubDate>Tue, 14 Jul 2020 17:53:00 +0000</pubDate>
+      <pubDate>Wed, 14 Apr 2021 17:53:00 +0000</pubDate>
       
       <guid>https://sahgilbert.github.io/post/integration-testing-typescript-lambda-api-jest-supertest/</guid>
       <description>Integration Testing is a level of software testing where individual units are combined and tested as a group. The purpose of this level of testing is to expose faults in the interaction between integrated units. Today we&amp;rsquo;re going to look at doing Integration Testing using Jest and Supertest.</description>
@@ -37,7 +37,7 @@
     <item>
       <title>Typescript Lambda &amp; DynamoDB RESTful Api RUN LOCALLY using Docker and LocalStack!</title>
       <link>https://sahgilbert.github.io/post/typescript-lambda-dynamodb-rest-api-locally-docker-localstack/</link>
-      <pubDate>Sun, 12 Jul 2020 11:24:00 +0000</pubDate>
+      <pubDate>Tue, 12 Jan 2021 11:24:00 +0000</pubDate>
       
       <guid>https://sahgilbert.github.io/post/typescript-lambda-dynamodb-rest-api-locally-docker-localstack/</guid>
       <description>LocalStack is pretty awesome! It allows you to emulate a number of AWS services on your computer. Today we&amp;rsquo;re just going to focus on emulating DynamoDB locally to test our Serverless Lambda.</description>
@@ -46,7 +46,7 @@
     <item>
       <title>Configuring DynamoDb using Serverless YAML</title>
       <link>https://sahgilbert.github.io/post/configuring-dynamodb-using-serverless-yaml/</link>
-      <pubDate>Sat, 11 Jul 2020 18:14:00 +0000</pubDate>
+      <pubDate>Thu, 19 Nov 2020 18:14:00 +0000</pubDate>
       
       <guid>https://sahgilbert.github.io/post/configuring-dynamodb-using-serverless-yaml/</guid>
       <description>DynamoDb is a brilliant NoSQL database from AWS. It integrates directly with the Serverless Framework, so today we&amp;rsquo;re going to configure Serverless to work with DynamoDb</description>
@@ -55,7 +55,7 @@
     <item>
       <title>Creating and Deploying a NodeJS Serverless Lambda to AWS</title>
       <link>https://sahgilbert.github.io/post/creating-and-deploying-a-serverless-lambda-to-aws/</link>
-      <pubDate>Fri, 10 Jul 2020 12:13:00 +0000</pubDate>
+      <pubDate>Thu, 10 Sep 2020 12:13:00 +0000</pubDate>
       
       <guid>https://sahgilbert.github.io/post/creating-and-deploying-a-serverless-lambda-to-aws/</guid>
       <description>Serverless Lambda is amazing, so today we&amp;rsquo;re going to use a NodeJS template to create and deploy a new Serverless Lambda project to AWS.</description>
@@ -64,7 +64,7 @@
     <item>
       <title>Setting Up The Serverless Lambda Framework Within AWS</title>
       <link>https://sahgilbert.github.io/post/setting-up-the-serverless-lambda-framework-within-aws/</link>
-      <pubDate>Tue, 07 Jul 2020 11:40:00 +0000</pubDate>
+      <pubDate>Fri, 07 Aug 2020 11:40:00 +0000</pubDate>
       
       <guid>https://sahgilbert.github.io/post/setting-up-the-serverless-lambda-framework-within-aws/</guid>
       <description>Serverless Lambda - I&amp;rsquo;m sure you&amp;rsquo;ve heard all about it and are keen to get coding some serverless functions, but before we get started, we need to configure AWS to allow us to create and deploy Serverless projects, so today we&amp;rsquo;re going to cover getting setup with Serverless in AWS!</description>
