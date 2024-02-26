@@ -1,0 +1,234 @@
+<!DOCTYPE HTML>
+
+<html lang='en'>
+	<head>
+		<title>Deploying C# Asp.Net Core to an Azure App Service via GitHub Actions using a deploy.yml File &middot; Simon Gilbert</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		
+		
+		
+		<link rel="stylesheet" href="/assets/css/main.min.css">
+		
+		
+		<link rel="shortcut icon" href="/favicon.ico">
+		
+		
+		<noscript><link rel="stylesheet" href='/assets/css/noscript.css' /></noscript>
+
+		
+    		
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-136163864-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  		
+	</head>
+
+	<body lang='en' class="is-preload">
+
+		
+			<div id="wrapper">
+
+                
+<header id="header">
+    <a href='/' class="logo">Simon Gilbert</a>
+</header>
+
+                
+
+<nav id="nav">
+    <ul class="links">
+        <li class="active"><a href='/'>Home</a></li>
+        
+        
+    </ul>
+    
+</nav>
+
+
+				
+					<div id="main">
+
+						
+                        <section class="post">
+                            <header class="major">
+                                
+                                <span class="date">January 3, 2024</span>
+                                
+                                <h1>Deploying C# Asp.Net Core to an Azure App Service via GitHub Actions using a deploy.yml File</h1>
+                                <p></p>
+                            </header>
+                            
+                            <div class="image main"><img src="/images/2024/02/simon-gilbert-dev-blog-landscape-2024-2.png" alt="" /></div>
+                            
+                            <h3 id="github-actions-for-azure-app-service-deployment">GitHub Actions for Azure App Service Deployment</h3>
+<p>GitHub Actions provides a streamlined workflow for automating the deployment of ASP.NET Core applications to Azure App Service. By configuring workflows in the repository, developers can set up a seamless integration pipeline that triggers on code changes. With the proper setup, GitHub Actions can build, test, and deploy the ASP.NET Core application to Azure App Service, ensuring a consistent and efficient deployment process. This integration enhances collaboration and reduces manual intervention, enabling teams to focus on coding while maintaining a reliable deployment pipeline.</p>
+<h3 id="github-actions-steps">GitHub Actions Steps</h3>
+<p>Utilizing GitHub Actions for ASP.NET Core deployment to Azure App Service involves defining workflow steps in the repository&rsquo;s YAML file. Key actions include setting up the build environment, running tests, and deploying the application to Azure. This automated approach not only accelerates the release cycle but also ensures the deployment process adheres to best practices. Developers benefit from version-controlled workflows, allowing them to easily manage and track changes in deployment configurations, fostering a more robust and maintainable deployment pipeline for ASP.NET Core applications on Azure App Service.</p>
+<h3 id="next-steps">Next Steps</h3>
+<ul>
+<li>Make a hidden folder in your repository root folder, and change into the directory:</li>
+</ul>
+<pre tabindex="0"><code class="language-Terminal" data-lang="Terminal">mkdir .github
+cd .github
+</code></pre><ul>
+<li>Following this, make a &ldquo;workflows&rdquo; folder inside the hidden folder you just created, and change into the directory:</li>
+</ul>
+<pre tabindex="0"><code class="language-Terminal" data-lang="Terminal">mkdir workflows
+cd workflows
+</code></pre><ul>
+<li>Now create a deploy.yml file:</li>
+</ul>
+<pre tabindex="0"><code class="language-Terminal" data-lang="Terminal">touch deploy.yml
+</code></pre><ul>
+<li>Paste the following code into your deploy.yml file:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-YAML" data-lang="YAML"><span style="color:#f92672">name</span>: <span style="color:#ae81ff">Build and deploy ASP.Net Core app to Azure Web App</span>
+
+<span style="color:#f92672">on</span>:
+  <span style="color:#f92672">push</span>:
+    <span style="color:#f92672">branches</span>:
+      - <span style="color:#ae81ff">main</span>
+  <span style="color:#f92672">workflow_dispatch</span>:
+
+<span style="color:#f92672">jobs</span>:
+  <span style="color:#f92672">build</span>:
+    <span style="color:#f92672">runs-on</span>: <span style="color:#ae81ff">ubuntu-latest</span>
+
+    <span style="color:#f92672">steps</span>:
+      - <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/checkout@v4</span>
+
+      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Set up .NET Core</span>
+        <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/setup-dotnet@v1</span>
+        <span style="color:#f92672">with</span>:
+          <span style="color:#f92672">dotnet-version</span>: <span style="color:#e6db74">&#39;8.x&#39;</span>
+          <span style="color:#f92672">include-prerelease</span>: <span style="color:#66d9ef">true</span>
+
+      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Build with dotnet</span>
+        <span style="color:#f92672">run</span>: <span style="color:#ae81ff">dotnet build --configuration Release</span>
+
+      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">dotnet publish</span>
+        <span style="color:#f92672">run</span>: <span style="color:#ae81ff">dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp</span>
+
+      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Upload artifact for deployment job</span>
+        <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/upload-artifact@v3</span>
+        <span style="color:#f92672">with</span>:
+          <span style="color:#f92672">name</span>: <span style="color:#ae81ff">.net-app</span>
+          <span style="color:#f92672">path</span>: <span style="color:#ae81ff">${{env.DOTNET_ROOT}}/myapp</span>
+
+  <span style="color:#f92672">deploy</span>:
+    <span style="color:#f92672">runs-on</span>: <span style="color:#ae81ff">ubuntu-latest</span>
+    <span style="color:#f92672">needs</span>: <span style="color:#ae81ff">build</span>
+    <span style="color:#f92672">environment</span>:
+      <span style="color:#f92672">name</span>: <span style="color:#e6db74">&#39;Production&#39;</span>
+      <span style="color:#f92672">url</span>: <span style="color:#ae81ff">${{ steps.deploy-to-webapp.outputs.webapp-url }}</span>
+
+    <span style="color:#f92672">steps</span>:
+      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Download artifact from build job</span>
+        <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/download-artifact@v3</span>
+        <span style="color:#f92672">with</span>:
+          <span style="color:#f92672">name</span>: <span style="color:#ae81ff">.net-app</span>
+
+      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Deploy to Azure Web App</span>
+        <span style="color:#f92672">id</span>: <span style="color:#ae81ff">deploy-to-webapp</span>
+        <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">azure/webapps-deploy@v2</span>
+        <span style="color:#f92672">with</span>:
+          <span style="color:#f92672">app-name</span>: <span style="color:#e6db74">&#39;simons-app-service-demo&#39;</span>
+          <span style="color:#f92672">slot-name</span>: <span style="color:#e6db74">&#39;Production&#39;</span>
+          <span style="color:#f92672">publish-profile</span>: <span style="color:#ae81ff">${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE }}</span>
+          <span style="color:#f92672">package</span>: <span style="color:#ae81ff">.</span>
+
+</code></pre></div><ul>
+<li>Next we need to go to the Microsoft Azure Portal, and download the publishing profile for our Azure App Service:</li>
+</ul>
+<figure><img src="/images/2024/02/simon-gilbert-dev-blog-azure-app-service-deploy-yaml-1.png"
+         alt="Azure Portal App Service Publishing Profile"/><figcaption>
+            <p>Azure Portal App Service Publishing Profile</p>
+        </figcaption>
+</figure>
+
+<ul>
+<li>Now we need to go to the Secrets section of our repository, and setup a new secret, where we paste in the contents of our Azure App Service Publishing Profile, so that the deploy.yml file has access to it when building and deploying our App Service to Azure:</li>
+</ul>
+<figure><img src="/images/2024/02/simon-gilbert-dev-blog-azure-app-service-deploy-yaml-2.png"
+         alt="Azure Portal App Service Publishing Profile"/><figcaption>
+            <p>Azure Portal App Service Publishing Profile</p>
+        </figcaption>
+</figure>
+
+<ul>
+<li>Now push the changes to GitHub, and your source code repository will magically build and deploy to your Azure App Service!</li>
+</ul>
+<p>Enjoy!</p>
+
+
+                            
+                            
+                            
+                            
+                            
+                        </section>
+
+					</div>
+
+                    
+
+<footer id="footer">
+    
+    <section class="split contact">
+        
+        
+        
+        
+    </section>
+</footer>
+
+                    
+<div id="copyright">
+    <ul>
+        <li>&copy; Simon Gilbert</li>
+    </ul>
+    <ul>
+        <li style="color:#212931;"><a href='https://www.twine.net/simongilbert'></a></li>
+    </ul>
+</div>
+
+
+            </div>
+            
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-136163864-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+            
+
+
+
+
+
+
+
+
+
+
+<script src='/assets/js/bundle.js'></script>
+
+
+	</body>
+</html>

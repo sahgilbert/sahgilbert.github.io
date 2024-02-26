@@ -6,7 +6,34 @@
     <description>Recent content on Simon Gilbert</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Wed, 18 Aug 2021 12:30:00 +0000</lastBuildDate><atom:link href="https://sahgilbert.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 07 Feb 2024 10:38:00 +0000</lastBuildDate><atom:link href="https://sahgilbert.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Dependency Injection for Azure Table Storage including Microsoft Entra Identity Security using C#.Net 8.0.0 and Autofac</title>
+      <link>https://sahgilbert.github.io/post/dependency-injection-autofac-azure-table-storage-microsoft-identity/</link>
+      <pubDate>Wed, 07 Feb 2024 10:38:00 +0000</pubDate>
+      
+      <guid>https://sahgilbert.github.io/post/dependency-injection-autofac-azure-table-storage-microsoft-identity/</guid>
+      <description>Keen to improve the security of your Azure Table Storage Access? Today I&amp;rsquo;ll explain how to ensure only your dedicated Azure App Service has access to the database when running in production - No more Access Keys or Shared Access Signatures required!</description>
+    </item>
+    
+    <item>
+      <title>Deploying C# Asp.Net Core to an Azure App Service via GitHub Actions using a deploy.yml File</title>
+      <link>https://sahgilbert.github.io/post/deploy-aspnetcore-azure-app-service-github-actions-yaml/</link>
+      <pubDate>Wed, 03 Jan 2024 10:38:00 +0000</pubDate>
+      
+      <guid>https://sahgilbert.github.io/post/deploy-aspnetcore-azure-app-service-github-actions-yaml/</guid>
+      <description>Keen to understand how to deploy your C# Asp.Net Core application an an Azure App Service using GitHub Actions Continuous Integration (CI/CD)? Today we&amp;rsquo;ll discuss exactly how to do just that!</description>
+    </item>
+    
+    <item>
+      <title>Creating an Azure App Service via Azure-CLI using a Bash Script</title>
+      <link>https://sahgilbert.github.io/post/create-azure-app-service-bash-script/</link>
+      <pubDate>Mon, 01 Jan 2024 10:38:00 +0000</pubDate>
+      
+      <guid>https://sahgilbert.github.io/post/create-azure-app-service-bash-script/</guid>
+      <description>Looking to setup an Azure App Service, but tired of configuring it all in the Azure Portal Dashboard? There&amp;rsquo;s a solution to that&amp;hellip;In today&amp;rsquo;s blog I&amp;rsquo;m going to show you a quick way of setting up your managed service via the Azure-CLI, using a Bash Script.</description>
+    </item>
+    
     <item>
       <title>Continuous Integration (CI/CD) for a Typescript Serverless Lambda API using CircleCI</title>
       <link>https://sahgilbert.github.io/post/continuous-integration-ci-cd-typescript-serverless-lambda-api-circleci/</link>
@@ -360,6 +387,15 @@ Simon Gilbert discusses how to construct a cross-platform RESTful API for sendin
       
       <guid>https://sahgilbert.github.io/post/dependency-injection-aspnet-mvc-azure-storage-autofac/</guid>
       <description>Fancy learning dependency injection?  Simon Gilbert discusses the art of decoupling Azure Table Storage in C# Asp.Net MVC using the dependency injection implementation of the inversion of control design pattern with the Autofac library.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://sahgilbert.github.io/post/stack-exchange-redis-distributed-cache-aspnetcore/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://sahgilbert.github.io/post/stack-exchange-redis-distributed-cache-aspnetcore/</guid>
+      <description></description>
     </item>
     
   </channel>

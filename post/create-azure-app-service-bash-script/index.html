@@ -1,0 +1,198 @@
+<!DOCTYPE HTML>
+
+<html lang='en'>
+	<head>
+		<title>Creating an Azure App Service via Azure-CLI using a Bash Script &middot; Simon Gilbert</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		
+		
+		
+		<link rel="stylesheet" href="/assets/css/main.min.css">
+		
+		
+		<link rel="shortcut icon" href="/favicon.ico">
+		
+		
+		<noscript><link rel="stylesheet" href='/assets/css/noscript.css' /></noscript>
+
+		
+    		
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-136163864-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  		
+	</head>
+
+	<body lang='en' class="is-preload">
+
+		
+			<div id="wrapper">
+
+                
+<header id="header">
+    <a href='/' class="logo">Simon Gilbert</a>
+</header>
+
+                
+
+<nav id="nav">
+    <ul class="links">
+        <li class="active"><a href='/'>Home</a></li>
+        
+        
+    </ul>
+    
+</nav>
+
+
+				
+					<div id="main">
+
+						
+                        <section class="post">
+                            <header class="major">
+                                
+                                <span class="date">January 1, 2024</span>
+                                
+                                <h1>Creating an Azure App Service via Azure-CLI using a Bash Script</h1>
+                                <p></p>
+                            </header>
+                            
+                            <div class="image main"><img src="/images/2024/01/simon-gilbert-dev-blog-landscape-2024-1.png" alt="" /></div>
+                            
+                            <h3 id="microsoft-azure---app-services">Microsoft Azure - App Services</h3>
+<p>Microsoft Azure App Services streamlines web application development, deployment, and scaling in the cloud. Supporting diverse programming languages and frameworks, it offers features for web apps, mobile app backends, and RESTful APIs. With auto-scaling and continuous deployment, Azure App Services ensures high availability, scalability, and seamless integration within the Azure ecosystem, making it an ideal choice for efficient application hosting and management.</p>
+<h3 id="managed-services-vs-server-infrastructure">Managed Services vs. Server Infrastructure</h3>
+<p>Managed services eliminate infrastructure management complexities, relieving developers from tasks like patching and scaling. This abstraction enhances productivity, promotes cost efficiency, and accelerates time-to-market, allowing organizations to focus on application development without the burden of manual configuration.</p>
+<h3 id="the-benefits-of-bash-scripts">The Benefits of Bash Scripts</h3>
+<p>Creating an Azure App Service using a Bash script streamlines deployment by automating the process. With the script, developers can define configurations, set parameters, and deploy the app without the need for manual steps through the Azure portal dashboard. This not only ensures consistency across deployments but also enables version control of deployment configurations. The script-driven approach enhances reproducibility, making it easier to scale applications and maintain a standardized deployment process. Additionally, developers can integrate this script into continuous integration/continuous deployment (CI/CD) pipelines for a more efficient and automated software delivery lifecycle.</p>
+<p>Here&rsquo;s the Bash Script&hellip;</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Bash" data-lang="Bash"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e"># Azure configuration</span>
+resourceGroupName<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;simons-example-resource-group&#34;</span>
+appServiceName<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;simons-example-app-service&#34;</span>
+location<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UK South&#34;</span>
+servicePlanSku<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;F1&#34;</span>  <span style="color:#75715e"># Free pricing tier</span>
+
+<span style="color:#75715e"># Log in to Azure</span>
+az login
+
+<span style="color:#75715e"># Check if the resource group already exists</span>
+<span style="color:#66d9ef">if</span> az group show --name $resourceGroupName --query <span style="color:#e6db74">&#34;name&#34;</span> --output tsv 2&gt;/dev/null; <span style="color:#66d9ef">then</span>
+    echo <span style="color:#e6db74">&#34;Resource group &#39;</span>$resourceGroupName<span style="color:#e6db74">&#39; already exists.&#34;</span>
+<span style="color:#66d9ef">else</span>
+    <span style="color:#75715e"># Create the resource group</span>
+    az group create --name $resourceGroupName --location <span style="color:#e6db74">&#34;</span>$location<span style="color:#e6db74">&#34;</span>
+    echo <span style="color:#e6db74">&#34;Resource group &#39;</span>$resourceGroupName<span style="color:#e6db74">&#39; created.&#34;</span>
+<span style="color:#66d9ef">fi</span>
+
+<span style="color:#75715e"># Check if the service plan already exists</span>
+<span style="color:#66d9ef">if</span> az appservice plan show --name $appServiceName-Plan --resource-group $resourceGroupName --query <span style="color:#e6db74">&#34;name&#34;</span> --output tsv 2&gt;/dev/null; <span style="color:#66d9ef">then</span>
+    echo <span style="color:#e6db74">&#34;App Service Plan &#39;</span>$appServiceName<span style="color:#e6db74">-Plan&#39; already exists.&#34;</span>
+<span style="color:#66d9ef">else</span>
+    <span style="color:#75715e"># Create the App Service Plan</span>
+    az appservice plan create --name $appServiceName-Plan --resource-group $resourceGroupName --sku $servicePlanSku
+    echo <span style="color:#e6db74">&#34;App Service Plan &#39;</span>$appServiceName<span style="color:#e6db74">-Plan&#39; created.&#34;</span>
+<span style="color:#66d9ef">fi</span>
+
+<span style="color:#75715e"># Create the App Service</span>
+az webapp create --name $appServiceName --resource-group $resourceGroupName --plan $appServiceName-Plan
+
+echo <span style="color:#e6db74">&#34;App Service &#39;</span>$appServiceName<span style="color:#e6db74">&#39; created in resource group &#39;</span>$resourceGroupName<span style="color:#e6db74">&#39; in location &#39;</span>$location<span style="color:#e6db74">&#39;.&#34;</span>
+</code></pre></div><p>&hellip;Now before we run it, we need to execute a quick command in the terminal:</p>
+<pre tabindex="0"><code class="language-Terminal" data-lang="Terminal">chmod +x create-azure-app-service.sh
+</code></pre><p>The chmod +x create-azure-app-service.sh command is used to add the execute permission to a file in Unix-like operating systems, including Linux and macOS. In this case, it&rsquo;s applied to a script file named create-azure-app-service.sh. Let&rsquo;s break down the command:</p>
+<ul>
+<li>chmod: Stands for &ldquo;change mode,&rdquo; and it&rsquo;s a command used to change the file permissions.</li>
+<li>+x: Adds the execute permission to the file.</li>
+<li>create-azure-app-service.sh: The name of the file to which the permissions are being changed.</li>
+</ul>
+<p>After running this command, the file create-azure-app-service.sh becomes executable, meaning you can run it as a program or script directly from the command line. The command is a way to make sure that the script can be executed by the user. Once you&rsquo;ve set the execute permission, you can run the script using ./create-azure-app-service.sh in the terminal.</p>
+<p>&hellip;and just like that, your Microsoft Azure App Service is created in Azure, ready for you to deploy some awesome code to!</p>
+<figure><img src="/images/2024/01/simon-gilbert-dev-blog-azure-app-service-bash-script-result.png"
+         alt="Azure-CLI App Service Bash Script Result"/><figcaption>
+            <p>Azure-CLI App Service Bash Script Result</p>
+        </figcaption>
+</figure>
+
+<figure><img src="/images/2024/01/simon-gilbert-dev-blog-azure-app-service-portal-result.png"
+         alt="Azure Portal App Service Result"/><figcaption>
+            <p>Azure Portal App Service Result</p>
+        </figcaption>
+</figure>
+
+<p>Enjoy!</p>
+
+
+                            
+                            
+                            
+                            
+                            
+                        </section>
+
+					</div>
+
+                    
+
+<footer id="footer">
+    
+    <section class="split contact">
+        
+        
+        
+        
+    </section>
+</footer>
+
+                    
+<div id="copyright">
+    <ul>
+        <li>&copy; Simon Gilbert</li>
+    </ul>
+    <ul>
+        <li style="color:#212931;"><a href='https://www.twine.net/simongilbert'></a></li>
+    </ul>
+</div>
+
+
+            </div>
+            
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-136163864-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+            
+
+
+
+
+
+
+
+
+
+
+<script src='/assets/js/bundle.js'></script>
+
+
+	</body>
+</html>

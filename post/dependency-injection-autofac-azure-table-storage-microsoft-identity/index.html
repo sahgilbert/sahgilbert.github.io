@@ -1,0 +1,392 @@
+<!DOCTYPE HTML>
+
+<html lang='en'>
+	<head>
+		<title>Dependency Injection for Azure Table Storage including Microsoft Entra Identity Security using C#.Net 8.0.0 and Autofac &middot; Simon Gilbert</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		
+		
+		
+		<link rel="stylesheet" href="/assets/css/main.min.css">
+		
+		
+		<link rel="shortcut icon" href="/favicon.ico">
+		
+		
+		<noscript><link rel="stylesheet" href='/assets/css/noscript.css' /></noscript>
+
+		
+    		
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-136163864-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  		
+	</head>
+
+	<body lang='en' class="is-preload">
+
+		
+			<div id="wrapper">
+
+                
+<header id="header">
+    <a href='/' class="logo">Simon Gilbert</a>
+</header>
+
+                
+
+<nav id="nav">
+    <ul class="links">
+        <li class="active"><a href='/'>Home</a></li>
+        
+        
+    </ul>
+    
+</nav>
+
+
+				
+					<div id="main">
+
+						
+                        <section class="post">
+                            <header class="major">
+                                
+                                <span class="date">February 7, 2024</span>
+                                
+                                <h1>Dependency Injection for Azure Table Storage including Microsoft Entra Identity Security using C#.Net 8.0.0 and Autofac</h1>
+                                <p></p>
+                            </header>
+                            
+                            <div class="image main"><img src="/images/2024/03/simon-gilbert-dev-blog-landscape-2024-3.png" alt="" /></div>
+                            
+                            <h3 id="autofac">Autofac</h3>
+<p>Autofac simplifies dependency injection in C#.NET by providing a flexible and extensible framework. With its intuitive syntax, Autofac efficiently manages object lifetimes and resolves dependencies, promoting clean and modular code design. This powerful tool enhances maintainability and testability in software development projects.</p>
+<h3 id="autofac-with-azure-table-storage">Autofac with Azure Table Storage</h3>
+<p>Leveraging Autofac for Azure Table Storage involves integrating the Azure.Data.Tables NuGet package seamlessly. By configuring Autofac to manage dependencies, developers can inject Azure Table Storage-related services and repositories effortlessly. This approach promotes decoupling and facilitates the unit testing of components interacting with Azure Table Storage, ensuring a scalable and maintainable solution in C#.NET applications.</p>
+<h3 id="one-step-furthermicrosoft-entra-identity">One Step Further&hellip;Microsoft Entra Identity</h3>
+<p>Microsoft Entra Identity enhances security for Azure Table Storage by providing robust identity and access management. Leveraging Entra Identity ensures secure and authenticated interactions with Azure Table Storage resources. This identity solution integrates seamlessly, offering features like multi-factor authentication and role-based access control. By incorporating Entra Identity into the architecture, developers can fortify their Azure Table Storage implementations with advanced security measures, safeguarding sensitive data and mitigating potential risks effectively.</p>
+<p>Today, we&rsquo;re going to build a service layer that integrates with Microsoft Azure Table Storage, combined with Microsoft Entra Identity, with all the dependency injection being handled by Autofac&hellip;</p>
+<h3 id="nuget-package-installation">Nuget Package Installation</h3>
+<p>First, let&rsquo;s install some Nuget packages:</p>
+<figure><img src="/images/2024/03/simon-gilbert-dev-blog-dependency-injection-autofac-1.png"
+         alt="Visual Studio Nuget Packages for Dependency Injection"/><figcaption>
+            <p>Visual Studio Nuget Packages for Dependency Injection</p>
+        </figcaption>
+</figure>
+
+<h3 id="service-class">Service Class</h3>
+<p>Now we can create our Service Class:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">sealed</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DemoService</span> : IDemoService
+{
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> IDemoRepository <span style="color:#ae81ff">_d</span>emoRepository;
+
+    <span style="color:#66d9ef">public</span> DemoService(IDemoRepository demoRepository)
+    {
+        <span style="color:#ae81ff">_d</span>emoRepository = demoRepository;
+    }
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">async</span> Task&lt;AzureTableStorageResponse&gt; Create()
+    {
+        <span style="color:#66d9ef">var</span> newsletterSubscription = <span style="color:#66d9ef">new</span> NewsletterSubscription
+        {
+            PartitionKey = Guid.NewGuid().ToString(),
+            RowKey = Guid.NewGuid().ToString(),
+            EmailAddress = <span style="color:#e6db74">&#34;hello@test.com&#34;</span>,
+            CreatedDateTimeUtc = DateTime.UtcNow,
+            LastUpdatedDateTimeUtc = DateTime.UtcNow,
+        };
+
+        <span style="color:#66d9ef">var</span> azureTableStorageResponse = <span style="color:#66d9ef">await</span> <span style="color:#ae81ff">_d</span>emoRepository.Create(newsletterSubscription);
+
+        <span style="color:#66d9ef">return</span> azureTableStorageResponse;
+    }
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">async</span> Task&lt;AzureTableStorageResponse&gt; Update()
+    {
+        <span style="color:#66d9ef">var</span> partitionKey = <span style="color:#e6db74">&#34;Simon&#34;</span>;
+        <span style="color:#66d9ef">var</span> rowKey = <span style="color:#e6db74">&#34;11912ddc-2709-478c-a5d0-a8756b56f6e8&#34;</span>;
+        <span style="color:#66d9ef">var</span> existingEntity = <span style="color:#66d9ef">await</span> <span style="color:#ae81ff">_d</span>emoRepository.Get(partitionKey, rowKey);
+
+        existingEntity.EmailAddress = <span style="color:#e6db74">$&#34;Email is now {DateTime.UtcNow}&#34;</span>;
+
+        <span style="color:#66d9ef">var</span> azureTableStorageResponse = <span style="color:#66d9ef">await</span> <span style="color:#ae81ff">_d</span>emoRepository.Update(existingEntity);
+
+        <span style="color:#66d9ef">return</span> azureTableStorageResponse;
+    }
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">async</span> Task&lt;NewsletterSubscription&gt; Get(<span style="color:#66d9ef">string</span> partitionKey, <span style="color:#66d9ef">string</span> rowKey)
+    {
+        <span style="color:#66d9ef">var</span> result = <span style="color:#66d9ef">await</span> <span style="color:#ae81ff">_d</span>emoRepository.Get(partitionKey, rowKey);
+
+        <span style="color:#66d9ef">return</span> result;
+    }
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">async</span> Task&lt;HashSet&lt;NewsletterSubscription&gt;&gt; GetAll(<span style="color:#66d9ef">string</span> partitionKey)
+    {
+        <span style="color:#66d9ef">var</span> results = <span style="color:#66d9ef">await</span> <span style="color:#ae81ff">_d</span>emoRepository.GetAll(partitionKey);
+
+        <span style="color:#66d9ef">return</span> results;
+    }
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">async</span> Task&lt;HashSet&lt;NewsletterSubscription&gt;&gt; GetAll()
+    {
+        <span style="color:#66d9ef">var</span> results = <span style="color:#66d9ef">await</span> <span style="color:#ae81ff">_d</span>emoRepository.GetAll();
+
+        <span style="color:#66d9ef">return</span> results;
+    }
+}
+</code></pre></div><h3 id="repository-class">Repository Class</h3>
+<p>Now let&rsquo;s create our Repository Class, which has a private readonly instance of the Azure Table Storage TableClient:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DemoRepository</span> : IDemoRepository
+	{
+        <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> TableClient <span style="color:#ae81ff">_</span>tableClient;
+
+        <span style="color:#66d9ef">public</span> DemoRepository(TableClient tableClient)
+        {
+            <span style="color:#ae81ff">_</span>tableClient = tableClient;
+        }
+
+        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">async</span> Task&lt;AzureTableStorageResponse&gt; Create(NewsletterSubscription newsletterSubscription)
+        {
+            <span style="color:#66d9ef">string</span> storageException = <span style="color:#66d9ef">string</span>.Empty;
+            <span style="color:#66d9ef">string</span> additionalException = <span style="color:#66d9ef">string</span>.Empty;
+
+            <span style="color:#66d9ef">try</span>
+            {
+                Response response = <span style="color:#66d9ef">await</span> <span style="color:#ae81ff">_</span>tableClient.AddEntityAsync(newsletterSubscription);
+
+                <span style="color:#66d9ef">var</span> azureTableStorageResponse = response.HandleAzureResponse();
+
+                <span style="color:#66d9ef">return</span> azureTableStorageResponse;
+            }
+            <span style="color:#66d9ef">catch</span> (TableTransactionFailedException ex)
+            {
+                storageException = ex.HandleTableTransactionFailedException();
+            }
+            <span style="color:#66d9ef">catch</span> (Exception ex)
+            {
+                additionalException = ex.HandleAdditionalStorageException();
+            }
+            
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> AzureTableStorageResponse()
+            {
+                WasSuccessful = <span style="color:#66d9ef">false</span>,
+                StorageException = storageException,
+                AdditionalStorageException = additionalException
+            };
+        }
+
+        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">async</span> Task&lt;AzureTableStorageResponse&gt; Update(NewsletterSubscription newsletterSubscription)
+        {
+            <span style="color:#66d9ef">string</span> storageException = <span style="color:#66d9ef">string</span>.Empty;
+            <span style="color:#66d9ef">string</span> additionalException = <span style="color:#66d9ef">string</span>.Empty;
+
+            <span style="color:#66d9ef">try</span>
+            {
+                
+                <span style="color:#75715e">//Response response = await _tableClient.UpdateEntityAsync(newsletterSubscription, newsletterSubscription.ETag);
+</span><span style="color:#75715e"></span>                Response response = <span style="color:#66d9ef">await</span> <span style="color:#ae81ff">_</span>tableClient.UpsertEntityAsync(newsletterSubscription);
+
+                <span style="color:#66d9ef">var</span> azureTableStorageResponse = response.HandleAzureResponse();
+
+                <span style="color:#66d9ef">return</span> azureTableStorageResponse;
+            }
+            <span style="color:#66d9ef">catch</span> (TableTransactionFailedException ex)
+            {
+                storageException = ex.HandleTableTransactionFailedException();
+            }
+            <span style="color:#66d9ef">catch</span> (Exception ex)
+            {
+                additionalException = ex.HandleAdditionalStorageException();
+            }
+
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> AzureTableStorageResponse()
+            {
+                WasSuccessful = <span style="color:#66d9ef">false</span>,
+                StorageException = storageException,
+                AdditionalStorageException = additionalException
+            };
+        }
+
+        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">async</span> Task&lt;NewsletterSubscription&gt; Get(<span style="color:#66d9ef">string</span> partitionKey, <span style="color:#66d9ef">string</span> rowKey)
+        {
+            <span style="color:#66d9ef">var</span> existingEntity = <span style="color:#66d9ef">await</span> <span style="color:#ae81ff">_</span>tableClient
+                .GetEntityAsync&lt;NewsletterSubscription&gt;(partitionKey, rowKey);
+
+            <span style="color:#66d9ef">return</span> existingEntity.Value;
+        }
+
+        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">async</span> Task&lt;HashSet&lt;NewsletterSubscription&gt;&gt; GetAll(<span style="color:#66d9ef">string</span> partitionKey)
+        {
+            AsyncPageable&lt;NewsletterSubscription&gt; queryResult = <span style="color:#ae81ff">_</span>tableClient
+                .QueryAsync&lt;NewsletterSubscription&gt;(x =&gt; x.PartitionKey == partitionKey);
+
+            <span style="color:#66d9ef">var</span> hashSet = <span style="color:#66d9ef">new</span> HashSet&lt;NewsletterSubscription&gt;();
+
+            <span style="color:#66d9ef">await</span> <span style="color:#66d9ef">foreach</span> (<span style="color:#66d9ef">var</span> entity <span style="color:#66d9ef">in</span> queryResult)
+            {
+                hashSet.Add(entity);
+            }
+
+            <span style="color:#66d9ef">return</span> hashSet;
+        }
+
+        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">async</span> Task&lt;HashSet&lt;NewsletterSubscription&gt;&gt; GetAll()
+        {
+            AsyncPageable&lt;NewsletterSubscription&gt; queryResult = <span style="color:#ae81ff">_</span>tableClient
+                .QueryAsync&lt;NewsletterSubscription&gt;();
+
+            <span style="color:#66d9ef">var</span> hashSet = <span style="color:#66d9ef">new</span> HashSet&lt;NewsletterSubscription&gt;();
+
+            <span style="color:#66d9ef">await</span> <span style="color:#66d9ef">foreach</span> (<span style="color:#66d9ef">var</span> entity <span style="color:#66d9ef">in</span> queryResult)
+            {
+                hashSet.Add(entity);
+            }
+
+            <span style="color:#66d9ef">return</span> hashSet;
+        }
+    }
+</code></pre></div><h3 id="autofac-module">Autofac Module</h3>
+<p>Now let&rsquo;s create a Module, that derives from the &ldquo;Module&rdquo; class in the Autofac library:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">sealed</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AutofacAzureTableStorageModule</span> : Module
+{
+    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">void</span> Load(ContainerBuilder containerBuilder)
+    {
+        ConfigureAzureStorageTableServiceClient(containerBuilder);
+        ConfigureAzureStorageTableClients(containerBuilder);
+        RegisterDefaultAzureCredential(containerBuilder);
+        ConfigureServicesWithRepositories(containerBuilder);
+        ConfigureRepositories(containerBuilder);
+    }
+
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> ConfigureAzureStorageTableServiceClient(ContainerBuilder containerBuilder)
+    {
+        containerBuilder.Register(c =&gt; CreateAzureTableServiceClient(c.Resolve&lt;DefaultAzureCredential&gt;()))
+            .As&lt;TableServiceClient&gt;()
+            .SingleInstance();
+    }
+
+    <span style="color:#66d9ef">private</span> TableServiceClient CreateAzureTableServiceClient(DefaultAzureCredential credential)
+    {
+        <span style="color:#75715e">// Specify the Azure Storage Account name
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">string</span> AZURE_STORAGE_ACCOUNT_NAME = <span style="color:#e6db74">&#34;[INSERT_AZURE_STORAGE_ACCOUNT_NAME]&#34;</span>;
+        <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">string</span> AZURE_STORAGE_ACCOUNT_URL = <span style="color:#e6db74">$&#34;https://{AZURE_STORAGE_ACCOUNT_NAME}.table.core.windows.net&#34;</span>;
+
+        <span style="color:#66d9ef">var</span> uri = <span style="color:#66d9ef">new</span> Uri(AZURE_STORAGE_ACCOUNT_URL);
+
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> TableServiceClient(uri, credential);
+    }
+
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> ConfigureAzureStorageTableClients(ContainerBuilder containerBuilder)
+    {
+        containerBuilder.Register(c =&gt; GetTableClient(c.Resolve&lt;TableServiceClient&gt;(),
+            AzureTableStorageCloudTableConfig.DEMO_AZURE_TABLE_STORAGE_CLOUD_TABLE_NAME))
+            .As&lt;TableClient&gt;()
+            .InstancePerLifetimeScope();
+    }
+
+    <span style="color:#66d9ef">private</span> TableClient GetTableClient(TableServiceClient tableServiceClient, <span style="color:#66d9ef">string</span> tableName)
+    {
+        <span style="color:#66d9ef">var</span> tableClient = tableServiceClient.GetTableClient(tableName);
+
+        tableClient.CreateIfNotExists();
+
+        <span style="color:#66d9ef">return</span> tableClient;
+    }
+
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> RegisterDefaultAzureCredential(ContainerBuilder containerBuilder)
+    {
+        containerBuilder.Register(c =&gt; <span style="color:#66d9ef">new</span> DefaultAzureCredential())
+                .AsSelf()
+                .InstancePerLifetimeScope();
+    }
+
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> ConfigureServicesWithRepositories(ContainerBuilder containerBuilder)
+    {
+        containerBuilder.RegisterType&lt;DemoService&gt;()
+            .AsImplementedInterfaces()
+            .InstancePerLifetimeScope();
+    }
+
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> ConfigureRepositories(ContainerBuilder containerBuilder)
+    {
+        containerBuilder.RegisterType&lt;DemoRepository&gt;()
+            .As&lt;IDemoRepository&gt;()
+            .InstancePerLifetimeScope();
+    }
+}
+</code></pre></div><p>Enjoy!</p>
+
+
+                            
+                            
+                            
+                            
+                            
+                        </section>
+
+					</div>
+
+                    
+
+<footer id="footer">
+    
+    <section class="split contact">
+        
+        
+        
+        
+    </section>
+</footer>
+
+                    
+<div id="copyright">
+    <ul>
+        <li>&copy; Simon Gilbert</li>
+    </ul>
+    <ul>
+        <li style="color:#212931;"><a href='https://www.twine.net/simongilbert'></a></li>
+    </ul>
+</div>
+
+
+            </div>
+            
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-136163864-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+            
+
+
+
+
+
+
+
+
+
+
+<script src='/assets/js/bundle.js'></script>
+
+
+	</body>
+</html>
