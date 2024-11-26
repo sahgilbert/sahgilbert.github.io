@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Supertest on Simon Gilbert Blog</title>
+    <link>http://localhost:1313/tags/supertest/</link>
+    <description>Recent content in Supertest on Simon Gilbert Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Wed, 14 Apr 2021 17:53:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/supertest/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Integration Testing a Typescript Lambda API using Jest (&amp; Supertest)</title>
+      <link>http://localhost:1313/post/integration-testing-typescript-lambda-api-jest-supertest/</link>
+      <pubDate>Wed, 14 Apr 2021 17:53:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/integration-testing-typescript-lambda-api-jest-supertest/</guid>
+      
+      <description>Integration Testing is a level of software testing where individual units are combined and tested as a group. The purpose of this level of testing is to expose faults in the interaction between integrated units. Today we&amp;rsquo;re going to look at doing Integration Testing using Jest and Supertest.</description>
+      
+    </item>
+    
+  </channel>
+</rss>

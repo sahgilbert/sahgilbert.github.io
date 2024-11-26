@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AWS on Simon Gilbert Blog</title>
+    <link>http://localhost:1313/tags/aws/</link>
+    <description>Recent content in AWS on Simon Gilbert Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Wed, 18 Aug 2021 12:30:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/aws/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Continuous Integration (CI/CD) for a Typescript Serverless Lambda API using CircleCI</title>
+      <link>http://localhost:1313/post/continuous-integration-ci-cd-typescript-serverless-lambda-api-circleci/</link>
+      <pubDate>Wed, 18 Aug 2021 12:30:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/continuous-integration-ci-cd-typescript-serverless-lambda-api-circleci/</guid>
+      
+      <description>Are you getting tired of manually deploying your code to AWS after each code change? Today we&amp;rsquo;re going to implement Continuous Integration for Serverless Lambda, to automate our deployments using a CI/CD pipeline, based on the Git branch we push the commit to!</description>
+      
+    </item>
+    
+    <item>
+      <title>Configuring DynamoDb using Serverless YAML</title>
+      <link>http://localhost:1313/post/configuring-dynamodb-using-serverless-yaml/</link>
+      <pubDate>Thu, 19 Nov 2020 18:14:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/configuring-dynamodb-using-serverless-yaml/</guid>
+      
+      <description>DynamoDb is a brilliant NoSQL database from AWS. It integrates directly with the Serverless Framework, so today we&amp;rsquo;re going to configure Serverless to work with DynamoDb</description>
+      
+    </item>
+    
+    <item>
+      <title>Creating and Deploying a NodeJS Serverless Lambda to AWS</title>
+      <link>http://localhost:1313/post/creating-and-deploying-a-serverless-lambda-to-aws/</link>
+      <pubDate>Thu, 10 Sep 2020 12:13:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/creating-and-deploying-a-serverless-lambda-to-aws/</guid>
+      
+      <description>Serverless Lambda is amazing, so today we&amp;rsquo;re going to use a NodeJS template to create and deploy a new Serverless Lambda project to AWS.</description>
+      
+    </item>
+    
+    <item>
+      <title>Setting Up The Serverless Lambda Framework Within AWS</title>
+      <link>http://localhost:1313/post/setting-up-the-serverless-lambda-framework-within-aws/</link>
+      <pubDate>Fri, 07 Aug 2020 11:40:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/setting-up-the-serverless-lambda-framework-within-aws/</guid>
+      
+      <description>Serverless Lambda - I&amp;rsquo;m sure you&amp;rsquo;ve heard all about it and are keen to get coding some serverless functions, but before we get started, we need to configure AWS to allow us to create and deploy Serverless projects, so today we&amp;rsquo;re going to cover getting setup with Serverless in AWS!</description>
+      
+    </item>
+    
+    <item>
+      <title>Automated Customer Service via Conversational Artificial Intelligence (AI) - Using Amazon Web Services (AWS) Connect, Lambda, DynamoDb, S3, Node.js, ReactJS, Axios &amp; Bootstrap 4</title>
+      <link>http://localhost:1313/post/aws-connect-lambda-dynamodb-s3-nodejs-reactjs-axios/</link>
+      <pubDate>Wed, 01 Jul 2020 12:26:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/aws-connect-lambda-dynamodb-s3-nodejs-reactjs-axios/</guid>
+      
+      <description>Coding conversational artificial intelligence? Simon Gilbert explains how to build a fully automated customer service contact centre using AWS Connect, Lambda, DynamoDb, S3, Node.js, ReactJs, Axios &amp;amp; Bootstrap 4</description>
+      
+    </item>
+    
+  </channel>
+</rss>

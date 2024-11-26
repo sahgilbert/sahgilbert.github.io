@@ -1,75 +1,149 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
+<html lang="en-gb"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<html lang='en'>
-	<head>
-		<title>Hashing Passwords Using The MD5 Hash Algorithm vs. BCrypt vs. PBKDF2 - C# .Net Core &middot; Simon Gilbert</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		
-		
-		
-		<link rel="stylesheet" href="/assets/css/main.min.css">
-		
-		
-		<link rel="shortcut icon" href="/favicon.ico">
-		
-		
-		<noscript><link rel="stylesheet" href='/assets/css/noscript.css' /></noscript>
+<title itemprop="name">Hashing Passwords Using The MD5 Hash Algorithm vs. BCrypt vs. PBKDF2 - C# .Net Core | Simon Gilbert Blog</title>
+<meta property="og:title" content="Hashing Passwords Using The MD5 Hash Algorithm vs. BCrypt vs. PBKDF2 - C# .Net Core | Simon Gilbert Blog" />
+<meta name="twitter:title" content="Hashing Passwords Using The MD5 Hash Algorithm vs. BCrypt vs. PBKDF2 - C# .Net Core | Simon Gilbert Blog" />
+<meta itemprop="name" content="Hashing Passwords Using The MD5 Hash Algorithm vs. BCrypt vs. PBKDF2 - C# .Net Core | Simon Gilbert Blog" />
+<meta name="application-name" content="Hashing Passwords Using The MD5 Hash Algorithm vs. BCrypt vs. PBKDF2 - C# .Net Core | Simon Gilbert Blog" />
+<meta property="og:site_name" content="" />
 
-		
-    		
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-136163864-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
+<meta name="description" content="">
+<meta itemprop="description" content="" />
+<meta property="og:description" content="" />
+<meta name="twitter:description" content="" />
 
-  		
-	</head>
+<meta property="og:locale" content="en-gb" />
+<meta name="language" content="en-gb" />
 
-	<body lang='en' class="is-preload">
+  <link rel="alternate" hreflang="en" href="http://localhost:1313/post/hashing-passwords-md5-bcrypt-pbkdf2-csharp-dotnetcore/" title="" />
 
-		
-			<div id="wrapper">
 
-                
-<header id="header">
-    <a href='/' class="logo">Simon Gilbert</a>
-</header>
+<meta itemprop="image" content="http://localhost:1313/images/2019/03/simon-gilbert-cto-tech-blog-post-ten.png" />
+<meta property="og:image" content="http://localhost:1313/images/2019/03/simon-gilbert-cto-tech-blog-post-ten.png" />
+<meta name="twitter:image" content="http://localhost:1313/images/2019/03/simon-gilbert-cto-tech-blog-post-ten.png" />
+<meta name="twitter:image:src" content="http://localhost:1313/images/2019/03/simon-gilbert-cto-tech-blog-post-ten.png" />
 
-                
 
-<nav id="nav">
-    <ul class="links">
-        <li class="active"><a href='/'>Home</a></li>
-        
-        
-    </ul>
+
+<meta name="generator" content="Hugo 0.136.5">
+
     
-</nav>
+    <meta property="og:url" content="http://localhost:1313/post/hashing-passwords-md5-bcrypt-pbkdf2-csharp-dotnetcore/">
+  <meta property="og:site_name" content="Simon Gilbert Blog">
+  <meta property="og:title" content="Hashing Passwords Using The MD5 Hash Algorithm vs. BCrypt vs. PBKDF2 - C# .Net Core">
+  <meta property="og:description" content="Need to cryptographically hash your users passwords? Simon Gilbert discusses the potential issues with the MD5 hash algorithm vs. BCrypt and PBKDF2, including the logic behind brute force attacks and correct cryptographic approaches in C# .Net Core.">
+  <meta property="og:locale" content="en_gb">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2019-03-21T14:53:59+00:00">
+    <meta property="article:modified_time" content="2019-03-21T14:53:59+00:00">
+    <meta property="article:tag" content="C#.Net">
+    <meta property="article:tag" content="Cryptography">
+    <meta property="article:tag" content="MD5">
+    <meta property="article:tag" content="BCrypt">
+    <meta property="article:tag" content="PBKDF2">
 
 
-				
-					<div id="main">
+    
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Hashing Passwords Using The MD5 Hash Algorithm vs. BCrypt vs. PBKDF2 - C# .Net Core">
+  <meta name="twitter:description" content="Need to cryptographically hash your users passwords? Simon Gilbert discusses the potential issues with the MD5 hash algorithm vs. BCrypt and PBKDF2, including the logic behind brute force attacks and correct cryptographic approaches in C# .Net Core.">
 
-						
-                        <section class="post">
-                            <header class="major">
-                                
-                                <span class="date">March 21, 2019</span>
-                                
-                                <h1>Hashing Passwords Using The MD5 Hash Algorithm vs. BCrypt vs. PBKDF2 - C# .Net Core</h1>
-                                <p></p>
-                            </header>
-                            
-                            <div class="image main"><img src="/images/2019/03/simon-gilbert-cto-tech-blog-post-ten.png" alt="" /></div>
-                            
-                            <h3 id="please-enter-your-password">&ldquo;Please Enter Your Password&rdquo;</h3>
+
+    
+
+    <link rel="canonical" href="http://localhost:1313/post/hashing-passwords-md5-bcrypt-pbkdf2-csharp-dotnetcore/">
+    <link href="/style.min.d3cd446461a6bcee3cf602043ff66d247cd30457c3f5ec77c4ff83bf22db981b.css" rel="stylesheet">
+    <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+<link rel="manifest" href="http://localhost:1313/site.webmanifest">
+
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+
+    </head>
+<body data-theme = "" class="notransition">
+
+<script src="/js/theme.js"></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="http://localhost:1313/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title></title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+                
+                
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title center">Hashing Passwords Using The MD5 Hash Algorithm vs. BCrypt vs. PBKDF2 - C# .Net Core</h1>
+                
+                
+                
+                <div class="post-meta">
+                    <time class="blog-post-date" datetime="2019-03-21T14:53:59&#43;00:00" itemprop="datePublished"> Mar 21, 2019 </time>
+                </div>
+                
+            </header>
+            
+            
+                <div class="centered-landscape-image">
+                    <img src="/images/2019/03/simon-gilbert-cto-tech-blog-post-ten.png" alt="Hashing Passwords Using The MD5 Hash Algorithm vs. BCrypt vs. PBKDF2 - C# .Net Core">
+                </div>
+            
+            <hr class="hr-blog-header"/>
+            <div class="page-content">
+                <h3 id="please-enter-your-password">&ldquo;Please Enter Your Password&rdquo;</h3>
 <p>&hellip;You&rsquo;ve just signed up to a new website and as per usual, they require you to create an account using your email address and a password. This is all well and good&hellip;assuming the password isn&rsquo;t stored in plain text for anyone with database access to read/borrow/use/compromise&hellip;hack? Cryptography exists for a reason, although it isn&rsquo;t always implemented using the best approach&hellip;</p>
 <h3 id="encryption-vs-hashing">Encryption vs. Hashing</h3>
 <p>Encryption is a 1:1 mapping and is always reversible through decrypting. Hashing is one-way and cannot be reversed. If you encrypt plain text with a key, you will get the exact plain text back when you decrypt it. If you hash plain text with a key, you cannot get the same plain text value back if you attempt to reverse it, hence &ldquo;one-way&rdquo;.</p>
@@ -79,13 +153,13 @@ if (!doNotTrack) {
 <h3 id="password-hashing---process-flow-summary">Password Hashing - Process Flow Summary</h3>
 <ol>
 <li>
-<p>Sign up to <a href="http://www.somewebsite.com">www.somewebsite.com</a> using a password.</p>
+<p>Sign up to <a href="https://www.somewebsite.com">www.somewebsite.com</a> using a password.</p>
 </li>
 <li>
-<p><a href="http://www.somewebsite.com">www.somewebsite.com</a> hashes your password using a hash function, and stores the hash digest.</p>
+<p><a href="https://www.somewebsite.com">www.somewebsite.com</a> hashes your password using a hash function, and stores the hash digest.</p>
 </li>
 <li>
-<p>Log in to <a href="http://www.somewebsite.com">www.somewebsite.com</a> by entering said password, which is hashed again upon entering it, using the same hash function as used at sign up, and the hash digests are compared.</p>
+<p>Log in to <a href="https://www.somewebsite.com">www.somewebsite.com</a> by entering said password, which is hashed again upon entering it, using the same hash function as used at sign up, and the hash digests are compared.</p>
 </li>
 <li>
 <p>Assuming the hash digests match, you&rsquo;re logged in successfully&hellip;</p>
@@ -97,9 +171,9 @@ if (!doNotTrack) {
 <h3 id="md5-password-hashing">MD5 Password Hashing</h3>
 <p>One of the most popular cryptographic hash functions is called &ldquo;<strong>MD5</strong>&rdquo;, which tends to be used because people think they should use it, are used to using it&hellip;and people don&rsquo;t like change&hellip;the problem is, it&rsquo;s weak, and I&rsquo;m not necessarily talking cryptographically here&hellip;</p>
 <figure><img src="/images/2019/03/simon-gilbert-cto-tech-blog-md5-cryptography-hash-function.png"
-         alt="MD5 Password Hash Algorithm - C# .Net Core"/><figcaption>
-            <p>MD5 Password Hash Algorithm - C# .Net Core</p>
-        </figcaption>
+    alt="MD5 Password Hash Algorithm - C# .Net Core"><figcaption>
+      <p>MD5 Password Hash Algorithm - C# .Net Core</p>
+    </figcaption>
 </figure>
 
 <h3 id="rainbow-tables">Rainbow Tables</h3>
@@ -123,83 +197,48 @@ if (!doNotTrack) {
 <h3 id="enter-pbkdf2">Enter &ldquo;PBKDF2&rdquo;&hellip;</h3>
 <p><strong>PBKDF2</strong>, known as Password-Based Key Derivation Function 2 uses a pseudorandom function and a configurable number of iterations to derive a cryptographic key from a password.  Key derivation functions are ideally suited for password hashing use cases, and similarly to <strong>BCrypt</strong> it uses a large random &ldquo;salt&rdquo; value to ensure that each password is hashed uniquely. Due to it&rsquo;s design it is cryptographically slow to compute on purpose and as mentioned before, time is the enemy in a brute force attack. <strong>PBKDF2</strong> prevents password cracking tools from making optimal use of graphics processing units (GPUs) and massively increases the required guess rates that a hacker would have to make.</p>
 <figure><img src="/images/2019/03/simon-gilbert-cto-tech-blog-pbkdf2-cryptography-hash-function.png"
-         alt="PBKDF2 Password Hash Algorithm - C# .Net Core"/><figcaption>
-            <p>PBKDF2 Password Hash Algorithm - C# .Net Core</p>
-        </figcaption>
+    alt="PBKDF2 Password Hash Algorithm - C# .Net Core"><figcaption>
+      <p>PBKDF2 Password Hash Algorithm - C# .Net Core</p>
+    </figcaption>
 </figure>
 
 <h3 id="aspnet-identity-framework-cryptography">ASP.Net Identity Framework Cryptography</h3>
 <p>&hellip;What&rsquo;s the chance that you&rsquo;re a C# .Net developer? Perhaps you&rsquo;ve used <strong>ASP.Net Identity Framework</strong> for authentication and password hashing? Fortunately for you, Microsoft chose to use <strong>Rfc2898DeriveBytes</strong> for ASP.Net and this class implements <strong>PBKDF2</strong> . To be honest it should have been named <strong>PBKDF2DeriveBytes</strong>&hellip;</p>
 <figure><img src="/images/2019/03/simon-gilbert-cto-tech-blog-password-hash-outputs.png"
-         alt="MD5 Hash vs. PBKDF2 Hash - C# .Net Core"/><figcaption>
-            <p>MD5 Hash vs. PBKDF2 Hash - C# .Net Core</p>
-        </figcaption>
+    alt="MD5 Hash vs. PBKDF2 Hash - C# .Net Core"><figcaption>
+      <p>MD5 Hash vs. PBKDF2 Hash - C# .Net Core</p>
+    </figcaption>
 </figure>
 
 <h3 id="in-summary">In Summary&hellip;</h3>
 <p>Avoid MD5&hellip;<strong>PBKDF2</strong> is supported in .Net out of the box and cryptography isn&rsquo;t something to be taken lightly, especially at enterprise level. Troy Hunts infamous <strong><a href="https://haveibeenpwned.com/">HaveIBeenPwned</a></strong> is worth signing up to, if you haven&rsquo;t already&hellip;</p>
 <p>Enjoy!</p>
 
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
 
-                            
-                            
-                            
-                            
-                            
-                        </section>
-
-					</div>
-
-                    
-
-<footer id="footer">
-    
-    <section class="split contact">
+    <div class="footer_social-icons">
+</div>
+    <small class="footer_copyright">
+        © 2024 Simon Gilbert.
         
-        
-        
-        
-    </section>
+    </small>
 </footer>
 
-                    
-<div id="copyright">
-    <ul>
-        <li>&copy; Simon Gilbert</li>
-    </ul>
-    <ul>
-        <li style="color:#212931;"><a href='https://www.twine.net/simongilbert'></a></li>
-    </ul>
-</div>
-
-
-            </div>
-            
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-136163864-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-            
 
 
 
 
 
 
+    
+    <script async src="http://localhost:1313/js/main.js" ></script>
 
+    
 
-
-
-<script src='/assets/js/bundle.js'></script>
-
-
-	</body>
+</body>
 </html>

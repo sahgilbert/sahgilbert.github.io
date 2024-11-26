@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Stripe on Simon Gilbert Blog</title>
+    <link>http://localhost:1313/tags/stripe/</link>
+    <description>Recent content in Stripe on Simon Gilbert Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Mon, 25 Mar 2019 21:19:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/stripe/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cross-Platform (PCI Compliant) Credit Card Payments using Stripe - C# ASP.Net MVC Core</title>
+      <link>http://localhost:1313/post/pci-compliant-card-payment-stripe-aspdotnetmvccore/</link>
+      <pubDate>Mon, 25 Mar 2019 21:19:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/pci-compliant-card-payment-stripe-aspdotnetmvccore/</guid>
+      
+      <description>Need to process credit card payments in your code? Simon Gilbert explains how to accept PCI Compliant card payments using the leading payment provider Stripe, and C# ASP.Net MVC Core in Visual Studio for Mac.</description>
+      
+    </item>
+    
+  </channel>
+</rss>

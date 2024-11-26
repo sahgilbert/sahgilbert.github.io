@@ -1,198 +1,235 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
+<html lang="en-gb"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<html lang='en'>
-	<head>
-		<title>Creating and Deploying a NodeJS Serverless Lambda to AWS &middot; Simon Gilbert</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		
-		
-		
-		<link rel="stylesheet" href="/assets/css/main.min.css">
-		
-		
-		<link rel="shortcut icon" href="/favicon.ico">
-		
-		
-		<noscript><link rel="stylesheet" href='/assets/css/noscript.css' /></noscript>
+<title itemprop="name">Creating and Deploying a NodeJS Serverless Lambda to AWS | Simon Gilbert Blog</title>
+<meta property="og:title" content="Creating and Deploying a NodeJS Serverless Lambda to AWS | Simon Gilbert Blog" />
+<meta name="twitter:title" content="Creating and Deploying a NodeJS Serverless Lambda to AWS | Simon Gilbert Blog" />
+<meta itemprop="name" content="Creating and Deploying a NodeJS Serverless Lambda to AWS | Simon Gilbert Blog" />
+<meta name="application-name" content="Creating and Deploying a NodeJS Serverless Lambda to AWS | Simon Gilbert Blog" />
+<meta property="og:site_name" content="" />
 
-		
-    		
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-136163864-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
+<meta name="description" content="">
+<meta itemprop="description" content="" />
+<meta property="og:description" content="" />
+<meta name="twitter:description" content="" />
 
-  		
-	</head>
+<meta property="og:locale" content="en-gb" />
+<meta name="language" content="en-gb" />
 
-	<body lang='en' class="is-preload">
+  <link rel="alternate" hreflang="en" href="http://localhost:1313/post/creating-and-deploying-a-serverless-lambda-to-aws/" title="" />
 
-		
-			<div id="wrapper">
 
-                
-<header id="header">
-    <a href='/' class="logo">Simon Gilbert</a>
-</header>
+<meta itemprop="image" content="http://localhost:1313/images/2020/08/Screenshot-2020-08-12-at-13.03.03.png" />
+<meta property="og:image" content="http://localhost:1313/images/2020/08/Screenshot-2020-08-12-at-13.03.03.png" />
+<meta name="twitter:image" content="http://localhost:1313/images/2020/08/Screenshot-2020-08-12-at-13.03.03.png" />
+<meta name="twitter:image:src" content="http://localhost:1313/images/2020/08/Screenshot-2020-08-12-at-13.03.03.png" />
 
-                
 
-<nav id="nav">
-    <ul class="links">
-        <li class="active"><a href='/'>Home</a></li>
-        
-        
-    </ul>
+
+<meta name="generator" content="Hugo 0.136.5">
+
     
-</nav>
+    <meta property="og:url" content="http://localhost:1313/post/creating-and-deploying-a-serverless-lambda-to-aws/">
+  <meta property="og:site_name" content="Simon Gilbert Blog">
+  <meta property="og:title" content="Creating and Deploying a NodeJS Serverless Lambda to AWS">
+  <meta property="og:description" content="Serverless Lambda is amazing, so today we’re going to use a NodeJS template to create and deploy a new Serverless Lambda project to AWS.">
+  <meta property="og:locale" content="en_gb">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2020-09-10T12:13:00+00:00">
+    <meta property="article:modified_time" content="2020-09-10T12:13:00+00:00">
+    <meta property="article:tag" content="Node.js">
+    <meta property="article:tag" content="AWS">
+    <meta property="article:tag" content="Serverless">
 
 
-				
-					<div id="main">
+    
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Creating and Deploying a NodeJS Serverless Lambda to AWS">
+  <meta name="twitter:description" content="Serverless Lambda is amazing, so today we’re going to use a NodeJS template to create and deploy a new Serverless Lambda project to AWS.">
 
-						
-                        <section class="post">
-                            <header class="major">
-                                
-                                <span class="date">September 10, 2020</span>
-                                
-                                <h1>Creating and Deploying a NodeJS Serverless Lambda to AWS</h1>
-                                <p></p>
-                            </header>
-                            
-                            <div class="image main"><img src="/images/2020/08/Screenshot-2020-08-12-at-13.03.03.png" alt="" /></div>
-                            
-                            <p>Serverless Lambda is amazing, so today we&rsquo;re going to use a NodeJS template to create and deploy a new Serverless Lambda project to AWS.</p>
+
+    
+
+    <link rel="canonical" href="http://localhost:1313/post/creating-and-deploying-a-serverless-lambda-to-aws/">
+    <link href="/style.min.d3cd446461a6bcee3cf602043ff66d247cd30457c3f5ec77c4ff83bf22db981b.css" rel="stylesheet">
+    <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+<link rel="manifest" href="http://localhost:1313/site.webmanifest">
+
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+
+    </head>
+<body data-theme = "" class="notransition">
+
+<script src="/js/theme.js"></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="http://localhost:1313/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title></title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+                
+                
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title center">Creating and Deploying a NodeJS Serverless Lambda to AWS</h1>
+                
+                
+                
+                <div class="post-meta">
+                    <time class="blog-post-date" datetime="2020-09-10T12:13:00&#43;00:00" itemprop="datePublished"> Sep 10, 2020 </time>
+                </div>
+                
+            </header>
+            
+            
+                <div class="centered-landscape-image">
+                    <img src="/images/2020/08/Screenshot-2020-08-12-at-13.03.03.png" alt="Creating and Deploying a NodeJS Serverless Lambda to AWS">
+                </div>
+            
+            <hr class="hr-blog-header"/>
+            <div class="page-content">
+                <p>Serverless Lambda is amazing, so today we&rsquo;re going to use a NodeJS template to create and deploy a new Serverless Lambda project to AWS.</p>
 <p>Open a new Terminal window and let&rsquo;s use the template generation command as follows &ldquo;serverless create &ndash;template aws-nodejs &ndash;path MyServerlessService&rdquo;. You will note that we have added a path variable, to ensure our project is created within a dedicated folder.</p>
-<figure><img src="/images/2020/08/Screenshot-2020-08-11-at-12.49.45.png"/>
+<figure><img src="/images/2020/08/Screenshot-2020-08-11-at-12.49.45.png">
 </figure>
 
 <p>Our project template code has now been successfully created!</p>
-<figure><img src="/images/2020/08/Screenshot-2020-08-11-at-12.49.54.png"/>
+<figure><img src="/images/2020/08/Screenshot-2020-08-11-at-12.49.54.png">
 </figure>
 
 <p>Let&rsquo;s change into the project directory, and list out the files that have been generated using the CD and LS commands.</p>
-<figure><img src="/images/2020/08/Screenshot-2020-08-11-at-12.53.54.png"/>
+<figure><img src="/images/2020/08/Screenshot-2020-08-11-at-12.53.54.png">
 </figure>
 
 <p>The next step is to open our project in Visual Studio Code, and view the newly generated files. Open the &ldquo;serverless.yml&rdquo; file, and inside you will see lots of comments, including the name of our project and the version of NodeJS we are using.</p>
-<figure><img src="/images/2020/08/Screenshot-2020-08-11-at-13.29.34.png"/>
+<figure><img src="/images/2020/08/Screenshot-2020-08-11-at-13.29.34.png">
 </figure>
 
 <p>Scroll down to the &ldquo;functions&rdquo; section, and here you will see our AWS Serverless Lambda functions defined. There is one &ldquo;handler&rdquo; already created called &ldquo;hello&rdquo; (and this is pointing at the handler.js file).</p>
-<figure><img src="/images/2020/08/Screenshot-2020-08-11-at-13.31.13.png"/>
+<figure><img src="/images/2020/08/Screenshot-2020-08-11-at-13.31.13.png">
 </figure>
 
 <p>Navigate to the &ldquo;handler.js&rdquo; javascript file, and you will see that we are exporting an asynchronous function called &ldquo;hello&rdquo;. This function acts as an HTTP GET request, which returns an HTTP status code of 200, and a body of data.</p>
-<figure><img src="/images/2020/08/Screenshot-2020-08-11-at-13.31.52.png"/>
+<figure><img src="/images/2020/08/Screenshot-2020-08-11-at-13.31.52.png">
 </figure>
 
 <p>Navigate back to the &ldquo;serverless.yml&rdquo; file, and head to the &ldquo;provider&rdquo; section. Here we have a small change to make before we can deploy our Serverless Lambda. When we setup our serverless user in the previous blog, we created a &ldquo;profile&rdquo; called &ldquo;ServerlessIAMUserProfile&rdquo;. Within the &ldquo;provider&rdquo; section of the &ldquo;serverless.yml&rdquo; file, we now need to apply this profile as follows.</p>
-<figure><img src="/images/2020/08/Screenshot-2020-08-11-at-13.39.42.png"/>
+<figure><img src="/images/2020/08/Screenshot-2020-08-11-at-13.39.42.png">
 </figure>
 
 <p>Now that we have applied the IAM User profile to the &ldquo;provider&rdquo; section, we need to define an endpoint path and HTTP Request type for our AWS Lambda. Navigate to the &ldquo;functions&rdquo; section, and add the following &ldquo;events&rdquo; section underneath it, which includes the URL path and the method type. This will ensure a URL endpoint is generated, when we deploy our project to AWS.</p>
-<figure><img src="/images/2020/08/13.41-NEWLY-INSERTED.png"/>
+<figure><img src="/images/2020/08/13.41-NEWLY-INSERTED.png">
 </figure>
 
 <p>Within Visual Studio Code, we can now open up a Terminal window, and type a serverless command to deploy our service to AWS. Lets use a short-hand command of &ldquo;sls&rdquo; (which is short for serverless), and execute the deployment as follows.</p>
-<figure><img src="/images/2020/08/Screenshot-2020-08-11-at-13.44.45.png"/>
+<figure><img src="/images/2020/08/Screenshot-2020-08-11-at-13.44.45.png">
 </figure>
 
 <p>The deployment command has successfully executed which you can see from the output below. This involved the command creating a serverless config file, which creates a CloudFormation template, and this then builds all of the content of this project and deploys it.</p>
-<figure><img src="/images/2020/08/13.48-NEW.png"/>
+<figure><img src="/images/2020/08/13.48-NEW.png">
 </figure>
 
 <p>If we focus on the &ldquo;service information&rdquo; section of the output, we can see that our service was deployed to the &ldquo;dev&rdquo; stage in the region &ldquo;us-east-1&rdquo; (North Virginia, USA), and the hello function is listed as &ldquo;myserverlessservice-dev-hello&rdquo;. We can also see that here is a full endpoint URL defined for our AWS Lambda.</p>
-<figure><img src="/images/2020/08/13.52-NEW.png"/>
+<figure><img src="/images/2020/08/13.52-NEW.png">
 </figure>
 
 <p>Navigate back to the AWS Management Console, and lets check if our Lambda deployed. The first thing to do is to ensure you are within the correct region (us-east-1), by choosing the region from the top right hand corner of the navigation bar, and then searching for &ldquo;Lambda&rdquo; in the search box as follows.</p>
-<figure><img src="/images/2020/08/Screenshot-2020-08-11-at-13.55.05.png"/>
+<figure><img src="/images/2020/08/Screenshot-2020-08-11-at-13.55.05.png">
 </figure>
 
 <p>As you can see, our Lambda has been deployed to AWS.</p>
-<figure><img src="/images/2020/08/Screenshot-2020-08-11-at-13.55.37.png"/>
+<figure><img src="/images/2020/08/Screenshot-2020-08-11-at-13.55.37.png">
 </figure>
 
 <p>Let&rsquo;s click on our Lambda, and as you can see, the code that was deployed is the code from our local Visual Studio Code project.</p>
-<figure><img src="/images/2020/08/Screenshot-2020-08-11-at-13.59.29.png"/>
+<figure><img src="/images/2020/08/Screenshot-2020-08-11-at-13.59.29.png">
 </figure>
 
 <p>Finally, let&rsquo;s head to our AWS Lambda endpoint URL and view the output!</p>
-<figure><img src="/images/2020/08/Screenshot-2020-08-11-at-14.59.35.png"/>
+<figure><img src="/images/2020/08/Screenshot-2020-08-11-at-14.59.35.png">
 </figure>
 
 <p>As you can see, the deployment was successful, and the AWS Lambda endpoint URL works!</p>
 <p>Enjoy!</p>
 
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
 
-                            
-                            
-                            
-                            
-                            
-                        </section>
-
-					</div>
-
-                    
-
-<footer id="footer">
-    
-    <section class="split contact">
+    <div class="footer_social-icons">
+</div>
+    <small class="footer_copyright">
+        © 2024 Simon Gilbert.
         
-        
-        
-        
-    </section>
+    </small>
 </footer>
 
-                    
-<div id="copyright">
-    <ul>
-        <li>&copy; Simon Gilbert</li>
-    </ul>
-    <ul>
-        <li style="color:#212931;"><a href='https://www.twine.net/simongilbert'></a></li>
-    </ul>
-</div>
-
-
-            </div>
-            
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-136163864-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-            
 
 
 
 
 
 
+    
+    <script async src="http://localhost:1313/js/main.js" ></script>
 
+    
 
-
-
-<script src='/assets/js/bundle.js'></script>
-
-
-	</body>
+</body>
 </html>

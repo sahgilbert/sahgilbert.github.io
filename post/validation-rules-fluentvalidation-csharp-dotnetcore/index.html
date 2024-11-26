@@ -1,75 +1,148 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
+<html lang="en-gb"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<html lang='en'>
-	<head>
-		<title>Strongly-Typed Data Model Validation using Fluent Validation - C# .Net Core &middot; Simon Gilbert</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		
-		
-		
-		<link rel="stylesheet" href="/assets/css/main.min.css">
-		
-		
-		<link rel="shortcut icon" href="/favicon.ico">
-		
-		
-		<noscript><link rel="stylesheet" href='/assets/css/noscript.css' /></noscript>
+<title itemprop="name">Strongly-Typed Data Model Validation using Fluent Validation - C# .Net Core | Simon Gilbert Blog</title>
+<meta property="og:title" content="Strongly-Typed Data Model Validation using Fluent Validation - C# .Net Core | Simon Gilbert Blog" />
+<meta name="twitter:title" content="Strongly-Typed Data Model Validation using Fluent Validation - C# .Net Core | Simon Gilbert Blog" />
+<meta itemprop="name" content="Strongly-Typed Data Model Validation using Fluent Validation - C# .Net Core | Simon Gilbert Blog" />
+<meta name="application-name" content="Strongly-Typed Data Model Validation using Fluent Validation - C# .Net Core | Simon Gilbert Blog" />
+<meta property="og:site_name" content="" />
 
-		
-    		
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-136163864-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
+<meta name="description" content="">
+<meta itemprop="description" content="" />
+<meta property="og:description" content="" />
+<meta name="twitter:description" content="" />
 
-  		
-	</head>
+<meta property="og:locale" content="en-gb" />
+<meta name="language" content="en-gb" />
 
-	<body lang='en' class="is-preload">
+  <link rel="alternate" hreflang="en" href="http://localhost:1313/post/validation-rules-fluentvalidation-csharp-dotnetcore/" title="" />
 
-		
-			<div id="wrapper">
 
-                
-<header id="header">
-    <a href='/' class="logo">Simon Gilbert</a>
-</header>
+<meta itemprop="image" content="http://localhost:1313/images/2019/03/simon-gilbert-cto-tech-blog-post-nine.png" />
+<meta property="og:image" content="http://localhost:1313/images/2019/03/simon-gilbert-cto-tech-blog-post-nine.png" />
+<meta name="twitter:image" content="http://localhost:1313/images/2019/03/simon-gilbert-cto-tech-blog-post-nine.png" />
+<meta name="twitter:image:src" content="http://localhost:1313/images/2019/03/simon-gilbert-cto-tech-blog-post-nine.png" />
 
-                
 
-<nav id="nav">
-    <ul class="links">
-        <li class="active"><a href='/'>Home</a></li>
-        
-        
-    </ul>
+
+<meta name="generator" content="Hugo 0.136.5">
+
     
-</nav>
+    <meta property="og:url" content="http://localhost:1313/post/validation-rules-fluentvalidation-csharp-dotnetcore/">
+  <meta property="og:site_name" content="Simon Gilbert Blog">
+  <meta property="og:title" content="Strongly-Typed Data Model Validation using Fluent Validation - C# .Net Core">
+  <meta property="og:description" content="Data integrity feeling tiresome with DataAnnotations? Simon Gilbert details how to clean up your validation rules and separate your concerns, using the FluentValidation library in C# .Net Core.">
+  <meta property="og:locale" content="en_gb">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2019-03-17T13:26:08+00:00">
+    <meta property="article:modified_time" content="2019-03-17T13:26:08+00:00">
+    <meta property="article:tag" content="C#.Net">
+    <meta property="article:tag" content="Asp.Net MVC">
+    <meta property="article:tag" content="Validation">
+    <meta property="article:tag" content="Fluent Validation">
 
 
-				
-					<div id="main">
+    
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Strongly-Typed Data Model Validation using Fluent Validation - C# .Net Core">
+  <meta name="twitter:description" content="Data integrity feeling tiresome with DataAnnotations? Simon Gilbert details how to clean up your validation rules and separate your concerns, using the FluentValidation library in C# .Net Core.">
 
-						
-                        <section class="post">
-                            <header class="major">
-                                
-                                <span class="date">March 17, 2019</span>
-                                
-                                <h1>Strongly-Typed Data Model Validation using Fluent Validation - C# .Net Core</h1>
-                                <p></p>
-                            </header>
-                            
-                            <div class="image main"><img src="/images/2019/03/simon-gilbert-cto-tech-blog-post-nine.png" alt="" /></div>
-                            
-                            <h3 id="missing-data-required">Missing Data Required</h3>
+
+    
+
+    <link rel="canonical" href="http://localhost:1313/post/validation-rules-fluentvalidation-csharp-dotnetcore/">
+    <link href="/style.min.d3cd446461a6bcee3cf602043ff66d247cd30457c3f5ec77c4ff83bf22db981b.css" rel="stylesheet">
+    <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+<link rel="manifest" href="http://localhost:1313/site.webmanifest">
+
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+
+    </head>
+<body data-theme = "" class="notransition">
+
+<script src="/js/theme.js"></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="http://localhost:1313/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title></title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+                
+                
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title center">Strongly-Typed Data Model Validation using Fluent Validation - C# .Net Core</h1>
+                
+                
+                
+                <div class="post-meta">
+                    <time class="blog-post-date" datetime="2019-03-17T13:26:08&#43;00:00" itemprop="datePublished"> Mar 17, 2019 </time>
+                </div>
+                
+            </header>
+            
+            
+                <div class="centered-landscape-image">
+                    <img src="/images/2019/03/simon-gilbert-cto-tech-blog-post-nine.png" alt="Strongly-Typed Data Model Validation using Fluent Validation - C# .Net Core">
+                </div>
+            
+            <hr class="hr-blog-header"/>
+            <div class="page-content">
+                <h3 id="missing-data-required">Missing Data Required</h3>
 <p>Data model validation is critical when concerning data integrity in your software implementation. For quite some time we’ve had access to the <strong>DataAnnotations</strong> namespace and the <strong>[Required]</strong> attribute, however this isn’t always the most flexible solution to the problem&hellip;</p>
 <h3 id="the-downside-of-dataannotations">The Downside of DataAnnotations</h3>
 <p>So you’re looking to validate that data model you’ve developed in C#. The minute you use <strong>DataAnnotations</strong> you are binding your validation rules to your underlying data model&hellip;not exactly “separation of concerns” is it?</p>
@@ -79,155 +152,120 @@ if (!doNotTrack) {
 <h3 id="code-time">Code Time&hellip;</h3>
 <p>The first thing to establish is a simple data model. In this case we&rsquo;re going to base it on some common &ldquo;user account&rdquo; fields, with a few extras specifically to show how FluentValidation works with different data types.</p>
 <figure><img src="/images/2019/03/simon-gilbert-cto-tech-blog-fluentvalidation-data-model.png"
-         alt="C# .Net Core FluentValidation - Data Model"/><figcaption>
-            <p>C# .Net Core FluentValidation - Data Model</p>
-        </figcaption>
+    alt="C# .Net Core FluentValidation - Data Model"><figcaption>
+      <p>C# .Net Core FluentValidation - Data Model</p>
+    </figcaption>
 </figure>
 
 <p>The next thing to do is pull in a copy of the FluentValidation package from Nuget&hellip;</p>
 <p>Now that&rsquo;s done, we can begin to write our validation code. Your validator class will need to inherit from FluentValidation&rsquo;s <strong>AbstractValidator</strong> class, with the type being that of the data model we have just created. We can then start to make use of the <strong>RuleFor</strong> functionality, to establish validation rules for each model property.</p>
 <figure><img src="/images/2019/03/simon-gilbert-cto-tech-blog-fluentvalidation-abstract-validator.png"
-         alt="C# .Net Core FluentValidation - Abstract Validator"/><figcaption>
-            <p>C# .Net Core FluentValidation - Abstract Validator</p>
-        </figcaption>
+    alt="C# .Net Core FluentValidation - Abstract Validator"><figcaption>
+      <p>C# .Net Core FluentValidation - Abstract Validator</p>
+    </figcaption>
 </figure>
 
 <h3 id="basic-validation">Basic Validation</h3>
 <p>Now let&rsquo;s add some basic validation for our FirstName property, to ensure that it isn&rsquo;t null and that it has a length of 2 - 50 characters. You&rsquo;ll note that the syntax is similar to <strong>LINQ</strong>, and that we&rsquo;re adding multiple checks together - known as &ldquo;validator chaining&rdquo;.</p>
 <figure><img src="/images/2019/03/simon-gilbert-cto-tech-blog-fluentvalidation-abstract-validator-code.png"
-         alt="C# .Net Core FluentValidation - Basic Validation"/><figcaption>
-            <p>C# .Net Core FluentValidation - Basic Validation</p>
-        </figcaption>
+    alt="C# .Net Core FluentValidation - Basic Validation"><figcaption>
+      <p>C# .Net Core FluentValidation - Basic Validation</p>
+    </figcaption>
 </figure>
 
 <h3 id="validator-chaining">Validator Chaining</h3>
 <p>Let&rsquo;s extend on this chaining concept next by chaining a validation method to our username property, followed by chaining a message which we return to the user if the validation for this property fails.</p>
 <figure><img src="/images/2019/03/simon-gilbert-cto-tech-blog-fluentvalidation-validator-chaining.png"
-         alt="C# .Net Core FluentValidation - Validator Chaining"/><figcaption>
-            <p>C# .Net Core FluentValidation - Validator Chaining</p>
-        </figcaption>
+    alt="C# .Net Core FluentValidation - Validator Chaining"><figcaption>
+      <p>C# .Net Core FluentValidation - Validator Chaining</p>
+    </figcaption>
 </figure>
 
 <p>As you can see, we&rsquo;re using a regex within a separate method to check that the username does not contain special characters. We&rsquo;ve chained the regex method to the relevant property using the <strong>Must()</strong> method, and in the event that validation fails, we return an error message which we&rsquo;ve chained to the properties overall validation using the <strong>WithMessage()</strong> method.</p>
 <h3 id="extending-our-validation--regex-usage">Extending Our Validation &amp; Regex Usage</h3>
 <p>Our data model accepts an email address and a UK mobile phone number too, so let&rsquo;s build out some more validation for these methods using Regex and the same validation chaining concepts.</p>
 <figure><img src="/images/2019/03/simon-gilbert-cto-tech-blog-fluentvalidation-extended-validator.png"
-         alt="C# .Net Core FluentValidation - Extended Validation"/><figcaption>
-            <p>C# .Net Core FluentValidation - Extended Validation</p>
-        </figcaption>
+    alt="C# .Net Core FluentValidation - Extended Validation"><figcaption>
+      <p>C# .Net Core FluentValidation - Extended Validation</p>
+    </figcaption>
 </figure>
 
 <h3 id="another-separate-validator">Another Separate Validator</h3>
 <p>Continuing to adhere to separation of concerns, let&rsquo;s create another separate validator which is specifically designed to validate that the date of birth property on our user account data model is a date which indicates that the user is at least 18 years old.</p>
 <figure><img src="/images/2019/03/simon-gilbert-cto-tech-blog-post-fluentvalidation-separate-validator.png"
-         alt="C# .Net Core FluentValidation - Separate Validator"/><figcaption>
-            <p>C# .Net Core FluentValidation - Separate Validator</p>
-        </figcaption>
+    alt="C# .Net Core FluentValidation - Separate Validator"><figcaption>
+      <p>C# .Net Core FluentValidation - Separate Validator</p>
+    </figcaption>
 </figure>
 
 <h3 id="including--grouping-our-separated-validators">Including &amp; Grouping Our Separated Validators</h3>
 <p>At this point we have three validators, one which allows us to validate the user account data models first name property, another which validates the username, email address and mobile phone number properties are inline with our required rules, and finally a third validator which checks the date of birth (age) property.</p>
 <p>Now let&rsquo;s group them and include them into a single validator class.</p>
 <figure><img src="/images/2019/03/simon-gilbert-cto-tech-blog-fluentvalidation-include-validators.png"
-         alt="C# .Net Core FluentValidation - Including &amp;amp; Grouping"/><figcaption>
-            <p>C# .Net Core FluentValidation - Including &amp; Grouping</p>
-        </figcaption>
+    alt="C# .Net Core FluentValidation - Including &amp; Grouping"><figcaption>
+      <p>C# .Net Core FluentValidation - Including &amp; Grouping</p>
+    </figcaption>
 </figure>
 
 <p>This allows us to fully separate out our validation code whilst still grouping the related rules together - Thus, nice, clean, code!</p>
 <h3 id="testing-our-validation-using-xunit">Testing Our Validation Using xUnit</h3>
 <p>Now it&rsquo;s time to unit test our validation rules using the glorious xUnit Framework and two very basic unit tests.</p>
 <figure><img src="/images/2019/03/simon-gilbert-cto-tech-blog-fluentvalidation-xunit-tests.png"
-         alt="C# .Net Core FluentValidation - xUnit Tests"/><figcaption>
-            <p>C# .Net Core FluentValidation - xUnit Tests</p>
-        </figcaption>
+    alt="C# .Net Core FluentValidation - xUnit Tests"><figcaption>
+      <p>C# .Net Core FluentValidation - xUnit Tests</p>
+    </figcaption>
 </figure>
 
 <p>Here are the results of our unit tests, as expected&hellip;</p>
 <figure><img src="/images/2019/03/simon-gilbert-cto-tech-blog-fluentvalidation-tests.png"
-         alt="C# .Net Core FluentValidation - xUnit Test Results"/><figcaption>
-            <p>C# .Net Core FluentValidation - xUnit Test Results</p>
-        </figcaption>
+    alt="C# .Net Core FluentValidation - xUnit Test Results"><figcaption>
+      <p>C# .Net Core FluentValidation - xUnit Test Results</p>
+    </figcaption>
 </figure>
 
 <h3 id="validation-error-messages-on-exception">Validation Error Messages On Exception</h3>
 <p>Let&rsquo;s try running a completely invalid data model submission, using the <strong>FluentValidation</strong>  <strong>ValidateAndThrow</strong> method -</p>
 <figure><img src="/images/2019/03/simon-gilbert-cto-tech-blog-fluentvalidation-throw.png"
-         alt="C# .Net Core FluentValidation - ValidateAndThrow"/><figcaption>
-            <p>C# .Net Core FluentValidation - ValidateAndThrow</p>
-        </figcaption>
+    alt="C# .Net Core FluentValidation - ValidateAndThrow"><figcaption>
+      <p>C# .Net Core FluentValidation - ValidateAndThrow</p>
+    </figcaption>
 </figure>
 
 <p>&hellip;and now to view the validation exception in all it&rsquo;s glory, with our error messages as expected.</p>
 <figure><img src="/images/2019/03/simon-gilbert-cto-tech-blog-fluentvalidation-throw-result.png"
-         alt="C# .Net Core FluentValidation - ValidateAndThrow Exception"/><figcaption>
-            <p>C# .Net Core FluentValidation - ValidateAndThrow Exception</p>
-        </figcaption>
+    alt="C# .Net Core FluentValidation - ValidateAndThrow Exception"><figcaption>
+      <p>C# .Net Core FluentValidation - ValidateAndThrow Exception</p>
+    </figcaption>
 </figure>
 
 <p>&hellip;like I mentioned, your validation rules are much cleaner and data integrity is no longer a painful process.</p>
 <p>Enjoy!</p>
 
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
 
-                            
-                            
-                            
-                            
-                            
-                        </section>
-
-					</div>
-
-                    
-
-<footer id="footer">
-    
-    <section class="split contact">
+    <div class="footer_social-icons">
+</div>
+    <small class="footer_copyright">
+        © 2024 Simon Gilbert.
         
-        
-        
-        
-    </section>
+    </small>
 </footer>
 
-                    
-<div id="copyright">
-    <ul>
-        <li>&copy; Simon Gilbert</li>
-    </ul>
-    <ul>
-        <li style="color:#212931;"><a href='https://www.twine.net/simongilbert'></a></li>
-    </ul>
-</div>
-
-
-            </div>
-            
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-136163864-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-            
 
 
 
 
 
 
+    
+    <script async src="http://localhost:1313/js/main.js" ></script>
 
+    
 
-
-
-<script src='/assets/js/bundle.js'></script>
-
-
-	</body>
+</body>
 </html>

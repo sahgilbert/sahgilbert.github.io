@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Xamarin.iOS on Simon Gilbert Blog</title>
+    <link>http://localhost:1313/tags/xamarin.ios/</link>
+    <description>Recent content in Xamarin.iOS on Simon Gilbert Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Tue, 23 Apr 2019 10:21:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/xamarin.ios/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>iPhone Geo Location Coordinate Tracking using C# Xamarin.iOS</title>
+      <link>http://localhost:1313/post/iphone-geo-location-csharp-xamarin-ios/</link>
+      <pubDate>Tue, 23 Apr 2019 10:21:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/iphone-geo-location-csharp-xamarin-ios/</guid>
+      
+      <description>Need to track geo location coords?
+Simon Gilbert explains how to handle location updates for the iPhone using C# Xamarin.iOS</description>
+      
+    </item>
+    
+  </channel>
+</rss>

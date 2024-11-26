@@ -1,75 +1,147 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
+<html lang="en-gb"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<html lang='en'>
-	<head>
-		<title>Microsoft Azure Cloud Blob Storage Image Upload - C# ASP.Net MVC Core &middot; Simon Gilbert</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		
-		
-		
-		<link rel="stylesheet" href="/assets/css/main.min.css">
-		
-		
-		<link rel="shortcut icon" href="/favicon.ico">
-		
-		
-		<noscript><link rel="stylesheet" href='/assets/css/noscript.css' /></noscript>
+<title itemprop="name">Microsoft Azure Cloud Blob Storage Image Upload - C# ASP.Net MVC Core | Simon Gilbert Blog</title>
+<meta property="og:title" content="Microsoft Azure Cloud Blob Storage Image Upload - C# ASP.Net MVC Core | Simon Gilbert Blog" />
+<meta name="twitter:title" content="Microsoft Azure Cloud Blob Storage Image Upload - C# ASP.Net MVC Core | Simon Gilbert Blog" />
+<meta itemprop="name" content="Microsoft Azure Cloud Blob Storage Image Upload - C# ASP.Net MVC Core | Simon Gilbert Blog" />
+<meta name="application-name" content="Microsoft Azure Cloud Blob Storage Image Upload - C# ASP.Net MVC Core | Simon Gilbert Blog" />
+<meta property="og:site_name" content="" />
 
-		
-    		
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-136163864-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
+<meta name="description" content="">
+<meta itemprop="description" content="" />
+<meta property="og:description" content="" />
+<meta name="twitter:description" content="" />
 
-  		
-	</head>
+<meta property="og:locale" content="en-gb" />
+<meta name="language" content="en-gb" />
 
-	<body lang='en' class="is-preload">
+  <link rel="alternate" hreflang="en" href="http://localhost:1313/post/azure-blob-storage-image-upload-aspnetmvccore/" title="" />
 
-		
-			<div id="wrapper">
 
-                
-<header id="header">
-    <a href='/' class="logo">Simon Gilbert</a>
-</header>
+<meta itemprop="image" content="http://localhost:1313/images/2019/02/simon-gilbert-cto-tech-blog-post-six.png" />
+<meta property="og:image" content="http://localhost:1313/images/2019/02/simon-gilbert-cto-tech-blog-post-six.png" />
+<meta name="twitter:image" content="http://localhost:1313/images/2019/02/simon-gilbert-cto-tech-blog-post-six.png" />
+<meta name="twitter:image:src" content="http://localhost:1313/images/2019/02/simon-gilbert-cto-tech-blog-post-six.png" />
 
-                
 
-<nav id="nav">
-    <ul class="links">
-        <li class="active"><a href='/'>Home</a></li>
-        
-        
-    </ul>
+
+<meta name="generator" content="Hugo 0.136.5">
+
     
-</nav>
+    <meta property="og:url" content="http://localhost:1313/post/azure-blob-storage-image-upload-aspnetmvccore/">
+  <meta property="og:site_name" content="Simon Gilbert Blog">
+  <meta property="og:title" content="Microsoft Azure Cloud Blob Storage Image Upload - C# ASP.Net MVC Core">
+  <meta property="og:description" content="Ever used Microsoft Azure Blob Storage? Simon Gilbert provides a detailed explanation on how to upload multiple images to Microsoft Azure Blob Storage using C# ASP.Net MVC Core in Visual Studio for Mac.">
+  <meta property="og:locale" content="en_gb">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2019-02-25T01:00:00+00:00">
+    <meta property="article:modified_time" content="2019-02-25T01:00:00+00:00">
+    <meta property="article:tag" content="C#.Net">
+    <meta property="article:tag" content="Asp.Net MVC">
+    <meta property="article:tag" content="Azure Blob Storage">
 
 
-				
-					<div id="main">
+    
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Microsoft Azure Cloud Blob Storage Image Upload - C# ASP.Net MVC Core">
+  <meta name="twitter:description" content="Ever used Microsoft Azure Blob Storage? Simon Gilbert provides a detailed explanation on how to upload multiple images to Microsoft Azure Blob Storage using C# ASP.Net MVC Core in Visual Studio for Mac.">
 
-						
-                        <section class="post">
-                            <header class="major">
-                                
-                                <span class="date">February 25, 2019</span>
-                                
-                                <h1>Microsoft Azure Cloud Blob Storage Image Upload - C# ASP.Net MVC Core</h1>
-                                <p></p>
-                            </header>
-                            
-                            <div class="image main"><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-six.png" alt="" /></div>
-                            
-                            <h3 id="azure-cloud-hosted-image-upload">Azure Cloud Hosted Image Upload</h3>
+
+    
+
+    <link rel="canonical" href="http://localhost:1313/post/azure-blob-storage-image-upload-aspnetmvccore/">
+    <link href="/style.min.d3cd446461a6bcee3cf602043ff66d247cd30457c3f5ec77c4ff83bf22db981b.css" rel="stylesheet">
+    <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+<link rel="manifest" href="http://localhost:1313/site.webmanifest">
+
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+
+    </head>
+<body data-theme = "" class="notransition">
+
+<script src="/js/theme.js"></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="http://localhost:1313/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title></title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+                
+                
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title center">Microsoft Azure Cloud Blob Storage Image Upload - C# ASP.Net MVC Core</h1>
+                
+                
+                
+                <div class="post-meta">
+                    <time class="blog-post-date" datetime="2019-02-25T01:00:00&#43;00:00" itemprop="datePublished"> Feb 25, 2019 </time>
+                </div>
+                
+            </header>
+            
+            
+                <div class="centered-landscape-image">
+                    <img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-six.png" alt="Microsoft Azure Cloud Blob Storage Image Upload - C# ASP.Net MVC Core">
+                </div>
+            
+            <hr class="hr-blog-header"/>
+            <div class="page-content">
+                <h3 id="azure-cloud-hosted-image-upload">Azure Cloud Hosted Image Upload</h3>
 <p>In the web development world, users often need to upload multiple images to the platform you&rsquo;re building (and hosting).</p>
 <p>Storing and manipulating images can be expensive&hellip;thus, enter <strong>Microsoft Azure Blob Storage</strong>, deemed as massively scalable object storage for unstructured data.</p>
 <blockquote>
@@ -84,16 +156,16 @@ if (!doNotTrack) {
 <h3 id="deploying-azure-storage">Deploying Azure Storage</h3>
 <p>Now that we&rsquo;re logged into the <a href="https://portal.azure.com">Microsoft Azure Portal</a>, head to the main menu and choose <strong>CREATE A RESOURCE &gt; STORAGE ACCOUNT</strong>.</p>
 <figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-create-azure-storage.png"
-         alt="Create Microsoft Azure Storage Account"/><figcaption>
-            <p>Create Microsoft Azure Storage Account</p>
-        </figcaption>
+    alt="Create Microsoft Azure Storage Account"><figcaption>
+      <p>Create Microsoft Azure Storage Account</p>
+    </figcaption>
 </figure>
 
 <p>Create a new resource group, give your storage account a relevant name, choose your server location (I live in London, UK so I&rsquo;ve specifically chosen Azure&rsquo;s UK South server farm). I&rsquo;ll skip the explanation regarding replication and access tiers for the minute, but essentially in this example I&rsquo;ve gone for a &ldquo;hot&rdquo; access tier, specifically for speed purposes. Click &ldquo;Review + Create&rdquo; and your storage will begin deploying to your chosen location.</p>
 <figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-create-azure-storage-deployed.png"
-         alt="Microsoft Azure Storage Deployment Complete"/><figcaption>
-            <p>Microsoft Azure Storage Deployment Complete</p>
-        </figcaption>
+    alt="Microsoft Azure Storage Deployment Complete"><figcaption>
+      <p>Microsoft Azure Storage Deployment Complete</p>
+    </figcaption>
 </figure>
 
 <p>&hellip;Now that our Azure Storage deployment is complete, we can begin writing some code.</p>
@@ -107,30 +179,30 @@ if (!doNotTrack) {
 </ol>
 <p>We want to allow for multiple images to be uploaded, so we&rsquo;ll make use of the IFormFileCollection interface  which represents the collection of files sent with the HttpRequest.</p>
 <figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-create-azure-storage-blob-upload.png"
-         alt="ASP.Net MVC Core Azure Blob Image Upload"/><figcaption>
-            <p>ASP.Net MVC Core Azure Blob Image Upload</p>
-        </figcaption>
+    alt="ASP.Net MVC Core Azure Blob Image Upload"><figcaption>
+      <p>ASP.Net MVC Core Azure Blob Image Upload</p>
+    </figcaption>
 </figure>
 
 <p>As we iterate through each image, we can begin the upload process, starting with converting the image to a byte array -</p>
 <figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-create-azure-storage-blob-convert-byte-array.png"
-         alt="ASP.Net MVC Core Azure Blob Image Byte Array Conversion"/><figcaption>
-            <p>ASP.Net MVC Core Azure Blob Image Byte Array Conversion</p>
-        </figcaption>
+    alt="ASP.Net MVC Core Azure Blob Image Byte Array Conversion"><figcaption>
+      <p>ASP.Net MVC Core Azure Blob Image Byte Array Conversion</p>
+    </figcaption>
 </figure>
 
 <p>Following this we can upload our image byte array to Azure Storage as a Blob. You&rsquo;ll note that we&rsquo;re making use of the Azure CloudBlockBlob class and it&rsquo;s built in method for uploading an image byte array asynchronously to our storage account.</p>
 <figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-create-azure-storage-blob-upload-byte-array.png"
-         alt="ASP.Net MVC Core Azure Blob Image Byte Array Upload"/><figcaption>
-            <p>ASP.Net MVC Core Azure Blob Image Byte Array Upload</p>
-        </figcaption>
+    alt="ASP.Net MVC Core Azure Blob Image Byte Array Upload"><figcaption>
+      <p>ASP.Net MVC Core Azure Blob Image Byte Array Upload</p>
+    </figcaption>
 </figure>
 
 <p>Finally, we can map the relevant image details to an Azure TableEntity class, and create a row in Azure Table Storage for easy access to our image data as and when necessary -</p>
 <figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-create-azure-table-storage-row-create.png"
-         alt="ASP.Net MVC Core Azure Table Storage TableEntity Create"/><figcaption>
-            <p>ASP.Net MVC Core Azure Table Storage TableEntity Create</p>
-        </figcaption>
+    alt="ASP.Net MVC Core Azure Table Storage TableEntity Create"><figcaption>
+      <p>ASP.Net MVC Core Azure Table Storage TableEntity Create</p>
+    </figcaption>
 </figure>
 
 <h3 id="what-happened-to-httppostedfilebase-in-net-core">What Happened To &ldquo;HTTPPostedFileBase&rdquo; in .Net Core?</h3>
@@ -139,90 +211,90 @@ if (!doNotTrack) {
 <h3 id="azure-storage-access-keys">Azure Storage Access Keys</h3>
 <p>Head back to the Microsoft Azure Portal, head to your newly created storage resource and grab a copy of the connection string -</p>
 <figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-azure-storage-connection-sring.png"
-         alt="Microsoft Azure Storage Access Keys"/><figcaption>
-            <p>Microsoft Azure Storage Access Keys</p>
-        </figcaption>
+    alt="Microsoft Azure Storage Access Keys"><figcaption>
+      <p>Microsoft Azure Storage Access Keys</p>
+    </figcaption>
 </figure>
 
 <p>Next we need to add the connection string to the app settings file in our ASP.Net MVC Core application.</p>
 <figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-visual-studio-appsettings.png"
-         alt="ASP.Net MVC Core appsettings.Development.json File"/><figcaption>
-            <p>ASP.Net MVC Core appsettings.Development.json File</p>
-        </figcaption>
+    alt="ASP.Net MVC Core appsettings.Development.json File"><figcaption>
+      <p>ASP.Net MVC Core appsettings.Development.json File</p>
+    </figcaption>
 </figure>
 
 <p>(I&rsquo;ve specifically chosen to use the development version of this file, given this isn&rsquo;t a production release).</p>
 <figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-aspnetmvccore-appsettings.png"
-         alt="ASP.Net MVC Core appsettings Azure Storage Connection String"/><figcaption>
-            <p>ASP.Net MVC Core appsettings Azure Storage Connection String</p>
-        </figcaption>
+    alt="ASP.Net MVC Core appsettings Azure Storage Connection String"><figcaption>
+      <p>ASP.Net MVC Core appsettings Azure Storage Connection String</p>
+    </figcaption>
 </figure>
 
 <h3 id="dependency-injecting-our-service--repository">Dependency Injecting Our Service &amp; Repository</h3>
 <p>Remember your SOLID Principles?…Good, we need to configure our ASP.Net MVC Core website to dependency inject our service and repository, since ultimately, this will allow us to bolt the functionality into any part of the website in a “plug and play” manner&hellip;</p>
 <p>We&rsquo;ll start with the storage account first and pull in our connection string from our appsettings file -</p>
 <figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-autofac-dependency-injection-1.png"
-         alt="Autofac Dependency Injection Azure Storage"/><figcaption>
-            <p>Autofac Dependency Injection Azure Storage</p>
-        </figcaption>
+    alt="Autofac Dependency Injection Azure Storage"><figcaption>
+      <p>Autofac Dependency Injection Azure Storage</p>
+    </figcaption>
 </figure>
 
 <p>Let&rsquo;s inject our storage tables next&hellip;</p>
 <figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-autofac-dependency-injection-2.png"
-         alt="Autofac Dependency Injection Azure Storage Tables"/><figcaption>
-            <p>Autofac Dependency Injection Azure Storage Tables</p>
-        </figcaption>
+    alt="Autofac Dependency Injection Azure Storage Tables"><figcaption>
+      <p>Autofac Dependency Injection Azure Storage Tables</p>
+    </figcaption>
 </figure>
 
 <p>Following this, we can inject our blob containers -</p>
 <figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-autofac-dependency-injection-3.png"
-         alt="Autofac Dependency Injection Azure Storage Blob Containers"/><figcaption>
-            <p>Autofac Dependency Injection Azure Storage Blob Containers</p>
-        </figcaption>
+    alt="Autofac Dependency Injection Azure Storage Blob Containers"><figcaption>
+      <p>Autofac Dependency Injection Azure Storage Blob Containers</p>
+    </figcaption>
 </figure>
 
 <p>Finally we can bind our blob container and cloud table to our service and repository -</p>
 <figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-autofac-dependency-injection-4.png"
-         alt="Autofac Dependency Injection Azure Storage Binding"/><figcaption>
-            <p>Autofac Dependency Injection Azure Storage Binding</p>
-        </figcaption>
+    alt="Autofac Dependency Injection Azure Storage Binding"><figcaption>
+      <p>Autofac Dependency Injection Azure Storage Binding</p>
+    </figcaption>
 </figure>
 
 <p>…the beauty of the “inversion of control (IOC)” principle!!!</p>
 <h3 id="okto-the-cloud">Ok&hellip;To The Cloud!</h3>
 <p>Let&rsquo;s run our ASP.Net MVC Core application and upload some images to the Microsoft Azure Cloud!</p>
 <figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-azure-blob-image-upload-1.png"
-         alt="ASP.Net MVC Core Azure Cloud Blob Storage Image Upload"/><figcaption>
-            <p>ASP.Net MVC Core Azure Cloud Blob Storage Image Upload</p>
-        </figcaption>
+    alt="ASP.Net MVC Core Azure Cloud Blob Storage Image Upload"><figcaption>
+      <p>ASP.Net MVC Core Azure Cloud Blob Storage Image Upload</p>
+    </figcaption>
 </figure>
 
 <p>Next we choose some images to upload -</p>
 <figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-azure-blob-image-upload-2.png"
-         alt="ASP.Net MVC Core Azure Cloud Blob Storage Image Upload"/><figcaption>
-            <p>ASP.Net MVC Core Azure Cloud Blob Storage Image Upload</p>
-        </figcaption>
+    alt="ASP.Net MVC Core Azure Cloud Blob Storage Image Upload"><figcaption>
+      <p>ASP.Net MVC Core Azure Cloud Blob Storage Image Upload</p>
+    </figcaption>
 </figure>
 
 <p>As you can see, our use of IFormFileCollection allows us to upload multiple images simultaneously -</p>
 <figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-azure-blob-image-upload-3.png"
-         alt="ASP.Net MVC Core Azure Cloud Blob Storage Image Upload"/><figcaption>
-            <p>ASP.Net MVC Core Azure Cloud Blob Storage Image Upload</p>
-        </figcaption>
+    alt="ASP.Net MVC Core Azure Cloud Blob Storage Image Upload"><figcaption>
+      <p>ASP.Net MVC Core Azure Cloud Blob Storage Image Upload</p>
+    </figcaption>
 </figure>
 
 <p>Finally, the result -</p>
 <figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-azure-blob-image-upload-4.png"
-         alt="ASP.Net MVC Core Azure Cloud Blob Storage Image Upload"/><figcaption>
-            <p>ASP.Net MVC Core Azure Cloud Blob Storage Image Upload</p>
-        </figcaption>
+    alt="ASP.Net MVC Core Azure Cloud Blob Storage Image Upload"><figcaption>
+      <p>ASP.Net MVC Core Azure Cloud Blob Storage Image Upload</p>
+    </figcaption>
 </figure>
 
 <p>As you can see, when we inspect the uploaded images, they do indeed have the relevant <strong>Azure Blob Storage</strong> url -</p>
 <figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-azure-blob-storage-image-url.png"
-         alt="ASP.Net MVC Core Azure Cloud Blob Storage Image URL"/><figcaption>
-            <p>ASP.Net MVC Core Azure Cloud Blob Storage Image URL</p>
-        </figcaption>
+    alt="ASP.Net MVC Core Azure Cloud Blob Storage Image URL"><figcaption>
+      <p>ASP.Net MVC Core Azure Cloud Blob Storage Image URL</p>
+    </figcaption>
 </figure>
 
 <h3 id="microsoft-azure-storage-explorer">Microsoft Azure Storage Explorer</h3>
@@ -230,89 +302,54 @@ if (!doNotTrack) {
 <p>Grab yourself a copy of <strong>Azure Storage Explorer</strong> (it&rsquo;s free), and let&rsquo;s have a quick look at our Azure Storage database table and blob container&hellip;</p>
 <p>As you can see, I&rsquo;ve run my local copy of Storage Explorer, and signed into my Microsoft Azure account, which has pulled my recently created storage account into the explorer application for me to view -</p>
 <figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-create-azure-storage-explorer.png"
-         alt="Microsoft Azure Storage Explorer"/><figcaption>
-            <p>Microsoft Azure Storage Explorer</p>
-        </figcaption>
+    alt="Microsoft Azure Storage Explorer"><figcaption>
+      <p>Microsoft Azure Storage Explorer</p>
+    </figcaption>
 </figure>
 
 <p>Let&rsquo;s view our blob container to see our uploaded images -</p>
 <figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-azure-storage-explorer-blob-1.png"
-         alt="Microsoft Azure Storage Explorer Blob Containers"/><figcaption>
-            <p>Microsoft Azure Storage Explorer Blob Containers</p>
-        </figcaption>
+    alt="Microsoft Azure Storage Explorer Blob Containers"><figcaption>
+      <p>Microsoft Azure Storage Explorer Blob Containers</p>
+    </figcaption>
 </figure>
 
 <p>Finally, lets view our azure cloud table that contains the relevant uploaded image details&hellip;</p>
 <figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-azure-storage-explorer-table-1.png"
-         alt="Microsoft Azure Storage Explorer Cloud Table"/><figcaption>
-            <p>Microsoft Azure Storage Explorer Cloud Table</p>
-        </figcaption>
+    alt="Microsoft Azure Storage Explorer Cloud Table"><figcaption>
+      <p>Microsoft Azure Storage Explorer Cloud Table</p>
+    </figcaption>
 </figure>
 
 <p>Pretty cool right? You&rsquo;re now able to upload multiple images to the Microsoft Azure Cloud from a cross-platform application!</p>
 <p><em>NB - I&rsquo;ve purposely left the access keys in the Github source code example for clarity, albeit having taken the deployed storage offline.</em></p>
 <p>Enjoy!</p>
 
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
 
-                            
-                            
-                            
-                            
-                            
-                        </section>
-
-					</div>
-
-                    
-
-<footer id="footer">
-    
-    <section class="split contact">
+    <div class="footer_social-icons">
+</div>
+    <small class="footer_copyright">
+        © 2024 Simon Gilbert.
         
-        
-        
-        
-    </section>
+    </small>
 </footer>
 
-                    
-<div id="copyright">
-    <ul>
-        <li>&copy; Simon Gilbert</li>
-    </ul>
-    <ul>
-        <li style="color:#212931;"><a href='https://www.twine.net/simongilbert'></a></li>
-    </ul>
-</div>
-
-
-            </div>
-            
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-136163864-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-            
 
 
 
 
 
 
+    
+    <script async src="http://localhost:1313/js/main.js" ></script>
 
+    
 
-
-
-<script src='/assets/js/bundle.js'></script>
-
-
-	</body>
+</body>
 </html>

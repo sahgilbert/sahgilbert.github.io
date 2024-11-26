@@ -1,158 +1,196 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
+<html lang="en-gb"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<html lang='en'>
-	<head>
-		<title>Configuring DynamoDb using Serverless YAML &middot; Simon Gilbert</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		
-		
-		
-		<link rel="stylesheet" href="/assets/css/main.min.css">
-		
-		
-		<link rel="shortcut icon" href="/favicon.ico">
-		
-		
-		<noscript><link rel="stylesheet" href='/assets/css/noscript.css' /></noscript>
+<title itemprop="name">Configuring DynamoDb using Serverless YAML | Simon Gilbert Blog</title>
+<meta property="og:title" content="Configuring DynamoDb using Serverless YAML | Simon Gilbert Blog" />
+<meta name="twitter:title" content="Configuring DynamoDb using Serverless YAML | Simon Gilbert Blog" />
+<meta itemprop="name" content="Configuring DynamoDb using Serverless YAML | Simon Gilbert Blog" />
+<meta name="application-name" content="Configuring DynamoDb using Serverless YAML | Simon Gilbert Blog" />
+<meta property="og:site_name" content="" />
 
-		
-    		
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-136163864-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
+<meta name="description" content="">
+<meta itemprop="description" content="" />
+<meta property="og:description" content="" />
+<meta name="twitter:description" content="" />
 
-  		
-	</head>
+<meta property="og:locale" content="en-gb" />
+<meta name="language" content="en-gb" />
 
-	<body lang='en' class="is-preload">
+  <link rel="alternate" hreflang="en" href="http://localhost:1313/post/configuring-dynamodb-using-serverless-yaml/" title="" />
 
-		
-			<div id="wrapper">
 
-                
-<header id="header">
-    <a href='/' class="logo">Simon Gilbert</a>
-</header>
+<meta itemprop="image" content="http://localhost:1313/images/2020/08/Screenshot-2020-08-16-at-19.23.50.png" />
+<meta property="og:image" content="http://localhost:1313/images/2020/08/Screenshot-2020-08-16-at-19.23.50.png" />
+<meta name="twitter:image" content="http://localhost:1313/images/2020/08/Screenshot-2020-08-16-at-19.23.50.png" />
+<meta name="twitter:image:src" content="http://localhost:1313/images/2020/08/Screenshot-2020-08-16-at-19.23.50.png" />
 
-                
 
-<nav id="nav">
-    <ul class="links">
-        <li class="active"><a href='/'>Home</a></li>
-        
-        
-    </ul>
+
+<meta name="generator" content="Hugo 0.136.5">
+
     
-</nav>
+    <meta property="og:url" content="http://localhost:1313/post/configuring-dynamodb-using-serverless-yaml/">
+  <meta property="og:site_name" content="Simon Gilbert Blog">
+  <meta property="og:title" content="Configuring DynamoDb using Serverless YAML">
+  <meta property="og:description" content="DynamoDb is a brilliant NoSQL database from AWS. It integrates directly with the Serverless Framework, so today we’re going to configure Serverless to work with DynamoDb">
+  <meta property="og:locale" content="en_gb">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2020-11-19T18:14:00+00:00">
+    <meta property="article:modified_time" content="2020-11-19T18:14:00+00:00">
+    <meta property="article:tag" content="AWS">
+    <meta property="article:tag" content="Serverless">
+    <meta property="article:tag" content="YAML">
+    <meta property="article:tag" content="DynamoDb">
 
 
-				
-					<div id="main">
+    
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Configuring DynamoDb using Serverless YAML">
+  <meta name="twitter:description" content="DynamoDb is a brilliant NoSQL database from AWS. It integrates directly with the Serverless Framework, so today we’re going to configure Serverless to work with DynamoDb">
 
-						
-                        <section class="post">
-                            <header class="major">
-                                
-                                <span class="date">November 19, 2020</span>
-                                
-                                <h1>Configuring DynamoDb using Serverless YAML</h1>
-                                <p></p>
-                            </header>
-                            
-                            <div class="image main"><img src="/images/2020/08/Screenshot-2020-08-16-at-19.23.50.png" alt="" /></div>
-                            
-                            <p>DynamoDb is a brilliant NoSQL database from AWS. It integrates directly with the Serverless Framework, so today we&rsquo;re going to configure Serverless to work with DynamoDb.</p>
+
+    
+
+    <link rel="canonical" href="http://localhost:1313/post/configuring-dynamodb-using-serverless-yaml/">
+    <link href="/style.min.d3cd446461a6bcee3cf602043ff66d247cd30457c3f5ec77c4ff83bf22db981b.css" rel="stylesheet">
+    <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+<link rel="manifest" href="http://localhost:1313/site.webmanifest">
+
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+
+    </head>
+<body data-theme = "" class="notransition">
+
+<script src="/js/theme.js"></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="http://localhost:1313/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title></title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+                
+                
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title center">Configuring DynamoDb using Serverless YAML</h1>
+                
+                
+                
+                <div class="post-meta">
+                    <time class="blog-post-date" datetime="2020-11-19T18:14:00&#43;00:00" itemprop="datePublished"> Nov 19, 2020 </time>
+                </div>
+                
+            </header>
+            
+            
+                <div class="centered-landscape-image">
+                    <img src="/images/2020/08/Screenshot-2020-08-16-at-19.23.50.png" alt="Configuring DynamoDb using Serverless YAML">
+                </div>
+            
+            <hr class="hr-blog-header"/>
+            <div class="page-content">
+                <p>DynamoDb is a brilliant NoSQL database from AWS. It integrates directly with the Serverless Framework, so today we&rsquo;re going to configure Serverless to work with DynamoDb.</p>
 <p>First of all, let&rsquo;s add a stage of &ldquo;dev&rdquo; and a region of &ldquo;us-east-1&rdquo;, followed by our Serverless profile name to our Serverless.yml file.</p>
-<figure><img src="/images/2020/08/Screenshot-2020-08-16-at-19.31.55.png"/>
+<figure><img src="/images/2020/08/Screenshot-2020-08-16-at-19.31.55.png">
 </figure>
 
 <p>Next let&rsquo;s add an environment variable to hold our DynamoDb table name, which is designed in a way to be based on the service name, the current deployment stage, and then the table name itself. This allows us to ensure we create separate DynamoDb tables per deployment environment.</p>
-<figure><img src="/images/2020/08/Screenshot-2020-08-16-at-19.32.08.png"/>
+<figure><img src="/images/2020/08/Screenshot-2020-08-16-at-19.32.08.png">
 </figure>
 
 <p>The next step is to define our IAM Role statements, which define the actions that will be available to our Lambda functions. Finally let&rsquo;s restrict our IAM role permissions to this specific table (for the current stage that we are deploying to.)</p>
-<figure><img src="/images/2020/08/Screenshot-2020-08-16-at-19.32.22.png"/>
+<figure><img src="/images/2020/08/Screenshot-2020-08-16-at-19.32.22.png">
 </figure>
 
 <p>Next we&rsquo;ll create a resource to generate our DynamoDb table. Things to note here are that we have added a DeletionPolicy of Retain, to prevent us from accidentally deleting our Serverless DynamoDb table resources. Under the properties section you will also see that we&rsquo;ve explicitly stated that we want to use our environment variable for the table name, as previously defined. Below this we&rsquo;ve defined our primary key, and finally our BillingMode to be PAY_PER_REQUEST, since we are just starting out with our DynamoDb implementation.</p>
-<figure><img src="/images/2020/08/Screenshot-2020-08-16-at-19.32.43.png"/>
+<figure><img src="/images/2020/08/Screenshot-2020-08-16-at-19.32.43.png">
 </figure>
 
 <p>Finally let&rsquo;s run SLS Deploy, and head to AWS Management Console to review our deployment.</p>
-<figure><img src="/images/2020/08/Screenshot-2020-08-16-at-19.33.58.png"/>
+<figure><img src="/images/2020/08/Screenshot-2020-08-16-at-19.33.58.png">
 </figure>
 
 <p>As you can see, Serverless has created our DynamoDb table based on our Serverless.yml configuration.</p>
 <p>Enjoy!</p>
 
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
 
-                            
-                            
-                            
-                            
-                            
-                        </section>
-
-					</div>
-
-                    
-
-<footer id="footer">
-    
-    <section class="split contact">
+    <div class="footer_social-icons">
+</div>
+    <small class="footer_copyright">
+        © 2024 Simon Gilbert.
         
-        
-        
-        
-    </section>
+    </small>
 </footer>
 
-                    
-<div id="copyright">
-    <ul>
-        <li>&copy; Simon Gilbert</li>
-    </ul>
-    <ul>
-        <li style="color:#212931;"><a href='https://www.twine.net/simongilbert'></a></li>
-    </ul>
-</div>
-
-
-            </div>
-            
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-136163864-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-            
 
 
 
 
 
 
+    
+    <script async src="http://localhost:1313/js/main.js" ></script>
 
+    
 
-
-
-<script src='/assets/js/bundle.js'></script>
-
-
-	</body>
+</body>
 </html>

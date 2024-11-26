@@ -1,97 +1,170 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
+<html lang="en-gb"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<html lang='en'>
-	<head>
-		<title>Deploying Docker Containers on Mac OS X using Kubernetes (K8s) - C# ASP.Net MVC Core &middot; Simon Gilbert</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		
-		
-		
-		<link rel="stylesheet" href="/assets/css/main.min.css">
-		
-		
-		<link rel="shortcut icon" href="/favicon.ico">
-		
-		
-		<noscript><link rel="stylesheet" href='/assets/css/noscript.css' /></noscript>
+<title itemprop="name">Deploying Docker Containers on Mac OS X using Kubernetes (K8s) - C# ASP.Net MVC Core | Simon Gilbert Blog</title>
+<meta property="og:title" content="Deploying Docker Containers on Mac OS X using Kubernetes (K8s) - C# ASP.Net MVC Core | Simon Gilbert Blog" />
+<meta name="twitter:title" content="Deploying Docker Containers on Mac OS X using Kubernetes (K8s) - C# ASP.Net MVC Core | Simon Gilbert Blog" />
+<meta itemprop="name" content="Deploying Docker Containers on Mac OS X using Kubernetes (K8s) - C# ASP.Net MVC Core | Simon Gilbert Blog" />
+<meta name="application-name" content="Deploying Docker Containers on Mac OS X using Kubernetes (K8s) - C# ASP.Net MVC Core | Simon Gilbert Blog" />
+<meta property="og:site_name" content="" />
 
-		
-    		
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-136163864-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
+<meta name="description" content="">
+<meta itemprop="description" content="" />
+<meta property="og:description" content="" />
+<meta name="twitter:description" content="" />
 
-  		
-	</head>
+<meta property="og:locale" content="en-gb" />
+<meta name="language" content="en-gb" />
 
-	<body lang='en' class="is-preload">
+  <link rel="alternate" hreflang="en" href="http://localhost:1313/post/docker-containers-kubernetes-k8s-aspdotnetmvccore/" title="" />
 
-		
-			<div id="wrapper">
 
-                
-<header id="header">
-    <a href='/' class="logo">Simon Gilbert</a>
-</header>
+<meta itemprop="image" content="http://localhost:1313/images/2019/04/simon-gilbert-cto-tech-blog-18.png" />
+<meta property="og:image" content="http://localhost:1313/images/2019/04/simon-gilbert-cto-tech-blog-18.png" />
+<meta name="twitter:image" content="http://localhost:1313/images/2019/04/simon-gilbert-cto-tech-blog-18.png" />
+<meta name="twitter:image:src" content="http://localhost:1313/images/2019/04/simon-gilbert-cto-tech-blog-18.png" />
 
-                
 
-<nav id="nav">
-    <ul class="links">
-        <li class="active"><a href='/'>Home</a></li>
-        
-        
-    </ul>
+
+<meta name="generator" content="Hugo 0.136.5">
+
     
-</nav>
+    <meta property="og:url" content="http://localhost:1313/post/docker-containers-kubernetes-k8s-aspdotnetmvccore/">
+  <meta property="og:site_name" content="Simon Gilbert Blog">
+  <meta property="og:title" content="Deploying Docker Containers on Mac OS X using Kubernetes (K8s) - C# ASP.Net MVC Core">
+  <meta property="og:description" content="Looking to use, deploy &amp; manage containers? Simon Gilbert explains how to setup, configure and deploy Docker containers with Kubernetes (K8s) locally using C# ASP.Net MVC Core">
+  <meta property="og:locale" content="en_gb">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2019-04-04T08:41:00+00:00">
+    <meta property="article:modified_time" content="2019-04-04T08:41:00+00:00">
+    <meta property="article:tag" content="C#.Net">
+    <meta property="article:tag" content="Asp.Net MVC">
+    <meta property="article:tag" content="Docker">
+    <meta property="article:tag" content="Kubernetes">
 
 
-				
-					<div id="main">
+    
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Deploying Docker Containers on Mac OS X using Kubernetes (K8s) - C# ASP.Net MVC Core">
+  <meta name="twitter:description" content="Looking to use, deploy &amp; manage containers? Simon Gilbert explains how to setup, configure and deploy Docker containers with Kubernetes (K8s) locally using C# ASP.Net MVC Core">
 
-						
-                        <section class="post">
-                            <header class="major">
-                                
-                                <span class="date">April 4, 2019</span>
-                                
-                                <h1>Deploying Docker Containers on Mac OS X using Kubernetes (K8s) - C# ASP.Net MVC Core</h1>
-                                <p></p>
-                            </header>
-                            
-                            <div class="image main"><img src="/images/2019/04/simon-gilbert-cto-tech-blog-18.png" alt="" /></div>
-                            
-                            <h3 id="uniform-testing-through-containerisation">Uniform Testing Through Containerisation</h3>
+
+    
+
+    <link rel="canonical" href="http://localhost:1313/post/docker-containers-kubernetes-k8s-aspdotnetmvccore/">
+    <link href="/style.min.d3cd446461a6bcee3cf602043ff66d247cd30457c3f5ec77c4ff83bf22db981b.css" rel="stylesheet">
+    <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+<link rel="manifest" href="http://localhost:1313/site.webmanifest">
+
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+
+    </head>
+<body data-theme = "" class="notransition">
+
+<script src="/js/theme.js"></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="http://localhost:1313/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title></title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+                
+                
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title center">Deploying Docker Containers on Mac OS X using Kubernetes (K8s) - C# ASP.Net MVC Core</h1>
+                
+                
+                
+                <div class="post-meta">
+                    <time class="blog-post-date" datetime="2019-04-04T08:41:00&#43;00:00" itemprop="datePublished"> Apr 4, 2019 </time>
+                </div>
+                
+            </header>
+            
+            
+                <div class="centered-landscape-image">
+                    <img src="/images/2019/04/simon-gilbert-cto-tech-blog-18.png" alt="Deploying Docker Containers on Mac OS X using Kubernetes (K8s) - C# ASP.Net MVC Core">
+                </div>
+            
+            <hr class="hr-blog-header"/>
+            <div class="page-content">
+                <h3 id="uniform-testing-through-containerisation">Uniform Testing Through Containerisation</h3>
 <p>Looking to test your software in multiple environments? Perhaps you&rsquo;ve been in a situation where code changes you&rsquo;ve deployed to staging don&rsquo;t work in production, despite he code base being exactly the same?&hellip;Well, a <strong>container</strong> is used to package up your application into a&hellip;&quot;<strong>container</strong>&quot;, in order to allow each package to be tested across numerous environments in a uniform manner.</p>
 <blockquote>
 <p>&ldquo;A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another.&rdquo;</p>
 </blockquote>
 <p>There are many benefits to using containers, particularly when it comes to the <strong>DevOps</strong> lifecycle and of course, <strong>testing</strong>!! On many occasions we&rsquo;ve all sat there waiting for that <strong>virtual machine</strong> to bounce back so the increasing throughput can be handled, and it can feel like you&rsquo;re waiting forever. Containers are much better equipped for the zero downtime aspect due to the speed at which you can stop and start them. The most attractive thing that I find about <strong>containers</strong> is the ability to allow uniform testing to take place between staging vs. production environments, and all because the container itself <strong>shares</strong> the machine&rsquo;s <strong>operating system kernel</strong>&hellip;A fantastic way to test that changes running on <strong>localhost</strong> also work&hellip;in <strong>production</strong>&hellip;</p>
-<figure><img src="/images/2019/04/simon-gilbert-dev-cto-blog-it-works-on.jpg"/>
+<figure><img src="/images/2019/04/simon-gilbert-dev-cto-blog-it-works-on.jpg">
 </figure>
 
 <h3 id="i-run-virtual-machines-already">&ldquo;I Run Virtual Machines Already&hellip;&rdquo;</h3>
 <p>&hellip;That&rsquo;s certainly not a bad setup, but let&rsquo;s cover a few differences between containers and <strong>VM&rsquo;s</strong> for a minute. Yes, they have similar <strong>resource isolation</strong> and <strong>allocation benefits</strong>, but containers are much more portable and efficient than virtual machine&rsquo;s because they don&rsquo;t virtualize the hardware, they virtualize the operating system instead. A <strong>virtual machine</strong> abstracts the physical hardware, and thus one server becomes many servers because the <strong>Hypervisor</strong> allows you to run many <strong>VM&rsquo;s</strong> on one machine&hellip;except each <strong>VM</strong> runs a full installation of the operating system&hellip;</p>
 <h3 id="abstract-hardware-vs-abstract-operating-system">Abstract Hardware vs. Abstract Operating System</h3>
 <p>&hellip;<strong>Container&rsquo;s</strong> don&rsquo;t abstract the hardware, they abstract the application layer including the dependencies. They also use virtual memory to maintain the isolation. Given this, you can indeed run multiple containers on the same machine, each as an isolated process which shares the <strong>OS kernel</strong>&hellip;and they take up much less space than <strong>VM&rsquo;s</strong>, have a much lower overhead and are way quicker to boot up! So essentially, a container allows you to package up your entire application, including all of it&rsquo;s dependencies, and run it as a complete package which you can stop and start as needed!</p>
-<p>_To some extent, the <strong>legacy method</strong> of isolating each part of your platform was to only* use **hypervisor**&hellip;_</p>
+<p><em>To some extent, the <strong>legacy method</strong> of isolating each part of your platform was to only* use <strong>hypervisor</strong>&hellip;</em></p>
 <h3 id="enter-docker">Enter &ldquo;Docker&rdquo;&hellip;</h3>
 <p>Docker is a fantastic implementation which allows operating system virtualization to occur. Docker specifically allows packages of software to run in what it defines as &ldquo;containers&rdquo;.</p>
 <blockquote>
 <p>&ldquo;Build, Ship, and Run Any App, Anywhere.&rdquo;</p>
 </blockquote>
 <figure><img src="/images/2019/04/simon-gilbert-dev-cto-docker-logo.png"
-         alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"/><figcaption>
-            <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
-        </figcaption>
+    alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"><figcaption>
+      <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
+    </figcaption>
 </figure>
 
 <p>Perhaps your system involves ten different <strong>microservices</strong>, the increasingly popular architectural pattern for producing large scalable platforms - <strong>Docker</strong> allows you to encapsulate those <strong>microservices</strong> and manage the containers in a quick and scalable manner.</p>
@@ -103,9 +176,9 @@ if (!doNotTrack) {
 <li>Log in to <a href="https://id.docker.com/login">Docker Hub</a>.</li>
 </ul>
 <figure><img src="/images/2019/04/simon-gilbert-dev-cto-docker-install.png"
-         alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"/><figcaption>
-            <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
-        </figcaption>
+    alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"><figcaption>
+      <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
+    </figcaption>
 </figure>
 
 <h3 id="docker-process-flow">Docker Process Flow</h3>
@@ -120,9 +193,9 @@ if (!doNotTrack) {
 <h3 id="lets-code">Let&rsquo;s Code&hellip;</h3>
 <p>Our <strong>Dockerfile</strong> will look as follows -</p>
 <figure><img src="/images/2019/04/simon-gilbert-dev-cto-docker-kubernetes-0.png"
-         alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"/><figcaption>
-            <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
-        </figcaption>
+    alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"><figcaption>
+      <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
+    </figcaption>
 </figure>
 
 <p>So what have we done exactly?</p>
@@ -136,56 +209,56 @@ if (!doNotTrack) {
 </ul>
 <p>Ok, let&rsquo;s execute our <strong>Dockerfile</strong>. First, you&rsquo;ll need to navigate to the root of your source code where you <strong>Dockerfile</strong> is located.</p>
 <figure><img src="/images/2019/04/simon-gilbert-dev-cto-docker-kubernetes-1.png"
-         alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"/><figcaption>
-            <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
-        </figcaption>
+    alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"><figcaption>
+      <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
+    </figcaption>
 </figure>
 
 <h3 id="building-our-docker-image">Building Our Docker Image</h3>
 <p>Now to build our <strong>Docker</strong> image, whilst specifying an image name and a tag of &ldquo;v1&rdquo;, to indicate that it&rsquo;s version one of our image. In this example our image name is constructed as [DOCKER HUB USERNAME/IMAGE NAME:VERSION TAG].</p>
 <figure><img src="/images/2019/04/simon-gilbert-dev-cto-docker-kubernetes-2.png"
-         alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"/><figcaption>
-            <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
-        </figcaption>
+    alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"><figcaption>
+      <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
+    </figcaption>
 </figure>
 
 <p>You will see <strong>Docker</strong> pulling down the <strong>.Net Core</strong> dependencies initially -</p>
 <figure><img src="/images/2019/04/simon-gilbert-dev-cto-docker-kubernetes-3a.png"
-         alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"/><figcaption>
-            <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
-        </figcaption>
+    alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"><figcaption>
+      <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
+    </figcaption>
 </figure>
 
 <p>Your final output should then be similar to this, indicating that each step was executed successfully.</p>
 <figure><img src="/images/2019/04/simon-gilbert-dev-cto-docker-kubernetes-3b.png"
-         alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"/><figcaption>
-            <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
-        </figcaption>
+    alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"><figcaption>
+      <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
+    </figcaption>
 </figure>
 
 <p>&hellip;all steps have complete successfully.</p>
 <h3 id="viewing-our-docker-image">Viewing Our Docker Image</h3>
 <p>We can now view the image we created when we executed our <strong>Docker</strong> build statement. Note how our repository name is the same as the full image name we provided at the build execution stage.</p>
 <figure><img src="/images/2019/04/simon-gilbert-dev-cto-docker-kubernetes-4.png"
-         alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"/><figcaption>
-            <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
-        </figcaption>
+    alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"><figcaption>
+      <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
+    </figcaption>
 </figure>
 
 <h3 id="pushing-our-docker-image-to-docker-hub">Pushing Our Docker Image To Docker Hub</h3>
 <p>Before we push our image to <strong>Docker</strong>, it&rsquo;s worth noting that you get <em><strong>1 free private repository.</strong></em> This example assumes that you are publishing to a <strong>public Docker Hub Repository</strong> that you have already created, so make sure that you repository is public before pushing your built image&hellip;</p>
 <p>Now we can push our <strong>Docker</strong> image to <strong>Dockers Hub,</strong> as we&rsquo;ll need it later when executing <strong>Kubernetes</strong> deployments&hellip;</p>
 <figure><img src="/images/2019/04/simon-gilbert-dev-cto-docker-kubernetes-6.png"
-         alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"/><figcaption>
-            <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
-        </figcaption>
+    alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"><figcaption>
+      <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
+    </figcaption>
 </figure>
 
 <p>If we now navigate to the <strong>Docker Hub</strong>, we can see our image has been pushed to our repository.</p>
 <figure><img src="/images/2019/04/simon-gilbert-dev-cto-docker-kubernetes-hub.png"
-         alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"/><figcaption>
-            <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
-        </figcaption>
+    alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"><figcaption>
+      <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
+    </figcaption>
 </figure>
 
 <h3 id="running-our-docker-image">Running Our Docker Image</h3>
@@ -196,46 +269,46 @@ if (!doNotTrack) {
 <li><strong>-p</strong> publishes the containers port to the host.</li>
 </ul>
 <figure><img src="/images/2019/04/simon-gilbert-dev-cto-docker-kubernetes-7.png"
-         alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"/><figcaption>
-            <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
-        </figcaption>
+    alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"><figcaption>
+      <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
+    </figcaption>
 </figure>
 
 <p>We can see here that the <strong>Docker image</strong> is now running as a <strong>container</strong>.</p>
 <figure><img src="/images/2019/04/simon-gilbert-dev-cto-docker-kubernetes-8.png"
-         alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"/><figcaption>
-            <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
-        </figcaption>
+    alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"><figcaption>
+      <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
+    </figcaption>
 </figure>
 
 <p>Now if we navigate to <strong>http://localhost:5000</strong> in our browser we can see that our <strong>container</strong> is running.</p>
 <figure><img src="/images/2019/04/simon-gilbert-dev-cto-docker-kubernetes-9.png"
-         alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"/><figcaption>
-            <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
-        </figcaption>
+    alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"><figcaption>
+      <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
+    </figcaption>
 </figure>
 
 <p>We can also run our <strong>container</strong> in the background (using <strong>-d</strong>).</p>
 <figure><img src="/images/2019/04/simon-gilbert-dev-cto-docker-kubernetes-10.png"
-         alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"/><figcaption>
-            <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
-        </figcaption>
+    alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"><figcaption>
+      <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
+    </figcaption>
 </figure>
 
 <h3 id="heading"></h3>
 <h3 id="view-all-running-docker-containers">View All Running Docker Containers</h3>
 <p>In order to view our running <strong>Docker</strong> containers, we can execute the following command.</p>
 <figure><img src="/images/2019/04/simon-gilbert-dev-cto-docker-kubernetes-11a.png"
-         alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"/><figcaption>
-            <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
-        </figcaption>
+    alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"><figcaption>
+      <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
+    </figcaption>
 </figure>
 
 <p>Managing and maintaining multiple containers isn&rsquo;t easy&hellip;fortunately, there&rsquo;s a tool for doing that&hellip;</p>
 <figure><img src="/images/2019/04/simon-gilbert-dev-cto-docker-k8s.png"
-         alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"/><figcaption>
-            <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
-        </figcaption>
+    alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"><figcaption>
+      <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
+    </figcaption>
 </figure>
 
 <h3 id="enter-kubernetes-k8s">Enter &ldquo;Kubernetes&rdquo; (K8s)&hellip;</h3>
@@ -263,51 +336,51 @@ if (!doNotTrack) {
 <h3 id="running-kubernetes">Running Kubernetes</h3>
 <p>We&rsquo;re now going to run <strong>Kubernetes</strong> locally via <strong>Minikube</strong>. Firstly, check your <strong>Minikube</strong> version to ensure you have the latest production release.</p>
 <figure><img src="/images/2019/04/simon-gilbert-dev-cto-blog-minikube-ver.png"
-         alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"/><figcaption>
-            <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
-        </figcaption>
+    alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"><figcaption>
+      <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
+    </figcaption>
 </figure>
 
 <p>Now, let&rsquo;s start <strong>Minikube</strong> - This can take some time the first time you run it, as it has to download an <strong>ISO</strong> file that&rsquo;s fairly large, amongst other things such as booting up the virtual machine.</p>
 <figure><img src="/images/2019/04/simon-gilbert-dev-cto-blog-minikube-start.png"
-         alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"/><figcaption>
-            <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
-        </figcaption>
+    alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"><figcaption>
+      <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
+    </figcaption>
 </figure>
 
 <p>Now we can open the <strong>Minikube</strong> dashboard and view our local cluster.</p>
 <figure><img src="/images/2019/04/simon-gilbert-dev-cto-blog-minikube-dashboard.png"
-         alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"/><figcaption>
-            <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
-        </figcaption>
+    alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"><figcaption>
+      <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
+    </figcaption>
 </figure>
 
 <p>You&rsquo;ll see a new tab open in your browser at the point of executing this command, with the <strong>Minikube</strong> dashboard running.</p>
 <figure><img src="/images/2019/04/simon-gilbert-dev-cto-blog-kubernetes-dash.png"
-         alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"/><figcaption>
-            <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
-        </figcaption>
+    alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"><figcaption>
+      <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
+    </figcaption>
 </figure>
 
 <p>Next let&rsquo;s check to see if we have any deployments or pods running using <strong>Kubectl</strong> (which at this point, we wouldn&rsquo;t expect to see).</p>
 <figure><img src="/images/2019/04/simon-gilbert-dev-cto-blog-kubectl-check.png"
-         alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"/><figcaption>
-            <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
-        </figcaption>
+    alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"><figcaption>
+      <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
+    </figcaption>
 </figure>
 
 <p>&hellip;Excellent, now for a quick check to ensure that the <strong>Kubernetes</strong> cluster service is running, again using a <strong>Kubectl</strong> command.</p>
 <figure><img src="/images/2019/04/simon-gilbert-dev-cto-blog-get-svc.png"
-         alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"/><figcaption>
-            <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
-        </figcaption>
+    alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"><figcaption>
+      <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
+    </figcaption>
 </figure>
 
 <p>Ok great, as expected. Finally let&rsquo;s review the <strong>Kubernetes</strong> cluster info with another <strong>Kubectl</strong> command.</p>
 <figure><img src="/images/2019/04/simon-gilbert-dev-cto-blog-kubectl-cluster-info.png"
-         alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"/><figcaption>
-            <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
-        </figcaption>
+    alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"><figcaption>
+      <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
+    </figcaption>
 </figure>
 
 <p>We&rsquo;re now ready to start making use of <strong>Kubernetes</strong> which is running on our machine.</p>
@@ -315,9 +388,9 @@ if (!doNotTrack) {
 <p>Now that <strong>Docker</strong> is installed and <strong>Kubernetes</strong> is up and running locally, we can begin to create our Kubernetes <strong>deployment.yaml</strong> file to deploy our <strong>Docker</strong>  <strong>containers</strong> to our <strong>Kubernetes</strong> cluster.</p>
 <p>Inside our deployment.yaml file, let&rsquo;s begin by adding details about our <strong>Kubernetes Service</strong> as follows -</p>
 <figure><img src="/images/2019/04/simon-gilbert-dev-cto-k8s-yaml-0.png"
-         alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"/><figcaption>
-            <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
-        </figcaption>
+    alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"><figcaption>
+      <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
+    </figcaption>
 </figure>
 
 <ul>
@@ -331,186 +404,151 @@ if (!doNotTrack) {
 <h3 id="creating-our-kubernetes-deployment">Creating Our Kubernetes Deployment</h3>
 <p>Now to create our deployment. We are still in the root folder of our context at this stage.</p>
 <figure><img src="/images/2019/04/simon-gilbert-dev-cto-k8s-27.png"
-         alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"/><figcaption>
-            <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
-        </figcaption>
+    alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"><figcaption>
+      <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
+    </figcaption>
 </figure>
 
 <h3 id="checking-our-kubernetes-deployment">Checking Our Kubernetes Deployment</h3>
 <p>A quick check to see if our deployment is live.</p>
 <figure><img src="/images/2019/04/simon-gilbert-dev-cto-k8s-4.png"
-         alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"/><figcaption>
-            <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
-        </figcaption>
+    alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"><figcaption>
+      <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
+    </figcaption>
 </figure>
 
 <h3 id="checking-our-kubernetes-pods-and-services">Checking Our Kubernetes Pods and Services</h3>
 <p>We deployed three pods&hellip;</p>
 <figure><img src="/images/2019/04/simon-gilbert-dev-cto-k8s-5.png"
-         alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"/><figcaption>
-            <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
-        </figcaption>
+    alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"><figcaption>
+      <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
+    </figcaption>
 </figure>
 
 <p>&hellip;within a single service.</p>
 <figure><img src="/images/2019/04/simon-gilbert-dev-cto-k8s-6.png"
-         alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"/><figcaption>
-            <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
-        </figcaption>
+    alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"><figcaption>
+      <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
+    </figcaption>
 </figure>
 
 <h3 id="reviewing-our-deployment-in-the-dashboard">Reviewing Our Deployment In The Dashboard</h3>
 <p>Head over to your local <strong>Kubernetes</strong> dashboard and we can review the live deployment there.</p>
 <figure><img src="/images/2019/04/simon-gilbert-dev-cto-k8s-1.png"
-         alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"/><figcaption>
-            <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
-        </figcaption>
+    alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"><figcaption>
+      <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
+    </figcaption>
 </figure>
 
 <p>Our pods are also live as per the command line result&hellip;</p>
 <figure><img src="/images/2019/04/simon-gilbert-dev-cto-k8s-2.png"
-         alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"/><figcaption>
-            <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
-        </figcaption>
+    alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"><figcaption>
+      <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
+    </figcaption>
 </figure>
 
 <p>As is our service -</p>
 <figure><img src="/images/2019/04/simon-gilbert-dev-cto-k8s-3.png"
-         alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"/><figcaption>
-            <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
-        </figcaption>
+    alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"><figcaption>
+      <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
+    </figcaption>
 </figure>
 
 <h3 id="viewing-our-deployment-in-browser">Viewing Our Deployment In Browser</h3>
 <p>Before we do this, let&rsquo;s ensure we have no Docker containers running locally.</p>
 <figure><img src="/images/2019/04/simon-gilbert-dev-cto-k8s-7.png"
-         alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"/><figcaption>
-            <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
-        </figcaption>
+    alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"><figcaption>
+      <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
+    </figcaption>
 </figure>
 
 <p>&hellip;and now to check the browser at <strong>https://localhost:5000</strong></p>
 <figure><img src="/images/2019/04/simon-gilbert-dev-cto-k8s-8.png"
-         alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"/><figcaption>
-            <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
-        </figcaption>
+    alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"><figcaption>
+      <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
+    </figcaption>
 </figure>
 
 <p>Great, lets run the <strong>Minikube</strong> command to find the internal <strong>URL</strong> for our <strong>Kubernetes</strong> deployment.</p>
 <figure><img src="/images/2019/04/simon-gilbert-dev-cto-k8s-9.png"
-         alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"/><figcaption>
-            <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
-        </figcaption>
+    alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"><figcaption>
+      <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
+    </figcaption>
 </figure>
 
 <p>&hellip;and now to check that <strong>URL</strong> in the browser.</p>
 <figure><img src="/images/2019/04/simon-gilbert-dev-cto-k8s-10.png"
-         alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"/><figcaption>
-            <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
-        </figcaption>
+    alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"><figcaption>
+      <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
+    </figcaption>
 </figure>
 
 <p>Excellent, our <strong>Docker container</strong> is now deployed locally via <strong>Kubernetes</strong>!</p>
 <h3 id="testing-kubernetes-failover">Testing Kubernetes Failover</h3>
 <p><strong>Kubernetes</strong> is designed to aid us when it comes to having <strong>zero downtime</strong>, so let&rsquo;s test a basic example of this. Head to your local <strong>Kubernetes</strong> dashboard and delete a pod.</p>
 <figure><img src="/images/2019/04/simon-gilbert-dev-cto-k8s-pod-1.png"
-         alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"/><figcaption>
-            <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
-        </figcaption>
+    alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"><figcaption>
+      <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
+    </figcaption>
 </figure>
 
 <p>You&rsquo;ll see the warning message, checking that you want to do this.</p>
 <figure><img src="/images/2019/04/simon-gilbert-dev-cto-k8s-pod-2.png"
-         alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"/><figcaption>
-            <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
-        </figcaption>
+    alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"><figcaption>
+      <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
+    </figcaption>
 </figure>
 
 <p>Review the workload status, which indicates that a pod has died.</p>
 <figure><img src="/images/2019/04/simon-gilbert-dev-cto-k8s-pod-3.png"
-         alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"/><figcaption>
-            <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
-        </figcaption>
+    alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"><figcaption>
+      <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
+    </figcaption>
 </figure>
 
 <p><strong>Kubernetes</strong> immediately begins creating a pod.</p>
 <figure><img src="/images/2019/04/simon-gilbert-dev-cto-k8s-pod-4.png"
-         alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"/><figcaption>
-            <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
-        </figcaption>
+    alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"><figcaption>
+      <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
+    </figcaption>
 </figure>
 
 <p>Note how quickly the <strong>Kubernetes pod</strong> comes back up!</p>
 <figure><img src="/images/2019/04/simon-gilbert-dev-cto-k8s-pod-5.png"
-         alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"/><figcaption>
-            <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
-        </figcaption>
+    alt="C# ASP.Net MVC Core, Docker, Kubernetes (K8s)"><figcaption>
+      <p>C# ASP.Net MVC Core, Docker, Kubernetes (K8s)</p>
+    </figcaption>
 </figure>
 
 <p>&hellip;Pretty good isn&rsquo;t it?</p>
 <p>As a final note, you should always use <strong>kubectl apply</strong> (not kubectl create), if you have already deployed but make changes to the <strong>deployment.yaml</strong> file which need re-executing.</p>
 <p>Enjoy!</p>
 
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
 
-                            
-                            
-                            
-                            
-                            
-                        </section>
-
-					</div>
-
-                    
-
-<footer id="footer">
-    
-    <section class="split contact">
+    <div class="footer_social-icons">
+</div>
+    <small class="footer_copyright">
+        © 2024 Simon Gilbert.
         
-        
-        
-        
-    </section>
+    </small>
 </footer>
 
-                    
-<div id="copyright">
-    <ul>
-        <li>&copy; Simon Gilbert</li>
-    </ul>
-    <ul>
-        <li style="color:#212931;"><a href='https://www.twine.net/simongilbert'></a></li>
-    </ul>
-</div>
-
-
-            </div>
-            
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-136163864-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-            
 
 
 
 
 
 
+    
+    <script async src="http://localhost:1313/js/main.js" ></script>
 
+    
 
-
-
-<script src='/assets/js/bundle.js'></script>
-
-
-	</body>
+</body>
 </html>

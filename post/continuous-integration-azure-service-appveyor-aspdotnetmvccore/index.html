@@ -1,89 +1,163 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
+<html lang="en-gb"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<html lang='en'>
-	<head>
-		<title>Continuous Integration for Azure Web App Service Deployments using Appveyor - C# ASP.Net MVC Core &middot; Simon Gilbert</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		
-		
-		
-		<link rel="stylesheet" href="/assets/css/main.min.css">
-		
-		
-		<link rel="shortcut icon" href="/favicon.ico">
-		
-		
-		<noscript><link rel="stylesheet" href='/assets/css/noscript.css' /></noscript>
+<title itemprop="name">Continuous Integration for Azure Web App Service Deployments using Appveyor - C# ASP.Net MVC Core | Simon Gilbert Blog</title>
+<meta property="og:title" content="Continuous Integration for Azure Web App Service Deployments using Appveyor - C# ASP.Net MVC Core | Simon Gilbert Blog" />
+<meta name="twitter:title" content="Continuous Integration for Azure Web App Service Deployments using Appveyor - C# ASP.Net MVC Core | Simon Gilbert Blog" />
+<meta itemprop="name" content="Continuous Integration for Azure Web App Service Deployments using Appveyor - C# ASP.Net MVC Core | Simon Gilbert Blog" />
+<meta name="application-name" content="Continuous Integration for Azure Web App Service Deployments using Appveyor - C# ASP.Net MVC Core | Simon Gilbert Blog" />
+<meta property="og:site_name" content="" />
 
-		
-    		
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-136163864-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
+<meta name="description" content="">
+<meta itemprop="description" content="" />
+<meta property="og:description" content="" />
+<meta name="twitter:description" content="" />
 
-  		
-	</head>
+<meta property="og:locale" content="en-gb" />
+<meta name="language" content="en-gb" />
 
-	<body lang='en' class="is-preload">
+  <link rel="alternate" hreflang="en" href="http://localhost:1313/post/continuous-integration-azure-service-appveyor-aspdotnetmvccore/" title="" />
 
-		
-			<div id="wrapper">
 
-                
-<header id="header">
-    <a href='/' class="logo">Simon Gilbert</a>
-</header>
+<meta itemprop="image" content="http://localhost:1313/images/2019/03/simon-gilbert-cto-tech-blog-15.png" />
+<meta property="og:image" content="http://localhost:1313/images/2019/03/simon-gilbert-cto-tech-blog-15.png" />
+<meta name="twitter:image" content="http://localhost:1313/images/2019/03/simon-gilbert-cto-tech-blog-15.png" />
+<meta name="twitter:image:src" content="http://localhost:1313/images/2019/03/simon-gilbert-cto-tech-blog-15.png" />
 
-                
 
-<nav id="nav">
-    <ul class="links">
-        <li class="active"><a href='/'>Home</a></li>
-        
-        
-    </ul>
+
+<meta name="generator" content="Hugo 0.136.5">
+
     
-</nav>
+    <meta property="og:url" content="http://localhost:1313/post/continuous-integration-azure-service-appveyor-aspdotnetmvccore/">
+  <meta property="og:site_name" content="Simon Gilbert Blog">
+  <meta property="og:title" content="Continuous Integration for Azure Web App Service Deployments using Appveyor - C# ASP.Net MVC Core">
+  <meta property="og:description" content="Deploying Microsoft Azure Web App Services? Simon Gilbert explains continuous integration to the Azure Cloud, using YAML, Appveyor and C# ASP.Net MVC Core.">
+  <meta property="og:locale" content="en_gb">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2019-03-30T21:09:52+00:00">
+    <meta property="article:modified_time" content="2019-03-30T21:09:52+00:00">
+    <meta property="article:tag" content="C#.Net">
+    <meta property="article:tag" content="Asp.Net MVC">
+    <meta property="article:tag" content="Azure Web App Service">
+    <meta property="article:tag" content="CI/CD">
+    <meta property="article:tag" content="Appveyor">
 
 
-				
-					<div id="main">
+    
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Continuous Integration for Azure Web App Service Deployments using Appveyor - C# ASP.Net MVC Core">
+  <meta name="twitter:description" content="Deploying Microsoft Azure Web App Services? Simon Gilbert explains continuous integration to the Azure Cloud, using YAML, Appveyor and C# ASP.Net MVC Core.">
 
-						
-                        <section class="post">
-                            <header class="major">
-                                
-                                <span class="date">March 30, 2019</span>
-                                
-                                <h1>Continuous Integration for Azure Web App Service Deployments using Appveyor - C# ASP.Net MVC Core</h1>
-                                <p></p>
-                            </header>
-                            
-                            <div class="image main"><img src="/images/2019/03/simon-gilbert-cto-tech-blog-15.png" alt="" /></div>
-                            
-                            <h3 id="the-travis-continuous-integration-platform-died">The Travis Continuous Integration Platform Died&hellip;</h3>
+
+    
+
+    <link rel="canonical" href="http://localhost:1313/post/continuous-integration-azure-service-appveyor-aspdotnetmvccore/">
+    <link href="/style.min.d3cd446461a6bcee3cf602043ff66d247cd30457c3f5ec77c4ff83bf22db981b.css" rel="stylesheet">
+    <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+<link rel="manifest" href="http://localhost:1313/site.webmanifest">
+
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+
+    </head>
+<body data-theme = "" class="notransition">
+
+<script src="/js/theme.js"></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="http://localhost:1313/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title></title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+                
+                
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title center">Continuous Integration for Azure Web App Service Deployments using Appveyor - C# ASP.Net MVC Core</h1>
+                
+                
+                
+                <div class="post-meta">
+                    <time class="blog-post-date" datetime="2019-03-30T21:09:52&#43;00:00" itemprop="datePublished"> Mar 30, 2019 </time>
+                </div>
+                
+            </header>
+            
+            
+                <div class="centered-landscape-image">
+                    <img src="/images/2019/03/simon-gilbert-cto-tech-blog-15.png" alt="Continuous Integration for Azure Web App Service Deployments using Appveyor - C# ASP.Net MVC Core">
+                </div>
+            
+            <hr class="hr-blog-header"/>
+            <div class="page-content">
+                <h3 id="the-travis-continuous-integration-platform-died">The Travis Continuous Integration Platform Died&hellip;</h3>
 <p>A few days ago the <strong>Travis CI</strong> continuous integration platform ran into issues. At the time we were actually running some of our <strong>Microsoft Azure Web App Service ASP.Net MVC Core</strong> deployments via their service, and had it not been for us working in a manner of continuous delivery we’d have hung on tight till they resolved the issues (and given their recent acquisition and half the team being <a href="https://news.ycombinator.com/item?id=19218036">laid off</a>, optimism wasn&rsquo;t top of our list) .</p>
 <p>Mitigating this risk became a necessity quite quickly, given we were full throttle working to get a complex new feature into production. I figured it was a great opportunity to turn a negative into a positive and flip our deployment cycle to a different provider&hellip;</p>
 <figure><img src="/images/2019/03/simon-gilbert-cto-travis-ci.png"
-         alt="Travis Continuous Integration - Status Issues"/><figcaption>
-            <p>Travis Continuous Integration - Status Issues</p>
-        </figcaption>
+    alt="Travis Continuous Integration - Status Issues"><figcaption>
+      <p>Travis Continuous Integration - Status Issues</p>
+    </figcaption>
 </figure>
 
 <h3 id="introducing-appveyor">Introducing “Appveyor”&hellip;</h3>
 <p>“Work smarter, not harder”, and that’s exactly what the <strong><a href="https://www.appveyor.com/">Appveyor</a></strong> team have given the tech industry with their continuous integration platform. The service is designed to automatically pull in your latest code changes from <strong>Github</strong>, run a build (simple of complex, depending on your requirements), followed by a smooth deployment to your production cloud servers.</p>
 <figure><img src="/images/2019/03/simon-gilbert-cto-appveyor-ci.png"
-         alt="Appveyor Continuous Integration Platform &#43; .Net Core"/><figcaption>
-            <p>Appveyor Continuous Integration Platform + .Net Core</p>
-        </figcaption>
+    alt="Appveyor Continuous Integration Platform &#43; .Net Core"><figcaption>
+      <p>Appveyor Continuous Integration Platform + .Net Core</p>
+    </figcaption>
 </figure>
 
 <h3 id="whats-continuous-integration">What&rsquo;s Continuous Integration?</h3>
@@ -97,51 +171,51 @@ if (!doNotTrack) {
 <p>The first thing to do is deploy a live <strong>Microsoft</strong>  <strong>Azure</strong> Web <strong>App Service Server</strong> and pull down the publish settings for that (I&rsquo;ll assume you know how to do this already). Next, head to <a href="https://www.appveyor.com/">Appveyor</a> and sign up for a new account.</p>
 <p>At this point you&rsquo;ll need to create a blank <strong>appveyor.yml</strong> file in your <strong>ASP.Net MVC Core</strong> solution. Within our <strong>YAML</strong> file we are going to define a series of sections that cover the different things we can configure. Let&rsquo;s start with the general configuration section that determines our versioning for each build cycle, along with a branch whitelist for our Github repository. In this scenario I&rsquo;m whitelisting the master branch so we only build fully merged and approved <strong>pull requests</strong> for production.</p>
 <figure><img src="/images/2019/03/simon-gilber-cto-appveyor-gen-config.png"
-         alt="Appveyor Continuous Integration - YAML"/><figcaption>
-            <p>Appveyor Continuous Integration - YAML</p>
-        </figcaption>
+    alt="Appveyor Continuous Integration - YAML"><figcaption>
+      <p>Appveyor Continuous Integration - YAML</p>
+    </figcaption>
 </figure>
 
 <p>Next is the environment configuration which involves us telling <strong>Appveyor&rsquo;s</strong> Git client to only clone the current branch with no history. Here we also explicitly state the VM image that we would like to use as our build workers image, followed by us ensuring that we cache any necessary file and folders between builds (i.e. Nuget packages, in this case). Finally for good practice, since the line endings are different on <strong>Windows vs. Mac OSx/Linux</strong>, let&rsquo;s handle that too.</p>
 <figure><img src="/images/2019/03/simon-gilber-cto-appveyor-env-config.png"
-         alt="Appveyor Continuous Integration - YAML"/><figcaption>
-            <p>Appveyor Continuous Integration - YAML</p>
-        </figcaption>
+    alt="Appveyor Continuous Integration - YAML"><figcaption>
+      <p>Appveyor Continuous Integration - YAML</p>
+    </figcaption>
 </figure>
 
 <p>Now onto the build configuration. Here we can state what the build platform should be, although this part is optional. For arguments sake I&rsquo;ve set it to any CPU. The next part is important - Only build in Release mode please (in our case). Now we can add a few extras in for clarity, such as displaying the <strong>.Net Core</strong> version in the build log along with the verbosity of the log. This next bit is key as we&rsquo;re telling <strong>Appveyor</strong> to publish the output of our applications build and the location of that specific <strong>.csproj file</strong>. You also have the option here of defining an after_build section for anything that needs cleaning up or configuring etc before the magic happens.</p>
 <figure><img src="/images/2019/03/simon-gilber-cto-appveyor-build-config.png"
-         alt="Appveyor Continuous Integration - YAML"/><figcaption>
-            <p>Appveyor Continuous Integration - YAML</p>
-        </figcaption>
+    alt="Appveyor Continuous Integration - YAML"><figcaption>
+      <p>Appveyor Continuous Integration - YAML</p>
+    </figcaption>
 </figure>
 
 <p>Now to configure the artifacts that we want to deploy. Essentially we are telling <strong>Appveyor</strong> to take everything from the publish directory and create a Zip file with a type setting of <strong>WebDeployPackage</strong>, and deploy it to <strong>Appveyor&rsquo;s</strong> cloud storage in preparation for sending it to our live <strong>Azure Web App Service.</strong></p>
 <figure><img src="/images/2019/03/simon-gilber-cto-appveyor-arts-config.png"
-         alt="Appveyor Continuous Integration - YAML"/><figcaption>
-            <p>Appveyor Continuous Integration - YAML</p>
-        </figcaption>
+    alt="Appveyor Continuous Integration - YAML"><figcaption>
+      <p>Appveyor Continuous Integration - YAML</p>
+    </figcaption>
 </figure>
 
 <p>The next step is key as we define the deployment configuration. Remember that publish settings file we downloaded for our <strong>Azure Web App Service</strong>? You&rsquo;ll need to obtain the password for publishing to the server and head over to <strong>Appveyor&rsquo;s</strong> platform. On the settings menu there&rsquo;s the option of &ldquo;encryting YAML&rdquo;.</p>
 <figure><img src="/images/2019/03/simon-gilber-cto-appveyor-encrypt-yaml.png"
-         alt="Appveyor Continuous Integration - Encrypt YAML"/><figcaption>
-            <p>Appveyor Continuous Integration - Encrypt YAML</p>
-        </figcaption>
+    alt="Appveyor Continuous Integration - Encrypt YAML"><figcaption>
+      <p>Appveyor Continuous Integration - Encrypt YAML</p>
+    </figcaption>
 </figure>
 
 <p>We need to utilise this to encrypt our password so that it&rsquo;s not exposed in raw plain text to anyone else (particularly important for open source projects).</p>
 <figure><img src="/images/2019/03/simon-gilber-cto-appveyor-encrypt.png"
-         alt="Appveyor Continuous Integration - Encrypt YAML Data"/><figcaption>
-            <p>Appveyor Continuous Integration - Encrypt YAML Data</p>
-        </figcaption>
+    alt="Appveyor Continuous Integration - Encrypt YAML Data"><figcaption>
+      <p>Appveyor Continuous Integration - Encrypt YAML Data</p>
+    </figcaption>
 </figure>
 
 <p>Now that password value is secured, let&rsquo;s define our deploy section with the initial values stating that we want the provider to be <strong>WebDeploy</strong>, along with the server, website (name) and username values from our publish settings file. Finally, we can assign our newly encrypted password value to a password secure variable, followed by stating the name of our artifact as defined by us in the previous configuration section.</p>
 <figure><img src="/images/2019/03/simon-gilber-cto-appveyor-deploy-config.png"
-         alt="Appveyor Continuous Integration - YAML"/><figcaption>
-            <p>Appveyor Continuous Integration - YAML</p>
-        </figcaption>
+    alt="Appveyor Continuous Integration - YAML"><figcaption>
+      <p>Appveyor Continuous Integration - YAML</p>
+    </figcaption>
 </figure>
 
 <blockquote>
@@ -151,131 +225,96 @@ if (!doNotTrack) {
 <h3 id="ok-to-the-cloud">Ok, To The Cloud!!!</h3>
 <p>So our <strong>YAML</strong> file is fully configured in order to build our <strong>C# ASP.Net MVC Core</strong> source code and deploy it to our <strong>Microsoft Azure Web App Service</strong> server. A quick check to see that our server is live&hellip;</p>
 <figure><img src="/images/2019/03/simon-gilber-cto-appveyor-azure-live.png"
-         alt="Appveyor Continuous Integration - Azure Web App Service"/><figcaption>
-            <p>Appveyor Continuous Integration - Azure Web App Service</p>
-        </figcaption>
+    alt="Appveyor Continuous Integration - Azure Web App Service"><figcaption>
+      <p>Appveyor Continuous Integration - Azure Web App Service</p>
+    </figcaption>
 </figure>
 
 <p>Head back to <strong>Appveyor</strong> and add the project into your account&hellip;</p>
 <figure><img src="/images/2019/03/simon-gilber-cto-appveyor-add-project.png"
-         alt="Appveyor Continuous Integration"/><figcaption>
-            <p>Appveyor Continuous Integration</p>
-        </figcaption>
+    alt="Appveyor Continuous Integration"><figcaption>
+      <p>Appveyor Continuous Integration</p>
+    </figcaption>
 </figure>
 
 <p>&hellip;once you&rsquo;ve authorised <strong>Github</strong> to access your repositories.</p>
 <figure><img src="/images/2019/03/simon-gilber-cto-appveyor-auth-github.png"
-         alt="Appveyor Continuous Integration - Github Authorisation"/><figcaption>
-            <p>Appveyor Continuous Integration - Github Authorisation</p>
-        </figcaption>
+    alt="Appveyor Continuous Integration - Github Authorisation"><figcaption>
+      <p>Appveyor Continuous Integration - Github Authorisation</p>
+    </figcaption>
 </figure>
 
 <p>Ready to push your latest commit to your Github repository and observe Appveyor build and deploy your project to Microsoft Azure? Let&rsquo;s go!</p>
 <figure><img src="/images/2019/03/simon-gilber-cto-appveyor-github-commit.png"
-         alt="Appveyor Continuous Integration - Github Commit"/><figcaption>
-            <p>Appveyor Continuous Integration - Github Commit</p>
-        </figcaption>
+    alt="Appveyor Continuous Integration - Github Commit"><figcaption>
+      <p>Appveyor Continuous Integration - Github Commit</p>
+    </figcaption>
 </figure>
 
 <p>At this point the automated build begins and the Appveyor image worker begins to work its magic&hellip;</p>
 <figure><img src="/images/2019/03/simon-gilbert-cto-appveyor-build-start.png"
-         alt="Appveyor Continuous Integration - Azure Build Log"/><figcaption>
-            <p>Appveyor Continuous Integration - Azure Build Log</p>
-        </figcaption>
+    alt="Appveyor Continuous Integration - Azure Build Log"><figcaption>
+      <p>Appveyor Continuous Integration - Azure Build Log</p>
+    </figcaption>
 </figure>
 
 <p>The artifacts are collected and uploaded to <strong>Appveyor&rsquo;s</strong> cloud storage, and the deployment begins using the configuration settings we provided in our <strong>YAML</strong>.</p>
 <figure><img src="/images/2019/03/simon-gilbert-cto-appveyor-build-log.png"
-         alt="Appveyor Continuous Integration - Azure Build Log"/><figcaption>
-            <p>Appveyor Continuous Integration - Azure Build Log</p>
-        </figcaption>
+    alt="Appveyor Continuous Integration - Azure Build Log"><figcaption>
+      <p>Appveyor Continuous Integration - Azure Build Log</p>
+    </figcaption>
 </figure>
 
 <p>Finally, a successful build and deployment is complete!</p>
 <figure><img src="/images/2019/03/simon-gilbert-cto-appveyor-build-success.png"
-         alt="Appveyor Continuous Integration - Azure Build Log Success"/><figcaption>
-            <p>Appveyor Continuous Integration - Azure Build Log Success</p>
-        </figcaption>
+    alt="Appveyor Continuous Integration - Azure Build Log Success"><figcaption>
+      <p>Appveyor Continuous Integration - Azure Build Log Success</p>
+    </figcaption>
 </figure>
 
 <p>Let&rsquo;s head to our Microsoft Azure Web App Service URL in the browser and verify that our ASP.Net MVC Core application has been deployed successfully to the cloud.</p>
 <figure><img src="/images/2019/03/simon-gilber-cto-appveyor-deployed.png"
-         alt="Appveyor Continuous Integration - Azure Web App Service Deployed"/><figcaption>
-            <p>Appveyor Continuous Integration - Azure Web App Service Deployed</p>
-        </figcaption>
+    alt="Appveyor Continuous Integration - Azure Web App Service Deployed"><figcaption>
+      <p>Appveyor Continuous Integration - Azure Web App Service Deployed</p>
+    </figcaption>
 </figure>
 
 <p>Looking good! But before we finish, take a look at the artifacts tab on our <strong>Appveyor</strong> project page&hellip;</p>
 <figure><img src="/images/2019/03/simon-gilbert-cto-appveyor-artifact.png"
-         alt="Appveyor Continuous Integration - Azure Web App Service Artifacts"/><figcaption>
-            <p>Appveyor Continuous Integration - Azure Web App Service Artifacts</p>
-        </figcaption>
+    alt="Appveyor Continuous Integration - Azure Web App Service Artifacts"><figcaption>
+      <p>Appveyor Continuous Integration - Azure Web App Service Artifacts</p>
+    </figcaption>
 </figure>
 
 <h3 id="finally">Finally</h3>
 <p>Have a read through <a href="https://www.appveyor.com/docs/appveyor-yml/">Appveyor&rsquo;s YAML</a> config walkthrough - There are so many fantastic features that you can configure aside from what we&rsquo;ve covered today, all the way to real-time webhook notifications to keep your dev team in the loop when those build conflicts arise&hellip;</p>
 <p>Enjoy!</p>
 
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
 
-                            
-                            
-                            
-                            
-                            
-                        </section>
-
-					</div>
-
-                    
-
-<footer id="footer">
-    
-    <section class="split contact">
+    <div class="footer_social-icons">
+</div>
+    <small class="footer_copyright">
+        © 2024 Simon Gilbert.
         
-        
-        
-        
-    </section>
+    </small>
 </footer>
 
-                    
-<div id="copyright">
-    <ul>
-        <li>&copy; Simon Gilbert</li>
-    </ul>
-    <ul>
-        <li style="color:#212931;"><a href='https://www.twine.net/simongilbert'></a></li>
-    </ul>
-</div>
-
-
-            </div>
-            
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-136163864-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-            
 
 
 
 
 
 
+    
+    <script async src="http://localhost:1313/js/main.js" ></script>
 
+    
 
-
-
-<script src='/assets/js/bundle.js'></script>
-
-
-	</body>
+</body>
 </html>

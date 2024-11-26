@@ -1,75 +1,146 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
+<html lang="en-gb"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<html lang='en'>
-	<head>
-		<title>Computer Science Search Algorithm Performance - C# .Net Core &middot; Simon Gilbert</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		
-		
-		
-		<link rel="stylesheet" href="/assets/css/main.min.css">
-		
-		
-		<link rel="shortcut icon" href="/favicon.ico">
-		
-		
-		<noscript><link rel="stylesheet" href='/assets/css/noscript.css' /></noscript>
+<title itemprop="name">Computer Science Search Algorithm Performance - C# .Net Core | Simon Gilbert Blog</title>
+<meta property="og:title" content="Computer Science Search Algorithm Performance - C# .Net Core | Simon Gilbert Blog" />
+<meta name="twitter:title" content="Computer Science Search Algorithm Performance - C# .Net Core | Simon Gilbert Blog" />
+<meta itemprop="name" content="Computer Science Search Algorithm Performance - C# .Net Core | Simon Gilbert Blog" />
+<meta name="application-name" content="Computer Science Search Algorithm Performance - C# .Net Core | Simon Gilbert Blog" />
+<meta property="og:site_name" content="" />
 
-		
-    		
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-136163864-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
+<meta name="description" content="">
+<meta itemprop="description" content="" />
+<meta property="og:description" content="" />
+<meta name="twitter:description" content="" />
 
-  		
-	</head>
+<meta property="og:locale" content="en-gb" />
+<meta name="language" content="en-gb" />
 
-	<body lang='en' class="is-preload">
+  <link rel="alternate" hreflang="en" href="http://localhost:1313/post/comp-sci-search-algorithms-csharp-dotnetcore/" title="" />
 
-		
-			<div id="wrapper">
 
-                
-<header id="header">
-    <a href='/' class="logo">Simon Gilbert</a>
-</header>
+<meta itemprop="image" content="http://localhost:1313/images/2019/02/simon-gilbert-cto-tech-blog-post-four.png" />
+<meta property="og:image" content="http://localhost:1313/images/2019/02/simon-gilbert-cto-tech-blog-post-four.png" />
+<meta name="twitter:image" content="http://localhost:1313/images/2019/02/simon-gilbert-cto-tech-blog-post-four.png" />
+<meta name="twitter:image:src" content="http://localhost:1313/images/2019/02/simon-gilbert-cto-tech-blog-post-four.png" />
 
-                
 
-<nav id="nav">
-    <ul class="links">
-        <li class="active"><a href='/'>Home</a></li>
-        
-        
-    </ul>
+
+<meta name="generator" content="Hugo 0.136.5">
+
     
-</nav>
+    <meta property="og:url" content="http://localhost:1313/post/comp-sci-search-algorithms-csharp-dotnetcore/">
+  <meta property="og:site_name" content="Simon Gilbert Blog">
+  <meta property="og:title" content="Computer Science Search Algorithm Performance - C# .Net Core">
+  <meta property="og:description" content="Computational complexity theory anyone? Simon Gilbert compares sequential versus interval search algorithms for performance in .Net Core.">
+  <meta property="og:locale" content="en_gb">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2019-02-20T20:17:27+00:00">
+    <meta property="article:modified_time" content="2019-02-20T20:17:27+00:00">
+    <meta property="article:tag" content="C#.Net">
+    <meta property="article:tag" content="Algorithms">
 
 
-				
-					<div id="main">
+    
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Computer Science Search Algorithm Performance - C# .Net Core">
+  <meta name="twitter:description" content="Computational complexity theory anyone? Simon Gilbert compares sequential versus interval search algorithms for performance in .Net Core.">
 
-						
-                        <section class="post">
-                            <header class="major">
-                                
-                                <span class="date">February 20, 2019</span>
-                                
-                                <h1>Computer Science Search Algorithm Performance - C# .Net Core</h1>
-                                <p></p>
-                            </header>
-                            
-                            <div class="image main"><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-four.png" alt="" /></div>
-                            
-                            <h3 id="the-algorithmic-search-requirement">The Algorithmic Search Requirement</h3>
+
+    
+
+    <link rel="canonical" href="http://localhost:1313/post/comp-sci-search-algorithms-csharp-dotnetcore/">
+    <link href="/style.min.d3cd446461a6bcee3cf602043ff66d247cd30457c3f5ec77c4ff83bf22db981b.css" rel="stylesheet">
+    <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+<link rel="manifest" href="http://localhost:1313/site.webmanifest">
+
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+
+    </head>
+<body data-theme = "" class="notransition">
+
+<script src="/js/theme.js"></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="http://localhost:1313/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title></title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+                
+                
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title center">Computer Science Search Algorithm Performance - C# .Net Core</h1>
+                
+                
+                
+                <div class="post-meta">
+                    <time class="blog-post-date" datetime="2019-02-20T20:17:27&#43;00:00" itemprop="datePublished"> Feb 20, 2019 </time>
+                </div>
+                
+            </header>
+            
+            
+                <div class="centered-landscape-image">
+                    <img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-four.png" alt="Computer Science Search Algorithm Performance - C# .Net Core">
+                </div>
+            
+            <hr class="hr-blog-header"/>
+            <div class="page-content">
+                <h3 id="the-algorithmic-search-requirement">The Algorithmic Search Requirement</h3>
 <p>A common feature that is required in software is the ability to search through a portion of data to obtain a specific result. A typical example is when you&rsquo;ve been asked to code an autocomplete input for an e-commerce website such as <em>takemetoawarmerclimate.com</em>&hellip;</p>
 <h3 id="computational-complexity-theory">Computational Complexity Theory</h3>
 <blockquote>
@@ -78,9 +149,9 @@ if (!doNotTrack) {
 <p>&hellip;with that in mind, one of the key computational problems within the Computer Science industry is the <strong>search problem</strong>, which is represented by binary relation (a subset of the Cartesian Product).</p>
 <p><em>A <strong>search algorithm</strong> is therefore any type of algorithm that solves the aforementioned search problem.</em></p>
 <figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-turing-machine.png"
-         alt="Turing Machine Illustration"/><figcaption>
-            <p>Turing Machine Illustration</p>
-        </figcaption>
+    alt="Turing Machine Illustration"><figcaption>
+      <p>Turing Machine Illustration</p>
+    </figcaption>
 </figure>
 
 <h3 id="search-algorithm-classifications">Search Algorithm Classifications</h3>
@@ -95,9 +166,9 @@ if (!doNotTrack) {
 </blockquote>
 <p>When performing a Linear Search, we start at the leftmost element of the array and check each element one by one to determine whether its value is equal to <strong>x.</strong></p>
 <figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-linear-search.png"
-         alt="Linear Search Algorithm"/><figcaption>
-            <p>Linear Search Algorithm</p>
-        </figcaption>
+    alt="Linear Search Algorithm"><figcaption>
+      <p>Linear Search Algorithm</p>
+    </figcaption>
 </figure>
 
 <p><em>The time complexity of Linear Search is</em>  <strong><em>O(n)</em></strong>.</p>
@@ -107,9 +178,9 @@ if (!doNotTrack) {
 </blockquote>
 <p>Unlike Linear Search, Jump Search uses a sorted array. The algorithm is designed to check fewer elements than Linear Search by jumping ahead and skipping some elements (instead of searching all elements). Using our array and a block (to be jumped), we search the indexes until we find the interval, upon which we perform a linear search operation from the index to find the element.</p>
 <figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-jump-search.png"
-         alt="Jump Search Algorithm"/><figcaption>
-            <p>Jump Search Algorithm</p>
-        </figcaption>
+    alt="Jump Search Algorithm"><figcaption>
+      <p>Jump Search Algorithm</p>
+    </figcaption>
 </figure>
 
 <p><em>The time complexity of Jump Search is</em>  <strong>O(√n).</strong></p>
@@ -119,27 +190,27 @@ if (!doNotTrack) {
 </blockquote>
 <p>Executing a Binary Search differs from a Linear Search in that it uses a sorted array, much like a Jump Search. The algorithm is designed to repeatedly divide the search interval in half after each iteration, and begins with an interval that covers the entire array. If the value of the search key is less than the item in the middle of the interval, we narrow the interval to the lower half, otherwise we narrow it to the upper half. We therefore repeatedly check until the value is found or the interval is empty.</p>
 <figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-binary-search.png"
-         alt="Binary Search Algorithm"/><figcaption>
-            <p>Binary Search Algorithm</p>
-        </figcaption>
+    alt="Binary Search Algorithm"><figcaption>
+      <p>Binary Search Algorithm</p>
+    </figcaption>
 </figure>
 
 <p><em>The purpose of Binary Search is to reduce the time complexity to</em>  <strong><em>O(Log n)</em></strong><em>, thanks to the use of a sorted array.</em></p>
 <h3 id="testing-our-implementations">Testing Our Implementations</h3>
 <p>I&rsquo;ve put together a series of basic unit tests, to verify that each search algorithm implementation is providing the expected results across a series of permutations (finding the first, middle and last number within a dataset).</p>
 <figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-search-algorithm-unit-tests.png"
-         alt="Search Algorithm Unit Tests"/><figcaption>
-            <p>Search Algorithm Unit Tests</p>
-        </figcaption>
+    alt="Search Algorithm Unit Tests"><figcaption>
+      <p>Search Algorithm Unit Tests</p>
+    </figcaption>
 </figure>
 
 <p>&hellip;looking good, all tests passing!</p>
 <h3 id="to-lambda-or-not">To Lambda or Not&hellip;?</h3>
 <p>Over time, the C# language has been enhanced with new functionality for implementing, shortening, and enhancing your codes performance. One of my favourite additions to the language is <strong>Lambda Expressions</strong>, which I&rsquo;ve used to refactor a new version of out <strong>Linear Search</strong> algorithm below:</p>
 <figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-linear-search-lambda.png"
-         alt="Linear Search Using Lambda Expressions"/><figcaption>
-            <p>Linear Search Using Lambda Expressions</p>
-        </figcaption>
+    alt="Linear Search Using Lambda Expressions"><figcaption>
+      <p>Linear Search Using Lambda Expressions</p>
+    </figcaption>
 </figure>
 
 <h3 id="computational-theory">Computational Theory</h3>
@@ -148,7 +219,7 @@ if (!doNotTrack) {
 <p>The performance test involves 5 implementations of the 3 key search algorithms (2x Linear, 1x Jump, 2x Binary). We then group each performance test to involve finding either the first, middle, or last numeric in a dataset of 1000 numbers.</p>
 <h3 id="performance-test-results">Performance Test Results</h3>
 <p>In every search test, we can see that the <strong>Binary Search</strong> algorithm wins -</p>
-<figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-search-algorithm-performance-results.png"/>
+<figure><img src="/images/2019/02/simon-gilbert-cto-tech-blog-post-search-algorithm-performance-results.png">
 </figure>
 
 <h3 id="why-did-binary-search-win">Why Did Binary Search Win?</h3>
@@ -159,66 +230,31 @@ if (!doNotTrack) {
 <p>It is also worth noting that a <strong>Linear Search</strong> performs equality comparisons, while a <strong>Binary Search</strong> performs ordering comparisons.</p>
 <p>Enjoy!</p>
 
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
 
-                            
-                            
-                            
-                            
-                            
-                        </section>
-
-					</div>
-
-                    
-
-<footer id="footer">
-    
-    <section class="split contact">
+    <div class="footer_social-icons">
+</div>
+    <small class="footer_copyright">
+        © 2024 Simon Gilbert.
         
-        
-        
-        
-    </section>
+    </small>
 </footer>
 
-                    
-<div id="copyright">
-    <ul>
-        <li>&copy; Simon Gilbert</li>
-    </ul>
-    <ul>
-        <li style="color:#212931;"><a href='https://www.twine.net/simongilbert'></a></li>
-    </ul>
-</div>
-
-
-            </div>
-            
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-136163864-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-            
 
 
 
 
 
 
+    
+    <script async src="http://localhost:1313/js/main.js" ></script>
 
+    
 
-
-
-<script src='/assets/js/bundle.js'></script>
-
-
-	</body>
+</body>
 </html>

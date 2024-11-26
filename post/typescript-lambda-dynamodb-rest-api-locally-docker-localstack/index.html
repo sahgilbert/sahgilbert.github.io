@@ -1,193 +1,232 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
+<html lang="en-gb"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<html lang='en'>
-	<head>
-		<title>Typescript Lambda &amp; DynamoDB RESTful Api RUN LOCALLY using Docker and LocalStack! &middot; Simon Gilbert</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		
-		
-		
-		<link rel="stylesheet" href="/assets/css/main.min.css">
-		
-		
-		<link rel="shortcut icon" href="/favicon.ico">
-		
-		
-		<noscript><link rel="stylesheet" href='/assets/css/noscript.css' /></noscript>
+<title itemprop="name">Typescript Lambda &amp; DynamoDB RESTful Api RUN LOCALLY using Docker and LocalStack! | Simon Gilbert Blog</title>
+<meta property="og:title" content="Typescript Lambda &amp; DynamoDB RESTful Api RUN LOCALLY using Docker and LocalStack! | Simon Gilbert Blog" />
+<meta name="twitter:title" content="Typescript Lambda &amp; DynamoDB RESTful Api RUN LOCALLY using Docker and LocalStack! | Simon Gilbert Blog" />
+<meta itemprop="name" content="Typescript Lambda &amp; DynamoDB RESTful Api RUN LOCALLY using Docker and LocalStack! | Simon Gilbert Blog" />
+<meta name="application-name" content="Typescript Lambda &amp; DynamoDB RESTful Api RUN LOCALLY using Docker and LocalStack! | Simon Gilbert Blog" />
+<meta property="og:site_name" content="" />
 
-		
-    		
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-136163864-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
+<meta name="description" content="">
+<meta itemprop="description" content="" />
+<meta property="og:description" content="" />
+<meta name="twitter:description" content="" />
 
-  		
-	</head>
+<meta property="og:locale" content="en-gb" />
+<meta name="language" content="en-gb" />
 
-	<body lang='en' class="is-preload">
+  <link rel="alternate" hreflang="en" href="http://localhost:1313/post/typescript-lambda-dynamodb-rest-api-locally-docker-localstack/" title="" />
 
-		
-			<div id="wrapper">
 
-                
-<header id="header">
-    <a href='/' class="logo">Simon Gilbert</a>
-</header>
+<meta itemprop="image" content="http://localhost:1313/images/2020/08/Screenshot-2020-08-12-at-16.04.57.png" />
+<meta property="og:image" content="http://localhost:1313/images/2020/08/Screenshot-2020-08-12-at-16.04.57.png" />
+<meta name="twitter:image" content="http://localhost:1313/images/2020/08/Screenshot-2020-08-12-at-16.04.57.png" />
+<meta name="twitter:image:src" content="http://localhost:1313/images/2020/08/Screenshot-2020-08-12-at-16.04.57.png" />
 
-                
 
-<nav id="nav">
-    <ul class="links">
-        <li class="active"><a href='/'>Home</a></li>
-        
-        
-    </ul>
+
+<meta name="generator" content="Hugo 0.136.5">
+
     
-</nav>
+    <meta property="og:url" content="http://localhost:1313/post/typescript-lambda-dynamodb-rest-api-locally-docker-localstack/">
+  <meta property="og:site_name" content="Simon Gilbert Blog">
+  <meta property="og:title" content="Typescript Lambda & DynamoDB RESTful Api RUN LOCALLY using Docker and LocalStack!">
+  <meta property="og:description" content="LocalStack is pretty awesome! It allows you to emulate a number of AWS services on your computer. Today we’re just going to focus on emulating DynamoDB locally to test our Serverless Lambda.">
+  <meta property="og:locale" content="en_gb">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2021-01-12T11:24:00+00:00">
+    <meta property="article:modified_time" content="2021-01-12T11:24:00+00:00">
+    <meta property="article:tag" content="Typescript">
+    <meta property="article:tag" content="Serverless">
+    <meta property="article:tag" content="RESTful Api">
+    <meta property="article:tag" content="DynamoDb">
+    <meta property="article:tag" content="Docker">
 
 
-				
-					<div id="main">
+    
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Typescript Lambda & DynamoDB RESTful Api RUN LOCALLY using Docker and LocalStack!">
+  <meta name="twitter:description" content="LocalStack is pretty awesome! It allows you to emulate a number of AWS services on your computer. Today we’re just going to focus on emulating DynamoDB locally to test our Serverless Lambda.">
 
-						
-                        <section class="post">
-                            <header class="major">
-                                
-                                <span class="date">January 12, 2021</span>
-                                
-                                <h1>Typescript Lambda &amp; DynamoDB RESTful Api RUN LOCALLY using Docker and LocalStack!</h1>
-                                <p></p>
-                            </header>
-                            
-                            <div class="image main"><img src="/images/2020/08/Screenshot-2020-08-12-at-16.04.57.png" alt="" /></div>
-                            
-                            <p>LocalStack is pretty awesome! It allows you to emulate a number of AWS services on your computer, thus meaning you don&rsquo;t have to constantly deploy to AWS just to test that Serverless Lambda API you&rsquo;ve just coded. Today we&rsquo;re just going to focus on emulating DynamoDB locally to test our Serverless Lambda.Firstly, some benefits - Not only can you work offline, you don&rsquo;t need to pay for AWS usage, deploy to AWS or even log in to the AWS management console. Realistically, this implementation has a particular use case, so let&rsquo;s dive in and see how it works! I&rsquo;m going to assume that you already have an AWS Lambda project setup.Before we get started, you will need to <a href="https://hub.docker.com/editions/community/docker-ce-desktop-mac">install Docker locally from here</a>.</p>
-<figure><img src="/images/2020/08/Screenshot-2020-08-13-at-11.11.14.png"/>
+
+    
+
+    <link rel="canonical" href="http://localhost:1313/post/typescript-lambda-dynamodb-rest-api-locally-docker-localstack/">
+    <link href="/style.min.d3cd446461a6bcee3cf602043ff66d247cd30457c3f5ec77c4ff83bf22db981b.css" rel="stylesheet">
+    <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+<link rel="manifest" href="http://localhost:1313/site.webmanifest">
+
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+
+    </head>
+<body data-theme = "" class="notransition">
+
+<script src="/js/theme.js"></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="http://localhost:1313/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title></title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+                
+                
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title center">Typescript Lambda &amp; DynamoDB RESTful Api RUN LOCALLY using Docker and LocalStack!</h1>
+                
+                
+                
+                <div class="post-meta">
+                    <time class="blog-post-date" datetime="2021-01-12T11:24:00&#43;00:00" itemprop="datePublished"> Jan 12, 2021 </time>
+                </div>
+                
+            </header>
+            
+            
+                <div class="centered-landscape-image">
+                    <img src="/images/2020/08/Screenshot-2020-08-12-at-16.04.57.png" alt="Typescript Lambda &amp; DynamoDB RESTful Api RUN LOCALLY using Docker and LocalStack!">
+                </div>
+            
+            <hr class="hr-blog-header"/>
+            <div class="page-content">
+                <p>LocalStack is pretty awesome! It allows you to emulate a number of AWS services on your computer, thus meaning you don&rsquo;t have to constantly deploy to AWS just to test that Serverless Lambda API you&rsquo;ve just coded. Today we&rsquo;re just going to focus on emulating DynamoDB locally to test our Serverless Lambda.Firstly, some benefits - Not only can you work offline, you don&rsquo;t need to pay for AWS usage, deploy to AWS or even log in to the AWS management console. Realistically, this implementation has a particular use case, so let&rsquo;s dive in and see how it works! I&rsquo;m going to assume that you already have an AWS Lambda project setup.Before we get started, you will need to <a href="https://hub.docker.com/editions/community/docker-ce-desktop-mac">install Docker locally from here</a>.</p>
+<figure><img src="/images/2020/08/Screenshot-2020-08-13-at-11.11.14.png">
 </figure>
 
 <p>Once that&rsquo;s done, we need to configure Docker to work with LocalStack and begin emulating AWS locally on our computer. Rather than installing LocalStack directly from the command line, we can use a docker-compose.yml file which contains all the config required for our setup. Here is our docker-compose.yml file.</p>
-<figure><img src="/images/2020/08/Screenshot-2020-08-13-at-11.13.55.png"/>
+<figure><img src="/images/2020/08/Screenshot-2020-08-13-at-11.13.55.png">
 </figure>
 
 <p>As you can see, under the &ldquo;localstack&rdquo; section of services section, we state that we want to use the latest image of LocalStack by declaring &ldquo;image: localstack/localstack:latest&rdquo;. We also define some port bindings (the number on the left binds the port on your localhost to the port within the container, which is the number on the right. In most cases, these two numbers can be the same, i.e. 8080:8080). We also define a container name, which means we can refer to it later in the CLI. Finally is the environment section. These are the environment variables that are supplied to our Docker container, and LocalStack will use these to set things up internally. We can of course define a list of services to emulate, but in our case we&rsquo;re just using DynamoDb, hence stating &ldquo;SERVICES: dynamodb:8000&rdquo;. Underneath this you will see the data directory definition. This is in fact the directory where LocalStack will save it&rsquo;s data internally. So essentially, we&rsquo;re telling the container to use our .localstack directory for its /tmp/localstack, which makes sure that any data created by the container will still be present once the container restarts. It&rsquo;s worth noting here that /tmp is cleared frequently, as an FYI.Next we need to setup our fake AWS credentials. Firstly, create a .env file for the credentials to be stored in. Once these are added to our .env file they are therefore declared as environment variables for the project to access. Something to point out here - It doesn&rsquo;t actually matter what values you provide for your AWS Access Key ID and Secret Key&hellip;as long as they aren&rsquo;t empty. So they can therefore be as simple or as complicated as you want them to be. Here is the .env file I&rsquo;ve created for this example.</p>
-<figure><img src="/images/2020/08/Screenshot-2020-08-13-at-11.16.12.png"/>
+<figure><img src="/images/2020/08/Screenshot-2020-08-13-at-11.16.12.png">
 </figure>
 
 <p>Next we need some test data for our DynamoDb instance. I&rsquo;ve created a simple JSON file with some example data in it, which you can see here as follows.</p>
-<figure><img src="/images/2020/08/Screenshot-2020-08-13-at-11.18.33.png"/>
+<figure><img src="/images/2020/08/Screenshot-2020-08-13-at-11.18.33.png">
 </figure>
 
 <p>Next up is our module for connecting to our local DynamoDb instance and seeding our local database with some test data. You will note that I&rsquo;m importing our test data from the JSON file that I&rsquo;ve created within the project. After this, we&rsquo;re creating a new instance of DynamoDb and passing in our fake AWS credentials from our .env file. It&rsquo;s worth noting here that we require dotenv, in order to make this work, hence the declaration at the top of &ldquo;require(&lsquo;dotenv&rsquo;).config();&rdquo;. Along with this, I&rsquo;ve also built a database seeding service that is dedicated to performing each step of the seeding process asynchronously in the background, and then logging out where it&rsquo;s up to. I won&rsquo;t cover the encapsulating seeding service for DynamoDb in this tutorial, but if you&rsquo;d like to see what it does, then please download the open source code sample from my Github page at the bottom of this blog.</p>
-<figure><img src="/images/2020/08/Screenshot-2020-08-13-at-11.28.29.png"/>
+<figure><img src="/images/2020/08/Screenshot-2020-08-13-at-11.28.29.png">
 </figure>
 
 <p>Now that our DynamoDb seeding process is built, we need to write a repository layer to act as a wrapper around the document client for DynamoDb. Below you will see the repository class that I&rsquo;ve defined, which takes an instance of the document client for DynamoDb via the constructor, and then performs the various function requests required from the API, before returning the result.</p>
-<figure><img src="/images/2020/08/Screenshot-2020-08-13-at-11.32.18.png"/>
+<figure><img src="/images/2020/08/Screenshot-2020-08-13-at-11.32.18.png">
 </figure>
 
 <p>Next lets take a look at one of our Lambda functions and see what it&rsquo;s doing. As you can see, we generate an instance of our DynamoDb document client, and pass it to the constructor of our repository, which allows the Lambda function to utilise the repository for each request that is made against it.</p>
-<figure><img src="/images/2020/08/Screenshot-2020-08-13-at-11.34.42.png"/>
+<figure><img src="/images/2020/08/Screenshot-2020-08-13-at-11.34.42.png">
 </figure>
 
 <p>Finally, lets head to the Terminal and execute a few commands to compile our project, compose our Docker container with LocalStack, seed our local DynamoDb table instance, and then execute Lambda API calls against the local instance. The list of commands we are going to execute is as follows, but we&rsquo;ll start with the first two.</p>
-<figure><img src="/images/2020/08/Screenshot-2020-08-13-at-11.36.13.png"/>
+<figure><img src="/images/2020/08/Screenshot-2020-08-13-at-11.36.13.png">
 </figure>
 
 <p>Once the project is successfully compiled, let&rsquo;s run the docker-compose command (docker-compose up -d localstack), and bring the container up locally.</p>
-<figure><img src="/images/2020/08/Screenshot-2020-08-13-at-11.44.58.png"/>
+<figure><img src="/images/2020/08/Screenshot-2020-08-13-at-11.44.58.png">
 </figure>
 
 <p>Now that our Docker container is running successfully, we can run the seed command to seed our local DynamoDb instance with the test data that we wrote earlier.</p>
-<figure><img src="/images/2020/08/Screenshot-2020-08-13-at-11.48.23.png"/>
+<figure><img src="/images/2020/08/Screenshot-2020-08-13-at-11.48.23.png">
 </figure>
 
 <p>The seeding process has been successful&hellip;</p>
-<figure><img src="/images/2020/08/Screenshot-2020-08-13-at-11.49.23.png"/>
+<figure><img src="/images/2020/08/Screenshot-2020-08-13-at-11.49.23.png">
 </figure>
 
 <p>Our final step is to run the start command and start the local instance running.</p>
-<figure><img src="/images/2020/08/Screenshot-2020-08-13-at-11.50.21.png"/>
+<figure><img src="/images/2020/08/Screenshot-2020-08-13-at-11.50.21.png">
 </figure>
 
 <p>The instance is now live!</p>
-<figure><img src="/images/2020/08/Screenshot-2020-08-13-at-12.05.58.png"/>
+<figure><img src="/images/2020/08/Screenshot-2020-08-13-at-12.05.58.png">
 </figure>
 
 <p>Let&rsquo;s head to Postman and make requests to our local API.</p>
-<figure><img src="/images/2020/08/Screenshot-2020-08-13-at-11.52.32.png"/>
+<figure><img src="/images/2020/08/Screenshot-2020-08-13-at-11.52.32.png">
 </figure>
 
 <p>As you can see, that&rsquo;s a successful result and our API is returning data from our DynamoDb instance, which are both running locally via our Docker container.</p>
 <p>Enjoy!</p>
 
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
 
-                            
-                            
-                            
-                            
-                            
-                        </section>
-
-					</div>
-
-                    
-
-<footer id="footer">
-    
-    <section class="split contact">
+    <div class="footer_social-icons">
+</div>
+    <small class="footer_copyright">
+        © 2024 Simon Gilbert.
         
-        
-        
-        
-    </section>
+    </small>
 </footer>
 
-                    
-<div id="copyright">
-    <ul>
-        <li>&copy; Simon Gilbert</li>
-    </ul>
-    <ul>
-        <li style="color:#212931;"><a href='https://www.twine.net/simongilbert'></a></li>
-    </ul>
-</div>
-
-
-            </div>
-            
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-136163864-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-            
 
 
 
 
 
 
+    
+    <script async src="http://localhost:1313/js/main.js" ></script>
 
+    
 
-
-
-<script src='/assets/js/bundle.js'></script>
-
-
-	</body>
+</body>
 </html>

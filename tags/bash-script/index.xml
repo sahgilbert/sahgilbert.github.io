@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bash Script on Simon Gilbert Blog</title>
+    <link>http://localhost:1313/tags/bash-script/</link>
+    <description>Recent content in Bash Script on Simon Gilbert Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Mon, 01 Jan 2024 10:38:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/bash-script/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Creating an Azure App Service via Azure-CLI using a Bash Script</title>
+      <link>http://localhost:1313/post/create-azure-app-service-bash-script/</link>
+      <pubDate>Mon, 01 Jan 2024 10:38:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/create-azure-app-service-bash-script/</guid>
+      
+      <description>Looking to setup an Azure App Service, but tired of configuring it all in the Azure Portal Dashboard? There&amp;rsquo;s a solution to that&amp;hellip;In today&amp;rsquo;s blog I&amp;rsquo;m going to show you a quick way of setting up your managed service via the Azure-CLI, using a Bash Script.</description>
+      
+    </item>
+    
+  </channel>
+</rss>

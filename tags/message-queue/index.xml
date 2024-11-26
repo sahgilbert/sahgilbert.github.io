@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Message Queue on Simon Gilbert Blog</title>
+    <link>http://localhost:1313/tags/message-queue/</link>
+    <description>Recent content in Message Queue on Simon Gilbert Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Thu, 08 Aug 2019 23:06:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/message-queue/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Using Serverless Azure Functions (FaaS) to write Service Bus Topic messages to NoSQL Azure Table Storage</title>
+      <link>http://localhost:1313/post/serverless-azure-functions-service-bus-table-storage/</link>
+      <pubDate>Thu, 08 Aug 2019 23:06:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/serverless-azure-functions-service-bus-table-storage/</guid>
+      
+      <description>Intrigued by serverless architecture?
+Simon Gilbert explains how to use Microsoft Azure Functions to write Service Bus messages via the pub-sub pattern to Azure Table Storage</description>
+      
+    </item>
+    
+    <item>
+      <title>Microsoft Azure Service Bus - Distributed Message Queue (Publish-Subscribe) using C# ASP.Net MVC Core</title>
+      <link>http://localhost:1313/post/azure-service-bus-pub-sub-aspdotnetmvccore/</link>
+      <pubDate>Mon, 01 Apr 2019 10:03:03 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/azure-service-bus-pub-sub-aspdotnetmvccore/</guid>
+      
+      <description>Intermittent throughput spikes? Simon Gilbert explains the publish-subscribe pattern with Microsoft Azure Service Bus using C# ASP.Net MVC Core</description>
+      
+    </item>
+    
+  </channel>
+</rss>

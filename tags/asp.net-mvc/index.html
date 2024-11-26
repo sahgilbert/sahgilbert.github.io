@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en-gb"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title itemprop="name">Asp.Net MVC | Simon Gilbert Blog</title>
+<meta property="og:title" content="Asp.Net MVC | Simon Gilbert Blog" />
+<meta name="twitter:title" content="Asp.Net MVC | Simon Gilbert Blog" />
+<meta itemprop="name" content="Asp.Net MVC | Simon Gilbert Blog" />
+<meta name="application-name" content="Asp.Net MVC | Simon Gilbert Blog" />
+<meta property="og:site_name" content="" />
+
+<meta name="description" content="">
+<meta itemprop="description" content="" />
+<meta property="og:description" content="" />
+<meta name="twitter:description" content="" />
+
+<meta property="og:locale" content="en-gb" />
+<meta name="language" content="en-gb" />
+
+  <link rel="alternate" hreflang="en" href="http://localhost:1313/tags/asp.net-mvc/" title="" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.136.5">
+
+    
+    <meta property="og:url" content="http://localhost:1313/tags/asp.net-mvc/">
+  <meta property="og:site_name" content="Simon Gilbert Blog">
+  <meta property="og:title" content="Asp.Net MVC">
+  <meta property="og:locale" content="en_gb">
+  <meta property="og:type" content="website">
+
+
+    
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Asp.Net MVC">
+
+
+    
+
+    <link rel="canonical" href="http://localhost:1313/tags/asp.net-mvc/">
+    <link href="/tags/asp.net-mvc/index.xml" rel="alternate" type="application/rss+xml" title="Simon Gilbert Blog">
+    <link href="/tags/asp.net-mvc/index.xml" rel="feed" type="application/rss+xml" title="Simon Gilbert Blog">
+    <link href="/style.min.d3cd446461a6bcee3cf602043ff66d247cd30457c3f5ec77c4ff83bf22db981b.css" rel="stylesheet">
+    <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+<link rel="manifest" href="http://localhost:1313/site.webmanifest">
+
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+
+    </head>
+<body data-theme = "" class="notransition">
+
+<script src="/js/theme.js"></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="http://localhost:1313/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title></title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+                
+                
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+<div class="wrapper list-page">
+    <header class="header">
+        <h1 class="header-title center">Asp.Net MVC</h1>
+    </header>
+    <main class="page-content" aria-label="Content">
+        
+        
+        <h2 class="post-year">2024</h2>
+
+        
+
+        
+
+        <article class="post-item">
+    <a href="http://localhost:1313/post/dependency-injection-autofac-azure-table-storage-microsoft-identity/" class="post-link">
+        <h4 class="post-item-title">
+            Dependency Injection for Azure Table Storage including Microsoft Entra Identity Security using C#.Net 8.0.0 and Autofac
+        </h4>
+        
+        <p class="post-summary">
+            Keen to improve the security of your Azure Table Storage Access? Today I&#39;ll explain how to ensure only your dedicated Azure App Service has access to the database when running in production - No more Access Keys or Shared Access Signatures required!
+        </p>
+        
+        
+        
+        <div>
+            <small class="blog-post-small-date">
+                <time class="post-item-meta" datetime="2024-02-07T10:38:00Z">
+                    7 Feb 2024
+                </time>
+            </small>
+        </div>
+        
+        
+        <div class="post-tags">
+            
+                <span class="post-tag">C#.Net</span>
+            
+                <span class="post-tag">Asp.Net MVC</span>
+            
+                <span class="post-tag">Azure Table Storage</span>
+            
+                <span class="post-tag">Autofac</span>
+            
+                <span class="post-tag">Dependency Injection</span>
+            
+        </div>
+        
+    </a>
+</article>
+
+        
+
+        <article class="post-item">
+    <a href="http://localhost:1313/post/deploy-aspnetcore-azure-app-service-github-actions-yaml/" class="post-link">
+        <h4 class="post-item-title">
+            Deploying C# Asp.Net Core to an Azure App Service via GitHub Actions using a deploy.yml File
+        </h4>
+        
+        <p class="post-summary">
+            Keen to understand how to deploy your C# Asp.Net Core application an an Azure App Service using GitHub Actions Continuous Integration (CI/CD)? Today we&#39;ll discuss exactly how to do just that!
+        </p>
+        
+        
+        
+        <div>
+            <small class="blog-post-small-date">
+                <time class="post-item-meta" datetime="2024-01-03T10:38:00Z">
+                    3 Jan 2024
+                </time>
+            </small>
+        </div>
+        
+        
+        <div class="post-tags">
+            
+                <span class="post-tag">C#.Net</span>
+            
+                <span class="post-tag">Asp.Net MVC</span>
+            
+                <span class="post-tag">Azure Web App Service</span>
+            
+                <span class="post-tag">CI/CD</span>
+            
+                <span class="post-tag">Github Actions</span>
+            
+        </div>
+        
+    </a>
+</article>
+
+         
+
+        
+        
+        <h2 class="post-year">2020</h2>
+
+        
+
+        
+
+        <article class="post-item">
+    <a href="http://localhost:1313/post/xunit-ci-azure-appveyor-aspdotnetmvccore/" class="post-link">
+        <h4 class="post-item-title">
+            xUnit &#34;Test Driven&#34; Continuous Integration to Microsoft Azure Web App Services using Appveyor - C# ASP.Net MVC Core
+        </h4>
+        
+        <p class="post-summary">
+            Continuously deploying via Appveyor CI? Simon Gilbert explains only deploying an Azure Web App Service if all your xUnit tests pass in ASP.Net MVC Core
+        </p>
+        
+        
+        
+        <div>
+            <small class="blog-post-small-date">
+                <time class="post-item-meta" datetime="2020-02-05T06:09:00Z">
+                    5 Feb 2020
+                </time>
+            </small>
+        </div>
+        
+        
+        <div class="post-tags">
+            
+                <span class="post-tag">C#.Net</span>
+            
+                <span class="post-tag">Asp.Net MVC</span>
+            
+                <span class="post-tag">Azure Web App Service</span>
+            
+                <span class="post-tag">XUnit</span>
+            
+                <span class="post-tag">CI/CD</span>
+            
+        </div>
+        
+    </a>
+</article>
+
+        
+
+        <article class="post-item">
+    <a href="http://localhost:1313/post/azure-table-storage-pessimistic-concurrency-aspdotnetmvccore/" class="post-link">
+        <h4 class="post-item-title">
+            Microsoft Azure Cloud Table Storage - Optimistic vs. Pessimistic Concurrency using C# ASP.Net MVC Core
+        </h4>
+        
+        <p class="post-summary">
+            Azure Table Storage concurrency issues? Simon Gilbert provides a simple explanation of implementing pessimistic concurrency control using Azure Blobs in C# ASP.Net MVC Core
+        </p>
+        
+        
+        
+        <div>
+            <small class="blog-post-small-date">
+                <time class="post-item-meta" datetime="2020-01-22T11:45:00Z">
+                    22 Jan 2020
+                </time>
+            </small>
+        </div>
+        
+        
+        <div class="post-tags">
+            
+                <span class="post-tag">C#.Net</span>
+            
+                <span class="post-tag">Asp.Net MVC</span>
+            
+                <span class="post-tag">Azure Table Storage</span>
+            
+                <span class="post-tag">Azure Blob Storage</span>
+            
+                <span class="post-tag">Concurrency</span>
+            
+        </div>
+        
+    </a>
+</article>
+
+        
+
+        <article class="post-item">
+    <a href="http://localhost:1313/post/autofac-azure-table-storage-aspnetcore-3/" class="post-link">
+        <h4 class="post-item-title">
+            Using Autofac for Azure Table Storage with C# ASP.Net Core MVC 3.0
+        </h4>
+        
+        <p class="post-summary">
+            Keen to use Autofac&#39;s DI framework with Azure Table Storage? Simon Gilbert explains how to utilise Autofac with ASP.Net MVC Core 3.0
+        </p>
+        
+        
+        
+        <div>
+            <small class="blog-post-small-date">
+                <time class="post-item-meta" datetime="2020-01-02T22:58:06Z">
+                    2 Jan 2020
+                </time>
+            </small>
+        </div>
+        
+        
+        <div class="post-tags">
+            
+                <span class="post-tag">C#.Net</span>
+            
+                <span class="post-tag">Asp.Net MVC</span>
+            
+                <span class="post-tag">Dependency Injection</span>
+            
+                <span class="post-tag">Autofac</span>
+            
+                <span class="post-tag">Azure Table Storage</span>
+            
+        </div>
+        
+    </a>
+</article>
+
+         
+
+        
+        
+        <h2 class="post-year">2019</h2>
+
+        
+
+        
+
+        <article class="post-item">
+    <a href="http://localhost:1313/post/automapper-csharp-aspnetcore-mvc-3-0/" class="post-link">
+        <h4 class="post-item-title">
+            Using AutoMapper with ASP.Net Core MVC 3.0
+        </h4>
+        
+        <p class="post-summary">
+            Need to map between view models and database models? Simon Gilbert explains a performant way of doing this using AutoMapper in C# Asp.Net Core MVC 3.0
+        </p>
+        
+        
+        
+        <div>
+            <small class="blog-post-small-date">
+                <time class="post-item-meta" datetime="2019-12-23T22:11:00Z">
+                    23 Dec 2019
+                </time>
+            </small>
+        </div>
+        
+        
+        <div class="post-tags">
+            
+                <span class="post-tag">C#.Net</span>
+            
+                <span class="post-tag">Asp.Net MVC</span>
+            
+                <span class="post-tag">AutoMapper</span>
+            
+        </div>
+        
+    </a>
+</article>
+
+        
+
+        <article class="post-item">
+    <a href="http://localhost:1313/post/unified-mvc-vs-web-api-controllers-aspnetcore/" class="post-link">
+        <h4 class="post-item-title">
+            Unified MVC &amp; Web Api Controllers - C# ASP.Net Core
+        </h4>
+        
+        <p class="post-summary">
+            Coding both MVC &amp; Web Api combined? Simon Gilbert details unified MVC View &amp; Web Api endpoint controllers in C# ASP.Net Core
+        </p>
+        
+        
+        
+        <div>
+            <small class="blog-post-small-date">
+                <time class="post-item-meta" datetime="2019-05-09T08:30:00Z">
+                    9 May 2019
+                </time>
+            </small>
+        </div>
+        
+        
+        <div class="post-tags">
+            
+                <span class="post-tag">C#.Net</span>
+            
+                <span class="post-tag">Asp.Net MVC</span>
+            
+                <span class="post-tag">Asp.Net Web Api</span>
+            
+        </div>
+        
+    </a>
+</article>
+
+        
+
+        <article class="post-item">
+    <a href="http://localhost:1313/post/docker-containers-kubernetes-k8s-aspdotnetmvccore/" class="post-link">
+        <h4 class="post-item-title">
+            Deploying Docker Containers on Mac OS X using Kubernetes (K8s) - C# ASP.Net MVC Core
+        </h4>
+        
+        <p class="post-summary">
+            Looking to use, deploy &amp; manage containers? Simon Gilbert explains how to setup, configure and deploy Docker containers with Kubernetes (K8s) locally using C# ASP.Net MVC Core
+        </p>
+        
+        
+        
+        <div>
+            <small class="blog-post-small-date">
+                <time class="post-item-meta" datetime="2019-04-04T08:41:00Z">
+                    4 Apr 2019
+                </time>
+            </small>
+        </div>
+        
+        
+        <div class="post-tags">
+            
+                <span class="post-tag">C#.Net</span>
+            
+                <span class="post-tag">Asp.Net MVC</span>
+            
+                <span class="post-tag">Docker</span>
+            
+                <span class="post-tag">Kubernetes</span>
+            
+        </div>
+        
+    </a>
+</article>
+
+        
+
+        <article class="post-item">
+    <a href="http://localhost:1313/post/azure-service-bus-pub-sub-aspdotnetmvccore/" class="post-link">
+        <h4 class="post-item-title">
+            Microsoft Azure Service Bus - Distributed Message Queue (Publish-Subscribe) using C# ASP.Net MVC Core
+        </h4>
+        
+        <p class="post-summary">
+            Intermittent throughput spikes? Simon Gilbert explains the publish-subscribe pattern with Microsoft Azure Service Bus using C# ASP.Net MVC Core
+        </p>
+        
+        
+        
+        <div>
+            <small class="blog-post-small-date">
+                <time class="post-item-meta" datetime="2019-04-01T10:03:03Z">
+                    1 Apr 2019
+                </time>
+            </small>
+        </div>
+        
+        
+        <div class="post-tags">
+            
+                <span class="post-tag">C#.Net</span>
+            
+                <span class="post-tag">Asp.Net MVC</span>
+            
+                <span class="post-tag">Azure Service Bus</span>
+            
+                <span class="post-tag">Message Queue</span>
+            
+        </div>
+        
+    </a>
+</article>
+
+        
+
+        <article class="post-item">
+    <a href="http://localhost:1313/post/continuous-integration-azure-service-appveyor-aspdotnetmvccore/" class="post-link">
+        <h4 class="post-item-title">
+            Continuous Integration for Azure Web App Service Deployments using Appveyor - C# ASP.Net MVC Core
+        </h4>
+        
+        <p class="post-summary">
+            Deploying Microsoft Azure Web App Services? Simon Gilbert explains continuous integration to the Azure Cloud, using YAML, Appveyor and C# ASP.Net MVC Core.
+        </p>
+        
+        
+        
+        <div>
+            <small class="blog-post-small-date">
+                <time class="post-item-meta" datetime="2019-03-30T21:09:52Z">
+                    30 Mar 2019
+                </time>
+            </small>
+        </div>
+        
+        
+        <div class="post-tags">
+            
+                <span class="post-tag">C#.Net</span>
+            
+                <span class="post-tag">Asp.Net MVC</span>
+            
+                <span class="post-tag">Azure Web App Service</span>
+            
+                <span class="post-tag">CI/CD</span>
+            
+                <span class="post-tag">Appveyor</span>
+            
+        </div>
+        
+    </a>
+</article>
+
+        
+
+        <article class="post-item">
+    <a href="http://localhost:1313/post/azure-ssl-tls-cloudflare-csharp-aspdotnetmvccore/" class="post-link">
+        <h4 class="post-item-title">
+            Microsoft Azure Web App Service SSL/TLS Security using Cloudflare - C# ASP.Net MVC Core
+        </h4>
+        
+        <p class="post-summary">
+            SSL/TLS certificate &amp; DDOS protection required? Simon Gilbert details Cloudflare on a Microsoft Azure Web App Service running C# ASP.Net MVC Core
+        </p>
+        
+        
+        
+        <div>
+            <small class="blog-post-small-date">
+                <time class="post-item-meta" datetime="2019-03-29T09:33:00Z">
+                    29 Mar 2019
+                </time>
+            </small>
+        </div>
+        
+        
+        <div class="post-tags">
+            
+                <span class="post-tag">C#.Net</span>
+            
+                <span class="post-tag">Asp.Net MVC</span>
+            
+                <span class="post-tag">Azure Web App Service</span>
+            
+                <span class="post-tag">SSL/TLS</span>
+            
+                <span class="post-tag">Cloudflare</span>
+            
+        </div>
+        
+    </a>
+</article>
+
+        
+
+        <article class="post-item">
+    <a href="http://localhost:1313/post/pci-compliant-card-payment-stripe-aspdotnetmvccore/" class="post-link">
+        <h4 class="post-item-title">
+            Cross-Platform (PCI Compliant) Credit Card Payments using Stripe - C# ASP.Net MVC Core
+        </h4>
+        
+        <p class="post-summary">
+            Need to process credit card payments in your code? Simon Gilbert explains how to accept PCI Compliant card payments using the leading payment provider Stripe, and C# ASP.Net MVC Core in Visual Studio for Mac.
+        </p>
+        
+        
+        
+        <div>
+            <small class="blog-post-small-date">
+                <time class="post-item-meta" datetime="2019-03-25T21:19:00Z">
+                    25 Mar 2019
+                </time>
+            </small>
+        </div>
+        
+        
+        <div class="post-tags">
+            
+                <span class="post-tag">C#.Net</span>
+            
+                <span class="post-tag">Asp.Net MVC</span>
+            
+                <span class="post-tag">Stripe</span>
+            
+        </div>
+        
+    </a>
+</article>
+
+        
+
+        <article class="post-item">
+    <a href="http://localhost:1313/post/view-model-fluentvalidation-aspdotnetmvccore/" class="post-link">
+        <h4 class="post-item-title">
+            Binding Fluent Validation to an HTML View - C# ASP.Net MVC Core
+        </h4>
+        
+        <p class="post-summary">
+            Looking to validate an HTML view at post back? Simon Gilbert explains the steps required to bind your validation rules to an HTML view, using the FluentValidation library and C# ASP.Net MVC Core.
+        </p>
+        
+        
+        
+        <div>
+            <small class="blog-post-small-date">
+                <time class="post-item-meta" datetime="2019-03-23T01:00:00Z">
+                    23 Mar 2019
+                </time>
+            </small>
+        </div>
+        
+        
+        <div class="post-tags">
+            
+                <span class="post-tag">C#.Net</span>
+            
+                <span class="post-tag">Asp.Net MVC</span>
+            
+                <span class="post-tag">Validation</span>
+            
+                <span class="post-tag">Fluent Validation</span>
+            
+        </div>
+        
+    </a>
+</article>
+
+        
+
+        <article class="post-item">
+    <a href="http://localhost:1313/post/validation-rules-fluentvalidation-csharp-dotnetcore/" class="post-link">
+        <h4 class="post-item-title">
+            Strongly-Typed Data Model Validation using Fluent Validation - C# .Net Core
+        </h4>
+        
+        <p class="post-summary">
+            Data integrity feeling tiresome with DataAnnotations? Simon Gilbert details how to clean up your validation rules and separate your concerns, using the FluentValidation library in C# .Net Core.
+        </p>
+        
+        
+        
+        <div>
+            <small class="blog-post-small-date">
+                <time class="post-item-meta" datetime="2019-03-17T13:26:08Z">
+                    17 Mar 2019
+                </time>
+            </small>
+        </div>
+        
+        
+        <div class="post-tags">
+            
+                <span class="post-tag">C#.Net</span>
+            
+                <span class="post-tag">Asp.Net MVC</span>
+            
+                <span class="post-tag">Validation</span>
+            
+                <span class="post-tag">Fluent Validation</span>
+            
+        </div>
+        
+    </a>
+</article>
+
+        
+
+        <article class="post-item">
+    <a href="http://localhost:1313/post/aspnetmvccore-mocking-testing-moq-xunit/" class="post-link">
+        <h4 class="post-item-title">
+            Mocking &amp; Testing using Moq &amp; xUnit Frameworks for C# ASP.Net MVC Core
+        </h4>
+        
+        <p class="post-summary">
+            Keen to take unit testing to the next level? Simon Gilbert walks through the benefits of using the Moq framework combined with xUnit to mock and isolate your unit tests using C# ASP.Net MVC Core in Visual Studio for Mac.
+        </p>
+        
+        
+        
+        <div>
+            <small class="blog-post-small-date">
+                <time class="post-item-meta" datetime="2019-03-02T12:58:49Z">
+                    2 Mar 2019
+                </time>
+            </small>
+        </div>
+        
+        
+        <div class="post-tags">
+            
+                <span class="post-tag">C#.Net</span>
+            
+                <span class="post-tag">Asp.Net MVC</span>
+            
+                <span class="post-tag">Unit Testing</span>
+            
+                <span class="post-tag">Moq</span>
+            
+                <span class="post-tag">XUnit</span>
+            
+        </div>
+        
+    </a>
+</article>
+
+        
+
+        <article class="post-item">
+    <a href="http://localhost:1313/post/azure-blob-storage-image-upload-aspnetmvccore/" class="post-link">
+        <h4 class="post-item-title">
+            Microsoft Azure Cloud Blob Storage Image Upload - C# ASP.Net MVC Core
+        </h4>
+        
+        <p class="post-summary">
+            Ever used Microsoft Azure Blob Storage? Simon Gilbert provides a detailed explanation on how to upload multiple images to Microsoft Azure Blob Storage using C# ASP.Net MVC Core in Visual Studio for Mac.
+        </p>
+        
+        
+        
+        <div>
+            <small class="blog-post-small-date">
+                <time class="post-item-meta" datetime="2019-02-25T01:00:00Z">
+                    25 Feb 2019
+                </time>
+            </small>
+        </div>
+        
+        
+        <div class="post-tags">
+            
+                <span class="post-tag">C#.Net</span>
+            
+                <span class="post-tag">Asp.Net MVC</span>
+            
+                <span class="post-tag">Azure Blob Storage</span>
+            
+        </div>
+        
+    </a>
+</article>
+
+         
+
+        
+        
+        <h2 class="post-year">2018</h2>
+
+        
+
+        
+
+        <article class="post-item">
+    <a href="http://localhost:1313/post/dependency-injection-aspnet-mvc-azure-storage-autofac/" class="post-link">
+        <h4 class="post-item-title">
+            Decoupling - Dependency Injection in C# ASP.Net MVC for Microsoft Azure Table Storage using Autofac
+        </h4>
+        
+        <p class="post-summary">
+            Fancy learning dependency injection?  Simon Gilbert discusses the art of decoupling Azure Table Storage in C# Asp.Net MVC using the dependency injection implementation of the inversion of control design pattern with the Autofac library.
+        </p>
+        
+        
+        
+        <div>
+            <small class="blog-post-small-date">
+                <time class="post-item-meta" datetime="2018-09-01T15:06:00Z">
+                    1 Sep 2018
+                </time>
+            </small>
+        </div>
+        
+        
+        <div class="post-tags">
+            
+                <span class="post-tag">C#.Net</span>
+            
+                <span class="post-tag">Asp.Net MVC</span>
+            
+                <span class="post-tag">Azure Table Storage</span>
+            
+                <span class="post-tag">Autofac</span>
+            
+                <span class="post-tag">Dependency Injection</span>
+            
+        </div>
+        
+    </a>
+</article>
+
+         
+
+         
+
+    </main>
+</div><footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+</div>
+    <small class="footer_copyright">
+        © 2024 Simon Gilbert.
+        
+    </small>
+</footer>
+
+
+
+
+
+
+
+    
+    <script async src="http://localhost:1313/js/main.js" ></script>
+
+    
+
+</body>
+</html>

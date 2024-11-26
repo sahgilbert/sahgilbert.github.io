@@ -1,0 +1,726 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Simon Gilbert Blog</title>
+    <link>http://localhost:1313/tags/</link>
+    <description>Recent content in Tags on Simon Gilbert Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Wed, 07 Feb 2024 10:38:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Asp.Net MVC</title>
+      <link>http://localhost:1313/tags/asp.net-mvc/</link>
+      <pubDate>Wed, 07 Feb 2024 10:38:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/asp.net-mvc/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Autofac</title>
+      <link>http://localhost:1313/tags/autofac/</link>
+      <pubDate>Wed, 07 Feb 2024 10:38:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/autofac/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Azure Table Storage</title>
+      <link>http://localhost:1313/tags/azure-table-storage/</link>
+      <pubDate>Wed, 07 Feb 2024 10:38:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/azure-table-storage/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>C#.Net</title>
+      <link>http://localhost:1313/tags/c%23.net/</link>
+      <pubDate>Wed, 07 Feb 2024 10:38:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/c%23.net/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Dependency Injection</title>
+      <link>http://localhost:1313/tags/dependency-injection/</link>
+      <pubDate>Wed, 07 Feb 2024 10:38:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/dependency-injection/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Azure Web App Service</title>
+      <link>http://localhost:1313/tags/azure-web-app-service/</link>
+      <pubDate>Wed, 03 Jan 2024 10:38:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/azure-web-app-service/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>CI/CD</title>
+      <link>http://localhost:1313/tags/ci/cd/</link>
+      <pubDate>Wed, 03 Jan 2024 10:38:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/ci/cd/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Github Actions</title>
+      <link>http://localhost:1313/tags/github-actions/</link>
+      <pubDate>Wed, 03 Jan 2024 10:38:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/github-actions/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Azure</title>
+      <link>http://localhost:1313/tags/azure/</link>
+      <pubDate>Mon, 01 Jan 2024 10:38:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/azure/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Azure-CLI</title>
+      <link>http://localhost:1313/tags/azure-cli/</link>
+      <pubDate>Mon, 01 Jan 2024 10:38:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/azure-cli/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Bash Script</title>
+      <link>http://localhost:1313/tags/bash-script/</link>
+      <pubDate>Mon, 01 Jan 2024 10:38:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/bash-script/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>AWS</title>
+      <link>http://localhost:1313/tags/aws/</link>
+      <pubDate>Wed, 18 Aug 2021 12:30:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/aws/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>CircleCI</title>
+      <link>http://localhost:1313/tags/circleci/</link>
+      <pubDate>Wed, 18 Aug 2021 12:30:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/circleci/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Serverless</title>
+      <link>http://localhost:1313/tags/serverless/</link>
+      <pubDate>Wed, 18 Aug 2021 12:30:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/serverless/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Typescript</title>
+      <link>http://localhost:1313/tags/typescript/</link>
+      <pubDate>Wed, 18 Aug 2021 12:30:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/typescript/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Chai</title>
+      <link>http://localhost:1313/tags/chai/</link>
+      <pubDate>Wed, 16 Jun 2021 15:41:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/chai/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Mocha</title>
+      <link>http://localhost:1313/tags/mocha/</link>
+      <pubDate>Wed, 16 Jun 2021 15:41:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/mocha/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>TTD</title>
+      <link>http://localhost:1313/tags/ttd/</link>
+      <pubDate>Wed, 16 Jun 2021 15:41:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/ttd/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Integration Testing</title>
+      <link>http://localhost:1313/tags/integration-testing/</link>
+      <pubDate>Wed, 14 Apr 2021 17:53:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/integration-testing/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Jest</title>
+      <link>http://localhost:1313/tags/jest/</link>
+      <pubDate>Wed, 14 Apr 2021 17:53:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/jest/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Supertest</title>
+      <link>http://localhost:1313/tags/supertest/</link>
+      <pubDate>Wed, 14 Apr 2021 17:53:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/supertest/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Docker</title>
+      <link>http://localhost:1313/tags/docker/</link>
+      <pubDate>Tue, 12 Jan 2021 11:24:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/docker/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>DynamoDb</title>
+      <link>http://localhost:1313/tags/dynamodb/</link>
+      <pubDate>Tue, 12 Jan 2021 11:24:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/dynamodb/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>RESTful Api</title>
+      <link>http://localhost:1313/tags/restful-api/</link>
+      <pubDate>Tue, 12 Jan 2021 11:24:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/restful-api/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>YAML</title>
+      <link>http://localhost:1313/tags/yaml/</link>
+      <pubDate>Thu, 19 Nov 2020 18:14:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/yaml/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Node.js</title>
+      <link>http://localhost:1313/tags/node.js/</link>
+      <pubDate>Thu, 10 Sep 2020 12:13:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/node.js/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Artificial Intelligence</title>
+      <link>http://localhost:1313/tags/artificial-intelligence/</link>
+      <pubDate>Wed, 01 Jul 2020 12:26:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/artificial-intelligence/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>React.js</title>
+      <link>http://localhost:1313/tags/react.js/</link>
+      <pubDate>Wed, 01 Jul 2020 12:26:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/react.js/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Asp.Net Web Api</title>
+      <link>http://localhost:1313/tags/asp.net-web-api/</link>
+      <pubDate>Wed, 03 Jun 2020 14:52:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/asp.net-web-api/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Redux</title>
+      <link>http://localhost:1313/tags/redux/</link>
+      <pubDate>Wed, 03 Jun 2020 14:52:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/redux/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Validation</title>
+      <link>http://localhost:1313/tags/validation/</link>
+      <pubDate>Thu, 14 May 2020 14:38:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/validation/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Bootstrap</title>
+      <link>http://localhost:1313/tags/bootstrap/</link>
+      <pubDate>Mon, 06 Apr 2020 07:59:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/bootstrap/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>SPA</title>
+      <link>http://localhost:1313/tags/spa/</link>
+      <pubDate>Mon, 06 Apr 2020 07:59:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/spa/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>XUnit</title>
+      <link>http://localhost:1313/tags/xunit/</link>
+      <pubDate>Wed, 05 Feb 2020 06:09:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/xunit/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Azure Blob Storage</title>
+      <link>http://localhost:1313/tags/azure-blob-storage/</link>
+      <pubDate>Wed, 22 Jan 2020 11:45:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/azure-blob-storage/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Concurrency</title>
+      <link>http://localhost:1313/tags/concurrency/</link>
+      <pubDate>Wed, 22 Jan 2020 11:45:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/concurrency/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>AutoMapper</title>
+      <link>http://localhost:1313/tags/automapper/</link>
+      <pubDate>Mon, 23 Dec 2019 22:11:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/automapper/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Azure Functions</title>
+      <link>http://localhost:1313/tags/azure-functions/</link>
+      <pubDate>Thu, 08 Aug 2019 23:06:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/azure-functions/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Azure Service Bus</title>
+      <link>http://localhost:1313/tags/azure-service-bus/</link>
+      <pubDate>Thu, 08 Aug 2019 23:06:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/azure-service-bus/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Message Queue</title>
+      <link>http://localhost:1313/tags/message-queue/</link>
+      <pubDate>Thu, 08 Aug 2019 23:06:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/message-queue/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Performance</title>
+      <link>http://localhost:1313/tags/performance/</link>
+      <pubDate>Thu, 02 May 2019 06:37:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/performance/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>GIST</title>
+      <link>http://localhost:1313/tags/gist/</link>
+      <pubDate>Mon, 29 Apr 2019 18:24:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/gist/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Github</title>
+      <link>http://localhost:1313/tags/github/</link>
+      <pubDate>Mon, 29 Apr 2019 18:24:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/github/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Xamarin.iOS</title>
+      <link>http://localhost:1313/tags/xamarin.ios/</link>
+      <pubDate>Tue, 23 Apr 2019 10:21:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/xamarin.ios/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Documentation</title>
+      <link>http://localhost:1313/tags/documentation/</link>
+      <pubDate>Thu, 18 Apr 2019 10:38:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/documentation/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Swagger</title>
+      <link>http://localhost:1313/tags/swagger/</link>
+      <pubDate>Thu, 18 Apr 2019 10:38:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/swagger/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Swashbuckle</title>
+      <link>http://localhost:1313/tags/swashbuckle/</link>
+      <pubDate>Thu, 18 Apr 2019 10:38:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/swashbuckle/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Entity Framework</title>
+      <link>http://localhost:1313/tags/entity-framework/</link>
+      <pubDate>Thu, 11 Apr 2019 06:10:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/entity-framework/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Kubernetes</title>
+      <link>http://localhost:1313/tags/kubernetes/</link>
+      <pubDate>Thu, 04 Apr 2019 08:41:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/kubernetes/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Appveyor</title>
+      <link>http://localhost:1313/tags/appveyor/</link>
+      <pubDate>Sat, 30 Mar 2019 21:09:52 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/appveyor/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Cloudflare</title>
+      <link>http://localhost:1313/tags/cloudflare/</link>
+      <pubDate>Fri, 29 Mar 2019 09:33:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/cloudflare/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>SSL/TLS</title>
+      <link>http://localhost:1313/tags/ssl/tls/</link>
+      <pubDate>Fri, 29 Mar 2019 09:33:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/ssl/tls/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Stripe</title>
+      <link>http://localhost:1313/tags/stripe/</link>
+      <pubDate>Mon, 25 Mar 2019 21:19:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/stripe/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Fluent Validation</title>
+      <link>http://localhost:1313/tags/fluent-validation/</link>
+      <pubDate>Sat, 23 Mar 2019 01:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/fluent-validation/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>BCrypt</title>
+      <link>http://localhost:1313/tags/bcrypt/</link>
+      <pubDate>Thu, 21 Mar 2019 14:53:59 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/bcrypt/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Cryptography</title>
+      <link>http://localhost:1313/tags/cryptography/</link>
+      <pubDate>Thu, 21 Mar 2019 14:53:59 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/cryptography/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>MD5</title>
+      <link>http://localhost:1313/tags/md5/</link>
+      <pubDate>Thu, 21 Mar 2019 14:53:59 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/md5/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>PBKDF2</title>
+      <link>http://localhost:1313/tags/pbkdf2/</link>
+      <pubDate>Thu, 21 Mar 2019 14:53:59 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/pbkdf2/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>SMS</title>
+      <link>http://localhost:1313/tags/sms/</link>
+      <pubDate>Tue, 12 Mar 2019 08:17:41 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/sms/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Twilio</title>
+      <link>http://localhost:1313/tags/twilio/</link>
+      <pubDate>Tue, 12 Mar 2019 08:17:41 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/twilio/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Moq</title>
+      <link>http://localhost:1313/tags/moq/</link>
+      <pubDate>Sat, 02 Mar 2019 12:58:49 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/moq/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Unit Testing</title>
+      <link>http://localhost:1313/tags/unit-testing/</link>
+      <pubDate>Sat, 02 Mar 2019 12:58:49 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/unit-testing/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Algorithms</title>
+      <link>http://localhost:1313/tags/algorithms/</link>
+      <pubDate>Wed, 20 Feb 2019 20:17:27 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/algorithms/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Haversine</title>
+      <link>http://localhost:1313/tags/haversine/</link>
+      <pubDate>Fri, 15 Feb 2019 14:21:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/haversine/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Parallel Programming</title>
+      <link>http://localhost:1313/tags/parallel-programming/</link>
+      <pubDate>Fri, 15 Feb 2019 14:21:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/parallel-programming/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+  </channel>
+</rss>

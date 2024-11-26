@@ -1,210 +1,251 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
+<html lang="en-gb"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<html lang='en'>
-	<head>
-		<title>Documenting your RESTful C# ASP.Net Core Web Api using Swashbuckle &amp; Swagger &middot; Simon Gilbert</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		
-		
-		
-		<link rel="stylesheet" href="/assets/css/main.min.css">
-		
-		
-		<link rel="shortcut icon" href="/favicon.ico">
-		
-		
-		<noscript><link rel="stylesheet" href='/assets/css/noscript.css' /></noscript>
+<title itemprop="name">Documenting your RESTful C# ASP.Net Core Web Api using Swashbuckle &amp; Swagger | Simon Gilbert Blog</title>
+<meta property="og:title" content="Documenting your RESTful C# ASP.Net Core Web Api using Swashbuckle &amp; Swagger | Simon Gilbert Blog" />
+<meta name="twitter:title" content="Documenting your RESTful C# ASP.Net Core Web Api using Swashbuckle &amp; Swagger | Simon Gilbert Blog" />
+<meta itemprop="name" content="Documenting your RESTful C# ASP.Net Core Web Api using Swashbuckle &amp; Swagger | Simon Gilbert Blog" />
+<meta name="application-name" content="Documenting your RESTful C# ASP.Net Core Web Api using Swashbuckle &amp; Swagger | Simon Gilbert Blog" />
+<meta property="og:site_name" content="" />
 
-		
-    		
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-136163864-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
+<meta name="description" content="">
+<meta itemprop="description" content="" />
+<meta property="og:description" content="" />
+<meta name="twitter:description" content="" />
 
-  		
-	</head>
+<meta property="og:locale" content="en-gb" />
+<meta name="language" content="en-gb" />
 
-	<body lang='en' class="is-preload">
+  <link rel="alternate" hreflang="en" href="http://localhost:1313/post/aspnetcore-web-api-swashbuckle-swagger/" title="" />
 
-		
-			<div id="wrapper">
 
-                
-<header id="header">
-    <a href='/' class="logo">Simon Gilbert</a>
-</header>
+<meta itemprop="image" content="http://localhost:1313/images/2019/05/simon-gilbert-dev-cto-blog-22.png" />
+<meta property="og:image" content="http://localhost:1313/images/2019/05/simon-gilbert-dev-cto-blog-22.png" />
+<meta name="twitter:image" content="http://localhost:1313/images/2019/05/simon-gilbert-dev-cto-blog-22.png" />
+<meta name="twitter:image:src" content="http://localhost:1313/images/2019/05/simon-gilbert-dev-cto-blog-22.png" />
 
-                
 
-<nav id="nav">
-    <ul class="links">
-        <li class="active"><a href='/'>Home</a></li>
-        
-        
-    </ul>
+
+<meta name="generator" content="Hugo 0.136.5">
+
     
-</nav>
+    <meta property="og:url" content="http://localhost:1313/post/aspnetcore-web-api-swashbuckle-swagger/">
+  <meta property="og:site_name" content="Simon Gilbert Blog">
+  <meta property="og:title" content="Documenting your RESTful C# ASP.Net Core Web Api using Swashbuckle & Swagger">
+  <meta property="og:description" content="Need to document your RESTful Api?
+Simon Gilbert explains how to document endpoints using Swashbuckle Swagger for C# ASP.Net Core Web Api">
+  <meta property="og:locale" content="en_gb">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2019-04-18T10:38:00+00:00">
+    <meta property="article:modified_time" content="2019-04-18T10:38:00+00:00">
+    <meta property="article:tag" content="C#.Net">
+    <meta property="article:tag" content="Asp.Net Web Api">
+    <meta property="article:tag" content="Swashbuckle">
+    <meta property="article:tag" content="Swagger">
+    <meta property="article:tag" content="Documentation">
 
 
-				
-					<div id="main">
+    
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Documenting your RESTful C# ASP.Net Core Web Api using Swashbuckle & Swagger">
+  <meta name="twitter:description" content="Need to document your RESTful Api?
+Simon Gilbert explains how to document endpoints using Swashbuckle Swagger for C# ASP.Net Core Web Api">
 
-						
-                        <section class="post">
-                            <header class="major">
-                                
-                                <span class="date">April 18, 2019</span>
-                                
-                                <h1>Documenting your RESTful C# ASP.Net Core Web Api using Swashbuckle &amp; Swagger</h1>
-                                <p></p>
-                            </header>
-                            
-                            <div class="image main"><img src="/images/2019/05/simon-gilbert-dev-cto-blog-22.png" alt="" /></div>
-                            
-                            <h3 id="restful-api-endpoints">RESTful Api Endpoints</h3>
+
+    
+
+    <link rel="canonical" href="http://localhost:1313/post/aspnetcore-web-api-swashbuckle-swagger/">
+    <link href="/style.min.d3cd446461a6bcee3cf602043ff66d247cd30457c3f5ec77c4ff83bf22db981b.css" rel="stylesheet">
+    <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+<link rel="manifest" href="http://localhost:1313/site.webmanifest">
+
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+
+    </head>
+<body data-theme = "" class="notransition">
+
+<script src="/js/theme.js"></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="http://localhost:1313/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title></title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+                
+                
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title center">Documenting your RESTful C# ASP.Net Core Web Api using Swashbuckle &amp; Swagger</h1>
+                
+                
+                
+                <div class="post-meta">
+                    <time class="blog-post-date" datetime="2019-04-18T10:38:00&#43;00:00" itemprop="datePublished"> Apr 18, 2019 </time>
+                </div>
+                
+            </header>
+            
+            
+                <div class="centered-landscape-image">
+                    <img src="/images/2019/05/simon-gilbert-dev-cto-blog-22.png" alt="Documenting your RESTful C# ASP.Net Core Web Api using Swashbuckle &amp; Swagger">
+                </div>
+            
+            <hr class="hr-blog-header"/>
+            <div class="page-content">
+                <h3 id="restful-api-endpoints">RESTful Api Endpoints</h3>
 <p>How often have you been in a situation where you&rsquo;re having to <strong>code</strong> against an undocumented <strong>API</strong>? Perhaps your team is building an <strong>API</strong> and publishing it to another group of developers. Understanding the <strong>API</strong> endpoints without the correct documentation can be a challenge&hellip;</p>
 <figure><img src="/images/2019/05/simon-gilbert-dev-cto-swagger-1.png"
-         alt="C# ASP.Net Core Web Api - Swashbuckle Swagger"/><figcaption>
-            <p>C# ASP.Net Core Web Api - Swashbuckle Swagger</p>
-        </figcaption>
+    alt="C# ASP.Net Core Web Api - Swashbuckle Swagger"><figcaption>
+      <p>C# ASP.Net Core Web Api - Swashbuckle Swagger</p>
+    </figcaption>
 </figure>
 
 <h3 id="enter-swagger">Enter &ldquo;Swagger&rdquo;&hellip;</h3>
 <p><strong>Swagger</strong> enables you o generate interactive documentation as a readable representation of a <strong>RESTful API</strong>.</p>
 <p>In order to generate <strong>Swagger</strong> documents for our <strong>C# ASP.Net Core Web Api</strong> application, we need to utilise <strong>Swashbuckle</strong> - An open source project.</p>
 <figure><img src="/images/2019/05/simon-gilbert-dev-cto-swagger-2.png"
-         alt="C# ASP.Net Core Web Api - Swashbuckle Swagger"/><figcaption>
-            <p>C# ASP.Net Core Web Api - Swashbuckle Swagger</p>
-        </figcaption>
+    alt="C# ASP.Net Core Web Api - Swashbuckle Swagger"><figcaption>
+      <p>C# ASP.Net Core Web Api - Swashbuckle Swagger</p>
+    </figcaption>
 </figure>
 
 <h3 id="lets-code">Let&rsquo;s Code&hellip;</h3>
 <p>I&rsquo;ve implemented a basic <strong>C# ASP.Net Core Web Api</strong> solution with 2 public endpoints for us to document.</p>
 <figure><img src="/images/2019/05/simon-gilbert-dev-cto-swagger-3.png"
-         alt="C# ASP.Net Core Web Api - Swashbuckle Swagger"/><figcaption>
-            <p>C# ASP.Net Core Web Api - Swashbuckle Swagger</p>
-        </figcaption>
+    alt="C# ASP.Net Core Web Api - Swashbuckle Swagger"><figcaption>
+      <p>C# ASP.Net Core Web Api - Swashbuckle Swagger</p>
+    </figcaption>
 </figure>
 
 <p>Now to pull in the required <strong>Swashbuckle</strong> packages from <strong>Nuget</strong>.</p>
 <figure><img src="/images/2019/05/simon-gilbert-dev-cto-swagger-4.png"
-         alt="C# ASP.Net Core Web Api - Swashbuckle Swagger"/><figcaption>
-            <p>C# ASP.Net Core Web Api - Swashbuckle Swagger</p>
-        </figcaption>
+    alt="C# ASP.Net Core Web Api - Swashbuckle Swagger"><figcaption>
+      <p>C# ASP.Net Core Web Api - Swashbuckle Swagger</p>
+    </figcaption>
 </figure>
 
 <p>Now to add our configuration into the <strong>appsettings</strong> file.</p>
 <figure><img src="/images/2019/05/simon-gilbert-dev-cto-swagger-8.png"
-         alt="C# ASP.Net Core Web Api - Swashbuckle Swagger"/><figcaption>
-            <p>C# ASP.Net Core Web Api - Swashbuckle Swagger</p>
-        </figcaption>
+    alt="C# ASP.Net Core Web Api - Swashbuckle Swagger"><figcaption>
+      <p>C# ASP.Net Core Web Api - Swashbuckle Swagger</p>
+    </figcaption>
 </figure>
 
 <p>Head to your <strong>Startup.cs</strong> file and let&rsquo;s configure our <strong>Swagger</strong> middleware. Our previously added configuration details can now be made use of.</p>
 <figure><img src="/images/2019/05/simon-gilbert-dev-cto-swagger-5.png"
-         alt="C# ASP.Net Core Web Api - Swashbuckle Swagger"/><figcaption>
-            <p>C# ASP.Net Core Web Api - Swashbuckle Swagger</p>
-        </figcaption>
+    alt="C# ASP.Net Core Web Api - Swashbuckle Swagger"><figcaption>
+      <p>C# ASP.Net Core Web Api - Swashbuckle Swagger</p>
+    </figcaption>
 </figure>
 
 <p>Now to make use of the variables and configure our Swagger service.</p>
 <figure><img src="/images/2019/05/simon-gilbert-dev-cto-swagger-6.png"
-         alt="C# ASP.Net Core Web Api - Swashbuckle Swagger"/><figcaption>
-            <p>C# ASP.Net Core Web Api - Swashbuckle Swagger</p>
-        </figcaption>
+    alt="C# ASP.Net Core Web Api - Swashbuckle Swagger"><figcaption>
+      <p>C# ASP.Net Core Web Api - Swashbuckle Swagger</p>
+    </figcaption>
 </figure>
 
 <p>We can now configure our Swagger endpoint.</p>
 <figure><img src="/images/2019/05/simon-gilbert-dev-cto-swagger-7.png"
-         alt="C# ASP.Net Core Web Api - Swashbuckle Swagger"/><figcaption>
-            <p>C# ASP.Net Core Web Api - Swashbuckle Swagger</p>
-        </figcaption>
+    alt="C# ASP.Net Core Web Api - Swashbuckle Swagger"><figcaption>
+      <p>C# ASP.Net Core Web Api - Swashbuckle Swagger</p>
+    </figcaption>
 </figure>
 
 <p>Finally let&rsquo;s head to the endpoint URL -</p>
 <figure><img src="/images/2019/05/simon-gilbert-dev-cto-swagger-10.png"
-         alt="C# ASP.Net Core Web Api - Swashbuckle Swagger"/><figcaption>
-            <p>C# ASP.Net Core Web Api - Swashbuckle Swagger</p>
-        </figcaption>
+    alt="C# ASP.Net Core Web Api - Swashbuckle Swagger"><figcaption>
+      <p>C# ASP.Net Core Web Api - Swashbuckle Swagger</p>
+    </figcaption>
 </figure>
 
 <p>&hellip;and here&rsquo;s the result!</p>
 <figure><img src="/images/2019/05/simon-gilbert-dev-cto-swagger-9.png"
-         alt="C# ASP.Net Core Web Api - Swashbuckle Swagger"/><figcaption>
-            <p>C# ASP.Net Core Web Api - Swashbuckle Swagger</p>
-        </figcaption>
+    alt="C# ASP.Net Core Web Api - Swashbuckle Swagger"><figcaption>
+      <p>C# ASP.Net Core Web Api - Swashbuckle Swagger</p>
+    </figcaption>
 </figure>
 
 <p>Enjoy!</p>
 
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
 
-                            
-                            
-                            
-                            
-                            
-                        </section>
-
-					</div>
-
-                    
-
-<footer id="footer">
-    
-    <section class="split contact">
+    <div class="footer_social-icons">
+</div>
+    <small class="footer_copyright">
+        © 2024 Simon Gilbert.
         
-        
-        
-        
-    </section>
+    </small>
 </footer>
 
-                    
-<div id="copyright">
-    <ul>
-        <li>&copy; Simon Gilbert</li>
-    </ul>
-    <ul>
-        <li style="color:#212931;"><a href='https://www.twine.net/simongilbert'></a></li>
-    </ul>
-</div>
-
-
-            </div>
-            
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-136163864-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-            
 
 
 
 
 
 
+    
+    <script async src="http://localhost:1313/js/main.js" ></script>
 
+    
 
-
-
-<script src='/assets/js/bundle.js'></script>
-
-
-	</body>
+</body>
 </html>

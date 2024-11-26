@@ -1,401 +1,488 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Simon Gilbert</title>
-    <link>https://sahgilbert.github.io/</link>
-    <description>Recent content on Simon Gilbert</description>
+    <title>Simon Gilbert Blog</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on Simon Gilbert Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Wed, 07 Feb 2024 10:38:00 +0000</lastBuildDate><atom:link href="https://sahgilbert.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 07 Feb 2024 10:38:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Dependency Injection for Azure Table Storage including Microsoft Entra Identity Security using C#.Net 8.0.0 and Autofac</title>
-      <link>https://sahgilbert.github.io/post/dependency-injection-autofac-azure-table-storage-microsoft-identity/</link>
+      <link>http://localhost:1313/post/dependency-injection-autofac-azure-table-storage-microsoft-identity/</link>
       <pubDate>Wed, 07 Feb 2024 10:38:00 +0000</pubDate>
       
-      <guid>https://sahgilbert.github.io/post/dependency-injection-autofac-azure-table-storage-microsoft-identity/</guid>
+      <guid>http://localhost:1313/post/dependency-injection-autofac-azure-table-storage-microsoft-identity/</guid>
+      
       <description>Keen to improve the security of your Azure Table Storage Access? Today I&amp;rsquo;ll explain how to ensure only your dedicated Azure App Service has access to the database when running in production - No more Access Keys or Shared Access Signatures required!</description>
+      
     </item>
     
     <item>
       <title>Deploying C# Asp.Net Core to an Azure App Service via GitHub Actions using a deploy.yml File</title>
-      <link>https://sahgilbert.github.io/post/deploy-aspnetcore-azure-app-service-github-actions-yaml/</link>
+      <link>http://localhost:1313/post/deploy-aspnetcore-azure-app-service-github-actions-yaml/</link>
       <pubDate>Wed, 03 Jan 2024 10:38:00 +0000</pubDate>
       
-      <guid>https://sahgilbert.github.io/post/deploy-aspnetcore-azure-app-service-github-actions-yaml/</guid>
+      <guid>http://localhost:1313/post/deploy-aspnetcore-azure-app-service-github-actions-yaml/</guid>
+      
       <description>Keen to understand how to deploy your C# Asp.Net Core application an an Azure App Service using GitHub Actions Continuous Integration (CI/CD)? Today we&amp;rsquo;ll discuss exactly how to do just that!</description>
+      
     </item>
     
     <item>
       <title>Creating an Azure App Service via Azure-CLI using a Bash Script</title>
-      <link>https://sahgilbert.github.io/post/create-azure-app-service-bash-script/</link>
+      <link>http://localhost:1313/post/create-azure-app-service-bash-script/</link>
       <pubDate>Mon, 01 Jan 2024 10:38:00 +0000</pubDate>
       
-      <guid>https://sahgilbert.github.io/post/create-azure-app-service-bash-script/</guid>
+      <guid>http://localhost:1313/post/create-azure-app-service-bash-script/</guid>
+      
       <description>Looking to setup an Azure App Service, but tired of configuring it all in the Azure Portal Dashboard? There&amp;rsquo;s a solution to that&amp;hellip;In today&amp;rsquo;s blog I&amp;rsquo;m going to show you a quick way of setting up your managed service via the Azure-CLI, using a Bash Script.</description>
+      
     </item>
     
     <item>
       <title>Continuous Integration (CI/CD) for a Typescript Serverless Lambda API using CircleCI</title>
-      <link>https://sahgilbert.github.io/post/continuous-integration-ci-cd-typescript-serverless-lambda-api-circleci/</link>
+      <link>http://localhost:1313/post/continuous-integration-ci-cd-typescript-serverless-lambda-api-circleci/</link>
       <pubDate>Wed, 18 Aug 2021 12:30:00 +0000</pubDate>
       
-      <guid>https://sahgilbert.github.io/post/continuous-integration-ci-cd-typescript-serverless-lambda-api-circleci/</guid>
+      <guid>http://localhost:1313/post/continuous-integration-ci-cd-typescript-serverless-lambda-api-circleci/</guid>
+      
       <description>Are you getting tired of manually deploying your code to AWS after each code change? Today we&amp;rsquo;re going to implement Continuous Integration for Serverless Lambda, to automate our deployments using a CI/CD pipeline, based on the Git branch we push the commit to!</description>
+      
     </item>
     
     <item>
       <title>Test Driven Development (TDD) Typescript Lambda API using Mocha and Chai</title>
-      <link>https://sahgilbert.github.io/post/test-driven-development-tdd-typescript-lambda-api-mocha-chai/</link>
+      <link>http://localhost:1313/post/test-driven-development-tdd-typescript-lambda-api-mocha-chai/</link>
       <pubDate>Wed, 16 Jun 2021 15:41:00 +0000</pubDate>
       
-      <guid>https://sahgilbert.github.io/post/test-driven-development-tdd-typescript-lambda-api-mocha-chai/</guid>
+      <guid>http://localhost:1313/post/test-driven-development-tdd-typescript-lambda-api-mocha-chai/</guid>
+      
       <description>Test Driven Development (TDD) has many benefits, including allowing us to focus on our requirements with a &amp;ldquo;unit test first approach&amp;rdquo; to ensure that we&amp;rsquo;re only deploying code where the unit tests pass. Today we&amp;rsquo;re going to cover using Mocha and Chai to test our Typescript Lambda algorithms!</description>
+      
     </item>
     
     <item>
       <title>Integration Testing a Typescript Lambda API using Jest (&amp; Supertest)</title>
-      <link>https://sahgilbert.github.io/post/integration-testing-typescript-lambda-api-jest-supertest/</link>
+      <link>http://localhost:1313/post/integration-testing-typescript-lambda-api-jest-supertest/</link>
       <pubDate>Wed, 14 Apr 2021 17:53:00 +0000</pubDate>
       
-      <guid>https://sahgilbert.github.io/post/integration-testing-typescript-lambda-api-jest-supertest/</guid>
+      <guid>http://localhost:1313/post/integration-testing-typescript-lambda-api-jest-supertest/</guid>
+      
       <description>Integration Testing is a level of software testing where individual units are combined and tested as a group. The purpose of this level of testing is to expose faults in the interaction between integrated units. Today we&amp;rsquo;re going to look at doing Integration Testing using Jest and Supertest.</description>
+      
     </item>
     
     <item>
       <title>Typescript Lambda &amp; DynamoDB RESTful Api RUN LOCALLY using Docker and LocalStack!</title>
-      <link>https://sahgilbert.github.io/post/typescript-lambda-dynamodb-rest-api-locally-docker-localstack/</link>
+      <link>http://localhost:1313/post/typescript-lambda-dynamodb-rest-api-locally-docker-localstack/</link>
       <pubDate>Tue, 12 Jan 2021 11:24:00 +0000</pubDate>
       
-      <guid>https://sahgilbert.github.io/post/typescript-lambda-dynamodb-rest-api-locally-docker-localstack/</guid>
+      <guid>http://localhost:1313/post/typescript-lambda-dynamodb-rest-api-locally-docker-localstack/</guid>
+      
       <description>LocalStack is pretty awesome! It allows you to emulate a number of AWS services on your computer. Today we&amp;rsquo;re just going to focus on emulating DynamoDB locally to test our Serverless Lambda.</description>
+      
     </item>
     
     <item>
       <title>Configuring DynamoDb using Serverless YAML</title>
-      <link>https://sahgilbert.github.io/post/configuring-dynamodb-using-serverless-yaml/</link>
+      <link>http://localhost:1313/post/configuring-dynamodb-using-serverless-yaml/</link>
       <pubDate>Thu, 19 Nov 2020 18:14:00 +0000</pubDate>
       
-      <guid>https://sahgilbert.github.io/post/configuring-dynamodb-using-serverless-yaml/</guid>
+      <guid>http://localhost:1313/post/configuring-dynamodb-using-serverless-yaml/</guid>
+      
       <description>DynamoDb is a brilliant NoSQL database from AWS. It integrates directly with the Serverless Framework, so today we&amp;rsquo;re going to configure Serverless to work with DynamoDb</description>
+      
     </item>
     
     <item>
       <title>Creating and Deploying a NodeJS Serverless Lambda to AWS</title>
-      <link>https://sahgilbert.github.io/post/creating-and-deploying-a-serverless-lambda-to-aws/</link>
+      <link>http://localhost:1313/post/creating-and-deploying-a-serverless-lambda-to-aws/</link>
       <pubDate>Thu, 10 Sep 2020 12:13:00 +0000</pubDate>
       
-      <guid>https://sahgilbert.github.io/post/creating-and-deploying-a-serverless-lambda-to-aws/</guid>
+      <guid>http://localhost:1313/post/creating-and-deploying-a-serverless-lambda-to-aws/</guid>
+      
       <description>Serverless Lambda is amazing, so today we&amp;rsquo;re going to use a NodeJS template to create and deploy a new Serverless Lambda project to AWS.</description>
+      
     </item>
     
     <item>
       <title>Setting Up The Serverless Lambda Framework Within AWS</title>
-      <link>https://sahgilbert.github.io/post/setting-up-the-serverless-lambda-framework-within-aws/</link>
+      <link>http://localhost:1313/post/setting-up-the-serverless-lambda-framework-within-aws/</link>
       <pubDate>Fri, 07 Aug 2020 11:40:00 +0000</pubDate>
       
-      <guid>https://sahgilbert.github.io/post/setting-up-the-serverless-lambda-framework-within-aws/</guid>
+      <guid>http://localhost:1313/post/setting-up-the-serverless-lambda-framework-within-aws/</guid>
+      
       <description>Serverless Lambda - I&amp;rsquo;m sure you&amp;rsquo;ve heard all about it and are keen to get coding some serverless functions, but before we get started, we need to configure AWS to allow us to create and deploy Serverless projects, so today we&amp;rsquo;re going to cover getting setup with Serverless in AWS!</description>
+      
     </item>
     
     <item>
       <title>Automated Customer Service via Conversational Artificial Intelligence (AI) - Using Amazon Web Services (AWS) Connect, Lambda, DynamoDb, S3, Node.js, ReactJS, Axios &amp; Bootstrap 4</title>
-      <link>https://sahgilbert.github.io/post/aws-connect-lambda-dynamodb-s3-nodejs-reactjs-axios/</link>
+      <link>http://localhost:1313/post/aws-connect-lambda-dynamodb-s3-nodejs-reactjs-axios/</link>
       <pubDate>Wed, 01 Jul 2020 12:26:00 +0000</pubDate>
       
-      <guid>https://sahgilbert.github.io/post/aws-connect-lambda-dynamodb-s3-nodejs-reactjs-axios/</guid>
+      <guid>http://localhost:1313/post/aws-connect-lambda-dynamodb-s3-nodejs-reactjs-axios/</guid>
+      
       <description>Coding conversational artificial intelligence? Simon Gilbert explains how to build a fully automated customer service contact centre using AWS Connect, Lambda, DynamoDb, S3, Node.js, ReactJs, Axios &amp;amp; Bootstrap 4</description>
+      
     </item>
     
     <item>
       <title>[Full Stack Web] Show &amp; Hide Password Form Submit - ReactJS &#43; Redux &#43; C# ASP.Net Core</title>
-      <link>https://sahgilbert.github.io/post/reactjs-redux-csharp-aspnetcore-show-hide-password-form/</link>
+      <link>http://localhost:1313/post/reactjs-redux-csharp-aspnetcore-show-hide-password-form/</link>
       <pubDate>Wed, 03 Jun 2020 14:52:00 +0000</pubDate>
       
-      <guid>https://sahgilbert.github.io/post/reactjs-redux-csharp-aspnetcore-show-hide-password-form/</guid>
+      <guid>http://localhost:1313/post/reactjs-redux-csharp-aspnetcore-show-hide-password-form/</guid>
+      
       <description>Coding HTML password forms? Simon Gilbert explains how to show an hide password values using ReactJS, Redux, C# ASP.Net Core</description>
+      
     </item>
     
     <item>
       <title>[Full Stack Web] Reverse Geo Location Lookup - ReactJS &#43; Redux &#43; C# ASP.Net Core</title>
-      <link>https://sahgilbert.github.io/post/reactjs-redux-csharp-aspnetcore-reverse-geo-location/</link>
+      <link>http://localhost:1313/post/reactjs-redux-csharp-aspnetcore-reverse-geo-location/</link>
       <pubDate>Sat, 23 May 2020 12:07:00 +0000</pubDate>
       
-      <guid>https://sahgilbert.github.io/post/reactjs-redux-csharp-aspnetcore-reverse-geo-location/</guid>
+      <guid>http://localhost:1313/post/reactjs-redux-csharp-aspnetcore-reverse-geo-location/</guid>
+      
       <description>Reverse engineering geo location? Simon Gilbert explains this via postcodes.io using ReactJS, Redux, C# ASP.Net Core</description>
+      
     </item>
     
     <item>
       <title>[Full Stack Web] Client-Side Validation Postback - ReactJS &#43; Redux &#43; C# ASP.Net Core</title>
-      <link>https://sahgilbert.github.io/post/reactjs-redux-csharp-aspnetcore-client-side-validation/</link>
+      <link>http://localhost:1313/post/reactjs-redux-csharp-aspnetcore-client-side-validation/</link>
       <pubDate>Thu, 14 May 2020 14:38:00 +0000</pubDate>
       
-      <guid>https://sahgilbert.github.io/post/reactjs-redux-csharp-aspnetcore-client-side-validation/</guid>
+      <guid>http://localhost:1313/post/reactjs-redux-csharp-aspnetcore-client-side-validation/</guid>
+      
       <description>Need to validate data integrity? Simon Gilbert explains SPA client-side validation using ReactJS, Redux, C# ASP.Net Core</description>
+      
     </item>
     
     <item>
       <title>[Full Stack] Single Page App (SPA) - ReactJs &#43; Redux &#43; Bootstrap 4 &#43; ASP.Net Core</title>
-      <link>https://sahgilbert.github.io/post/full-stack-spa-reactjs-redux-bootstrap4-aspnetcore/</link>
+      <link>http://localhost:1313/post/full-stack-spa-reactjs-redux-bootstrap4-aspnetcore/</link>
       <pubDate>Mon, 06 Apr 2020 07:59:00 +0000</pubDate>
       
-      <guid>https://sahgilbert.github.io/post/full-stack-spa-reactjs-redux-bootstrap4-aspnetcore/</guid>
+      <guid>http://localhost:1313/post/full-stack-spa-reactjs-redux-bootstrap4-aspnetcore/</guid>
+      
       <description>Need to code full stack? Simon Gilbert explains how to setup a SPA using ReactJS, Redux, C# ASP.Net Core &amp;amp; Bootstrap 4</description>
+      
     </item>
     
     <item>
       <title>xUnit &#34;Test Driven&#34; Continuous Integration to Microsoft Azure Web App Services using Appveyor - C# ASP.Net MVC Core</title>
-      <link>https://sahgilbert.github.io/post/xunit-ci-azure-appveyor-aspdotnetmvccore/</link>
+      <link>http://localhost:1313/post/xunit-ci-azure-appveyor-aspdotnetmvccore/</link>
       <pubDate>Wed, 05 Feb 2020 06:09:00 +0000</pubDate>
       
-      <guid>https://sahgilbert.github.io/post/xunit-ci-azure-appveyor-aspdotnetmvccore/</guid>
+      <guid>http://localhost:1313/post/xunit-ci-azure-appveyor-aspdotnetmvccore/</guid>
+      
       <description>Continuously deploying via Appveyor CI? Simon Gilbert explains only deploying an Azure Web App Service if all your xUnit tests pass in ASP.Net MVC Core</description>
+      
     </item>
     
     <item>
       <title>Microsoft Azure Cloud Table Storage - Optimistic vs. Pessimistic Concurrency using C# ASP.Net MVC Core</title>
-      <link>https://sahgilbert.github.io/post/azure-table-storage-pessimistic-concurrency-aspdotnetmvccore/</link>
+      <link>http://localhost:1313/post/azure-table-storage-pessimistic-concurrency-aspdotnetmvccore/</link>
       <pubDate>Wed, 22 Jan 2020 11:45:00 +0000</pubDate>
       
-      <guid>https://sahgilbert.github.io/post/azure-table-storage-pessimistic-concurrency-aspdotnetmvccore/</guid>
+      <guid>http://localhost:1313/post/azure-table-storage-pessimistic-concurrency-aspdotnetmvccore/</guid>
+      
       <description>Azure Table Storage concurrency issues? Simon Gilbert provides a simple explanation of implementing pessimistic concurrency control using Azure Blobs in C# ASP.Net MVC Core</description>
+      
     </item>
     
     <item>
       <title>Using Autofac for Azure Table Storage with C# ASP.Net Core MVC 3.0</title>
-      <link>https://sahgilbert.github.io/post/autofac-azure-table-storage-aspnetcore-3/</link>
+      <link>http://localhost:1313/post/autofac-azure-table-storage-aspnetcore-3/</link>
       <pubDate>Thu, 02 Jan 2020 22:58:06 +0000</pubDate>
       
-      <guid>https://sahgilbert.github.io/post/autofac-azure-table-storage-aspnetcore-3/</guid>
+      <guid>http://localhost:1313/post/autofac-azure-table-storage-aspnetcore-3/</guid>
+      
       <description>Keen to use Autofac&amp;rsquo;s DI framework with Azure Table Storage? Simon Gilbert explains how to utilise Autofac with ASP.Net MVC Core 3.0</description>
+      
     </item>
     
     <item>
       <title>Using AutoMapper with ASP.Net Core MVC 3.0</title>
-      <link>https://sahgilbert.github.io/post/automapper-csharp-aspnetcore-mvc-3-0/</link>
+      <link>http://localhost:1313/post/automapper-csharp-aspnetcore-mvc-3-0/</link>
       <pubDate>Mon, 23 Dec 2019 22:11:00 +0000</pubDate>
       
-      <guid>https://sahgilbert.github.io/post/automapper-csharp-aspnetcore-mvc-3-0/</guid>
+      <guid>http://localhost:1313/post/automapper-csharp-aspnetcore-mvc-3-0/</guid>
+      
       <description>Need to map between view models and database models? Simon Gilbert explains a performant way of doing this using AutoMapper in C# Asp.Net Core MVC 3.0</description>
+      
     </item>
     
     <item>
       <title>Using Serverless Azure Functions (FaaS) to write Service Bus Topic messages to NoSQL Azure Table Storage</title>
-      <link>https://sahgilbert.github.io/post/serverless-azure-functions-service-bus-table-storage/</link>
+      <link>http://localhost:1313/post/serverless-azure-functions-service-bus-table-storage/</link>
       <pubDate>Thu, 08 Aug 2019 23:06:00 +0000</pubDate>
       
-      <guid>https://sahgilbert.github.io/post/serverless-azure-functions-service-bus-table-storage/</guid>
+      <guid>http://localhost:1313/post/serverless-azure-functions-service-bus-table-storage/</guid>
+      
       <description>Intrigued by serverless architecture?
 Simon Gilbert explains how to use Microsoft Azure Functions to write Service Bus messages via the pub-sub pattern to Azure Table Storage</description>
+      
     </item>
     
     <item>
       <title>Unified MVC &amp; Web Api Controllers - C# ASP.Net Core</title>
-      <link>https://sahgilbert.github.io/post/unified-mvc-vs-web-api-controllers-aspnetcore/</link>
+      <link>http://localhost:1313/post/unified-mvc-vs-web-api-controllers-aspnetcore/</link>
       <pubDate>Thu, 09 May 2019 08:30:00 +0000</pubDate>
       
-      <guid>https://sahgilbert.github.io/post/unified-mvc-vs-web-api-controllers-aspnetcore/</guid>
+      <guid>http://localhost:1313/post/unified-mvc-vs-web-api-controllers-aspnetcore/</guid>
+      
       <description>Coding both MVC &amp;amp; Web Api combined? Simon Gilbert details unified MVC View &amp;amp; Web Api endpoint controllers in C# ASP.Net Core</description>
+      
     </item>
     
     <item>
       <title>Rate Limiting RESTful Api Requests using Action Filter Attributes - C# ASP.Net Core Web Api</title>
-      <link>https://sahgilbert.github.io/post/rate-limit-action-filter-attribute-csharp-aspnetcore/</link>
+      <link>http://localhost:1313/post/rate-limit-action-filter-attribute-csharp-aspnetcore/</link>
       <pubDate>Thu, 02 May 2019 06:37:00 +0000</pubDate>
       
-      <guid>https://sahgilbert.github.io/post/rate-limit-action-filter-attribute-csharp-aspnetcore/</guid>
+      <guid>http://localhost:1313/post/rate-limit-action-filter-attribute-csharp-aspnetcore/</guid>
+      
       <description>Need to rate limit your Api? Simon Gilbert explains how to use action filter attributes in C# ASP.Net Core Web Api</description>
+      
     </item>
     
     <item>
       <title>Github GIST - Some Helpful C# .Net Core Extension Methods I&#39;ve Coded</title>
-      <link>https://sahgilbert.github.io/post/github-gists-csharp-dotnetcore-extensions/</link>
+      <link>http://localhost:1313/post/github-gists-csharp-dotnetcore-extensions/</link>
       <pubDate>Mon, 29 Apr 2019 18:24:00 +0000</pubDate>
       
-      <guid>https://sahgilbert.github.io/post/github-gists-csharp-dotnetcore-extensions/</guid>
+      <guid>http://localhost:1313/post/github-gists-csharp-dotnetcore-extensions/</guid>
+      
       <description>Written a new code snippet? Simon Gilbert explains he benefits of using and sharing Github GISTs in C# .Net Core</description>
+      
     </item>
     
     <item>
       <title>iPhone Geo Location Coordinate Tracking using C# Xamarin.iOS</title>
-      <link>https://sahgilbert.github.io/post/iphone-geo-location-csharp-xamarin-ios/</link>
+      <link>http://localhost:1313/post/iphone-geo-location-csharp-xamarin-ios/</link>
       <pubDate>Tue, 23 Apr 2019 10:21:00 +0000</pubDate>
       
-      <guid>https://sahgilbert.github.io/post/iphone-geo-location-csharp-xamarin-ios/</guid>
+      <guid>http://localhost:1313/post/iphone-geo-location-csharp-xamarin-ios/</guid>
+      
       <description>Need to track geo location coords?
 Simon Gilbert explains how to handle location updates for the iPhone using C# Xamarin.iOS</description>
+      
     </item>
     
     <item>
       <title>Documenting your RESTful C# ASP.Net Core Web Api using Swashbuckle &amp; Swagger</title>
-      <link>https://sahgilbert.github.io/post/aspnetcore-web-api-swashbuckle-swagger/</link>
+      <link>http://localhost:1313/post/aspnetcore-web-api-swashbuckle-swagger/</link>
       <pubDate>Thu, 18 Apr 2019 10:38:00 +0000</pubDate>
       
-      <guid>https://sahgilbert.github.io/post/aspnetcore-web-api-swashbuckle-swagger/</guid>
+      <guid>http://localhost:1313/post/aspnetcore-web-api-swashbuckle-swagger/</guid>
+      
       <description>Need to document your RESTful Api?
 Simon Gilbert explains how to document endpoints using Swashbuckle Swagger for C# ASP.Net Core Web Api</description>
+      
     </item>
     
     <item>
       <title>RESTful CRUD Api using Entity Framework Core&#39;s In-Memory (O/RM) Database - C# ASP.Net Core Web Api</title>
-      <link>https://sahgilbert.github.io/post/entity-framework-in-memory-crud-aspdotnetcore-webapi/</link>
+      <link>http://localhost:1313/post/entity-framework-in-memory-crud-aspdotnetcore-webapi/</link>
       <pubDate>Thu, 11 Apr 2019 06:10:00 +0000</pubDate>
       
-      <guid>https://sahgilbert.github.io/post/entity-framework-in-memory-crud-aspdotnetcore-webapi/</guid>
-      <description>Need an in-memory database? Simon Gilbert explains Microsoft Entity Framework Core&amp;rsquo;s&#39; in-memory O/RM database as a CRUD layer in ASP.Net Core Web Api</description>
+      <guid>http://localhost:1313/post/entity-framework-in-memory-crud-aspdotnetcore-webapi/</guid>
+      
+      <description>Need an in-memory database? Simon Gilbert explains Microsoft Entity Framework Core&amp;rsquo;s&amp;rsquo; in-memory O/RM database as a CRUD layer in ASP.Net Core Web Api</description>
+      
     </item>
     
     <item>
       <title>Deploying Docker Containers on Mac OS X using Kubernetes (K8s) - C# ASP.Net MVC Core</title>
-      <link>https://sahgilbert.github.io/post/docker-containers-kubernetes-k8s-aspdotnetmvccore/</link>
+      <link>http://localhost:1313/post/docker-containers-kubernetes-k8s-aspdotnetmvccore/</link>
       <pubDate>Thu, 04 Apr 2019 08:41:00 +0000</pubDate>
       
-      <guid>https://sahgilbert.github.io/post/docker-containers-kubernetes-k8s-aspdotnetmvccore/</guid>
+      <guid>http://localhost:1313/post/docker-containers-kubernetes-k8s-aspdotnetmvccore/</guid>
+      
       <description>Looking to use, deploy &amp;amp; manage containers? Simon Gilbert explains how to setup, configure and deploy Docker containers with Kubernetes (K8s) locally using C# ASP.Net MVC Core</description>
+      
     </item>
     
     <item>
       <title>Microsoft Azure Service Bus - Distributed Message Queue (Publish-Subscribe) using C# ASP.Net MVC Core</title>
-      <link>https://sahgilbert.github.io/post/azure-service-bus-pub-sub-aspdotnetmvccore/</link>
+      <link>http://localhost:1313/post/azure-service-bus-pub-sub-aspdotnetmvccore/</link>
       <pubDate>Mon, 01 Apr 2019 10:03:03 +0000</pubDate>
       
-      <guid>https://sahgilbert.github.io/post/azure-service-bus-pub-sub-aspdotnetmvccore/</guid>
+      <guid>http://localhost:1313/post/azure-service-bus-pub-sub-aspdotnetmvccore/</guid>
+      
       <description>Intermittent throughput spikes? Simon Gilbert explains the publish-subscribe pattern with Microsoft Azure Service Bus using C# ASP.Net MVC Core</description>
+      
     </item>
     
     <item>
       <title>Continuous Integration for Azure Web App Service Deployments using Appveyor - C# ASP.Net MVC Core</title>
-      <link>https://sahgilbert.github.io/post/continuous-integration-azure-service-appveyor-aspdotnetmvccore/</link>
+      <link>http://localhost:1313/post/continuous-integration-azure-service-appveyor-aspdotnetmvccore/</link>
       <pubDate>Sat, 30 Mar 2019 21:09:52 +0000</pubDate>
       
-      <guid>https://sahgilbert.github.io/post/continuous-integration-azure-service-appveyor-aspdotnetmvccore/</guid>
+      <guid>http://localhost:1313/post/continuous-integration-azure-service-appveyor-aspdotnetmvccore/</guid>
+      
       <description>Deploying Microsoft Azure Web App Services? Simon Gilbert explains continuous integration to the Azure Cloud, using YAML, Appveyor and C# ASP.Net MVC Core.</description>
+      
     </item>
     
     <item>
       <title>Microsoft Azure Web App Service SSL/TLS Security using Cloudflare - C# ASP.Net MVC Core</title>
-      <link>https://sahgilbert.github.io/post/azure-ssl-tls-cloudflare-csharp-aspdotnetmvccore/</link>
+      <link>http://localhost:1313/post/azure-ssl-tls-cloudflare-csharp-aspdotnetmvccore/</link>
       <pubDate>Fri, 29 Mar 2019 09:33:00 +0000</pubDate>
       
-      <guid>https://sahgilbert.github.io/post/azure-ssl-tls-cloudflare-csharp-aspdotnetmvccore/</guid>
+      <guid>http://localhost:1313/post/azure-ssl-tls-cloudflare-csharp-aspdotnetmvccore/</guid>
+      
       <description>SSL/TLS certificate &amp;amp; DDOS protection required? Simon Gilbert details Cloudflare on a Microsoft Azure Web App Service running C# ASP.Net MVC Core</description>
+      
     </item>
     
     <item>
       <title>Cross-Platform (PCI Compliant) Credit Card Payments using Stripe - C# ASP.Net MVC Core</title>
-      <link>https://sahgilbert.github.io/post/pci-compliant-card-payment-stripe-aspdotnetmvccore/</link>
+      <link>http://localhost:1313/post/pci-compliant-card-payment-stripe-aspdotnetmvccore/</link>
       <pubDate>Mon, 25 Mar 2019 21:19:00 +0000</pubDate>
       
-      <guid>https://sahgilbert.github.io/post/pci-compliant-card-payment-stripe-aspdotnetmvccore/</guid>
+      <guid>http://localhost:1313/post/pci-compliant-card-payment-stripe-aspdotnetmvccore/</guid>
+      
       <description>Need to process credit card payments in your code? Simon Gilbert explains how to accept PCI Compliant card payments using the leading payment provider Stripe, and C# ASP.Net MVC Core in Visual Studio for Mac.</description>
+      
     </item>
     
     <item>
       <title>Binding Fluent Validation to an HTML View - C# ASP.Net MVC Core</title>
-      <link>https://sahgilbert.github.io/post/view-model-fluentvalidation-aspdotnetmvccore/</link>
+      <link>http://localhost:1313/post/view-model-fluentvalidation-aspdotnetmvccore/</link>
       <pubDate>Sat, 23 Mar 2019 01:00:00 +0000</pubDate>
       
-      <guid>https://sahgilbert.github.io/post/view-model-fluentvalidation-aspdotnetmvccore/</guid>
+      <guid>http://localhost:1313/post/view-model-fluentvalidation-aspdotnetmvccore/</guid>
+      
       <description>Looking to validate an HTML view at post back? Simon Gilbert explains the steps required to bind your validation rules to an HTML view, using the FluentValidation library and C# ASP.Net MVC Core.</description>
+      
     </item>
     
     <item>
       <title>Hashing Passwords Using The MD5 Hash Algorithm vs. BCrypt vs. PBKDF2 - C# .Net Core</title>
-      <link>https://sahgilbert.github.io/post/hashing-passwords-md5-bcrypt-pbkdf2-csharp-dotnetcore/</link>
+      <link>http://localhost:1313/post/hashing-passwords-md5-bcrypt-pbkdf2-csharp-dotnetcore/</link>
       <pubDate>Thu, 21 Mar 2019 14:53:59 +0000</pubDate>
       
-      <guid>https://sahgilbert.github.io/post/hashing-passwords-md5-bcrypt-pbkdf2-csharp-dotnetcore/</guid>
+      <guid>http://localhost:1313/post/hashing-passwords-md5-bcrypt-pbkdf2-csharp-dotnetcore/</guid>
+      
       <description>Need to cryptographically hash your users passwords? Simon Gilbert discusses the potential issues with the MD5 hash algorithm vs. BCrypt and PBKDF2, including the logic behind brute force attacks and correct cryptographic approaches in C# .Net Core.</description>
+      
     </item>
     
     <item>
       <title>Strongly-Typed Data Model Validation using Fluent Validation - C# .Net Core</title>
-      <link>https://sahgilbert.github.io/post/validation-rules-fluentvalidation-csharp-dotnetcore/</link>
+      <link>http://localhost:1313/post/validation-rules-fluentvalidation-csharp-dotnetcore/</link>
       <pubDate>Sun, 17 Mar 2019 13:26:08 +0000</pubDate>
       
-      <guid>https://sahgilbert.github.io/post/validation-rules-fluentvalidation-csharp-dotnetcore/</guid>
+      <guid>http://localhost:1313/post/validation-rules-fluentvalidation-csharp-dotnetcore/</guid>
+      
       <description>Data integrity feeling tiresome with DataAnnotations? Simon Gilbert details how to clean up your validation rules and separate your concerns, using the FluentValidation library in C# .Net Core.</description>
+      
     </item>
     
     <item>
       <title>Cross-Platform SMS RESTful Api using Twilio - C# ASP.Net Core Web Api</title>
-      <link>https://sahgilbert.github.io/post/cross-platform-sms-restful-twilio-aspnetwebapicore/</link>
+      <link>http://localhost:1313/post/cross-platform-sms-restful-twilio-aspnetwebapicore/</link>
       <pubDate>Tue, 12 Mar 2019 08:17:41 +0000</pubDate>
       
-      <guid>https://sahgilbert.github.io/post/cross-platform-sms-restful-twilio-aspnetwebapicore/</guid>
+      <guid>http://localhost:1313/post/cross-platform-sms-restful-twilio-aspnetwebapicore/</guid>
+      
       <description>Looking to send SMS to your users?
 Simon Gilbert discusses how to construct a cross-platform RESTful API for sending SMS messages using the Twilio platform and C# ASP.Net Core Web Api in Visual Studio for Mac.</description>
+      
     </item>
     
     <item>
       <title>Mocking &amp; Testing using Moq &amp; xUnit Frameworks for C# ASP.Net MVC Core</title>
-      <link>https://sahgilbert.github.io/post/aspnetmvccore-mocking-testing-moq-xunit/</link>
+      <link>http://localhost:1313/post/aspnetmvccore-mocking-testing-moq-xunit/</link>
       <pubDate>Sat, 02 Mar 2019 12:58:49 +0000</pubDate>
       
-      <guid>https://sahgilbert.github.io/post/aspnetmvccore-mocking-testing-moq-xunit/</guid>
+      <guid>http://localhost:1313/post/aspnetmvccore-mocking-testing-moq-xunit/</guid>
+      
       <description>Keen to take unit testing to the next level? Simon Gilbert walks through the benefits of using the Moq framework combined with xUnit to mock and isolate your unit tests using C# ASP.Net MVC Core in Visual Studio for Mac.</description>
+      
     </item>
     
     <item>
       <title>Microsoft Azure Cloud Blob Storage Image Upload - C# ASP.Net MVC Core</title>
-      <link>https://sahgilbert.github.io/post/azure-blob-storage-image-upload-aspnetmvccore/</link>
+      <link>http://localhost:1313/post/azure-blob-storage-image-upload-aspnetmvccore/</link>
       <pubDate>Mon, 25 Feb 2019 01:00:00 +0000</pubDate>
       
-      <guid>https://sahgilbert.github.io/post/azure-blob-storage-image-upload-aspnetmvccore/</guid>
+      <guid>http://localhost:1313/post/azure-blob-storage-image-upload-aspnetmvccore/</guid>
+      
       <description>Ever used Microsoft Azure Blob Storage? Simon Gilbert provides a detailed explanation on how to upload multiple images to Microsoft Azure Blob Storage using C# ASP.Net MVC Core in Visual Studio for Mac.</description>
+      
     </item>
     
     <item>
       <title>Basic Unit Testing with xUnit and C# .Net Core in Visual Studio for Mac</title>
-      <link>https://sahgilbert.github.io/post/unit-testing-xunit-csharp-dotnetcore/</link>
+      <link>http://localhost:1313/post/unit-testing-xunit-csharp-dotnetcore/</link>
       <pubDate>Fri, 22 Feb 2019 11:17:13 +0000</pubDate>
       
-      <guid>https://sahgilbert.github.io/post/unit-testing-xunit-csharp-dotnetcore/</guid>
+      <guid>http://localhost:1313/post/unit-testing-xunit-csharp-dotnetcore/</guid>
+      
       <description>Certain that your code works? Simon Gilbert explains the need for unit testing your C# .Net Core implementations using the xUnit Framework in Visual Studio for Mac.</description>
+      
     </item>
     
     <item>
       <title>Computer Science Search Algorithm Performance - C# .Net Core</title>
-      <link>https://sahgilbert.github.io/post/comp-sci-search-algorithms-csharp-dotnetcore/</link>
+      <link>http://localhost:1313/post/comp-sci-search-algorithms-csharp-dotnetcore/</link>
       <pubDate>Wed, 20 Feb 2019 20:17:27 +0000</pubDate>
       
-      <guid>https://sahgilbert.github.io/post/comp-sci-search-algorithms-csharp-dotnetcore/</guid>
+      <guid>http://localhost:1313/post/comp-sci-search-algorithms-csharp-dotnetcore/</guid>
+      
       <description>Computational complexity theory anyone? Simon Gilbert compares sequential versus interval search algorithms for performance in .Net Core.</description>
+      
     </item>
     
     <item>
       <title>Parallel Computations of The Haversine Formula - C# .Net Core</title>
-      <link>https://sahgilbert.github.io/post/parallel-haversine-formula-dotnetcore/</link>
+      <link>http://localhost:1313/post/parallel-haversine-formula-dotnetcore/</link>
       <pubDate>Fri, 15 Feb 2019 14:21:00 +0000</pubDate>
       
-      <guid>https://sahgilbert.github.io/post/parallel-haversine-formula-dotnetcore/</guid>
+      <guid>http://localhost:1313/post/parallel-haversine-formula-dotnetcore/</guid>
+      
       <description>Convinced that parallelism is always faster? Simon Gilbert compares parallel computations of the haversine formula, versus simple sequential execution in .Net Core.</description>
+      
     </item>
     
     <item>
       <title>FizzBuzz Performance Comparison - C# .Net Core vs .Net Framework</title>
-      <link>https://sahgilbert.github.io/post/fizzbuzz-performance-comparison-dotnetcore-dotnetframework/</link>
+      <link>http://localhost:1313/post/fizzbuzz-performance-comparison-dotnetcore-dotnetframework/</link>
       <pubDate>Sat, 06 Oct 2018 13:14:00 +0000</pubDate>
       
-      <guid>https://sahgilbert.github.io/post/fizzbuzz-performance-comparison-dotnetcore-dotnetframework/</guid>
+      <guid>http://localhost:1313/post/fizzbuzz-performance-comparison-dotnetcore-dotnetframework/</guid>
+      
       <description>Keen to understand performance improvements in .Net Core 2.2? Simon Gilbert provides a performance comparison of different FizzBuzz implementations using the .Net Framework vs .Net Core&amp;hellip;The results are quite surprising!</description>
+      
     </item>
     
     <item>
       <title>Decoupling - Dependency Injection in C# ASP.Net MVC for Microsoft Azure Table Storage using Autofac</title>
-      <link>https://sahgilbert.github.io/post/dependency-injection-aspnet-mvc-azure-storage-autofac/</link>
+      <link>http://localhost:1313/post/dependency-injection-aspnet-mvc-azure-storage-autofac/</link>
       <pubDate>Sat, 01 Sep 2018 15:06:00 +0000</pubDate>
       
-      <guid>https://sahgilbert.github.io/post/dependency-injection-aspnet-mvc-azure-storage-autofac/</guid>
+      <guid>http://localhost:1313/post/dependency-injection-aspnet-mvc-azure-storage-autofac/</guid>
+      
       <description>Fancy learning dependency injection?  Simon Gilbert discusses the art of decoupling Azure Table Storage in C# Asp.Net MVC using the dependency injection implementation of the inversion of control design pattern with the Autofac library.</description>
+      
     </item>
     
     <item>
       <title></title>
-      <link>https://sahgilbert.github.io/post/stack-exchange-redis-distributed-cache-aspnetcore/</link>
+      <link>http://localhost:1313/post/stack-exchange-redis-distributed-cache-aspnetcore/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://sahgilbert.github.io/post/stack-exchange-redis-distributed-cache-aspnetcore/</guid>
-      <description></description>
+      <guid>http://localhost:1313/post/stack-exchange-redis-distributed-cache-aspnetcore/</guid>
+      
+      <description>&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
+      
     </item>
     
   </channel>

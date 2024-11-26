@@ -1,88 +1,162 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
+<html lang="en-gb"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<html lang='en'>
-	<head>
-		<title>Microsoft Azure Web App Service SSL/TLS Security using Cloudflare - C# ASP.Net MVC Core &middot; Simon Gilbert</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		
-		
-		
-		<link rel="stylesheet" href="/assets/css/main.min.css">
-		
-		
-		<link rel="shortcut icon" href="/favicon.ico">
-		
-		
-		<noscript><link rel="stylesheet" href='/assets/css/noscript.css' /></noscript>
+<title itemprop="name">Microsoft Azure Web App Service SSL/TLS Security using Cloudflare - C# ASP.Net MVC Core | Simon Gilbert Blog</title>
+<meta property="og:title" content="Microsoft Azure Web App Service SSL/TLS Security using Cloudflare - C# ASP.Net MVC Core | Simon Gilbert Blog" />
+<meta name="twitter:title" content="Microsoft Azure Web App Service SSL/TLS Security using Cloudflare - C# ASP.Net MVC Core | Simon Gilbert Blog" />
+<meta itemprop="name" content="Microsoft Azure Web App Service SSL/TLS Security using Cloudflare - C# ASP.Net MVC Core | Simon Gilbert Blog" />
+<meta name="application-name" content="Microsoft Azure Web App Service SSL/TLS Security using Cloudflare - C# ASP.Net MVC Core | Simon Gilbert Blog" />
+<meta property="og:site_name" content="" />
 
-		
-    		
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-136163864-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
+<meta name="description" content="">
+<meta itemprop="description" content="" />
+<meta property="og:description" content="" />
+<meta name="twitter:description" content="" />
 
-  		
-	</head>
+<meta property="og:locale" content="en-gb" />
+<meta name="language" content="en-gb" />
 
-	<body lang='en' class="is-preload">
+  <link rel="alternate" hreflang="en" href="http://localhost:1313/post/azure-ssl-tls-cloudflare-csharp-aspdotnetmvccore/" title="" />
 
-		
-			<div id="wrapper">
 
-                
-<header id="header">
-    <a href='/' class="logo">Simon Gilbert</a>
-</header>
+<meta itemprop="image" content="http://localhost:1313/images/2019/03/simon-gilbert-cto-tech-blog-16.png" />
+<meta property="og:image" content="http://localhost:1313/images/2019/03/simon-gilbert-cto-tech-blog-16.png" />
+<meta name="twitter:image" content="http://localhost:1313/images/2019/03/simon-gilbert-cto-tech-blog-16.png" />
+<meta name="twitter:image:src" content="http://localhost:1313/images/2019/03/simon-gilbert-cto-tech-blog-16.png" />
 
-                
 
-<nav id="nav">
-    <ul class="links">
-        <li class="active"><a href='/'>Home</a></li>
-        
-        
-    </ul>
+
+<meta name="generator" content="Hugo 0.136.5">
+
     
-</nav>
+    <meta property="og:url" content="http://localhost:1313/post/azure-ssl-tls-cloudflare-csharp-aspdotnetmvccore/">
+  <meta property="og:site_name" content="Simon Gilbert Blog">
+  <meta property="og:title" content="Microsoft Azure Web App Service SSL/TLS Security using Cloudflare - C# ASP.Net MVC Core">
+  <meta property="og:description" content="SSL/TLS certificate &amp; DDOS protection required? Simon Gilbert details Cloudflare on a Microsoft Azure Web App Service running C# ASP.Net MVC Core">
+  <meta property="og:locale" content="en_gb">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2019-03-29T09:33:00+00:00">
+    <meta property="article:modified_time" content="2019-03-29T09:33:00+00:00">
+    <meta property="article:tag" content="C#.Net">
+    <meta property="article:tag" content="Asp.Net MVC">
+    <meta property="article:tag" content="Azure Web App Service">
+    <meta property="article:tag" content="SSL/TLS">
+    <meta property="article:tag" content="Cloudflare">
 
 
-				
-					<div id="main">
+    
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Microsoft Azure Web App Service SSL/TLS Security using Cloudflare - C# ASP.Net MVC Core">
+  <meta name="twitter:description" content="SSL/TLS certificate &amp; DDOS protection required? Simon Gilbert details Cloudflare on a Microsoft Azure Web App Service running C# ASP.Net MVC Core">
 
-						
-                        <section class="post">
-                            <header class="major">
-                                
-                                <span class="date">March 29, 2019</span>
-                                
-                                <h1>Microsoft Azure Web App Service SSL/TLS Security using Cloudflare - C# ASP.Net MVC Core</h1>
-                                <p></p>
-                            </header>
-                            
-                            <div class="image main"><img src="/images/2019/03/simon-gilbert-cto-tech-blog-16.png" alt="" /></div>
-                            
-                            <h3 id="security-without-obscurity">Security Without Obscurity</h3>
+
+    
+
+    <link rel="canonical" href="http://localhost:1313/post/azure-ssl-tls-cloudflare-csharp-aspdotnetmvccore/">
+    <link href="/style.min.d3cd446461a6bcee3cf602043ff66d247cd30457c3f5ec77c4ff83bf22db981b.css" rel="stylesheet">
+    <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+<link rel="manifest" href="http://localhost:1313/site.webmanifest">
+
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+
+    </head>
+<body data-theme = "" class="notransition">
+
+<script src="/js/theme.js"></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="http://localhost:1313/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title></title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+                
+                
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title center">Microsoft Azure Web App Service SSL/TLS Security using Cloudflare - C# ASP.Net MVC Core</h1>
+                
+                
+                
+                <div class="post-meta">
+                    <time class="blog-post-date" datetime="2019-03-29T09:33:00&#43;00:00" itemprop="datePublished"> Mar 29, 2019 </time>
+                </div>
+                
+            </header>
+            
+            
+                <div class="centered-landscape-image">
+                    <img src="/images/2019/03/simon-gilbert-cto-tech-blog-16.png" alt="Microsoft Azure Web App Service SSL/TLS Security using Cloudflare - C# ASP.Net MVC Core">
+                </div>
+            
+            <hr class="hr-blog-header"/>
+            <div class="page-content">
+                <h3 id="security-without-obscurity">Security Without Obscurity</h3>
 <p>Last year Google Chrome 68 was released with one of the main features being the browsers ability to call out websites that follow the <strong>HTTP</strong> protocol…and therefore lack a valid <strong>SSL/TLS</strong> certificate. Without this certificate, the site isn’t running <strong>HTTPS</strong> and your data isn’t encrypted end-to-end (including your bank details when you buy that new item from insertsomebrandhere.com).</p>
 <figure><img src="/images/2019/03/simon-gilbert-cto-cloudflare-tls-cert.png"
-         alt="SSL/TLS Certificate"/><figcaption>
-            <p>SSL/TLS Certificate</p>
-        </figcaption>
+    alt="SSL/TLS Certificate"><figcaption>
+      <p>SSL/TLS Certificate</p>
+    </figcaption>
 </figure>
 
 <p>Unfortunately there is much more to securing your platform that just running <strong>HTTPS</strong>, and we’re now in an age that security through obscurity will no longer suffice, particularly when it comes to man-in-the-middle and distributed denial of service (<strong>DDOS</strong>) attack protection.</p>
 <p>When we launched <a href="https://www.exchangewire.com/blog/2016/09/08/45221/"><strong>my first startup Patrius</strong></a> a few years ago, we were in fact on the receiving end of intermittent <strong>DDOS</strong> attacks. We learnt a lot from it, not least how capable (and expensive) auto-scaling can be when you&rsquo;re running a load-balanced distributed system globally in the cloud.</p>
 <figure><img src="/images/2019/03/simon-gilbert-cto-cloudflare-ddos.png"
-         alt="DDOS Cyber Attack"/><figcaption>
-            <p>DDOS Cyber Attack</p>
-        </figcaption>
+    alt="DDOS Cyber Attack"><figcaption>
+      <p>DDOS Cyber Attack</p>
+    </figcaption>
 </figure>
 
 <p>When your servers are getting hammered the first necessity is to assess the traffic patterns to arrive at the point of threat detection. Following this is the examination point to understand and separate human traffic from the illegal stuff, and then filter it using deep packet inspection and rate limiting. Sounds complicated right? &hellip;Indeed, and we were two devs in a London flat simply trying to introduce ad-fraud detection algorithms and low latency into the AdTech industry. We needed a third party to help mitigate the cyber attacks&hellip;</p>
@@ -104,205 +178,170 @@ if (!doNotTrack) {
 <h3 id="lets-get-secure">Let&rsquo;s Get Secure&hellip;</h3>
 <p>First step, <strong>DNS</strong> hostname mapping for your <strong>Web App</strong> in <strong>Azure</strong> (<strong>Cloudflare</strong> won&rsquo;t accept the default .azurewebsites.net URL).</p>
 <figure><img src="/images/2019/03/simon-gilbert-cto-blog-hostname-cname.png"
-         alt="Azure App Service Hostname"/><figcaption>
-            <p>Azure App Service Hostname</p>
-        </figcaption>
+    alt="Azure App Service Hostname"><figcaption>
+      <p>Azure App Service Hostname</p>
+    </figcaption>
 </figure>
 
 <p>Let&rsquo;s check that it&rsquo;s mapped correctly&hellip;</p>
 <figure><img src="/images/2019/03/simon-gilbert-cto-blog-site-dns.png"
-         alt="Azure App Service - Deployed"/><figcaption>
-            <p>Azure App Service - Deployed</p>
-        </figcaption>
+    alt="Azure App Service - Deployed"><figcaption>
+      <p>Azure App Service - Deployed</p>
+    </figcaption>
 </figure>
 
 <p>The next step is to deploy your <strong>ASP.Net MVC Core</strong> source code and then head over to <strong>Cloudflare</strong> and create a free account. We can then add our site and start the process of securing our platform.</p>
 <figure><img src="/images/2019/03/simon-gilbert-cto-cloudflare-site.png"
-         alt="Cloudflare Platform"/><figcaption>
-            <p>Cloudflare Platform</p>
-        </figcaption>
+    alt="Cloudflare Platform"><figcaption>
+      <p>Cloudflare Platform</p>
+    </figcaption>
 </figure>
 
 <p>Now we will observe <strong>Cloudflare&rsquo;s</strong> process of running a <strong>DNS</strong> query against your domain to assess exactly what their system has to work with.</p>
 <figure><img src="/images/2019/03/simon-gilbert-cto-cloudflare-results-1.png"
-         alt="Cloudflare DNS Query Results"/><figcaption>
-            <p>Cloudflare DNS Query Results</p>
-        </figcaption>
+    alt="Cloudflare DNS Query Results"><figcaption>
+      <p>Cloudflare DNS Query Results</p>
+    </figcaption>
 </figure>
 
 <p>&hellip;You will then be asked to switch your name servers to using <strong>Cloudflare&rsquo;s</strong> instead (the names they&rsquo;ve used are amusing!)</p>
 <figure><img src="/images/2019/03/simon-gilbert-cto-hover-cloudflare-nameserver.png"
-         alt="Cloudflare Name Servers"/><figcaption>
-            <p>Cloudflare Name Servers</p>
-        </figcaption>
+    alt="Cloudflare Name Servers"><figcaption>
+      <p>Cloudflare Name Servers</p>
+    </figcaption>
 </figure>
 
 <p>Once this step is validated, you&rsquo;ll be informed that <strong>Cloudflare</strong> is now protecting your site.</p>
 <figure><img src="/images/2019/03/simon-gilbert-cto-cloudflare-protection.png"
-         alt="Cloudflare Protection Active"/><figcaption>
-            <p>Cloudflare Protection Active</p>
-        </figcaption>
+    alt="Cloudflare Protection Active"><figcaption>
+      <p>Cloudflare Protection Active</p>
+    </figcaption>
 </figure>
 
 <p>At this point it&rsquo;s time to fully activate the free <strong>TLS</strong> certificate from <strong>Cloudflare</strong> by clicking on the security link and going to the &ldquo;Crypto&rdquo; section.</p>
 <figure><img src="/images/2019/03/simon-gilbert-cto-cloudflare-tls-ssl-cert.png"
-         alt="Cloudflare SSL/TLS Certificate - Pending"/><figcaption>
-            <p>Cloudflare SSL/TLS Certificate - Pending</p>
-        </figcaption>
+    alt="Cloudflare SSL/TLS Certificate - Pending"><figcaption>
+      <p>Cloudflare SSL/TLS Certificate - Pending</p>
+    </figcaption>
 </figure>
 
 <p>Your <strong>TLS</strong> certificate will be activated a short time after this, and at this point you&rsquo;re running <strong>HTTPS</strong> end-to-end.</p>
 <figure><img src="/images/2019/03/simon-gilbert-cto-cloudflare-tls-ssl-cert-live.png"
-         alt="Cloudflare SSL/TLS Certificate - Active"/><figcaption>
-            <p>Cloudflare SSL/TLS Certificate - Active</p>
-        </figcaption>
+    alt="Cloudflare SSL/TLS Certificate - Active"><figcaption>
+      <p>Cloudflare SSL/TLS Certificate - Active</p>
+    </figcaption>
 </figure>
 
 <p>A quick check of the TLS certificate in the browser on our production domain -</p>
 <figure><img src="/images/2019/03/simon-gilbert-cto-cloudflare-tls-browser.png"
-         alt="Cloudflare SSL/TLS Certificate - In Browser"/><figcaption>
-            <p>Cloudflare SSL/TLS Certificate - In Browser</p>
-        </figcaption>
+    alt="Cloudflare SSL/TLS Certificate - In Browser"><figcaption>
+      <p>Cloudflare SSL/TLS Certificate - In Browser</p>
+    </figcaption>
 </figure>
 
 <p>&hellip;Awesome, our <strong>HTTPS</strong> config is live!!!</p>
 <h3 id="configuring-our-security-further">Configuring Our Security Further</h3>
 <p>Let&rsquo;s ensure that <strong>HTTP</strong> isn&rsquo;t an option anymore, and enforce redirects on all <strong>HTTP</strong> requests to go through the <strong>HTTPS</strong> scheme instead.</p>
 <figure><img src="/images/2019/03/simon-gilbert-cto-cloudflare-1.png"
-         alt="Cloudflare Protection - HTTPS"/><figcaption>
-            <p>Cloudflare Protection - HTTPS</p>
-        </figcaption>
+    alt="Cloudflare Protection - HTTPS"><figcaption>
+      <p>Cloudflare Protection - HTTPS</p>
+    </figcaption>
 </figure>
 
 <p>Now to enforce strict transport security (<strong>HSTS</strong>) also&hellip;</p>
 <figure><img src="/images/2019/03/simon-gilbert-cto-cloudflare-2.png"
-         alt="Cloudflare Protection - HSTS"/><figcaption>
-            <p>Cloudflare Protection - HSTS</p>
-        </figcaption>
+    alt="Cloudflare Protection - HSTS"><figcaption>
+      <p>Cloudflare Protection - HSTS</p>
+    </figcaption>
 </figure>
 
 <p>Click enable, and we&rsquo;ll configure the settings. The header max age setting at this stage should be fine as 6 months. The other point to note is the subdomain setting - Let&rsquo;s enforce that too.</p>
 <figure><img src="/images/2019/03/simon-gilbert-cto-cloudflare-3.png"
-         alt="Cloudflare Protection - HSTS Configuration"/><figcaption>
-            <p>Cloudflare Protection - HSTS Configuration</p>
-        </figcaption>
+    alt="Cloudflare Protection - HSTS Configuration"><figcaption>
+      <p>Cloudflare Protection - HSTS Configuration</p>
+    </figcaption>
 </figure>
 
 <p>Next is the <strong>TLS</strong> version, which is currently in production as version 1.3 since 2018. Given that <strong>TLS 1.2</strong> was released in 2008 you&rsquo;d really expect most users to be running <strong>TLS 1.3</strong> as a minimum at this stage.</p>
 <figure><img src="/images/2019/03/simon-gilbert-cto-cloudflare-4.png"
-         alt="Cloudflare Protection - TLS Version"/><figcaption>
-            <p>Cloudflare Protection - TLS Version</p>
-        </figcaption>
+    alt="Cloudflare Protection - TLS Version"><figcaption>
+      <p>Cloudflare Protection - TLS Version</p>
+    </figcaption>
 </figure>
 
 <p><strong>HTTPS</strong> rewrites are next. There&rsquo;s no point running <strong>TLS</strong> if you&rsquo;re going to be hitting <strong>JavaScript</strong> and <strong>CSS</strong> resources over HTTP&hellip;and this also ties into cross-site scripting <strong>(XSS).</strong></p>
 <figure><img src="/images/2019/03/simon-gilbert-cto-cloudflare-5.png"
-         alt="Cloudflare Protection - HTTPS Rewrites"/><figcaption>
-            <p>Cloudflare Protection - HTTPS Rewrites</p>
-        </figcaption>
+    alt="Cloudflare Protection - HTTPS Rewrites"><figcaption>
+      <p>Cloudflare Protection - HTTPS Rewrites</p>
+    </figcaption>
 </figure>
 
 <h3 id="our-cloudflare-statistics">Our Cloudflare Statistics</h3>
 <p>Now that&rsquo;s configured, let&rsquo;s review some stats on <strong>Cloudflare&rsquo;s</strong> dashboard for our production domain. As you can see, we&rsquo;re already being hit by traffic from different countries.</p>
 <figure><img src="/images/2019/03/simon-gilbert-cto-cloudflare-stats-1.png"
-         alt="Cloudflare Protection - Web Traffic Requests"/><figcaption>
-            <p>Cloudflare Protection - Web Traffic Requests</p>
-        </figcaption>
+    alt="Cloudflare Protection - Web Traffic Requests"><figcaption>
+      <p>Cloudflare Protection - Web Traffic Requests</p>
+    </figcaption>
 </figure>
 
 <p>Interestingly we can already see the performance side of Cloudflare kicking in with it&rsquo;s CDN and caching functionality.</p>
 <figure><img src="/images/2019/03/simon-gilbert-cto-cloudflare-stats-2.png"
-         alt="Cloudflare Protection - Cache Performance Stats"/><figcaption>
-            <p>Cloudflare Protection - Cache Performance Stats</p>
-        </figcaption>
+    alt="Cloudflare Protection - Cache Performance Stats"><figcaption>
+      <p>Cloudflare Protection - Cache Performance Stats</p>
+    </figcaption>
 </figure>
 
 <p>&hellip;So far, we&rsquo;ve achieved a free <strong>TLS Certificate</strong> and some performance improvements. Let&rsquo;s see if <strong>Cloudflare</strong> has needed to mitigate anything yet&hellip;</p>
 <figure><img src="/images/2019/03/simon-gilbert-cto-cloudflare-stats-3.png"
-         alt="Cloudflare Protection - Threats Mitigated"/><figcaption>
-            <p>Cloudflare Protection - Threats Mitigated</p>
-        </figcaption>
+    alt="Cloudflare Protection - Threats Mitigated"><figcaption>
+      <p>Cloudflare Protection - Threats Mitigated</p>
+    </figcaption>
 </figure>
 
 <p>&hellip;and that&rsquo;s exactly the point - You cannot assume security in the the modern digital world&hellip;kinda terrifying.</p>
 <h3 id="mitigating-a-ddos-attack-using-cloudflare">Mitigating A DDoS Attack Using Cloudflare</h3>
 <p>Before we wrap things up, the most important part in all of this is the ability to pull the trigger on a <strong>DDoS</strong> attack. You&rsquo;ve already loaded the <strong>Cloudflare</strong> gun, so in the event that you do need to help mitigate an attack with immediate affect&hellip;click this button.</p>
 <figure><img src="/images/2019/03/simon-gilbert-cto-cloudflare-under-attack.png"
-         alt="Cloudflare Protection - Under Attack Mode On"/><figcaption>
-            <p>Cloudflare Protection - Under Attack Mode On</p>
-        </figcaption>
+    alt="Cloudflare Protection - Under Attack Mode On"><figcaption>
+      <p>Cloudflare Protection - Under Attack Mode On</p>
+    </figcaption>
 </figure>
 
 <p>This will lead to you being in <strong>DDoS Attack</strong> mode, which will force all visitors to your site to be shown a <strong>JavaScript</strong> challenge&hellip;</p>
 <figure><img src="/images/2019/03/simon-gilbert-cto-cloudflare-ddos-mitigate.png"
-         alt="Cloudflare Protection - Under Attack Mode"/><figcaption>
-            <p>Cloudflare Protection - Under Attack Mode</p>
-        </figcaption>
+    alt="Cloudflare Protection - Under Attack Mode"><figcaption>
+      <p>Cloudflare Protection - Under Attack Mode</p>
+    </figcaption>
 </figure>
 
 <p>Today we&rsquo;ve covered the basics using a free account. Upgrading to a business account offers many more security protection and performance features for your platform.</p>
 <p>Enjoy!</p>
 
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
 
-                            
-                            
-                            
-                            
-                            
-                        </section>
-
-					</div>
-
-                    
-
-<footer id="footer">
-    
-    <section class="split contact">
+    <div class="footer_social-icons">
+</div>
+    <small class="footer_copyright">
+        © 2024 Simon Gilbert.
         
-        
-        
-        
-    </section>
+    </small>
 </footer>
 
-                    
-<div id="copyright">
-    <ul>
-        <li>&copy; Simon Gilbert</li>
-    </ul>
-    <ul>
-        <li style="color:#212931;"><a href='https://www.twine.net/simongilbert'></a></li>
-    </ul>
-</div>
-
-
-            </div>
-            
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-136163864-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-            
 
 
 
 
 
 
+    
+    <script async src="http://localhost:1313/js/main.js" ></script>
 
+    
 
-
-
-<script src='/assets/js/bundle.js'></script>
-
-
-	</body>
+</body>
 </html>
