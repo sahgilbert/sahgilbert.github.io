@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Artificial Intelligence on Simon Gilbert Blog</title>
-    <link>http://localhost:1313/tags/artificial-intelligence/</link>
+    <link>https://www.simongilbert.net/tags/artificial-intelligence/</link>
     <description>Recent content in Artificial Intelligence on Simon Gilbert Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Wed, 01 Jul 2020 12:26:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/artificial-intelligence/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 01 Jul 2020 12:26:00 +0000</lastBuildDate><atom:link href="https://www.simongilbert.net/tags/artificial-intelligence/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Automated Customer Service via Conversational Artificial Intelligence (AI) - Using Amazon Web Services (AWS) Connect, Lambda, DynamoDb, S3, Node.js, ReactJS, Axios &amp; Bootstrap 4</title>
-      <link>http://localhost:1313/post/aws-connect-lambda-dynamodb-s3-nodejs-reactjs-axios/</link>
+      <link>https://www.simongilbert.net/post/aws-connect-lambda-dynamodb-s3-nodejs-reactjs-axios/</link>
       <pubDate>Wed, 01 Jul 2020 12:26:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/aws-connect-lambda-dynamodb-s3-nodejs-reactjs-axios/</guid>
+      <guid>https://www.simongilbert.net/post/aws-connect-lambda-dynamodb-s3-nodejs-reactjs-axios/</guid>
       
       <description>Coding conversational artificial intelligence? Simon Gilbert explains how to build a fully automated customer service contact centre using AWS Connect, Lambda, DynamoDb, S3, Node.js, ReactJs, Axios &amp;amp; Bootstrap 4</description>
       

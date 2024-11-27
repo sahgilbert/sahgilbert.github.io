@@ -2,336 +2,336 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/tags/asp.net-mvc/</loc>
+    <loc>https://www.simongilbert.net/tags/asp.net-mvc/</loc>
     <lastmod>2024-02-07T10:38:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/autofac/</loc>
+    <loc>https://www.simongilbert.net/tags/autofac/</loc>
     <lastmod>2024-02-07T10:38:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/azure-table-storage/</loc>
+    <loc>https://www.simongilbert.net/tags/azure-table-storage/</loc>
     <lastmod>2024-02-07T10:38:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/c%23.net/</loc>
+    <loc>https://www.simongilbert.net/tags/c%23.net/</loc>
     <lastmod>2024-02-07T10:38:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/dependency-injection/</loc>
+    <loc>https://www.simongilbert.net/tags/dependency-injection/</loc>
     <lastmod>2024-02-07T10:38:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/dependency-injection-autofac-azure-table-storage-microsoft-identity/</loc>
+    <loc>https://www.simongilbert.net/post/dependency-injection-autofac-azure-table-storage-microsoft-identity/</loc>
     <lastmod>2024-02-07T10:38:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/</loc>
+    <loc>https://www.simongilbert.net/post/</loc>
     <lastmod>2024-02-07T10:38:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/</loc>
+    <loc>https://www.simongilbert.net/</loc>
     <lastmod>2024-02-07T10:38:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>https://www.simongilbert.net/tags/</loc>
     <lastmod>2024-02-07T10:38:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/azure-web-app-service/</loc>
+    <loc>https://www.simongilbert.net/tags/azure-web-app-service/</loc>
     <lastmod>2024-01-03T10:38:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/ci/cd/</loc>
+    <loc>https://www.simongilbert.net/tags/ci/cd/</loc>
     <lastmod>2024-01-03T10:38:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/deploy-aspnetcore-azure-app-service-github-actions-yaml/</loc>
+    <loc>https://www.simongilbert.net/post/deploy-aspnetcore-azure-app-service-github-actions-yaml/</loc>
     <lastmod>2024-01-03T10:38:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/github-actions/</loc>
+    <loc>https://www.simongilbert.net/tags/github-actions/</loc>
     <lastmod>2024-01-03T10:38:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/azure/</loc>
+    <loc>https://www.simongilbert.net/tags/azure/</loc>
     <lastmod>2024-01-01T10:38:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/azure-cli/</loc>
+    <loc>https://www.simongilbert.net/tags/azure-cli/</loc>
     <lastmod>2024-01-01T10:38:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/bash-script/</loc>
+    <loc>https://www.simongilbert.net/tags/bash-script/</loc>
     <lastmod>2024-01-01T10:38:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/create-azure-app-service-bash-script/</loc>
+    <loc>https://www.simongilbert.net/post/create-azure-app-service-bash-script/</loc>
     <lastmod>2024-01-01T10:38:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/aws/</loc>
+    <loc>https://www.simongilbert.net/tags/aws/</loc>
     <lastmod>2021-08-18T12:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/circleci/</loc>
+    <loc>https://www.simongilbert.net/tags/circleci/</loc>
     <lastmod>2021-08-18T12:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/continuous-integration-ci-cd-typescript-serverless-lambda-api-circleci/</loc>
+    <loc>https://www.simongilbert.net/post/continuous-integration-ci-cd-typescript-serverless-lambda-api-circleci/</loc>
     <lastmod>2021-08-18T12:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/serverless/</loc>
+    <loc>https://www.simongilbert.net/tags/serverless/</loc>
     <lastmod>2021-08-18T12:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/typescript/</loc>
+    <loc>https://www.simongilbert.net/tags/typescript/</loc>
     <lastmod>2021-08-18T12:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/chai/</loc>
+    <loc>https://www.simongilbert.net/tags/chai/</loc>
     <lastmod>2021-06-16T15:41:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/mocha/</loc>
+    <loc>https://www.simongilbert.net/tags/mocha/</loc>
     <lastmod>2021-06-16T15:41:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/test-driven-development-tdd-typescript-lambda-api-mocha-chai/</loc>
+    <loc>https://www.simongilbert.net/post/test-driven-development-tdd-typescript-lambda-api-mocha-chai/</loc>
     <lastmod>2021-06-16T15:41:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/ttd/</loc>
+    <loc>https://www.simongilbert.net/tags/ttd/</loc>
     <lastmod>2021-06-16T15:41:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/integration-testing/</loc>
+    <loc>https://www.simongilbert.net/tags/integration-testing/</loc>
     <lastmod>2021-04-14T17:53:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/integration-testing-typescript-lambda-api-jest-supertest/</loc>
+    <loc>https://www.simongilbert.net/post/integration-testing-typescript-lambda-api-jest-supertest/</loc>
     <lastmod>2021-04-14T17:53:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/jest/</loc>
+    <loc>https://www.simongilbert.net/tags/jest/</loc>
     <lastmod>2021-04-14T17:53:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/supertest/</loc>
+    <loc>https://www.simongilbert.net/tags/supertest/</loc>
     <lastmod>2021-04-14T17:53:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/docker/</loc>
+    <loc>https://www.simongilbert.net/tags/docker/</loc>
     <lastmod>2021-01-12T11:24:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/dynamodb/</loc>
+    <loc>https://www.simongilbert.net/tags/dynamodb/</loc>
     <lastmod>2021-01-12T11:24:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/restful-api/</loc>
+    <loc>https://www.simongilbert.net/tags/restful-api/</loc>
     <lastmod>2021-01-12T11:24:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/typescript-lambda-dynamodb-rest-api-locally-docker-localstack/</loc>
+    <loc>https://www.simongilbert.net/post/typescript-lambda-dynamodb-rest-api-locally-docker-localstack/</loc>
     <lastmod>2021-01-12T11:24:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/configuring-dynamodb-using-serverless-yaml/</loc>
+    <loc>https://www.simongilbert.net/post/configuring-dynamodb-using-serverless-yaml/</loc>
     <lastmod>2020-11-19T18:14:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/yaml/</loc>
+    <loc>https://www.simongilbert.net/tags/yaml/</loc>
     <lastmod>2020-11-19T18:14:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/creating-and-deploying-a-serverless-lambda-to-aws/</loc>
+    <loc>https://www.simongilbert.net/post/creating-and-deploying-a-serverless-lambda-to-aws/</loc>
     <lastmod>2020-09-10T12:13:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/node.js/</loc>
+    <loc>https://www.simongilbert.net/tags/node.js/</loc>
     <lastmod>2020-09-10T12:13:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/setting-up-the-serverless-lambda-framework-within-aws/</loc>
+    <loc>https://www.simongilbert.net/post/setting-up-the-serverless-lambda-framework-within-aws/</loc>
     <lastmod>2020-08-07T11:40:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/artificial-intelligence/</loc>
+    <loc>https://www.simongilbert.net/tags/artificial-intelligence/</loc>
     <lastmod>2020-07-01T12:26:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/aws-connect-lambda-dynamodb-s3-nodejs-reactjs-axios/</loc>
+    <loc>https://www.simongilbert.net/post/aws-connect-lambda-dynamodb-s3-nodejs-reactjs-axios/</loc>
     <lastmod>2020-07-01T12:26:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/react.js/</loc>
+    <loc>https://www.simongilbert.net/tags/react.js/</loc>
     <lastmod>2020-07-01T12:26:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/reactjs-redux-csharp-aspnetcore-show-hide-password-form/</loc>
+    <loc>https://www.simongilbert.net/post/reactjs-redux-csharp-aspnetcore-show-hide-password-form/</loc>
     <lastmod>2020-06-03T14:52:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/asp.net-web-api/</loc>
+    <loc>https://www.simongilbert.net/tags/asp.net-web-api/</loc>
     <lastmod>2020-06-03T14:52:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/redux/</loc>
+    <loc>https://www.simongilbert.net/tags/redux/</loc>
     <lastmod>2020-06-03T14:52:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/reactjs-redux-csharp-aspnetcore-reverse-geo-location/</loc>
+    <loc>https://www.simongilbert.net/post/reactjs-redux-csharp-aspnetcore-reverse-geo-location/</loc>
     <lastmod>2020-05-23T12:07:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/reactjs-redux-csharp-aspnetcore-client-side-validation/</loc>
+    <loc>https://www.simongilbert.net/post/reactjs-redux-csharp-aspnetcore-client-side-validation/</loc>
     <lastmod>2020-05-14T14:38:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/validation/</loc>
+    <loc>https://www.simongilbert.net/tags/validation/</loc>
     <lastmod>2020-05-14T14:38:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/full-stack-spa-reactjs-redux-bootstrap4-aspnetcore/</loc>
+    <loc>https://www.simongilbert.net/post/full-stack-spa-reactjs-redux-bootstrap4-aspnetcore/</loc>
     <lastmod>2020-04-06T07:59:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/bootstrap/</loc>
+    <loc>https://www.simongilbert.net/tags/bootstrap/</loc>
     <lastmod>2020-04-06T07:59:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/spa/</loc>
+    <loc>https://www.simongilbert.net/tags/spa/</loc>
     <lastmod>2020-04-06T07:59:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/xunit/</loc>
+    <loc>https://www.simongilbert.net/tags/xunit/</loc>
     <lastmod>2020-02-05T06:09:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/xunit-ci-azure-appveyor-aspdotnetmvccore/</loc>
+    <loc>https://www.simongilbert.net/post/xunit-ci-azure-appveyor-aspdotnetmvccore/</loc>
     <lastmod>2020-02-05T06:09:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/azure-blob-storage/</loc>
+    <loc>https://www.simongilbert.net/tags/azure-blob-storage/</loc>
     <lastmod>2020-01-22T11:45:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/concurrency/</loc>
+    <loc>https://www.simongilbert.net/tags/concurrency/</loc>
     <lastmod>2020-01-22T11:45:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/azure-table-storage-pessimistic-concurrency-aspdotnetmvccore/</loc>
+    <loc>https://www.simongilbert.net/post/azure-table-storage-pessimistic-concurrency-aspdotnetmvccore/</loc>
     <lastmod>2020-01-22T11:45:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/autofac-azure-table-storage-aspnetcore-3/</loc>
+    <loc>https://www.simongilbert.net/post/autofac-azure-table-storage-aspnetcore-3/</loc>
     <lastmod>2020-01-02T22:58:06+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/automapper/</loc>
+    <loc>https://www.simongilbert.net/tags/automapper/</loc>
     <lastmod>2019-12-23T22:11:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/automapper-csharp-aspnetcore-mvc-3-0/</loc>
+    <loc>https://www.simongilbert.net/post/automapper-csharp-aspnetcore-mvc-3-0/</loc>
     <lastmod>2019-12-23T22:11:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/azure-functions/</loc>
+    <loc>https://www.simongilbert.net/tags/azure-functions/</loc>
     <lastmod>2019-08-08T23:06:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/azure-service-bus/</loc>
+    <loc>https://www.simongilbert.net/tags/azure-service-bus/</loc>
     <lastmod>2019-08-08T23:06:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/message-queue/</loc>
+    <loc>https://www.simongilbert.net/tags/message-queue/</loc>
     <lastmod>2019-08-08T23:06:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/serverless-azure-functions-service-bus-table-storage/</loc>
+    <loc>https://www.simongilbert.net/post/serverless-azure-functions-service-bus-table-storage/</loc>
     <lastmod>2019-08-08T23:06:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/unified-mvc-vs-web-api-controllers-aspnetcore/</loc>
+    <loc>https://www.simongilbert.net/post/unified-mvc-vs-web-api-controllers-aspnetcore/</loc>
     <lastmod>2019-05-09T08:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/performance/</loc>
+    <loc>https://www.simongilbert.net/tags/performance/</loc>
     <lastmod>2019-05-02T06:37:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/rate-limit-action-filter-attribute-csharp-aspnetcore/</loc>
+    <loc>https://www.simongilbert.net/post/rate-limit-action-filter-attribute-csharp-aspnetcore/</loc>
     <lastmod>2019-05-02T06:37:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/gist/</loc>
+    <loc>https://www.simongilbert.net/tags/gist/</loc>
     <lastmod>2019-04-29T18:24:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/github/</loc>
+    <loc>https://www.simongilbert.net/tags/github/</loc>
     <lastmod>2019-04-29T18:24:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/github-gists-csharp-dotnetcore-extensions/</loc>
+    <loc>https://www.simongilbert.net/post/github-gists-csharp-dotnetcore-extensions/</loc>
     <lastmod>2019-04-29T18:24:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/iphone-geo-location-csharp-xamarin-ios/</loc>
+    <loc>https://www.simongilbert.net/post/iphone-geo-location-csharp-xamarin-ios/</loc>
     <lastmod>2019-04-23T10:21:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/xamarin.ios/</loc>
+    <loc>https://www.simongilbert.net/tags/xamarin.ios/</loc>
     <lastmod>2019-04-23T10:21:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/documentation/</loc>
+    <loc>https://www.simongilbert.net/tags/documentation/</loc>
     <lastmod>2019-04-18T10:38:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/aspnetcore-web-api-swashbuckle-swagger/</loc>
+    <loc>https://www.simongilbert.net/post/aspnetcore-web-api-swashbuckle-swagger/</loc>
     <lastmod>2019-04-18T10:38:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/swagger/</loc>
+    <loc>https://www.simongilbert.net/tags/swagger/</loc>
     <lastmod>2019-04-18T10:38:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/swashbuckle/</loc>
+    <loc>https://www.simongilbert.net/tags/swashbuckle/</loc>
     <lastmod>2019-04-18T10:38:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/entity-framework/</loc>
+    <loc>https://www.simongilbert.net/tags/entity-framework/</loc>
     <lastmod>2019-04-11T06:10:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/entity-framework-in-memory-crud-aspdotnetcore-webapi/</loc>
+    <loc>https://www.simongilbert.net/post/entity-framework-in-memory-crud-aspdotnetcore-webapi/</loc>
     <lastmod>2019-04-11T06:10:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/docker-containers-kubernetes-k8s-aspdotnetmvccore/</loc>
+    <loc>https://www.simongilbert.net/post/docker-containers-kubernetes-k8s-aspdotnetmvccore/</loc>
     <lastmod>2019-04-04T08:41:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/kubernetes/</loc>
+    <loc>https://www.simongilbert.net/tags/kubernetes/</loc>
     <lastmod>2019-04-04T08:41:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/azure-service-bus-pub-sub-aspdotnetmvccore/</loc>
+    <loc>https://www.simongilbert.net/post/azure-service-bus-pub-sub-aspdotnetmvccore/</loc>
     <lastmod>2019-04-01T10:03:03+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/appveyor/</loc>
+    <loc>https://www.simongilbert.net/tags/appveyor/</loc>
     <lastmod>2019-03-30T21:09:52+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/continuous-integration-azure-service-appveyor-aspdotnetmvccore/</loc>
+    <loc>https://www.simongilbert.net/post/continuous-integration-azure-service-appveyor-aspdotnetmvccore/</loc>
     <lastmod>2019-03-30T21:09:52+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/cloudflare/</loc>
+    <loc>https://www.simongilbert.net/tags/cloudflare/</loc>
     <lastmod>2019-03-29T09:33:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/azure-ssl-tls-cloudflare-csharp-aspdotnetmvccore/</loc>
+    <loc>https://www.simongilbert.net/post/azure-ssl-tls-cloudflare-csharp-aspdotnetmvccore/</loc>
     <lastmod>2019-03-29T09:33:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/ssl/tls/</loc>
+    <loc>https://www.simongilbert.net/tags/ssl/tls/</loc>
     <lastmod>2019-03-29T09:33:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/pci-compliant-card-payment-stripe-aspdotnetmvccore/</loc>
+    <loc>https://www.simongilbert.net/post/pci-compliant-card-payment-stripe-aspdotnetmvccore/</loc>
     <lastmod>2019-03-25T21:19:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/stripe/</loc>
+    <loc>https://www.simongilbert.net/tags/stripe/</loc>
     <lastmod>2019-03-25T21:19:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/view-model-fluentvalidation-aspdotnetmvccore/</loc>
+    <loc>https://www.simongilbert.net/post/view-model-fluentvalidation-aspdotnetmvccore/</loc>
     <lastmod>2019-03-23T01:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/fluent-validation/</loc>
+    <loc>https://www.simongilbert.net/tags/fluent-validation/</loc>
     <lastmod>2019-03-23T01:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/bcrypt/</loc>
+    <loc>https://www.simongilbert.net/tags/bcrypt/</loc>
     <lastmod>2019-03-21T14:53:59+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/cryptography/</loc>
+    <loc>https://www.simongilbert.net/tags/cryptography/</loc>
     <lastmod>2019-03-21T14:53:59+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/hashing-passwords-md5-bcrypt-pbkdf2-csharp-dotnetcore/</loc>
+    <loc>https://www.simongilbert.net/post/hashing-passwords-md5-bcrypt-pbkdf2-csharp-dotnetcore/</loc>
     <lastmod>2019-03-21T14:53:59+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/md5/</loc>
+    <loc>https://www.simongilbert.net/tags/md5/</loc>
     <lastmod>2019-03-21T14:53:59+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/pbkdf2/</loc>
+    <loc>https://www.simongilbert.net/tags/pbkdf2/</loc>
     <lastmod>2019-03-21T14:53:59+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/validation-rules-fluentvalidation-csharp-dotnetcore/</loc>
+    <loc>https://www.simongilbert.net/post/validation-rules-fluentvalidation-csharp-dotnetcore/</loc>
     <lastmod>2019-03-17T13:26:08+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/cross-platform-sms-restful-twilio-aspnetwebapicore/</loc>
+    <loc>https://www.simongilbert.net/post/cross-platform-sms-restful-twilio-aspnetwebapicore/</loc>
     <lastmod>2019-03-12T08:17:41+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/sms/</loc>
+    <loc>https://www.simongilbert.net/tags/sms/</loc>
     <lastmod>2019-03-12T08:17:41+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/twilio/</loc>
+    <loc>https://www.simongilbert.net/tags/twilio/</loc>
     <lastmod>2019-03-12T08:17:41+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/aspnetmvccore-mocking-testing-moq-xunit/</loc>
+    <loc>https://www.simongilbert.net/post/aspnetmvccore-mocking-testing-moq-xunit/</loc>
     <lastmod>2019-03-02T12:58:49+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/moq/</loc>
+    <loc>https://www.simongilbert.net/tags/moq/</loc>
     <lastmod>2019-03-02T12:58:49+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/unit-testing/</loc>
+    <loc>https://www.simongilbert.net/tags/unit-testing/</loc>
     <lastmod>2019-03-02T12:58:49+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/azure-blob-storage-image-upload-aspnetmvccore/</loc>
+    <loc>https://www.simongilbert.net/post/azure-blob-storage-image-upload-aspnetmvccore/</loc>
     <lastmod>2019-02-25T01:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/unit-testing-xunit-csharp-dotnetcore/</loc>
+    <loc>https://www.simongilbert.net/post/unit-testing-xunit-csharp-dotnetcore/</loc>
     <lastmod>2019-02-22T11:17:13+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/algorithms/</loc>
+    <loc>https://www.simongilbert.net/tags/algorithms/</loc>
     <lastmod>2019-02-20T20:17:27+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/comp-sci-search-algorithms-csharp-dotnetcore/</loc>
+    <loc>https://www.simongilbert.net/post/comp-sci-search-algorithms-csharp-dotnetcore/</loc>
     <lastmod>2019-02-20T20:17:27+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/haversine/</loc>
+    <loc>https://www.simongilbert.net/tags/haversine/</loc>
     <lastmod>2019-02-15T14:21:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/parallel-haversine-formula-dotnetcore/</loc>
+    <loc>https://www.simongilbert.net/post/parallel-haversine-formula-dotnetcore/</loc>
     <lastmod>2019-02-15T14:21:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/parallel-programming/</loc>
+    <loc>https://www.simongilbert.net/tags/parallel-programming/</loc>
     <lastmod>2019-02-15T14:21:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/fizzbuzz-performance-comparison-dotnetcore-dotnetframework/</loc>
+    <loc>https://www.simongilbert.net/post/fizzbuzz-performance-comparison-dotnetcore-dotnetframework/</loc>
     <lastmod>2018-10-06T13:14:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/dependency-injection-aspnet-mvc-azure-storage-autofac/</loc>
+    <loc>https://www.simongilbert.net/post/dependency-injection-aspnet-mvc-azure-storage-autofac/</loc>
     <lastmod>2018-09-01T15:06:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/stack-exchange-redis-distributed-cache-aspnetcore/</loc>
+    <loc>https://www.simongilbert.net/post/stack-exchange-redis-distributed-cache-aspnetcore/</loc>
   </url>
 </urlset>

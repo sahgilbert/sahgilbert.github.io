@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Asp.Net MVC on Simon Gilbert Blog</title>
-    <link>http://localhost:1313/tags/asp.net-mvc/</link>
+    <link>https://www.simongilbert.net/tags/asp.net-mvc/</link>
     <description>Recent content in Asp.Net MVC on Simon Gilbert Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Wed, 07 Feb 2024 10:38:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/asp.net-mvc/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 07 Feb 2024 10:38:00 +0000</lastBuildDate><atom:link href="https://www.simongilbert.net/tags/asp.net-mvc/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Dependency Injection for Azure Table Storage including Microsoft Entra Identity Security using C#.Net 8.0.0 and Autofac</title>
-      <link>http://localhost:1313/post/dependency-injection-autofac-azure-table-storage-microsoft-identity/</link>
+      <link>https://www.simongilbert.net/post/dependency-injection-autofac-azure-table-storage-microsoft-identity/</link>
       <pubDate>Wed, 07 Feb 2024 10:38:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/dependency-injection-autofac-azure-table-storage-microsoft-identity/</guid>
+      <guid>https://www.simongilbert.net/post/dependency-injection-autofac-azure-table-storage-microsoft-identity/</guid>
       
       <description>Keen to improve the security of your Azure Table Storage Access? Today I&amp;rsquo;ll explain how to ensure only your dedicated Azure App Service has access to the database when running in production - No more Access Keys or Shared Access Signatures required!</description>
       
@@ -20,10 +20,10 @@
     
     <item>
       <title>Deploying C# Asp.Net Core to an Azure App Service via GitHub Actions using a deploy.yml File</title>
-      <link>http://localhost:1313/post/deploy-aspnetcore-azure-app-service-github-actions-yaml/</link>
+      <link>https://www.simongilbert.net/post/deploy-aspnetcore-azure-app-service-github-actions-yaml/</link>
       <pubDate>Wed, 03 Jan 2024 10:38:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/deploy-aspnetcore-azure-app-service-github-actions-yaml/</guid>
+      <guid>https://www.simongilbert.net/post/deploy-aspnetcore-azure-app-service-github-actions-yaml/</guid>
       
       <description>Keen to understand how to deploy your C# Asp.Net Core application an an Azure App Service using GitHub Actions Continuous Integration (CI/CD)? Today we&amp;rsquo;ll discuss exactly how to do just that!</description>
       
@@ -31,10 +31,10 @@
     
     <item>
       <title>xUnit &#34;Test Driven&#34; Continuous Integration to Microsoft Azure Web App Services using Appveyor - C# ASP.Net MVC Core</title>
-      <link>http://localhost:1313/post/xunit-ci-azure-appveyor-aspdotnetmvccore/</link>
+      <link>https://www.simongilbert.net/post/xunit-ci-azure-appveyor-aspdotnetmvccore/</link>
       <pubDate>Wed, 05 Feb 2020 06:09:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/xunit-ci-azure-appveyor-aspdotnetmvccore/</guid>
+      <guid>https://www.simongilbert.net/post/xunit-ci-azure-appveyor-aspdotnetmvccore/</guid>
       
       <description>Continuously deploying via Appveyor CI? Simon Gilbert explains only deploying an Azure Web App Service if all your xUnit tests pass in ASP.Net MVC Core</description>
       
@@ -42,10 +42,10 @@
     
     <item>
       <title>Microsoft Azure Cloud Table Storage - Optimistic vs. Pessimistic Concurrency using C# ASP.Net MVC Core</title>
-      <link>http://localhost:1313/post/azure-table-storage-pessimistic-concurrency-aspdotnetmvccore/</link>
+      <link>https://www.simongilbert.net/post/azure-table-storage-pessimistic-concurrency-aspdotnetmvccore/</link>
       <pubDate>Wed, 22 Jan 2020 11:45:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/azure-table-storage-pessimistic-concurrency-aspdotnetmvccore/</guid>
+      <guid>https://www.simongilbert.net/post/azure-table-storage-pessimistic-concurrency-aspdotnetmvccore/</guid>
       
       <description>Azure Table Storage concurrency issues? Simon Gilbert provides a simple explanation of implementing pessimistic concurrency control using Azure Blobs in C# ASP.Net MVC Core</description>
       
@@ -53,10 +53,10 @@
     
     <item>
       <title>Using Autofac for Azure Table Storage with C# ASP.Net Core MVC 3.0</title>
-      <link>http://localhost:1313/post/autofac-azure-table-storage-aspnetcore-3/</link>
+      <link>https://www.simongilbert.net/post/autofac-azure-table-storage-aspnetcore-3/</link>
       <pubDate>Thu, 02 Jan 2020 22:58:06 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/autofac-azure-table-storage-aspnetcore-3/</guid>
+      <guid>https://www.simongilbert.net/post/autofac-azure-table-storage-aspnetcore-3/</guid>
       
       <description>Keen to use Autofac&amp;rsquo;s DI framework with Azure Table Storage? Simon Gilbert explains how to utilise Autofac with ASP.Net MVC Core 3.0</description>
       
@@ -64,10 +64,10 @@
     
     <item>
       <title>Using AutoMapper with ASP.Net Core MVC 3.0</title>
-      <link>http://localhost:1313/post/automapper-csharp-aspnetcore-mvc-3-0/</link>
+      <link>https://www.simongilbert.net/post/automapper-csharp-aspnetcore-mvc-3-0/</link>
       <pubDate>Mon, 23 Dec 2019 22:11:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/automapper-csharp-aspnetcore-mvc-3-0/</guid>
+      <guid>https://www.simongilbert.net/post/automapper-csharp-aspnetcore-mvc-3-0/</guid>
       
       <description>Need to map between view models and database models? Simon Gilbert explains a performant way of doing this using AutoMapper in C# Asp.Net Core MVC 3.0</description>
       
@@ -75,10 +75,10 @@
     
     <item>
       <title>Unified MVC &amp; Web Api Controllers - C# ASP.Net Core</title>
-      <link>http://localhost:1313/post/unified-mvc-vs-web-api-controllers-aspnetcore/</link>
+      <link>https://www.simongilbert.net/post/unified-mvc-vs-web-api-controllers-aspnetcore/</link>
       <pubDate>Thu, 09 May 2019 08:30:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/unified-mvc-vs-web-api-controllers-aspnetcore/</guid>
+      <guid>https://www.simongilbert.net/post/unified-mvc-vs-web-api-controllers-aspnetcore/</guid>
       
       <description>Coding both MVC &amp;amp; Web Api combined? Simon Gilbert details unified MVC View &amp;amp; Web Api endpoint controllers in C# ASP.Net Core</description>
       
@@ -86,10 +86,10 @@
     
     <item>
       <title>Deploying Docker Containers on Mac OS X using Kubernetes (K8s) - C# ASP.Net MVC Core</title>
-      <link>http://localhost:1313/post/docker-containers-kubernetes-k8s-aspdotnetmvccore/</link>
+      <link>https://www.simongilbert.net/post/docker-containers-kubernetes-k8s-aspdotnetmvccore/</link>
       <pubDate>Thu, 04 Apr 2019 08:41:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/docker-containers-kubernetes-k8s-aspdotnetmvccore/</guid>
+      <guid>https://www.simongilbert.net/post/docker-containers-kubernetes-k8s-aspdotnetmvccore/</guid>
       
       <description>Looking to use, deploy &amp;amp; manage containers? Simon Gilbert explains how to setup, configure and deploy Docker containers with Kubernetes (K8s) locally using C# ASP.Net MVC Core</description>
       
@@ -97,10 +97,10 @@
     
     <item>
       <title>Microsoft Azure Service Bus - Distributed Message Queue (Publish-Subscribe) using C# ASP.Net MVC Core</title>
-      <link>http://localhost:1313/post/azure-service-bus-pub-sub-aspdotnetmvccore/</link>
+      <link>https://www.simongilbert.net/post/azure-service-bus-pub-sub-aspdotnetmvccore/</link>
       <pubDate>Mon, 01 Apr 2019 10:03:03 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/azure-service-bus-pub-sub-aspdotnetmvccore/</guid>
+      <guid>https://www.simongilbert.net/post/azure-service-bus-pub-sub-aspdotnetmvccore/</guid>
       
       <description>Intermittent throughput spikes? Simon Gilbert explains the publish-subscribe pattern with Microsoft Azure Service Bus using C# ASP.Net MVC Core</description>
       
@@ -108,10 +108,10 @@
     
     <item>
       <title>Continuous Integration for Azure Web App Service Deployments using Appveyor - C# ASP.Net MVC Core</title>
-      <link>http://localhost:1313/post/continuous-integration-azure-service-appveyor-aspdotnetmvccore/</link>
+      <link>https://www.simongilbert.net/post/continuous-integration-azure-service-appveyor-aspdotnetmvccore/</link>
       <pubDate>Sat, 30 Mar 2019 21:09:52 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/continuous-integration-azure-service-appveyor-aspdotnetmvccore/</guid>
+      <guid>https://www.simongilbert.net/post/continuous-integration-azure-service-appveyor-aspdotnetmvccore/</guid>
       
       <description>Deploying Microsoft Azure Web App Services? Simon Gilbert explains continuous integration to the Azure Cloud, using YAML, Appveyor and C# ASP.Net MVC Core.</description>
       
@@ -119,10 +119,10 @@
     
     <item>
       <title>Microsoft Azure Web App Service SSL/TLS Security using Cloudflare - C# ASP.Net MVC Core</title>
-      <link>http://localhost:1313/post/azure-ssl-tls-cloudflare-csharp-aspdotnetmvccore/</link>
+      <link>https://www.simongilbert.net/post/azure-ssl-tls-cloudflare-csharp-aspdotnetmvccore/</link>
       <pubDate>Fri, 29 Mar 2019 09:33:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/azure-ssl-tls-cloudflare-csharp-aspdotnetmvccore/</guid>
+      <guid>https://www.simongilbert.net/post/azure-ssl-tls-cloudflare-csharp-aspdotnetmvccore/</guid>
       
       <description>SSL/TLS certificate &amp;amp; DDOS protection required? Simon Gilbert details Cloudflare on a Microsoft Azure Web App Service running C# ASP.Net MVC Core</description>
       
@@ -130,10 +130,10 @@
     
     <item>
       <title>Cross-Platform (PCI Compliant) Credit Card Payments using Stripe - C# ASP.Net MVC Core</title>
-      <link>http://localhost:1313/post/pci-compliant-card-payment-stripe-aspdotnetmvccore/</link>
+      <link>https://www.simongilbert.net/post/pci-compliant-card-payment-stripe-aspdotnetmvccore/</link>
       <pubDate>Mon, 25 Mar 2019 21:19:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/pci-compliant-card-payment-stripe-aspdotnetmvccore/</guid>
+      <guid>https://www.simongilbert.net/post/pci-compliant-card-payment-stripe-aspdotnetmvccore/</guid>
       
       <description>Need to process credit card payments in your code? Simon Gilbert explains how to accept PCI Compliant card payments using the leading payment provider Stripe, and C# ASP.Net MVC Core in Visual Studio for Mac.</description>
       
@@ -141,10 +141,10 @@
     
     <item>
       <title>Binding Fluent Validation to an HTML View - C# ASP.Net MVC Core</title>
-      <link>http://localhost:1313/post/view-model-fluentvalidation-aspdotnetmvccore/</link>
+      <link>https://www.simongilbert.net/post/view-model-fluentvalidation-aspdotnetmvccore/</link>
       <pubDate>Sat, 23 Mar 2019 01:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/view-model-fluentvalidation-aspdotnetmvccore/</guid>
+      <guid>https://www.simongilbert.net/post/view-model-fluentvalidation-aspdotnetmvccore/</guid>
       
       <description>Looking to validate an HTML view at post back? Simon Gilbert explains the steps required to bind your validation rules to an HTML view, using the FluentValidation library and C# ASP.Net MVC Core.</description>
       
@@ -152,10 +152,10 @@
     
     <item>
       <title>Strongly-Typed Data Model Validation using Fluent Validation - C# .Net Core</title>
-      <link>http://localhost:1313/post/validation-rules-fluentvalidation-csharp-dotnetcore/</link>
+      <link>https://www.simongilbert.net/post/validation-rules-fluentvalidation-csharp-dotnetcore/</link>
       <pubDate>Sun, 17 Mar 2019 13:26:08 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/validation-rules-fluentvalidation-csharp-dotnetcore/</guid>
+      <guid>https://www.simongilbert.net/post/validation-rules-fluentvalidation-csharp-dotnetcore/</guid>
       
       <description>Data integrity feeling tiresome with DataAnnotations? Simon Gilbert details how to clean up your validation rules and separate your concerns, using the FluentValidation library in C# .Net Core.</description>
       
@@ -163,10 +163,10 @@
     
     <item>
       <title>Mocking &amp; Testing using Moq &amp; xUnit Frameworks for C# ASP.Net MVC Core</title>
-      <link>http://localhost:1313/post/aspnetmvccore-mocking-testing-moq-xunit/</link>
+      <link>https://www.simongilbert.net/post/aspnetmvccore-mocking-testing-moq-xunit/</link>
       <pubDate>Sat, 02 Mar 2019 12:58:49 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/aspnetmvccore-mocking-testing-moq-xunit/</guid>
+      <guid>https://www.simongilbert.net/post/aspnetmvccore-mocking-testing-moq-xunit/</guid>
       
       <description>Keen to take unit testing to the next level? Simon Gilbert walks through the benefits of using the Moq framework combined with xUnit to mock and isolate your unit tests using C# ASP.Net MVC Core in Visual Studio for Mac.</description>
       
@@ -174,10 +174,10 @@
     
     <item>
       <title>Microsoft Azure Cloud Blob Storage Image Upload - C# ASP.Net MVC Core</title>
-      <link>http://localhost:1313/post/azure-blob-storage-image-upload-aspnetmvccore/</link>
+      <link>https://www.simongilbert.net/post/azure-blob-storage-image-upload-aspnetmvccore/</link>
       <pubDate>Mon, 25 Feb 2019 01:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/azure-blob-storage-image-upload-aspnetmvccore/</guid>
+      <guid>https://www.simongilbert.net/post/azure-blob-storage-image-upload-aspnetmvccore/</guid>
       
       <description>Ever used Microsoft Azure Blob Storage? Simon Gilbert provides a detailed explanation on how to upload multiple images to Microsoft Azure Blob Storage using C# ASP.Net MVC Core in Visual Studio for Mac.</description>
       
@@ -185,10 +185,10 @@
     
     <item>
       <title>Decoupling - Dependency Injection in C# ASP.Net MVC for Microsoft Azure Table Storage using Autofac</title>
-      <link>http://localhost:1313/post/dependency-injection-aspnet-mvc-azure-storage-autofac/</link>
+      <link>https://www.simongilbert.net/post/dependency-injection-aspnet-mvc-azure-storage-autofac/</link>
       <pubDate>Sat, 01 Sep 2018 15:06:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/dependency-injection-aspnet-mvc-azure-storage-autofac/</guid>
+      <guid>https://www.simongilbert.net/post/dependency-injection-aspnet-mvc-azure-storage-autofac/</guid>
       
       <description>Fancy learning dependency injection?  Simon Gilbert discusses the art of decoupling Azure Table Storage in C# Asp.Net MVC using the dependency injection implementation of the inversion of control design pattern with the Autofac library.</description>
       

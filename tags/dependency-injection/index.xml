@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Dependency Injection on Simon Gilbert Blog</title>
-    <link>http://localhost:1313/tags/dependency-injection/</link>
+    <link>https://www.simongilbert.net/tags/dependency-injection/</link>
     <description>Recent content in Dependency Injection on Simon Gilbert Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Wed, 07 Feb 2024 10:38:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/dependency-injection/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 07 Feb 2024 10:38:00 +0000</lastBuildDate><atom:link href="https://www.simongilbert.net/tags/dependency-injection/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Dependency Injection for Azure Table Storage including Microsoft Entra Identity Security using C#.Net 8.0.0 and Autofac</title>
-      <link>http://localhost:1313/post/dependency-injection-autofac-azure-table-storage-microsoft-identity/</link>
+      <link>https://www.simongilbert.net/post/dependency-injection-autofac-azure-table-storage-microsoft-identity/</link>
       <pubDate>Wed, 07 Feb 2024 10:38:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/dependency-injection-autofac-azure-table-storage-microsoft-identity/</guid>
+      <guid>https://www.simongilbert.net/post/dependency-injection-autofac-azure-table-storage-microsoft-identity/</guid>
       
       <description>Keen to improve the security of your Azure Table Storage Access? Today I&amp;rsquo;ll explain how to ensure only your dedicated Azure App Service has access to the database when running in production - No more Access Keys or Shared Access Signatures required!</description>
       
@@ -20,10 +20,10 @@
     
     <item>
       <title>Using Autofac for Azure Table Storage with C# ASP.Net Core MVC 3.0</title>
-      <link>http://localhost:1313/post/autofac-azure-table-storage-aspnetcore-3/</link>
+      <link>https://www.simongilbert.net/post/autofac-azure-table-storage-aspnetcore-3/</link>
       <pubDate>Thu, 02 Jan 2020 22:58:06 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/autofac-azure-table-storage-aspnetcore-3/</guid>
+      <guid>https://www.simongilbert.net/post/autofac-azure-table-storage-aspnetcore-3/</guid>
       
       <description>Keen to use Autofac&amp;rsquo;s DI framework with Azure Table Storage? Simon Gilbert explains how to utilise Autofac with ASP.Net MVC Core 3.0</description>
       
@@ -31,10 +31,10 @@
     
     <item>
       <title>Decoupling - Dependency Injection in C# ASP.Net MVC for Microsoft Azure Table Storage using Autofac</title>
-      <link>http://localhost:1313/post/dependency-injection-aspnet-mvc-azure-storage-autofac/</link>
+      <link>https://www.simongilbert.net/post/dependency-injection-aspnet-mvc-azure-storage-autofac/</link>
       <pubDate>Sat, 01 Sep 2018 15:06:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/dependency-injection-aspnet-mvc-azure-storage-autofac/</guid>
+      <guid>https://www.simongilbert.net/post/dependency-injection-aspnet-mvc-azure-storage-autofac/</guid>
       
       <description>Fancy learning dependency injection?  Simon Gilbert discusses the art of decoupling Azure Table Storage in C# Asp.Net MVC using the dependency injection implementation of the inversion of control design pattern with the Autofac library.</description>
       

@@ -1,7 +1,7 @@
 {
     "name": "Simon Gilbert Blog",
     "short_name": "Simon Gilbert Blog",
-    "start_url": "http://localhost:1313/",
+    "start_url": "https://www.simongilbert.net/",
     "theme_color": "#434648",
     "background_color": "#ffffff",
     "display": "standalone",

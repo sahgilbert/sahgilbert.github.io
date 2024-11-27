@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Cloudflare on Simon Gilbert Blog</title>
-    <link>http://localhost:1313/tags/cloudflare/</link>
+    <link>https://www.simongilbert.net/tags/cloudflare/</link>
     <description>Recent content in Cloudflare on Simon Gilbert Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Fri, 29 Mar 2019 09:33:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/cloudflare/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 29 Mar 2019 09:33:00 +0000</lastBuildDate><atom:link href="https://www.simongilbert.net/tags/cloudflare/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Microsoft Azure Web App Service SSL/TLS Security using Cloudflare - C# ASP.Net MVC Core</title>
-      <link>http://localhost:1313/post/azure-ssl-tls-cloudflare-csharp-aspdotnetmvccore/</link>
+      <link>https://www.simongilbert.net/post/azure-ssl-tls-cloudflare-csharp-aspdotnetmvccore/</link>
       <pubDate>Fri, 29 Mar 2019 09:33:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/azure-ssl-tls-cloudflare-csharp-aspdotnetmvccore/</guid>
+      <guid>https://www.simongilbert.net/post/azure-ssl-tls-cloudflare-csharp-aspdotnetmvccore/</guid>
       
       <description>SSL/TLS certificate &amp;amp; DDOS protection required? Simon Gilbert details Cloudflare on a Microsoft Azure Web App Service running C# ASP.Net MVC Core</description>
       

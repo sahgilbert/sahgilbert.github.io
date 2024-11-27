@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Bootstrap on Simon Gilbert Blog</title>
-    <link>http://localhost:1313/tags/bootstrap/</link>
+    <link>https://www.simongilbert.net/tags/bootstrap/</link>
     <description>Recent content in Bootstrap on Simon Gilbert Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Mon, 06 Apr 2020 07:59:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/bootstrap/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 06 Apr 2020 07:59:00 +0000</lastBuildDate><atom:link href="https://www.simongilbert.net/tags/bootstrap/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[Full Stack] Single Page App (SPA) - ReactJs &#43; Redux &#43; Bootstrap 4 &#43; ASP.Net Core</title>
-      <link>http://localhost:1313/post/full-stack-spa-reactjs-redux-bootstrap4-aspnetcore/</link>
+      <link>https://www.simongilbert.net/post/full-stack-spa-reactjs-redux-bootstrap4-aspnetcore/</link>
       <pubDate>Mon, 06 Apr 2020 07:59:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/full-stack-spa-reactjs-redux-bootstrap4-aspnetcore/</guid>
+      <guid>https://www.simongilbert.net/post/full-stack-spa-reactjs-redux-bootstrap4-aspnetcore/</guid>
       
       <description>Need to code full stack? Simon Gilbert explains how to setup a SPA using ReactJS, Redux, C# ASP.Net Core &amp;amp; Bootstrap 4</description>
       

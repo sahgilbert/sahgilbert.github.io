@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>React.js on Simon Gilbert Blog</title>
-    <link>http://localhost:1313/tags/react.js/</link>
+    <link>https://www.simongilbert.net/tags/react.js/</link>
     <description>Recent content in React.js on Simon Gilbert Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Wed, 01 Jul 2020 12:26:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/react.js/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 01 Jul 2020 12:26:00 +0000</lastBuildDate><atom:link href="https://www.simongilbert.net/tags/react.js/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Automated Customer Service via Conversational Artificial Intelligence (AI) - Using Amazon Web Services (AWS) Connect, Lambda, DynamoDb, S3, Node.js, ReactJS, Axios &amp; Bootstrap 4</title>
-      <link>http://localhost:1313/post/aws-connect-lambda-dynamodb-s3-nodejs-reactjs-axios/</link>
+      <link>https://www.simongilbert.net/post/aws-connect-lambda-dynamodb-s3-nodejs-reactjs-axios/</link>
       <pubDate>Wed, 01 Jul 2020 12:26:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/aws-connect-lambda-dynamodb-s3-nodejs-reactjs-axios/</guid>
+      <guid>https://www.simongilbert.net/post/aws-connect-lambda-dynamodb-s3-nodejs-reactjs-axios/</guid>
       
       <description>Coding conversational artificial intelligence? Simon Gilbert explains how to build a fully automated customer service contact centre using AWS Connect, Lambda, DynamoDb, S3, Node.js, ReactJs, Axios &amp;amp; Bootstrap 4</description>
       
@@ -20,10 +20,10 @@
     
     <item>
       <title>[Full Stack Web] Show &amp; Hide Password Form Submit - ReactJS &#43; Redux &#43; C# ASP.Net Core</title>
-      <link>http://localhost:1313/post/reactjs-redux-csharp-aspnetcore-show-hide-password-form/</link>
+      <link>https://www.simongilbert.net/post/reactjs-redux-csharp-aspnetcore-show-hide-password-form/</link>
       <pubDate>Wed, 03 Jun 2020 14:52:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/reactjs-redux-csharp-aspnetcore-show-hide-password-form/</guid>
+      <guid>https://www.simongilbert.net/post/reactjs-redux-csharp-aspnetcore-show-hide-password-form/</guid>
       
       <description>Coding HTML password forms? Simon Gilbert explains how to show an hide password values using ReactJS, Redux, C# ASP.Net Core</description>
       
@@ -31,10 +31,10 @@
     
     <item>
       <title>[Full Stack Web] Reverse Geo Location Lookup - ReactJS &#43; Redux &#43; C# ASP.Net Core</title>
-      <link>http://localhost:1313/post/reactjs-redux-csharp-aspnetcore-reverse-geo-location/</link>
+      <link>https://www.simongilbert.net/post/reactjs-redux-csharp-aspnetcore-reverse-geo-location/</link>
       <pubDate>Sat, 23 May 2020 12:07:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/reactjs-redux-csharp-aspnetcore-reverse-geo-location/</guid>
+      <guid>https://www.simongilbert.net/post/reactjs-redux-csharp-aspnetcore-reverse-geo-location/</guid>
       
       <description>Reverse engineering geo location? Simon Gilbert explains this via postcodes.io using ReactJS, Redux, C# ASP.Net Core</description>
       
@@ -42,10 +42,10 @@
     
     <item>
       <title>[Full Stack Web] Client-Side Validation Postback - ReactJS &#43; Redux &#43; C# ASP.Net Core</title>
-      <link>http://localhost:1313/post/reactjs-redux-csharp-aspnetcore-client-side-validation/</link>
+      <link>https://www.simongilbert.net/post/reactjs-redux-csharp-aspnetcore-client-side-validation/</link>
       <pubDate>Thu, 14 May 2020 14:38:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/reactjs-redux-csharp-aspnetcore-client-side-validation/</guid>
+      <guid>https://www.simongilbert.net/post/reactjs-redux-csharp-aspnetcore-client-side-validation/</guid>
       
       <description>Need to validate data integrity? Simon Gilbert explains SPA client-side validation using ReactJS, Redux, C# ASP.Net Core</description>
       
@@ -53,10 +53,10 @@
     
     <item>
       <title>[Full Stack] Single Page App (SPA) - ReactJs &#43; Redux &#43; Bootstrap 4 &#43; ASP.Net Core</title>
-      <link>http://localhost:1313/post/full-stack-spa-reactjs-redux-bootstrap4-aspnetcore/</link>
+      <link>https://www.simongilbert.net/post/full-stack-spa-reactjs-redux-bootstrap4-aspnetcore/</link>
       <pubDate>Mon, 06 Apr 2020 07:59:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/full-stack-spa-reactjs-redux-bootstrap4-aspnetcore/</guid>
+      <guid>https://www.simongilbert.net/post/full-stack-spa-reactjs-redux-bootstrap4-aspnetcore/</guid>
       
       <description>Need to code full stack? Simon Gilbert explains how to setup a SPA using ReactJS, Redux, C# ASP.Net Core &amp;amp; Bootstrap 4</description>
       

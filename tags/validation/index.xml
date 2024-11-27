@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Validation on Simon Gilbert Blog</title>
-    <link>http://localhost:1313/tags/validation/</link>
+    <link>https://www.simongilbert.net/tags/validation/</link>
     <description>Recent content in Validation on Simon Gilbert Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Thu, 14 May 2020 14:38:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/validation/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 14 May 2020 14:38:00 +0000</lastBuildDate><atom:link href="https://www.simongilbert.net/tags/validation/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[Full Stack Web] Client-Side Validation Postback - ReactJS &#43; Redux &#43; C# ASP.Net Core</title>
-      <link>http://localhost:1313/post/reactjs-redux-csharp-aspnetcore-client-side-validation/</link>
+      <link>https://www.simongilbert.net/post/reactjs-redux-csharp-aspnetcore-client-side-validation/</link>
       <pubDate>Thu, 14 May 2020 14:38:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/reactjs-redux-csharp-aspnetcore-client-side-validation/</guid>
+      <guid>https://www.simongilbert.net/post/reactjs-redux-csharp-aspnetcore-client-side-validation/</guid>
       
       <description>Need to validate data integrity? Simon Gilbert explains SPA client-side validation using ReactJS, Redux, C# ASP.Net Core</description>
       
@@ -20,10 +20,10 @@
     
     <item>
       <title>Binding Fluent Validation to an HTML View - C# ASP.Net MVC Core</title>
-      <link>http://localhost:1313/post/view-model-fluentvalidation-aspdotnetmvccore/</link>
+      <link>https://www.simongilbert.net/post/view-model-fluentvalidation-aspdotnetmvccore/</link>
       <pubDate>Sat, 23 Mar 2019 01:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/view-model-fluentvalidation-aspdotnetmvccore/</guid>
+      <guid>https://www.simongilbert.net/post/view-model-fluentvalidation-aspdotnetmvccore/</guid>
       
       <description>Looking to validate an HTML view at post back? Simon Gilbert explains the steps required to bind your validation rules to an HTML view, using the FluentValidation library and C# ASP.Net MVC Core.</description>
       
@@ -31,10 +31,10 @@
     
     <item>
       <title>Strongly-Typed Data Model Validation using Fluent Validation - C# .Net Core</title>
-      <link>http://localhost:1313/post/validation-rules-fluentvalidation-csharp-dotnetcore/</link>
+      <link>https://www.simongilbert.net/post/validation-rules-fluentvalidation-csharp-dotnetcore/</link>
       <pubDate>Sun, 17 Mar 2019 13:26:08 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/validation-rules-fluentvalidation-csharp-dotnetcore/</guid>
+      <guid>https://www.simongilbert.net/post/validation-rules-fluentvalidation-csharp-dotnetcore/</guid>
       
       <description>Data integrity feeling tiresome with DataAnnotations? Simon Gilbert details how to clean up your validation rules and separate your concerns, using the FluentValidation library in C# .Net Core.</description>
       

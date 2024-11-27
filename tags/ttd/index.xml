@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>TTD on Simon Gilbert Blog</title>
-    <link>http://localhost:1313/tags/ttd/</link>
+    <link>https://www.simongilbert.net/tags/ttd/</link>
     <description>Recent content in TTD on Simon Gilbert Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Wed, 16 Jun 2021 15:41:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/ttd/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 16 Jun 2021 15:41:00 +0000</lastBuildDate><atom:link href="https://www.simongilbert.net/tags/ttd/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Test Driven Development (TDD) Typescript Lambda API using Mocha and Chai</title>
-      <link>http://localhost:1313/post/test-driven-development-tdd-typescript-lambda-api-mocha-chai/</link>
+      <link>https://www.simongilbert.net/post/test-driven-development-tdd-typescript-lambda-api-mocha-chai/</link>
       <pubDate>Wed, 16 Jun 2021 15:41:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/test-driven-development-tdd-typescript-lambda-api-mocha-chai/</guid>
+      <guid>https://www.simongilbert.net/post/test-driven-development-tdd-typescript-lambda-api-mocha-chai/</guid>
       
       <description>Test Driven Development (TDD) has many benefits, including allowing us to focus on our requirements with a &amp;ldquo;unit test first approach&amp;rdquo; to ensure that we&amp;rsquo;re only deploying code where the unit tests pass. Today we&amp;rsquo;re going to cover using Mocha and Chai to test our Typescript Lambda algorithms!</description>
       

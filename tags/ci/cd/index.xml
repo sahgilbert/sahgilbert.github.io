@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>CI/CD on Simon Gilbert Blog</title>
-    <link>http://localhost:1313/tags/ci/cd/</link>
+    <link>https://www.simongilbert.net/tags/ci/cd/</link>
     <description>Recent content in CI/CD on Simon Gilbert Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Wed, 03 Jan 2024 10:38:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/ci/cd/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 03 Jan 2024 10:38:00 +0000</lastBuildDate><atom:link href="https://www.simongilbert.net/tags/ci/cd/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Deploying C# Asp.Net Core to an Azure App Service via GitHub Actions using a deploy.yml File</title>
-      <link>http://localhost:1313/post/deploy-aspnetcore-azure-app-service-github-actions-yaml/</link>
+      <link>https://www.simongilbert.net/post/deploy-aspnetcore-azure-app-service-github-actions-yaml/</link>
       <pubDate>Wed, 03 Jan 2024 10:38:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/deploy-aspnetcore-azure-app-service-github-actions-yaml/</guid>
+      <guid>https://www.simongilbert.net/post/deploy-aspnetcore-azure-app-service-github-actions-yaml/</guid>
       
       <description>Keen to understand how to deploy your C# Asp.Net Core application an an Azure App Service using GitHub Actions Continuous Integration (CI/CD)? Today we&amp;rsquo;ll discuss exactly how to do just that!</description>
       
@@ -20,10 +20,10 @@
     
     <item>
       <title>Continuous Integration (CI/CD) for a Typescript Serverless Lambda API using CircleCI</title>
-      <link>http://localhost:1313/post/continuous-integration-ci-cd-typescript-serverless-lambda-api-circleci/</link>
+      <link>https://www.simongilbert.net/post/continuous-integration-ci-cd-typescript-serverless-lambda-api-circleci/</link>
       <pubDate>Wed, 18 Aug 2021 12:30:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/continuous-integration-ci-cd-typescript-serverless-lambda-api-circleci/</guid>
+      <guid>https://www.simongilbert.net/post/continuous-integration-ci-cd-typescript-serverless-lambda-api-circleci/</guid>
       
       <description>Are you getting tired of manually deploying your code to AWS after each code change? Today we&amp;rsquo;re going to implement Continuous Integration for Serverless Lambda, to automate our deployments using a CI/CD pipeline, based on the Git branch we push the commit to!</description>
       
@@ -31,10 +31,10 @@
     
     <item>
       <title>xUnit &#34;Test Driven&#34; Continuous Integration to Microsoft Azure Web App Services using Appveyor - C# ASP.Net MVC Core</title>
-      <link>http://localhost:1313/post/xunit-ci-azure-appveyor-aspdotnetmvccore/</link>
+      <link>https://www.simongilbert.net/post/xunit-ci-azure-appveyor-aspdotnetmvccore/</link>
       <pubDate>Wed, 05 Feb 2020 06:09:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/xunit-ci-azure-appveyor-aspdotnetmvccore/</guid>
+      <guid>https://www.simongilbert.net/post/xunit-ci-azure-appveyor-aspdotnetmvccore/</guid>
       
       <description>Continuously deploying via Appveyor CI? Simon Gilbert explains only deploying an Azure Web App Service if all your xUnit tests pass in ASP.Net MVC Core</description>
       
@@ -42,10 +42,10 @@
     
     <item>
       <title>Continuous Integration for Azure Web App Service Deployments using Appveyor - C# ASP.Net MVC Core</title>
-      <link>http://localhost:1313/post/continuous-integration-azure-service-appveyor-aspdotnetmvccore/</link>
+      <link>https://www.simongilbert.net/post/continuous-integration-azure-service-appveyor-aspdotnetmvccore/</link>
       <pubDate>Sat, 30 Mar 2019 21:09:52 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/continuous-integration-azure-service-appveyor-aspdotnetmvccore/</guid>
+      <guid>https://www.simongilbert.net/post/continuous-integration-azure-service-appveyor-aspdotnetmvccore/</guid>
       
       <description>Deploying Microsoft Azure Web App Services? Simon Gilbert explains continuous integration to the Azure Cloud, using YAML, Appveyor and C# ASP.Net MVC Core.</description>
       

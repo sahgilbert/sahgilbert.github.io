@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>YAML on Simon Gilbert Blog</title>
-    <link>http://localhost:1313/tags/yaml/</link>
+    <link>https://www.simongilbert.net/tags/yaml/</link>
     <description>Recent content in YAML on Simon Gilbert Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Thu, 19 Nov 2020 18:14:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/yaml/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 19 Nov 2020 18:14:00 +0000</lastBuildDate><atom:link href="https://www.simongilbert.net/tags/yaml/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Configuring DynamoDb using Serverless YAML</title>
-      <link>http://localhost:1313/post/configuring-dynamodb-using-serverless-yaml/</link>
+      <link>https://www.simongilbert.net/post/configuring-dynamodb-using-serverless-yaml/</link>
       <pubDate>Thu, 19 Nov 2020 18:14:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/configuring-dynamodb-using-serverless-yaml/</guid>
+      <guid>https://www.simongilbert.net/post/configuring-dynamodb-using-serverless-yaml/</guid>
       
       <description>DynamoDb is a brilliant NoSQL database from AWS. It integrates directly with the Serverless Framework, so today we&amp;rsquo;re going to configure Serverless to work with DynamoDb</description>
       

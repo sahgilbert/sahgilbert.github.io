@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Unit Testing on Simon Gilbert Blog</title>
-    <link>http://localhost:1313/tags/unit-testing/</link>
+    <link>https://www.simongilbert.net/tags/unit-testing/</link>
     <description>Recent content in Unit Testing on Simon Gilbert Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Sat, 02 Mar 2019 12:58:49 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/unit-testing/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 02 Mar 2019 12:58:49 +0000</lastBuildDate><atom:link href="https://www.simongilbert.net/tags/unit-testing/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mocking &amp; Testing using Moq &amp; xUnit Frameworks for C# ASP.Net MVC Core</title>
-      <link>http://localhost:1313/post/aspnetmvccore-mocking-testing-moq-xunit/</link>
+      <link>https://www.simongilbert.net/post/aspnetmvccore-mocking-testing-moq-xunit/</link>
       <pubDate>Sat, 02 Mar 2019 12:58:49 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/aspnetmvccore-mocking-testing-moq-xunit/</guid>
+      <guid>https://www.simongilbert.net/post/aspnetmvccore-mocking-testing-moq-xunit/</guid>
       
       <description>Keen to take unit testing to the next level? Simon Gilbert walks through the benefits of using the Moq framework combined with xUnit to mock and isolate your unit tests using C# ASP.Net MVC Core in Visual Studio for Mac.</description>
       
@@ -20,10 +20,10 @@
     
     <item>
       <title>Basic Unit Testing with xUnit and C# .Net Core in Visual Studio for Mac</title>
-      <link>http://localhost:1313/post/unit-testing-xunit-csharp-dotnetcore/</link>
+      <link>https://www.simongilbert.net/post/unit-testing-xunit-csharp-dotnetcore/</link>
       <pubDate>Fri, 22 Feb 2019 11:17:13 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/unit-testing-xunit-csharp-dotnetcore/</guid>
+      <guid>https://www.simongilbert.net/post/unit-testing-xunit-csharp-dotnetcore/</guid>
       
       <description>Certain that your code works? Simon Gilbert explains the need for unit testing your C# .Net Core implementations using the xUnit Framework in Visual Studio for Mac.</description>
       

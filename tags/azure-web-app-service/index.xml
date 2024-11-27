@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Azure Web App Service on Simon Gilbert Blog</title>
-    <link>http://localhost:1313/tags/azure-web-app-service/</link>
+    <link>https://www.simongilbert.net/tags/azure-web-app-service/</link>
     <description>Recent content in Azure Web App Service on Simon Gilbert Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Wed, 03 Jan 2024 10:38:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/azure-web-app-service/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 03 Jan 2024 10:38:00 +0000</lastBuildDate><atom:link href="https://www.simongilbert.net/tags/azure-web-app-service/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Deploying C# Asp.Net Core to an Azure App Service via GitHub Actions using a deploy.yml File</title>
-      <link>http://localhost:1313/post/deploy-aspnetcore-azure-app-service-github-actions-yaml/</link>
+      <link>https://www.simongilbert.net/post/deploy-aspnetcore-azure-app-service-github-actions-yaml/</link>
       <pubDate>Wed, 03 Jan 2024 10:38:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/deploy-aspnetcore-azure-app-service-github-actions-yaml/</guid>
+      <guid>https://www.simongilbert.net/post/deploy-aspnetcore-azure-app-service-github-actions-yaml/</guid>
       
       <description>Keen to understand how to deploy your C# Asp.Net Core application an an Azure App Service using GitHub Actions Continuous Integration (CI/CD)? Today we&amp;rsquo;ll discuss exactly how to do just that!</description>
       
@@ -20,10 +20,10 @@
     
     <item>
       <title>Creating an Azure App Service via Azure-CLI using a Bash Script</title>
-      <link>http://localhost:1313/post/create-azure-app-service-bash-script/</link>
+      <link>https://www.simongilbert.net/post/create-azure-app-service-bash-script/</link>
       <pubDate>Mon, 01 Jan 2024 10:38:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/create-azure-app-service-bash-script/</guid>
+      <guid>https://www.simongilbert.net/post/create-azure-app-service-bash-script/</guid>
       
       <description>Looking to setup an Azure App Service, but tired of configuring it all in the Azure Portal Dashboard? There&amp;rsquo;s a solution to that&amp;hellip;In today&amp;rsquo;s blog I&amp;rsquo;m going to show you a quick way of setting up your managed service via the Azure-CLI, using a Bash Script.</description>
       
@@ -31,10 +31,10 @@
     
     <item>
       <title>xUnit &#34;Test Driven&#34; Continuous Integration to Microsoft Azure Web App Services using Appveyor - C# ASP.Net MVC Core</title>
-      <link>http://localhost:1313/post/xunit-ci-azure-appveyor-aspdotnetmvccore/</link>
+      <link>https://www.simongilbert.net/post/xunit-ci-azure-appveyor-aspdotnetmvccore/</link>
       <pubDate>Wed, 05 Feb 2020 06:09:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/xunit-ci-azure-appveyor-aspdotnetmvccore/</guid>
+      <guid>https://www.simongilbert.net/post/xunit-ci-azure-appveyor-aspdotnetmvccore/</guid>
       
       <description>Continuously deploying via Appveyor CI? Simon Gilbert explains only deploying an Azure Web App Service if all your xUnit tests pass in ASP.Net MVC Core</description>
       
@@ -42,10 +42,10 @@
     
     <item>
       <title>Continuous Integration for Azure Web App Service Deployments using Appveyor - C# ASP.Net MVC Core</title>
-      <link>http://localhost:1313/post/continuous-integration-azure-service-appveyor-aspdotnetmvccore/</link>
+      <link>https://www.simongilbert.net/post/continuous-integration-azure-service-appveyor-aspdotnetmvccore/</link>
       <pubDate>Sat, 30 Mar 2019 21:09:52 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/continuous-integration-azure-service-appveyor-aspdotnetmvccore/</guid>
+      <guid>https://www.simongilbert.net/post/continuous-integration-azure-service-appveyor-aspdotnetmvccore/</guid>
       
       <description>Deploying Microsoft Azure Web App Services? Simon Gilbert explains continuous integration to the Azure Cloud, using YAML, Appveyor and C# ASP.Net MVC Core.</description>
       
@@ -53,10 +53,10 @@
     
     <item>
       <title>Microsoft Azure Web App Service SSL/TLS Security using Cloudflare - C# ASP.Net MVC Core</title>
-      <link>http://localhost:1313/post/azure-ssl-tls-cloudflare-csharp-aspdotnetmvccore/</link>
+      <link>https://www.simongilbert.net/post/azure-ssl-tls-cloudflare-csharp-aspdotnetmvccore/</link>
       <pubDate>Fri, 29 Mar 2019 09:33:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/azure-ssl-tls-cloudflare-csharp-aspdotnetmvccore/</guid>
+      <guid>https://www.simongilbert.net/post/azure-ssl-tls-cloudflare-csharp-aspdotnetmvccore/</guid>
       
       <description>SSL/TLS certificate &amp;amp; DDOS protection required? Simon Gilbert details Cloudflare on a Microsoft Azure Web App Service running C# ASP.Net MVC Core</description>
       

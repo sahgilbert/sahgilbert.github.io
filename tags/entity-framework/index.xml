@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Entity Framework on Simon Gilbert Blog</title>
-    <link>http://localhost:1313/tags/entity-framework/</link>
+    <link>https://www.simongilbert.net/tags/entity-framework/</link>
     <description>Recent content in Entity Framework on Simon Gilbert Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Thu, 11 Apr 2019 06:10:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/entity-framework/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 11 Apr 2019 06:10:00 +0000</lastBuildDate><atom:link href="https://www.simongilbert.net/tags/entity-framework/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>RESTful CRUD Api using Entity Framework Core&#39;s In-Memory (O/RM) Database - C# ASP.Net Core Web Api</title>
-      <link>http://localhost:1313/post/entity-framework-in-memory-crud-aspdotnetcore-webapi/</link>
+      <link>https://www.simongilbert.net/post/entity-framework-in-memory-crud-aspdotnetcore-webapi/</link>
       <pubDate>Thu, 11 Apr 2019 06:10:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/entity-framework-in-memory-crud-aspdotnetcore-webapi/</guid>
+      <guid>https://www.simongilbert.net/post/entity-framework-in-memory-crud-aspdotnetcore-webapi/</guid>
       
       <description>Need an in-memory database? Simon Gilbert explains Microsoft Entity Framework Core&amp;rsquo;s&amp;rsquo; in-memory O/RM database as a CRUD layer in ASP.Net Core Web Api</description>
       

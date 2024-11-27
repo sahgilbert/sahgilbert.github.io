@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Azure Functions on Simon Gilbert Blog</title>
-    <link>http://localhost:1313/tags/azure-functions/</link>
+    <link>https://www.simongilbert.net/tags/azure-functions/</link>
     <description>Recent content in Azure Functions on Simon Gilbert Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Thu, 08 Aug 2019 23:06:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/azure-functions/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 08 Aug 2019 23:06:00 +0000</lastBuildDate><atom:link href="https://www.simongilbert.net/tags/azure-functions/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Using Serverless Azure Functions (FaaS) to write Service Bus Topic messages to NoSQL Azure Table Storage</title>
-      <link>http://localhost:1313/post/serverless-azure-functions-service-bus-table-storage/</link>
+      <link>https://www.simongilbert.net/post/serverless-azure-functions-service-bus-table-storage/</link>
       <pubDate>Thu, 08 Aug 2019 23:06:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/serverless-azure-functions-service-bus-table-storage/</guid>
+      <guid>https://www.simongilbert.net/post/serverless-azure-functions-service-bus-table-storage/</guid>
       
       <description>Intrigued by serverless architecture?
 Simon Gilbert explains how to use Microsoft Azure Functions to write Service Bus messages via the pub-sub pattern to Azure Table Storage</description>

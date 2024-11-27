@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Docker on Simon Gilbert Blog</title>
-    <link>http://localhost:1313/tags/docker/</link>
+    <link>https://www.simongilbert.net/tags/docker/</link>
     <description>Recent content in Docker on Simon Gilbert Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Tue, 12 Jan 2021 11:24:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 12 Jan 2021 11:24:00 +0000</lastBuildDate><atom:link href="https://www.simongilbert.net/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Typescript Lambda &amp; DynamoDB RESTful Api RUN LOCALLY using Docker and LocalStack!</title>
-      <link>http://localhost:1313/post/typescript-lambda-dynamodb-rest-api-locally-docker-localstack/</link>
+      <link>https://www.simongilbert.net/post/typescript-lambda-dynamodb-rest-api-locally-docker-localstack/</link>
       <pubDate>Tue, 12 Jan 2021 11:24:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/typescript-lambda-dynamodb-rest-api-locally-docker-localstack/</guid>
+      <guid>https://www.simongilbert.net/post/typescript-lambda-dynamodb-rest-api-locally-docker-localstack/</guid>
       
       <description>LocalStack is pretty awesome! It allows you to emulate a number of AWS services on your computer. Today we&amp;rsquo;re just going to focus on emulating DynamoDB locally to test our Serverless Lambda.</description>
       
@@ -20,10 +20,10 @@
     
     <item>
       <title>Deploying Docker Containers on Mac OS X using Kubernetes (K8s) - C# ASP.Net MVC Core</title>
-      <link>http://localhost:1313/post/docker-containers-kubernetes-k8s-aspdotnetmvccore/</link>
+      <link>https://www.simongilbert.net/post/docker-containers-kubernetes-k8s-aspdotnetmvccore/</link>
       <pubDate>Thu, 04 Apr 2019 08:41:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/docker-containers-kubernetes-k8s-aspdotnetmvccore/</guid>
+      <guid>https://www.simongilbert.net/post/docker-containers-kubernetes-k8s-aspdotnetmvccore/</guid>
       
       <description>Looking to use, deploy &amp;amp; manage containers? Simon Gilbert explains how to setup, configure and deploy Docker containers with Kubernetes (K8s) locally using C# ASP.Net MVC Core</description>
       

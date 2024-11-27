@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Node.js on Simon Gilbert Blog</title>
-    <link>http://localhost:1313/tags/node.js/</link>
+    <link>https://www.simongilbert.net/tags/node.js/</link>
     <description>Recent content in Node.js on Simon Gilbert Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Thu, 10 Sep 2020 12:13:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/node.js/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 10 Sep 2020 12:13:00 +0000</lastBuildDate><atom:link href="https://www.simongilbert.net/tags/node.js/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Creating and Deploying a NodeJS Serverless Lambda to AWS</title>
-      <link>http://localhost:1313/post/creating-and-deploying-a-serverless-lambda-to-aws/</link>
+      <link>https://www.simongilbert.net/post/creating-and-deploying-a-serverless-lambda-to-aws/</link>
       <pubDate>Thu, 10 Sep 2020 12:13:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/creating-and-deploying-a-serverless-lambda-to-aws/</guid>
+      <guid>https://www.simongilbert.net/post/creating-and-deploying-a-serverless-lambda-to-aws/</guid>
       
       <description>Serverless Lambda is amazing, so today we&amp;rsquo;re going to use a NodeJS template to create and deploy a new Serverless Lambda project to AWS.</description>
       
@@ -20,10 +20,10 @@
     
     <item>
       <title>Automated Customer Service via Conversational Artificial Intelligence (AI) - Using Amazon Web Services (AWS) Connect, Lambda, DynamoDb, S3, Node.js, ReactJS, Axios &amp; Bootstrap 4</title>
-      <link>http://localhost:1313/post/aws-connect-lambda-dynamodb-s3-nodejs-reactjs-axios/</link>
+      <link>https://www.simongilbert.net/post/aws-connect-lambda-dynamodb-s3-nodejs-reactjs-axios/</link>
       <pubDate>Wed, 01 Jul 2020 12:26:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/aws-connect-lambda-dynamodb-s3-nodejs-reactjs-axios/</guid>
+      <guid>https://www.simongilbert.net/post/aws-connect-lambda-dynamodb-s3-nodejs-reactjs-axios/</guid>
       
       <description>Coding conversational artificial intelligence? Simon Gilbert explains how to build a fully automated customer service contact centre using AWS Connect, Lambda, DynamoDb, S3, Node.js, ReactJs, Axios &amp;amp; Bootstrap 4</description>
       

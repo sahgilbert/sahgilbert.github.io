@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Typescript on Simon Gilbert Blog</title>
-    <link>http://localhost:1313/tags/typescript/</link>
+    <link>https://www.simongilbert.net/tags/typescript/</link>
     <description>Recent content in Typescript on Simon Gilbert Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Wed, 18 Aug 2021 12:30:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/typescript/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 18 Aug 2021 12:30:00 +0000</lastBuildDate><atom:link href="https://www.simongilbert.net/tags/typescript/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Continuous Integration (CI/CD) for a Typescript Serverless Lambda API using CircleCI</title>
-      <link>http://localhost:1313/post/continuous-integration-ci-cd-typescript-serverless-lambda-api-circleci/</link>
+      <link>https://www.simongilbert.net/post/continuous-integration-ci-cd-typescript-serverless-lambda-api-circleci/</link>
       <pubDate>Wed, 18 Aug 2021 12:30:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/continuous-integration-ci-cd-typescript-serverless-lambda-api-circleci/</guid>
+      <guid>https://www.simongilbert.net/post/continuous-integration-ci-cd-typescript-serverless-lambda-api-circleci/</guid>
       
       <description>Are you getting tired of manually deploying your code to AWS after each code change? Today we&amp;rsquo;re going to implement Continuous Integration for Serverless Lambda, to automate our deployments using a CI/CD pipeline, based on the Git branch we push the commit to!</description>
       
@@ -20,10 +20,10 @@
     
     <item>
       <title>Test Driven Development (TDD) Typescript Lambda API using Mocha and Chai</title>
-      <link>http://localhost:1313/post/test-driven-development-tdd-typescript-lambda-api-mocha-chai/</link>
+      <link>https://www.simongilbert.net/post/test-driven-development-tdd-typescript-lambda-api-mocha-chai/</link>
       <pubDate>Wed, 16 Jun 2021 15:41:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/test-driven-development-tdd-typescript-lambda-api-mocha-chai/</guid>
+      <guid>https://www.simongilbert.net/post/test-driven-development-tdd-typescript-lambda-api-mocha-chai/</guid>
       
       <description>Test Driven Development (TDD) has many benefits, including allowing us to focus on our requirements with a &amp;ldquo;unit test first approach&amp;rdquo; to ensure that we&amp;rsquo;re only deploying code where the unit tests pass. Today we&amp;rsquo;re going to cover using Mocha and Chai to test our Typescript Lambda algorithms!</description>
       
@@ -31,10 +31,10 @@
     
     <item>
       <title>Integration Testing a Typescript Lambda API using Jest (&amp; Supertest)</title>
-      <link>http://localhost:1313/post/integration-testing-typescript-lambda-api-jest-supertest/</link>
+      <link>https://www.simongilbert.net/post/integration-testing-typescript-lambda-api-jest-supertest/</link>
       <pubDate>Wed, 14 Apr 2021 17:53:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/integration-testing-typescript-lambda-api-jest-supertest/</guid>
+      <guid>https://www.simongilbert.net/post/integration-testing-typescript-lambda-api-jest-supertest/</guid>
       
       <description>Integration Testing is a level of software testing where individual units are combined and tested as a group. The purpose of this level of testing is to expose faults in the interaction between integrated units. Today we&amp;rsquo;re going to look at doing Integration Testing using Jest and Supertest.</description>
       
@@ -42,10 +42,10 @@
     
     <item>
       <title>Typescript Lambda &amp; DynamoDB RESTful Api RUN LOCALLY using Docker and LocalStack!</title>
-      <link>http://localhost:1313/post/typescript-lambda-dynamodb-rest-api-locally-docker-localstack/</link>
+      <link>https://www.simongilbert.net/post/typescript-lambda-dynamodb-rest-api-locally-docker-localstack/</link>
       <pubDate>Tue, 12 Jan 2021 11:24:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/typescript-lambda-dynamodb-rest-api-locally-docker-localstack/</guid>
+      <guid>https://www.simongilbert.net/post/typescript-lambda-dynamodb-rest-api-locally-docker-localstack/</guid>
       
       <description>LocalStack is pretty awesome! It allows you to emulate a number of AWS services on your computer. Today we&amp;rsquo;re just going to focus on emulating DynamoDB locally to test our Serverless Lambda.</description>
       

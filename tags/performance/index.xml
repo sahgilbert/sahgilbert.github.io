@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Performance on Simon Gilbert Blog</title>
-    <link>http://localhost:1313/tags/performance/</link>
+    <link>https://www.simongilbert.net/tags/performance/</link>
     <description>Recent content in Performance on Simon Gilbert Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Thu, 02 May 2019 06:37:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/performance/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 02 May 2019 06:37:00 +0000</lastBuildDate><atom:link href="https://www.simongilbert.net/tags/performance/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Rate Limiting RESTful Api Requests using Action Filter Attributes - C# ASP.Net Core Web Api</title>
-      <link>http://localhost:1313/post/rate-limit-action-filter-attribute-csharp-aspnetcore/</link>
+      <link>https://www.simongilbert.net/post/rate-limit-action-filter-attribute-csharp-aspnetcore/</link>
       <pubDate>Thu, 02 May 2019 06:37:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/rate-limit-action-filter-attribute-csharp-aspnetcore/</guid>
+      <guid>https://www.simongilbert.net/post/rate-limit-action-filter-attribute-csharp-aspnetcore/</guid>
       
       <description>Need to rate limit your Api? Simon Gilbert explains how to use action filter attributes in C# ASP.Net Core Web Api</description>
       
@@ -20,10 +20,10 @@
     
     <item>
       <title>FizzBuzz Performance Comparison - C# .Net Core vs .Net Framework</title>
-      <link>http://localhost:1313/post/fizzbuzz-performance-comparison-dotnetcore-dotnetframework/</link>
+      <link>https://www.simongilbert.net/post/fizzbuzz-performance-comparison-dotnetcore-dotnetframework/</link>
       <pubDate>Sat, 06 Oct 2018 13:14:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/fizzbuzz-performance-comparison-dotnetcore-dotnetframework/</guid>
+      <guid>https://www.simongilbert.net/post/fizzbuzz-performance-comparison-dotnetcore-dotnetframework/</guid>
       
       <description>Keen to understand performance improvements in .Net Core 2.2? Simon Gilbert provides a performance comparison of different FizzBuzz implementations using the .Net Framework vs .Net Core&amp;hellip;The results are quite surprising!</description>
       

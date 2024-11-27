@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Kubernetes on Simon Gilbert Blog</title>
-    <link>http://localhost:1313/tags/kubernetes/</link>
+    <link>https://www.simongilbert.net/tags/kubernetes/</link>
     <description>Recent content in Kubernetes on Simon Gilbert Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Thu, 04 Apr 2019 08:41:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 04 Apr 2019 08:41:00 +0000</lastBuildDate><atom:link href="https://www.simongilbert.net/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Deploying Docker Containers on Mac OS X using Kubernetes (K8s) - C# ASP.Net MVC Core</title>
-      <link>http://localhost:1313/post/docker-containers-kubernetes-k8s-aspdotnetmvccore/</link>
+      <link>https://www.simongilbert.net/post/docker-containers-kubernetes-k8s-aspdotnetmvccore/</link>
       <pubDate>Thu, 04 Apr 2019 08:41:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/docker-containers-kubernetes-k8s-aspdotnetmvccore/</guid>
+      <guid>https://www.simongilbert.net/post/docker-containers-kubernetes-k8s-aspdotnetmvccore/</guid>
       
       <description>Looking to use, deploy &amp;amp; manage containers? Simon Gilbert explains how to setup, configure and deploy Docker containers with Kubernetes (K8s) locally using C# ASP.Net MVC Core</description>
       
